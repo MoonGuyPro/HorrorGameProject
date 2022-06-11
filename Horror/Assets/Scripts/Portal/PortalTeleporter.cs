@@ -6,12 +6,13 @@ public class PortalTeleporter : MonoBehaviour
 {
     public Transform player;
     public Transform reciver;
+    private bool isTouching = false;
 
     private bool playerIsOverlapping = false;
 
     void Update()
     {
-        if (playerIsOverlapping)
+        if (playerIsOverlapping && !isTouching)
         {
             Vector3 portalToPlayer = player.position - transform.position;
             float dotProduct = Vector3.Dot(transform.up, portalToPlayer);
@@ -29,6 +30,7 @@ public class PortalTeleporter : MonoBehaviour
 
                 playerIsOverlapping = false;
             }
+            isTouching = true;
         }
     }
 
@@ -45,6 +47,7 @@ public class PortalTeleporter : MonoBehaviour
         if (other.tag == "Player")
         {
             playerIsOverlapping = false;
+            isTouching = false;
         }
     }
 }
