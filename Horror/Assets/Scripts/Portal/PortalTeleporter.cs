@@ -4,50 +4,49 @@ using UnityEngine;
 
 public class PortalTeleporter : MonoBehaviour
 {
-    public Transform player;
-    public Transform reciver;
-    private bool isTouching = false;
 
-    private bool playerIsOverlapping = false;
+	public Transform player;
+	public Transform reciever;
 
-    void Update()
-    {
-        if (playerIsOverlapping && !isTouching)
-        {
-            Vector3 portalToPlayer = player.position - transform.position;
-            float dotProduct = Vector3.Dot(transform.up, portalToPlayer);
+	private bool playerIsOverlapping = false;
 
-            //Sprawdzenie czy gracz wszedl z dobrej strony portalu
-            if (dotProduct < 0f)
-            {
-                //Teleportowanie
-                float rotationDiff = Quaternion.Angle(transform.rotation, reciver.rotation);
-                rotationDiff += 180;
-                player.Rotate(Vector3.up, rotationDiff);
+	// Update is called once per frame
+	void Update()
+	{
+		if (playerIsOverlapping)
+		{
+			Vector3 portalToPlayer = player.position - transform.position;
+			float dotProduct = Vector3.Dot(transform.up, portalToPlayer);
 
-                Vector3 positionOffset = Quaternion.Euler(0f, rotationDiff, 0f) * portalToPlayer;
-                player.position = reciver.position + positionOffset;
+			// If this is true: The player has moved across the portal
+			if (dotProduct < 0f)
+			{
+				// Teleport him!
+				float rotationDiff = -Quaternion.Angle(transform.rotation, reciever.rotation);
+				rotationDiff += 180;
+				player.Rotate(Vector3.up, rotationDiff);
 
-                playerIsOverlapping = false;
-            }
-            isTouching = true;
-        }
-    }
+				Vector3 positionOffset = Quaternion.Euler(0f, rotationDiff, 0f) * portalToPlayer;
+				player.position = reciever.position + positionOffset;
 
-    void OnTriggerEnter (Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            playerIsOverlapping = true;
-        }
-    }
+				playerIsOverlapping = false;
+			}
+		}
+	}
 
-    void OnTriggerExit (Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            playerIsOverlapping = false;
-            isTouching = false;
-        }
-    }
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.tag == "Player")
+		{
+			playerIsOverlapping = true;
+		}
+	}
+
+	void OnTriggerExit(Collider other)
+	{
+		if (other.tag == "Player")
+		{
+			playerIsOverlapping = false;
+		}
+	}
 }
