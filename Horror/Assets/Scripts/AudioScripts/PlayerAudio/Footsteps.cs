@@ -11,7 +11,7 @@ public class Footsteps : MonoBehaviour
     [SerializeField] int walkingSpeed;
     PlayerMovement pm;
 
-    public AudioSource[] footsteps;
+    public List<AudioSource> footsteps;
 
     [HideInInspector] private bool isPlaying;
 
@@ -24,7 +24,19 @@ public class Footsteps : MonoBehaviour
     {
         pm = player.GetComponent<PlayerMovement>();
         isPlaying = false;
-        footsteps = player.GetComponents<AudioSource>();
+        AudioSource[] temp = player.GetComponents<AudioSource>();
+        foreach (AudioSource aS in temp)
+        {
+            footsteps.Add(aS);
+        }         
+        for (int i = footsteps.Count - 1; i > 3; i--)
+        {
+            footsteps.Remove(footsteps[i]);
+        }
+        foreach (AudioSource aS in footsteps)
+        {
+            aS.volume = 0.5f;
+        }
     }
 
     // Update is called once per frame
@@ -51,9 +63,8 @@ public class Footsteps : MonoBehaviour
         while (!cancellationToken.IsCancellationRequested && isPlaying)
         {
             print("playing . . .");
-            await Task.Delay(interval/4, cancellationToken);
             footsteps[Random.Range(0, 4)].Play();
-            await Task.Delay(interval * 3/4, cancellationToken);
+            await Task.Delay(interval, cancellationToken);
 
             if (!isPlaying)
             {
