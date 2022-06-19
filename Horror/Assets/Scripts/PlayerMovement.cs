@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Ground Check")]
     public float playerHeight;
     public LayerMask whatIsGround;
-    bool grounded;
+    [HideInInspector] public bool grounded;
 
     public Transform orientation;
 
@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
 
     Vector3 moveDirection;
 
-    Rigidbody rb;
+    [HideInInspector] public Rigidbody rb;
 
     private void Start()
     {
@@ -65,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void MyInput()
     {
+        // keyboard wsad input
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
