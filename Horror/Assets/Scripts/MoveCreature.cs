@@ -16,6 +16,9 @@ public class MoveCreature : MonoBehaviour
     private Vector3 pos;
     private bool isMoving = false;
 
+    private AudioSource creature_rawr;
+    private bool isPlaying;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +26,9 @@ public class MoveCreature : MonoBehaviour
         X = start.x;
         Y = start.y;
         Z = start.z;
+        creature_rawr = creature.GetComponent<AudioSource>();
+        creature_rawr.volume = 0.5f;
+        isPlaying = false;
     }
 
     void OnTriggerEnter(Collider player)
@@ -37,13 +43,19 @@ public class MoveCreature : MonoBehaviour
     {
         if (isMoving)
         {
-            Debug.Log(Z);
+            //Debug.Log(Z);
             Z = Z - speed;
             pos = new Vector3(X, Y, Z);
             creature.transform.position = pos;
             if(Z <= endZ)
             {
                 Z = endZ;
+            }
+
+            if (!isPlaying)
+            {
+                creature_rawr.Play();
+                isPlaying = true;
             }
         }
         if(X == endX && Y == endY && Z == endZ)
