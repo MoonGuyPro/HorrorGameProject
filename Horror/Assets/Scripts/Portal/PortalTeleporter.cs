@@ -7,31 +7,49 @@ public class PortalTeleporter : MonoBehaviour
 
 	public Transform player;
 	public Transform reciever;
+	public PortalTeleporter otherPortal;
+
+	private int cooldown;
 
 	private bool playerIsOverlapping = false;
 
-	// Update is called once per frame
-	void Update()
+    private void Start()
+    {
+		cooldown = 0;
+    }
+
+    // Update is called once per frame
+    void Update()
 	{
-		if (playerIsOverlapping)
-		{
-			Vector3 portalToPlayer = player.position - transform.position;
-			float dotProduct = Vector3.Dot(transform.up, portalToPlayer);
-
-			// If this is true: The player has moved across the portal
-			if (dotProduct < 0f)
+		if (cooldown == 0)
+        {
+			if (playerIsOverlapping)
 			{
-				// Teleport him!
-				float rotationDiff = -Quaternion.Angle(transform.rotation, reciever.rotation);
-				rotationDiff += 180;
-				player.Rotate(Vector3.up, rotationDiff);
+				Vector3 portalToPlayer = player.position - transform.position;
+				float dotProduct = Vector3.Dot(transform.up, portalToPlayer);
 
-				Vector3 positionOffset = Quaternion.Euler(0f, rotationDiff, 0f) * portalToPlayer;
-				player.position = reciever.position + positionOffset;
+				// If this is true: The player has moved across the portal
+				if (dotProduct < 0f)
+				{
+					// Teleport him!
+					float rotationDiff = -Quaternion.Angle(transform.rotation, reciever.rotation);
+					rotationDiff += 180;
+					player.Rotate(Vector3.up, rotationDiff);
 
-				playerIsOverlapping = false;
+					Vector3 positionOffset = Quaternion.Euler(0f, rotationDiff, 0f) * portalToPlayer;
+					player.position = reciever.position + positionOffset;
+
+					playerIsOverlapping = false;
+					
+					// setting a teleporting cooldown on both portals
+					setCooldown();
+					otherPortal.setCooldown();
+				}
 			}
-		}
+		} else
+        {
+			cooldown--;
+        }
 	}
 
 	void OnTriggerEnter(Collider other)
@@ -49,4 +67,11 @@ public class PortalTeleporter : MonoBehaviour
 			playerIsOverlapping = false;
 		}
 	}
+
+	public void setCooldown()
+    {
+		// this value should be tied to frame rate, but isn't.
+		// setting this to 60 or 120 does not mean a second or two
+		cooldown = 500;
+    }
 }
