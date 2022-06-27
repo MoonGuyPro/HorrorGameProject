@@ -11,9 +11,11 @@ public class MoveCreature : MonoBehaviour
     public float endX;
     public float endY;
     public float endZ;
-    public float speed;
-    private Vector3 start;
+    public float speedX;
+    public float speedY;
+    public float speedZ;
     private Vector3 pos;
+    private Vector3 start;
     private bool isMoving = false;
 
     private AudioSource creature_rawr;
@@ -28,6 +30,14 @@ public class MoveCreature : MonoBehaviour
         Z = start.z;
         creature_rawr = creature.GetComponent<AudioSource>();
         creature_rawr.volume = 0.5f;
+
+        X = X / 1;
+        Y = Y / 1;
+        Z = Z / 1;
+        Debug.Log(X.ToString());
+        Debug.Log(Y.ToString());
+        Debug.Log(Z.ToString());
+
         isPlaying = false;
     }
 
@@ -43,14 +53,12 @@ public class MoveCreature : MonoBehaviour
     {
         if (isMoving)
         {
-            //Debug.Log(Z);
-            Z = Z - speed;
+            X = X + speedX;
+            Y = Y + speedY;
+            Z = Z + speedZ;
+
             pos = new Vector3(X, Y, Z);
             creature.transform.position = pos;
-            if(Z <= endZ)
-            {
-                Z = endZ;
-            }
 
             if (!isPlaying)
             {
