@@ -30,13 +30,25 @@ public class MoveCreature : MonoBehaviour
         Z = start.z;
         creature_rawr = creature.GetComponent<AudioSource>();
         creature_rawr.volume = 0.5f;
-
-        X = X / 1;
-        Y = Y / 1;
-        Z = Z / 1;
+        X = Mathf.Round(X);
+        Y = Mathf.Round(Y);
+        Z = Mathf.Round(Z);
         Debug.Log(X.ToString());
         Debug.Log(Y.ToString());
         Debug.Log(Z.ToString());
+
+        if(X > endX)
+        {
+            speedX = -speedX;
+        }
+        if (Y > endY)
+        {
+            speedY = -speedY;
+        }
+        if (Z > endZ)
+        {
+            speedZ = -speedZ;
+        }
 
         isPlaying = false;
     }
@@ -68,6 +80,9 @@ public class MoveCreature : MonoBehaviour
         }
         if(X == endX && Y == endY && Z == endZ)
         {
+            Debug.Log(X.ToString());
+            Debug.Log(Y.ToString());
+            Debug.Log(Z.ToString());
             isMoving = false;
             Destroy(creature);
             Destroy(gameObject);
