@@ -2850,7 +2850,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &55293755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20245,7 +20245,7 @@ MonoBehaviour:
   player: {fileID: 733412554}
   reciever: {fileID: 1687538725}
   otherPortal: {fileID: 1687538726}
-  soundSource: {fileID: 0}
+  soundSource: {fileID: 1655889257}
 --- !u!65 &688903692
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -46824,7 +46824,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1618410914}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -139.55, y: 52.85, z: 21.3}
+  m_LocalPosition: {x: -126.6, y: 52.85, z: 21.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -46840,19 +46840,19 @@ AudioReverbZone:
   m_GameObject: {fileID: 1618410914}
   m_Enabled: 1
   m_MinDistance: 13.81555
-  m_MaxDistance: 25.413446
+  m_MaxDistance: 19.663094
   m_ReverbPreset: 27
   m_Room: -976
   m_RoomHF: -2195
-  m_DecayTime: 1
-  m_DecayHFRatio: 0.52
+  m_DecayTime: 3.47
+  m_DecayHFRatio: 0.453
   m_Reflections: -7163
   m_ReflectionsDelay: 0.033
-  m_Reverb: -1366
-  m_ReverbDelay: 0.013
-  m_HFReference: 9573
-  m_Diffusion: 7
-  m_Density: 5
+  m_Reverb: -176
+  m_ReverbDelay: 0.0029
+  m_HFReference: 9422
+  m_Diffusion: 24.5
+  m_Density: 20.3
   m_LFReference: 331
   m_RoomLF: -976
 --- !u!43 &1619664328
@@ -50108,7 +50108,7 @@ MonoBehaviour:
   player: {fileID: 733412554}
   reciever: {fileID: 688903690}
   otherPortal: {fileID: 688903691}
-  soundSource: {fileID: 0}
+  soundSource: {fileID: 1655889257}
 --- !u!65 &1687538727
 BoxCollider:
   m_ObjectHideFlags: 0
