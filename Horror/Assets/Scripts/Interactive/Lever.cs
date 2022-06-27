@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class Lever : InputLogic
 {
+    private Animator animator;
+
+    public void Start()
+    {
+        animator = transform.GetComponentInParent<Animator>();
+    }
+
     protected override void behavior()
     {
-        print("Lever: " + active);
+        // Animate on state change
+        animator.SetBool("active", active);
     }
 }

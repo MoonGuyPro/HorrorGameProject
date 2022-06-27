@@ -10,12 +10,7 @@ public abstract class OutputLogic : MonoBehaviour
 
     public void Start()
     {
-        // Add reference of output to every input
-        foreach(InputLogic input in inputs)
-        {
-            input.output = this;
-        }
-        checkState();
+        connectOutputs();
     }
 
     // Output behavior after checking current state (ex. animation)
@@ -40,5 +35,18 @@ public abstract class OutputLogic : MonoBehaviour
         // All outputs are active, so output is active as well
         active = true;
         behavior(); // Call output behavior (implemented in extended class)
+    }
+
+    // Call this on Start, to connect all inputs to this output
+    protected void connectOutputs()
+    {
+        // Add reference of output to every input
+        foreach (InputLogic input in inputs)
+        {
+            input.Output = this;
+        }
+
+        // Check start state
+        checkState();
     }
 }

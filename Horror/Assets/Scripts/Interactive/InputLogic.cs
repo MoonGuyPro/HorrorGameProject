@@ -7,8 +7,14 @@ public abstract class InputLogic : MonoBehaviour
 {
     [Header("Default state")]
     public bool active;
-    [Header("Leave empty")]
-    public OutputLogic output;
+    
+    // Reference to output object
+    private OutputLogic output;
+    public OutputLogic Output
+    {
+        get { return output; }
+        set { output = value; }
+    }
 
     // Input behavior after toggle (ex. animation)
     // Implement in extended class
