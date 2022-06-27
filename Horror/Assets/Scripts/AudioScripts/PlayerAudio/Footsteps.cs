@@ -62,7 +62,7 @@ public class Footsteps : MonoBehaviour
     {
         while (!cancellationToken.IsCancellationRequested && isPlaying)
         {
-            print("playing . . .");
+            //print("playing . . .");
             footsteps[Random.Range(0, 4)].Play();
             await Task.Delay(interval, cancellationToken);
 
@@ -79,7 +79,7 @@ public class Footsteps : MonoBehaviour
         ct = cts.Token;
         isPlaying = true;
         task = playFootsteps(walkingSpeed, ct);
-        print("footsteps started");
+        //print("footsteps started");
     }
     
     private void stopFootsteps()
@@ -87,6 +87,6 @@ public class Footsteps : MonoBehaviour
         isPlaying = false;
         cts.Cancel();
         task.Dispose();
-        print("footsteps stopped");
+        //print("footsteps stopped");
     }
 }
