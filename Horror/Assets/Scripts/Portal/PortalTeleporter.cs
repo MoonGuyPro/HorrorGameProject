@@ -20,9 +20,9 @@ public class PortalTeleporter : MonoBehaviour
     {
 		cooldown = 0;
 		tpSounds = soundSource.GetComponents<AudioSource>();
-		foreach (AudioSource tpSound in tpSounds)
+		for (int i = 0; i < tpSounds.Length; i++)
         {
-			tpSound.volume = 0.3f;
+			tpSounds[i].volume = 0.09f;
         }
 	}
 
