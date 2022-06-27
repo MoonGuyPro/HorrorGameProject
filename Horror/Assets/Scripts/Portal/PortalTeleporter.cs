@@ -13,10 +13,18 @@ public class PortalTeleporter : MonoBehaviour
 
 	private bool playerIsOverlapping = false;
 
+	public GameObject soundSource;
+	private AudioSource[] tpSounds;
+
     private void Start()
     {
 		cooldown = 0;
-    }
+		tpSounds = soundSource.GetComponents<AudioSource>();
+		foreach (AudioSource tpSound in tpSounds)
+        {
+			tpSound.volume = 0.3f;
+        }
+	}
 
     // Update is called once per frame
     void Update()
@@ -31,6 +39,7 @@ public class PortalTeleporter : MonoBehaviour
 				// If this is true: The player has moved across the portal
 				if (dotProduct < 0f)
 				{
+					tpSounds[Random.Range(0, 3)].Play();
 					// Teleport him!
 					float rotationDiff = -Quaternion.Angle(transform.rotation, reciever.rotation);
 					rotationDiff += 180;
