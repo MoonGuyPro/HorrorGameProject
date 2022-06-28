@@ -19,23 +19,23 @@ public class PortalTeleporter : MonoBehaviour
 	public GameObject soundSource;
 	private AudioSource[] tpSounds;
 
-    private void Start()
-    {
+	private void Start()
+	{
 		otherTransform = otherPortal.transform;
 		otherPortalTeleporter = otherPortal.GetComponent<PortalTeleporter>();
 		cooldown = 0;
 		tpSounds = soundSource.GetComponents<AudioSource>();
 		for (int i = 0; i < tpSounds.Length; i++)
-        {
+		{
 			tpSounds[i].volume = 0.09f;
-        }
+		}
 	}
 
-    // Update is called once per frame
-    void Update()
+	// Update is called once per frame
+	void Update()
 	{
 		if (cooldown == 0)
-        {
+		{
 			if (playerIsOverlapping)
 			{
 				Vector3 portalToPlayer = player.position - transform.position;
@@ -54,16 +54,17 @@ public class PortalTeleporter : MonoBehaviour
 					player.position = otherTransform.position + positionOffset;
 
 					playerIsOverlapping = false;
-					
+
 					// setting a teleporting cooldown on both portals
 					setCooldown();
 					otherPortalTeleporter.setCooldown();
 				}
 			}
-		} else
-        {
+		}
+		else
+		{
 			cooldown--;
-        }
+		}
 	}
 
 	void OnTriggerEnter(Collider other)
@@ -83,9 +84,9 @@ public class PortalTeleporter : MonoBehaviour
 	}
 
 	public void setCooldown()
-    {
+	{
 		// this value should be tied to frame rate, but isn't.
 		// setting this to 60 or 120 does not mean a second or two
 		cooldown = 750;
-    }
+	}
 }
