@@ -6,8 +6,11 @@ public class PortalTeleporter : MonoBehaviour
 {
 
 	public Transform player;
-	public Transform reciever;
-	public PortalTeleporter otherPortal;
+	//Portal that this portal leads to
+	public GameObject otherPortal;
+
+	private Transform otherTransform;
+	private PortalTeleporter otherPortalTeleporter;
 
 	private int cooldown;
 
@@ -18,6 +21,8 @@ public class PortalTeleporter : MonoBehaviour
 
     private void Start()
     {
+		otherTransform = otherPortal.transform;
+		otherPortalTeleporter = otherPortal.GetComponent<PortalTeleporter>();
 		cooldown = 0;
 		tpSounds = soundSource.GetComponents<AudioSource>();
 		for (int i = 0; i < tpSounds.Length; i++)
@@ -41,18 +46,18 @@ public class PortalTeleporter : MonoBehaviour
 				{
 					tpSounds[Random.Range(0, 3)].Play();
 					// Teleport him!
-					float rotationDiff = -Quaternion.Angle(transform.rotation, reciever.rotation);
+					float rotationDiff = -Quaternion.Angle(transform.rotation, otherTransform.rotation);
 					rotationDiff += 180;
 					player.Rotate(Vector3.up, rotationDiff);
 
 					Vector3 positionOffset = Quaternion.Euler(0f, rotationDiff, 0f) * portalToPlayer;
-					player.position = reciever.position + positionOffset;
+					player.position = otherTransform.position + positionOffset;
 
 					playerIsOverlapping = false;
 					
 					// setting a teleporting cooldown on both portals
 					setCooldown();
-					otherPortal.setCooldown();
+					otherPortalTeleporter.setCooldown();
 				}
 			}
 		} else
@@ -81,6 +86,6 @@ public class PortalTeleporter : MonoBehaviour
     {
 		// this value should be tied to frame rate, but isn't.
 		// setting this to 60 or 120 does not mean a second or two
-		cooldown = 500;
+		cooldown = 750;
     }
 }
