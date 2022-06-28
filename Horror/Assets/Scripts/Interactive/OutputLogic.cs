@@ -27,7 +27,7 @@ public abstract class OutputLogic : MonoBehaviour
             if (!input.active)
             {
                 active = false;
-                //behavior(); // Call output behavior (implemented in extended class)
+                behavior(); // Call output behavior (implemented in extended class)
                 return;
             }
         }

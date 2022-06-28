@@ -7,7 +7,7 @@ public class DoorSound : MonoBehaviour
     private AudioSource[] s;
     private int clip;
     private SlideDoor sd;
-    private int isChanged;
+    private bool isChanged;
 
     // Start is called before the first frame update
     void Start()
@@ -15,17 +15,17 @@ public class DoorSound : MonoBehaviour
         s = GetComponents<AudioSource>();
         clip = 0;
         sd = GetComponent<SlideDoor>();
-        isChanged = sd.changed;
+        isChanged = sd.animator.GetBool("active");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (sd.changed != isChanged)
+        if (sd.animator.GetBool("active") != isChanged)
         {
             s[clip].Play();
             clip ^= 1;
-            isChanged = sd.changed;
+            isChanged = sd.animator.GetBool("active");
         }
     }
 }

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SlideDoor : OutputLogic
 {
-    private Animator animator;
-    public int changed = 0;
+    [HideInInspector] public Animator animator;
+    [HideInInspector] public int changed = 0;
 
     protected override void behavior()
     {
