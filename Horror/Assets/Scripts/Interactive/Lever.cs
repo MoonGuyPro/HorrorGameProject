@@ -5,9 +5,11 @@ using UnityEngine;
 public class Lever : InputLogic
 {
     private Animator animator;
+    public int changed;
 
     public void Start()
     {
+        changed = 0;
         animator = transform.GetComponentInParent<Animator>();
     }
 
@@ -15,5 +17,6 @@ public class Lever : InputLogic
     {
         // Animate on state change
         animator.SetBool("active", active);
+        changed ^= 1;
     }
 }
