@@ -86,7 +86,7 @@ public class Footsteps : MonoBehaviour
     {
         isPlaying = false;
         cts.Cancel();
-        task.Dispose();
+        //task.Dispose();
         //print("footsteps stopped");
     }
 }
