@@ -85,8 +85,10 @@ public class PortalTeleporter : MonoBehaviour
 
 	public void setCooldown()
 	{
-		// this value should be tied to frame rate, but isn't.
-		// setting this to 60 or 120 does not mean a second or two
+		// this value is tied to frame rate BUT THE FRAME RATE IS NOT CAPPED IN PLAY MODE
+		// ONLY IN BUILD THIS ACTUALLY TAKES EFFECT
+		// meaning in play mode 750 is about a second, but in build its 750/60 = 12.5 seconds
+		// changing this before building is necessary not to make portal awkward
 		cooldown = 750;
 	}
 }
