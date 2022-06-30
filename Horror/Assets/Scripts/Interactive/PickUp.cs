@@ -12,22 +12,22 @@ public class PickUp : MonoBehaviour
         isHold = true;
         GetComponent<Collider>().enabled = false;
         GetComponent<Rigidbody>().useGravity = false;
-        this.transform.position = theDest.position;
-        this.transform.parent = GameObject.Find("Destination").transform;
+        transform.position = theDest.position;
+        transform.parent = GameObject.Find("Destination").transform;
     }
 
     private void Update()
     {
-        if (this.isHold)
+        if (isHold)
         {
-            this.transform.position = this.theDest.position;
+            transform.position = theDest.position;
         }
     }
 
     private void OnMouseUp()
     {
-        this.isHold = false;
-        this.transform.parent = null;
+        isHold = false;
+        transform.parent = null;
         GetComponent<Rigidbody>().useGravity = true;
         GetComponent<Collider>().enabled = true;
 

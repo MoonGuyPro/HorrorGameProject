@@ -25,6 +25,12 @@ public abstract class InputLogic : MonoBehaviour
     {
         active = !active;
         behavior(); // Call input behavior (implemented in extended class)
-        output.checkState(); // Check state of output
+
+        // output can be null if there is no output object.
+        // for example click to trigger audio.
+        if (output != null)
+        {
+            output.checkState(); // Check state of output
+        }
     }
 }
