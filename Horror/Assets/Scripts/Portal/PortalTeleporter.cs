@@ -21,6 +21,8 @@ public class PortalTeleporter : MonoBehaviour
 
 	public bool canTeleport;
 
+	public bool playSound;
+
 	private void Start()
 	{
 		otherTransform = otherPortal.transform;
