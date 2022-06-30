@@ -19,6 +19,8 @@ public class PortalTeleporter : MonoBehaviour
 	public GameObject soundSource;
 	private AudioSource[] tpSounds;
 
+	public bool canTeleport;
+
 	private void Start()
 	{
 		otherTransform = otherPortal.transform;
@@ -36,7 +38,7 @@ public class PortalTeleporter : MonoBehaviour
 	{
 		if (cooldown == 0)
 		{
-			if (playerIsOverlapping)
+			if (playerIsOverlapping && canTeleport)
 			{
 				Vector3 portalToPlayer = player.position - transform.position;
 				float dotProduct = Vector3.Dot(transform.up, portalToPlayer);
