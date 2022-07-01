@@ -12,16 +12,17 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape)) 
         {
-            Quit();
-        }
-    }
-            /*if (IsPaused) 
+            if (IsPaused)
             {
                 Resume();
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
             }
             else
             {
                 Pause();
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
             }
         }
     }
@@ -40,12 +41,12 @@ public class PauseMenu : MonoBehaviour
         PauseMenuUI.SetActive(false);
         Time.timeScale = 1.0f;
         IsPaused = false;
-    }*/
+    }
 
     public void MainMenu()
     {
-        //Resume();
-        SceneManager.LoadScene("MainMenu");
+        Resume();
+        SceneManager.LoadScene("MainMenuScene");
     }
 
     public void Quit() 
