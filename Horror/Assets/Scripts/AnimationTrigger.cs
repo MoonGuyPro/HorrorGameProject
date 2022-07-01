@@ -18,5 +18,6 @@ public class AnimationTrigger : MonoBehaviour
         {
             animator.SetTrigger("trigger");
         }
+
     }
 }
