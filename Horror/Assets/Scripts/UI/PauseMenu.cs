@@ -12,7 +12,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape)) 
         {
-            MainMenu();
+            Quit();
         }
     }
             /*if (IsPaused) 
@@ -48,9 +48,9 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-    /*public void Quit() 
+    public void Quit() 
     {
         Debug.Log("Quitting game...");
         Application.Quit();
-    }*/
+    }
 }
