@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Base class for any input object (ex. button, lever)
-public abstract class InputLogic : MonoBehaviour
+public abstract class InputLogic : MonoBehaviour, Interactive
 {
     [Header("Default state")]
     public bool active;
@@ -20,9 +20,10 @@ public abstract class InputLogic : MonoBehaviour
     // Implement in extended class
     protected abstract void behavior();
 
-    // Called after interaction, to toggle state and update output
-    public void toggle()
+    // Interaction toggles state and updates output
+    public void interact()
     {
+        print("sdfdssdff");
         active = !active;
         behavior(); // Call input behavior (implemented in extended class)
 

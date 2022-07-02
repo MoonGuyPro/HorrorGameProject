@@ -8,7 +8,7 @@ public class PlayerInteraction : MonoBehaviour
     [Header("Max distance of interaction")]
     public float MaxDistance = 5;
 
-    private InputLogic input;
+    private Interactive interactive;
 
     void Update()
     {
@@ -21,9 +21,9 @@ public class PlayerInteraction : MonoBehaviour
                 // Is it interactive object?
                 if (hit.transform.tag == "Interactive")
                 {
-                    // Get InputLogic and change logic state
-                    input = hit.transform.GetComponentInParent<InputLogic>();
-                    input.toggle();
+                    // Call interaction
+                    interactive = hit.transform.GetComponentInParent<Interactive>();
+                    interactive.interact();
                 }
             }
         }

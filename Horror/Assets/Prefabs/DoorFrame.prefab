@@ -50,7 +50,7 @@ GameObject:
   - component: {fileID: 3118521922434551798}
   m_Layer: 0
   m_Name: Door
-  m_TagString: Door
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -165,8 +165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f5ce1879ee8f054fa5f90dd54b3fdb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerCamera: {fileID: 0}
-  MaxDistance: 20
+  opened: 1
 --- !u!54 &3118521922434551798
 Rigidbody:
   m_ObjectHideFlags: 0

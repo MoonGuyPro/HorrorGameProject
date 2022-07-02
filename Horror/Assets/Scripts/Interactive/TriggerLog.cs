@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TriggerLog : InputLogic
+public class TriggerLog : MonoBehaviour, Interactive
 {
     private AudioSource m_AudioSource;
 
@@ -9,7 +9,7 @@ public class TriggerLog : InputLogic
         m_AudioSource = GetComponent<AudioSource>();
     }
 
-    protected override void behavior()
+    public void interact()
     {
         m_AudioSource.Play();
     }
