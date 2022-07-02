@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door : MonoBehaviour, Interactive
+public class Door : Interactive
 {
     public bool opened = false;
     private Animator animator;
@@ -13,7 +13,7 @@ public class Door : MonoBehaviour, Interactive
         animator.SetBool("Opened", opened);
     }
 
-    public void interact()
+    public override void interact()
     {
         // This will set the bool the opposite of what it is.
         opened = !opened;
