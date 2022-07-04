@@ -5,6 +5,7 @@ using UnityEngine;
 public class AnimationTrigger : MonoBehaviour
 {
     public GameObject target;
+    public string triggerName;
     private Animator animator;
 
     void Start()
@@ -16,7 +17,7 @@ public class AnimationTrigger : MonoBehaviour
     {
         if (player.gameObject.tag == "Player")
         {
-            animator.SetTrigger("trigger");
+            animator.SetTrigger(triggerName);
         }
     }
 }
