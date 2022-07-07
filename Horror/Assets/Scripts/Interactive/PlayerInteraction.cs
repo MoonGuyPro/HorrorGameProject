@@ -10,9 +10,12 @@ public class PlayerInteraction : MonoBehaviour
     public float MaxDistance = 5;
     [Header("Tip text")]
     public GameObject tipLabel;
+
+    public Inventory inv;
     
     private TextMeshProUGUI textMesh;
     private Interactive interactive;
+    private Pickable pickable;
 
     // If tipLabel is null show warning
     void Start()
@@ -46,6 +49,21 @@ public class PlayerInteraction : MonoBehaviour
                     // Call interaction
                     interactive = hit.transform.GetComponentInParent<Interactive>();
                     interactive.interact();
+                }
+            }
+            if (hit.transform.tag == "Pickable")
+            {
+                pickable = hit.transform.GetComponentInParent<Pickable>();
+                setTipText(pickable.tip);
+                toggleTipText(true);
+
+                if (Input.GetKeyDown(KeyCode.F))
+                {
+                    // Call interaction
+                    pickable = hit.transform.GetComponentInParent<Pickable>();
+                    inv.addItem(pickable);
+                    inv.print();
+                    pickable.interact();
                 }
             }
         }

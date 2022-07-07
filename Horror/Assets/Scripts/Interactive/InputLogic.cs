@@ -9,7 +9,7 @@ public abstract class InputLogic : Interactive
     public bool active;
     
     // Reference to output object
-    private OutputLogic output;
+    protected OutputLogic output;
     public OutputLogic Output
     {
         get { return output; }
@@ -23,7 +23,7 @@ public abstract class InputLogic : Interactive
     // Interaction toggles state and updates output
     public override void interact()
     {
-        print("sdfdssdff");
+        //print("sdfdssdff");
         active = !active;
         behavior(); // Call input behavior (implemented in extended class)
 
