@@ -35,7 +35,7 @@ public class Footsteps : MonoBehaviour
         }
         foreach (AudioSource aS in footsteps)
         {
-            aS.volume = 0.5f;
+            aS.volume = 0.8f;
         }
     }
 
