@@ -81,7 +81,9 @@ public class PlayerInteraction : MonoBehaviour
         else
         {
             toggleTipText(false);
+            alreadyLooking = false;
         }
+        
     }
 
     // Just in case check if tipLabel is null
