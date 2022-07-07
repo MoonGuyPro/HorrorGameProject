@@ -9,8 +9,9 @@ public class TriggerLog : Interactive
         m_AudioSource = GetComponent<AudioSource>();
     }
 
-    public override void interact()
+    public override bool interact()
     {
         m_AudioSource.Play();
+        return true;
     }
 }

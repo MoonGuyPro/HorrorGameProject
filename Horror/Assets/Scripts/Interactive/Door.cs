@@ -13,7 +13,7 @@ public class Door : Interactive
         animator.SetBool("Opened", opened);
     }
 
-    public override void interact()
+    public override bool interact()
     {
         // This will set the bool the opposite of what it is.
         opened = !opened;
@@ -21,5 +21,6 @@ public class Door : Interactive
         // This line will set the bool true so it will play the animation.
         animator = transform.GetComponentInParent<Animator>();
         animator.SetBool("Opened", opened);
+        return true;
     }
 }

@@ -17,6 +17,8 @@ public class PlayerInteraction : MonoBehaviour
     private Interactive interactive;
     private Pickable pickable;
 
+    private bool alreadyLooking;
+
     // If tipLabel is null show warning
     void Start()
     {
@@ -28,6 +30,8 @@ public class PlayerInteraction : MonoBehaviour
         {
             textMesh = tipLabel.GetComponent<TextMeshProUGUI>();
         }
+
+        alreadyLooking = false;
     }
 
     void Update()
@@ -40,7 +44,11 @@ public class PlayerInteraction : MonoBehaviour
             {
                 // Show tip on screen
                 interactive = hit.transform.GetComponentInParent<Interactive>();
-                setTipText(interactive.tip);
+                if (!alreadyLooking)
+                {
+                    setTipText(interactive.tip);
+                }
+                
                 toggleTipText(true);
 
                 // On interact key
@@ -48,7 +56,10 @@ public class PlayerInteraction : MonoBehaviour
                 {
                     // Call interaction
                     interactive = hit.transform.GetComponentInParent<Interactive>();
-                    interactive.interact();
+                    if (!interactive.interact())
+                    {
+                        setTipText(interactive.altTip);
+                    }
                 }
             }
             if (hit.transform.tag == "Pickable")
@@ -62,10 +73,10 @@ public class PlayerInteraction : MonoBehaviour
                     // Call interaction
                     pickable = hit.transform.GetComponentInParent<Pickable>();
                     inv.addItem(pickable);
-                    //inv.print();
                     pickable.interact();
                 }
             }
+            alreadyLooking = true;
         }
         else
         {

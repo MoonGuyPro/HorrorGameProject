@@ -21,7 +21,7 @@ public abstract class InputLogic : Interactive
     protected abstract void behavior();
 
     // Interaction toggles state and updates output
-    public override void interact()
+    public override bool interact()
     {
         //print("sdfdssdff");
         active = !active;
@@ -33,5 +33,6 @@ public abstract class InputLogic : Interactive
         {
             output.checkState(); // Check state of output
         }
+        return true;
     }
 }

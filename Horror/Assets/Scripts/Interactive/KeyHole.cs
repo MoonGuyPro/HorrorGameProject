@@ -16,7 +16,7 @@ public class KeyHole : InputLogic
         }
     }
 
-    public override void interact()
+    public override bool interact()
     {
         //print("sdfdssdff");
         behavior(); // Call input behavior (implemented in extended class)
@@ -30,6 +30,8 @@ public class KeyHole : InputLogic
             {
                 output.checkState(); // Check state of output
             }
+            return true;
         }
+        return false;
     }
 }

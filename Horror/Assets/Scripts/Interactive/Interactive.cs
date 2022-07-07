@@ -5,5 +5,6 @@ using UnityEngine;
 public abstract class Interactive : MonoBehaviour
 {
     public string tip;
-    public abstract void interact();
+    public string altTip;
+    public abstract bool interact();
 }
