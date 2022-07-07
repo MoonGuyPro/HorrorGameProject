@@ -62,7 +62,7 @@ public class PlayerInteraction : MonoBehaviour
                     // Call interaction
                     pickable = hit.transform.GetComponentInParent<Pickable>();
                     inv.addItem(pickable);
-                    inv.print();
+                    //inv.print();
                     pickable.interact();
                 }
             }

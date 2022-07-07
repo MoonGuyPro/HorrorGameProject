@@ -9,7 +9,7 @@ public class KeyHole : InputLogic
     public string keyName;
     protected override void behavior()
     {
-        inv.print();
+        //inv.print();
         if (inv.itemExists(keyName))
         {
             changed ^= 1;
