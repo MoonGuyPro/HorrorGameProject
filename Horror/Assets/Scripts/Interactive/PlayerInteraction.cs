@@ -36,7 +36,7 @@ public class PlayerInteraction : MonoBehaviour
 
     void Update()
     {
-        // Check if player looks at interactive object
+        // Check if player looks at interactive or pickable object
         RaycastHit hit;
         if (Physics.Raycast(PlayerCamera.transform.position, PlayerCamera.transform.forward, out hit, MaxDistance))
         {
@@ -61,6 +61,7 @@ public class PlayerInteraction : MonoBehaviour
                         setTipText(interactive.altTip);
                     }
                 }
+                alreadyLooking = true;
             }
             if (hit.transform.tag == "Pickable")
             {
@@ -75,8 +76,8 @@ public class PlayerInteraction : MonoBehaviour
                     inv.addItem(pickable);
                     pickable.interact();
                 }
+                alreadyLooking = true;
             }
-            alreadyLooking = true;
         }
         else
         {
