@@ -6,6 +6,7 @@ public abstract class Pickable : MonoBehaviour
 {
     public string tip;
     [SerializeField] public new string name;
+    [SerializeField] public string ingameName;
     [SerializeField] public GameObject obj;
     protected Transform objTransform;
 

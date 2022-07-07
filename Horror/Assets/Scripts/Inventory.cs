@@ -6,7 +6,6 @@ public class Inventory : MonoBehaviour
 {
     private List<Pickable> items;
 
-    // Start is called before the first frame update
     private void Start()
     {
         items = new List<Pickable>();
@@ -47,5 +46,16 @@ public class Inventory : MonoBehaviour
         {
             print(item.name);
         }
+    }
+
+    // returns concatenated text of names of all inventory items to be displayed on UI
+    public string printInGameNames()
+    {
+        string output = "";
+        foreach (Pickable item in items)
+        {
+            output += (item.ingameName + "\n");
+        }
+        return output;
     }
 }
