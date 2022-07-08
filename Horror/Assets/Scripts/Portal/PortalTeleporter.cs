@@ -31,7 +31,7 @@ public class PortalTeleporter : MonoBehaviour
 		tpSounds = soundSource.GetComponents<AudioSource>();
 		for (int i = 0; i < tpSounds.Length; i++)
 		{
-			tpSounds[i].volume = 0.09f;
+			tpSounds[i].volume = 0.15f;
 		}
 	}
 
