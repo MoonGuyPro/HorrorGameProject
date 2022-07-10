@@ -56,7 +56,7 @@ public class PlayerInteraction : MonoBehaviour
                 {
                     // Call interaction
                     interactive = hit.transform.GetComponentInParent<Interactive>();
-                    if (!interactive.interact())
+                    if (!interactive.Interact())
                     {
                         setTipText(interactive.altTip);
                     }

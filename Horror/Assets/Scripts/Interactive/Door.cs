@@ -7,13 +7,13 @@ public class Door : Interactive
     public bool opened = false;
     private Animator animator;
 
-    void start()
+    void Start()
     {
         animator = transform.GetComponentInParent<Animator>();
         animator.SetBool("Opened", opened);
     }
 
-    public override bool interact()
+    public override bool Interact()
     {
         // This will set the bool the opposite of what it is.
         opened = !opened;

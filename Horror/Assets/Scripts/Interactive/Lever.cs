@@ -15,7 +15,7 @@ public class Lever : InputLogic
         s = GetComponent<AudioSource>();
     }
 
-    protected override void behavior()
+    protected override void Behavior()
     {
         // Animate on state change
         animator.SetBool("active", active);

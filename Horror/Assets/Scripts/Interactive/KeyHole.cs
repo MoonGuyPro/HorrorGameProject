@@ -7,7 +7,7 @@ public class KeyHole : InputLogic
     public int changed;
     public Inventory inv;
     public string keyName;
-    protected override void behavior()
+    protected override void Behavior()
     {
         //inv.print();
         if (inv.itemExists(keyName))
@@ -16,10 +16,10 @@ public class KeyHole : InputLogic
         }
     }
 
-    public override bool interact()
+    public override bool Interact()
     {
         //print("sdfdssdff");
-        behavior(); // Call input behavior (implemented in extended class)
+        Behavior(); // Call input behavior (implemented in extended class)
 
         if (inv.itemExists(keyName))
         {
@@ -28,7 +28,7 @@ public class KeyHole : InputLogic
             // for example click to trigger audio.
             if (output != null)
             {
-                output.checkState(); // Check state of output
+                output.CheckState(); // Check state of output
             }
             return true;
         }

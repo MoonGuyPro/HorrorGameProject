@@ -17,17 +17,17 @@ public abstract class OutputLogic : MonoBehaviour
     // Hold info about current state (active/not-active)
     protected bool active;
 
-    // Output behavior after checking current state (ex. animation)
+    // Output Behavior after checking current state (ex. animation)
     // Implement in extended class
-    protected abstract void behavior();
+    protected abstract void Behavior();
 
     public void Start()
     {
-        connectOutputs();
+        ConnectOutputs();
     }
 
     // Called by InputLogic.toggle() to update output state
-    public void checkState()
+    public void CheckState()
     {
         // Check current state using chosen statement
         switch (op)
@@ -36,19 +36,19 @@ public abstract class OutputLogic : MonoBehaviour
                 active = (and() != invert); // This is logical XOR
                 break;
             case ops.OR:
-                active = (or() != invert);
+                active = (Or() != invert);
                 break;
             case ops.XOR:
-                active = (xor() != invert);
+                active = (Xor() != invert);
                 break;
         }
 
-        // Call output behavior (implemented in extended class)
-        behavior();
+        // Call output Behavior (implemented in extended class)
+        Behavior();
     }
 
     // Call this on Start, to connect all inputs to this output
-    protected void connectOutputs()
+    protected void ConnectOutputs()
     {
         // Add reference of output to every input
         foreach (InputLogic input in inputs)
@@ -57,7 +57,7 @@ public abstract class OutputLogic : MonoBehaviour
         }
 
         // Check starting state
-        checkState();
+        CheckState();
     }
 
     // AND statement
@@ -68,7 +68,7 @@ public abstract class OutputLogic : MonoBehaviour
     }
 
     // OR statement
-    private bool or()
+    private bool Or()
     {
         foreach (InputLogic input in inputs)
         {
@@ -81,7 +81,7 @@ public abstract class OutputLogic : MonoBehaviour
     }
 
     // XOR statement
-    private bool xor()
+    private bool Xor()
     {
         int count = 0;
         foreach (InputLogic input in inputs)
