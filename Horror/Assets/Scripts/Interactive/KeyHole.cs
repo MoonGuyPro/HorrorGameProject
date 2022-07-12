@@ -8,6 +8,12 @@ public class KeyHole : InputLogic
     public Inventory inv;
     public string keyName;
     public Transform keyModel;
+
+    private void Start()
+    {
+        isActive = true;
+    }
+
     protected override void Behavior()
     {
         //inv.print();
@@ -33,6 +39,7 @@ public class KeyHole : InputLogic
             }
 
             keyModel.position += new Vector3(0, -10, 0);
+            isActive = false;
 
             inv.removeItem(keyName);
             return true;

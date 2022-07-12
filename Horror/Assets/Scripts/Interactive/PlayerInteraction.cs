@@ -44,24 +44,29 @@ public class PlayerInteraction : MonoBehaviour
             {
                 // Show tip on screen
                 interactive = hit.transform.GetComponentInParent<Interactive>();
-                if (!alreadyLooking)
-                {
-                    setTipText(interactive.tip);
-                }
-                
-                toggleTipText(true);
 
-                // On interact key
-                if (Input.GetKeyDown(KeyCode.F))
+                // disabled objects dont trigger anything, such as used key holes that are already used.
+                if (interactive.isActive)
                 {
-                    // Call interaction
-                    interactive = hit.transform.GetComponentInParent<Interactive>();
-                    if (!interactive.Interact())
+                    if (!alreadyLooking)
                     {
-                        setTipText(interactive.altTip);
+                        setTipText(interactive.tip);
                     }
-                }
-                alreadyLooking = true;
+
+                    toggleTipText(true);
+
+                    // On interact key
+                    if (Input.GetKeyDown(KeyCode.F))
+                    {
+                        // Call interaction
+                        interactive = hit.transform.GetComponentInParent<Interactive>();
+                        if (!interactive.Interact())
+                        {
+                            setTipText(interactive.altTip);
+                        }
+                    }
+                    alreadyLooking = true;
+                } 
             }
             if (hit.transform.tag == "Pickable")
             {
