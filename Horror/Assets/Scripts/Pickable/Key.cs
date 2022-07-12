@@ -13,4 +13,9 @@ public class Key : Pickable
     {
         objTransform.position -= new Vector3(0,10,0);
     }
+
+    public void placeKey(KeyHole obj)
+    {
+        objTransform.position = obj.transform.position;
+    }
 }

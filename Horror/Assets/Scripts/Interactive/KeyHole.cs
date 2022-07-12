@@ -7,6 +7,7 @@ public class KeyHole : InputLogic
     public int changed;
     public Inventory inv;
     public string keyName;
+    public Transform keyModel;
     protected override void Behavior()
     {
         //inv.print();
@@ -30,6 +31,10 @@ public class KeyHole : InputLogic
             {
                 output.CheckState(); // Check state of output
             }
+
+            keyModel.position += new Vector3(0, -10, 0);
+
+            inv.removeItem(keyName);
             return true;
         }
         return false;
