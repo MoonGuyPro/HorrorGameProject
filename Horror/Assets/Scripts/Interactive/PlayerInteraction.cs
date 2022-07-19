@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class PlayerInteraction : MonoBehaviour
@@ -11,6 +12,8 @@ public class PlayerInteraction : MonoBehaviour
     [Header("Tip text")]
     public GameObject tipLabel;
 
+	[Header("Inventory text")]
+    public GameObject invLabel;
     public Inventory inv;
     
     private TextMeshProUGUI textMesh;
@@ -90,6 +93,8 @@ public class PlayerInteraction : MonoBehaviour
             alreadyLooking = false;
         }
         
+		//Putting it here until I find a better place
+		invLabel.GetComponent<Text>().text = "Inventory:\n" + ((inv.printInGameNames() == "") ? inv.printInGameNames() : "Empty");
     }
 
     // Just in case check if tipLabel is null
