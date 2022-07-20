@@ -5,6 +5,8 @@ using UnityEngine;
 // Base class for any input object (ex. button, lever)
 public abstract class InputLogic : Interactive
 {
+	public bool singleUse;
+	
     [Header("Default state")] public bool active;
     
     // Reference to output object
@@ -23,15 +25,22 @@ public abstract class InputLogic : Interactive
     public override bool Interact()
     {
         //print("sdfdssdff");
-        active = !active;
-        Behavior(); // Call input behavior (implemented in extended class)
-
-        // output can be null if there is no output object.
-        // for example click to trigger audio.
-        if (output != null)
-        {
-            output.CheckState(); // Check state of output
-        }
+		if (isActive) {
+			active = !active;
+			Behavior(); // Call input behavior (implemented in extended class)
+			
+			// output can be null if there is no output object.
+			// for example click to trigger audio.
+			if (output != null)
+			{
+				output.CheckState(); // Check state of output
+			}
+			
+			// Prevent further use if in single use mode
+			if (singleUse) {
+				isActive = false;
+			}
+		}
         return true;
     }
 }

@@ -93,8 +93,8 @@ public class PlayerInteraction : MonoBehaviour
             alreadyLooking = false;
         }
         
-		//Putting it here until I find a better place
-		invLabel.GetComponent<Text>().text = "Inventory:\n" + ((inv.printInGameNames() == "") ? inv.printInGameNames() : "Empty");
+		// Putting it here until I find a better place. Commented out cuz something is wrong and I don't know what yet.
+		//invLabel.GetComponent<Text>().text = "Inventory:\n" + ((inv.printInGameNames() == "") ? inv.printInGameNames() : "Empty");
     }
 
     // Just in case check if tipLabel is null

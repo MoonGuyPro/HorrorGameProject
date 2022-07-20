@@ -400,6 +400,7 @@ GameObject:
   - component: {fileID: 6894724014554846878}
   - component: {fileID: 6894724014554846877}
   - component: {fileID: 6894724014554846870}
+  - component: {fileID: 5973567978434466695}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -989,7 +990,19 @@ MonoBehaviour:
   MaxDistance: 5
   tipLabel: {fileID: 6894724015775020551}
   invLabel: {fileID: 620967980362144897}
-  inv: {fileID: 0}
+  inv: {fileID: 5973567978434466695}
+--- !u!114 &5973567978434466695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6894724014554846876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07827bb3cd50b2142ba49cf47fbcc105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6894724014863066578
 GameObject:
   m_ObjectHideFlags: 0
