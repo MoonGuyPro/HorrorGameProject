@@ -21,6 +21,7 @@ public class KeyHole : InputLogic
         {
             changed ^= 1;
         }
+        
     }
 
     public override bool Interact()
@@ -30,13 +31,7 @@ public class KeyHole : InputLogic
 
         if (inv.itemExists(keyName))
         {
-            active = !active;
-            // output can be null if there is no output object.
-            // for example click to trigger audio.
-            if (output != null)
-            {
-                output.CheckState(); // Check state of output
-            }
+            Toggle();
 
             keyModel.position += new Vector3(0, -10, 0);
             isActive = false;

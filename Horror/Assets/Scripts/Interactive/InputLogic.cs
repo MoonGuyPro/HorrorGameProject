@@ -21,20 +21,24 @@ public abstract class InputLogic : Interactive
     // Implement in extended class
     protected abstract void Behavior();
 
-    // Interaction toggles state and updates output
+    // Toggle state and update output
+    protected void Toggle()
+    {
+        active = !active;
+        // output can be null if there is no output object.
+        // for example click to trigger audio.
+        if (output != null)
+            output.CheckState(); // Check state of output
+        else
+           Debug.LogWarning("InputLogic: Changed state but output is null!"); 
+    }
+
+    // Interaction by default toggles state, override if needed
     public override bool Interact()
     {
-        //print("sdfdssdff");
 		if (isActive) {
-			active = !active;
+            Toggle();   // Toggle state
 			Behavior(); // Call input behavior (implemented in extended class)
-			
-			// output can be null if there is no output object.
-			// for example click to trigger audio.
-			if (output != null)
-			{
-				output.CheckState(); // Check state of output
-			}
 			
 			// Prevent further use if in single use mode
 			if (singleUse) {
