@@ -13,7 +13,7 @@ public class PickUp : MonoBehaviour
         GetComponent<Collider>().enabled = false;
         GetComponent<Rigidbody>().useGravity = false;
         transform.position = theDest.position;
-        transform.parent = GameObject.Find("Destination").transform;
+        // transform.parent = GameObject.Find("Destination").transform;
     }
 
     private void Update()
