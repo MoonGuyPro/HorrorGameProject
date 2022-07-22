@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TriggerLog : Interactive
+public class ClickLog : Interactive
 {
     private AudioSource m_AudioSource;
 
