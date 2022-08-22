@@ -3,26 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class DisplayTextTrigerTouch : MonoBehaviour
+public class DisplayTextOnClick : Interactive
 {
     public string textValue;
     public GameObject textElement;
+    public int time;
+
     void Start()
     {
         textElement.SetActive(false);
     }
 
-    private void OnMouseDown()
+    public override bool Interact()
     {
         if (textElement != null)
         {
             textElement.GetComponent<TextMeshProUGUI>().text = textValue;
             textElement.SetActive(true);
+            StartCoroutine("Wait");
         }
+        return true;
     }
 
-    private void OnMouseUp()
+    IEnumerator Wait()
     {
+        yield return new WaitForSeconds(time);
         textElement.SetActive(false);
     }
+
 }
