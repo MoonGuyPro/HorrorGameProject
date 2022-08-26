@@ -18,6 +18,7 @@ public class TriggerAnimator : MonoBehaviour
         if (player.gameObject.tag == "Player")
         {
             animator.SetTrigger(triggerName);
+            Destroy(gameObject);
         }
     }
 }
