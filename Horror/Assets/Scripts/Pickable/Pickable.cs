@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Pickable : MonoBehaviour
@@ -7,8 +5,12 @@ public abstract class Pickable : MonoBehaviour
     public string tip;
     [SerializeField] public new string name;
     [SerializeField] public string ingameName;
-    [SerializeField] public GameObject obj;
+    // not needed for now i think
+    //[SerializeField] public GameObject obj;
+    [SerializeField] protected AudioClip[] pickUpSounds;
     protected Transform objTransform;
+    protected AudioSource audioSource;
 
+    
     public abstract void interact();
 }

@@ -21,7 +21,6 @@ public class KeyHole : InputLogic
         {
             changed ^= 1;
         }
-        
     }
 
     public override bool Interact()
