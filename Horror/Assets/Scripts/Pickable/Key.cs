@@ -8,8 +8,6 @@ public class Key : Pickable
         audioSource = GetComponent<AudioSource>();
 
         // if no sounds were provided we load some default sounds
-        
-        
         if (pickUpSounds.Length == 0)
         {
             pickUpSounds = new AudioClip[3];
@@ -23,8 +21,7 @@ public class Key : Pickable
     public override void interact()
     {
         objTransform.position -= new Vector3(0,10,0);
-        int soundNum = Random.Range(0, pickUpSounds.Length);
-        print(soundNum.ToString());
+        var soundNum = Random.Range(0, pickUpSounds.Length);
         audioSource.clip = pickUpSounds[soundNum];
         audioSource.Play();
     }

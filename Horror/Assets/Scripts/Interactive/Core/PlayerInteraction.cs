@@ -37,7 +37,6 @@ public class PlayerInteraction : MonoBehaviour
 
         if (invLabel != null)
         {
-            
             inventoryTextMesh = invLabel.GetComponent<TextMeshProUGUI>();
         }
 
@@ -100,9 +99,6 @@ public class PlayerInteraction : MonoBehaviour
             toggleTipText(false);
             alreadyLooking = false;
         }
-        
-		// Putting it here until I find a better place. Commented out cuz something is wrong and I don't know what yet.
-        //inventoryTextMesh.text = "Inventory:\n" + ((inv.printInGameNames() == "") ? inv.printInGameNames() : "Empty");
     }
 
     // Just in case check if tipLabel is null
