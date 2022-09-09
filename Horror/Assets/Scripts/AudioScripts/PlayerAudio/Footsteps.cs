@@ -28,14 +28,15 @@ public class Footsteps : MonoBehaviour
         foreach (AudioSource aS in temp)
         {
             footsteps.Add(aS);
-        }         
+        }        
+        // we're removing all other audio sources because they are not footsteps (how clips are handled here will be changed in the future)
         for (int i = footsteps.Count - 1; i > 3; i--)
         {
             footsteps.Remove(footsteps[i]);
         }
         foreach (AudioSource aS in footsteps)
         {
-            aS.volume = 0.8f;
+            aS.volume = 0.6f;
         }
     }
 

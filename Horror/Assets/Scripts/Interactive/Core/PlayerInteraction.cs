@@ -73,6 +73,9 @@ public class PlayerInteraction : MonoBehaviour
                         {
                             setTipText(interactive.altTip);
                         }
+                        // we're calling inventory update here as well
+                        // because we might've just used the key on something (e.g. KeyHole)
+                        updateInventoryText();
                     }
                     alreadyLooking = true;
                 } 
