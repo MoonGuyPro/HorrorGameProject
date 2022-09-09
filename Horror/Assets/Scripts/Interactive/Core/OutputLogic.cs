@@ -90,11 +90,14 @@ public abstract class OutputLogic : MonoBehaviour
             {
                 count++;
             }
-            if (count > 1)
-            {
-                return false;
-            }
+
         }
+        // XOR is also true if ALL inputs are true
+        if (count == inputs.Count)
+        {
+            return true;
+        }
+        // returns true is count is one, false otherwise
         return count == 1;
     }
 }
