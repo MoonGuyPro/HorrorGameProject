@@ -117,4 +117,9 @@ public class PlayerMovement : MonoBehaviour
     {
         readyToJump = true;
     }
+
+    public void AddRotation(float x, float y)
+    {
+        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+    }
 }
