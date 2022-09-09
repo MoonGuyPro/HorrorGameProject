@@ -17,6 +17,7 @@ public class PlayerInteraction : MonoBehaviour
     public Inventory inv;
     
     private TextMeshProUGUI textMesh;
+    private TextMeshProUGUI inventoryTextMesh;
     private Interactive interactive;
     private Pickable pickable;
 
@@ -32,6 +33,12 @@ public class PlayerInteraction : MonoBehaviour
         else
         {
             textMesh = tipLabel.GetComponent<TextMeshProUGUI>();
+        }
+
+        if (invLabel != null)
+        {
+            
+            inventoryTextMesh = invLabel.GetComponent<TextMeshProUGUI>();
         }
 
         alreadyLooking = false;
@@ -83,6 +90,7 @@ public class PlayerInteraction : MonoBehaviour
                     pickable = hit.transform.GetComponentInParent<Pickable>();
                     inv.addItem(pickable);
                     pickable.interact();
+                    updateInventoryText();
                 }
                 alreadyLooking = true;
             }
@@ -94,7 +102,7 @@ public class PlayerInteraction : MonoBehaviour
         }
         
 		// Putting it here until I find a better place. Commented out cuz something is wrong and I don't know what yet.
-		//invLabel.GetComponent<Text>().text = "Inventory:\n" + ((inv.printInGameNames() == "") ? inv.printInGameNames() : "Empty");
+        //inventoryTextMesh.text = "Inventory:\n" + ((inv.printInGameNames() == "") ? inv.printInGameNames() : "Empty");
     }
 
     // Just in case check if tipLabel is null
@@ -108,5 +116,12 @@ public class PlayerInteraction : MonoBehaviour
     {
         if(tipLabel != null)
             tipLabel.SetActive(enabled);
+    }
+
+    void updateInventoryText()
+    {
+        string newInvText = "Inventory:\n";
+        newInvText += inv.printInGameNames();
+        inventoryTextMesh.text = newInvText;
     }
 }
