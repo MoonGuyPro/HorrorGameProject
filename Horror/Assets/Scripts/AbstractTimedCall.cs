@@ -43,19 +43,28 @@ public abstract class AbstractRandomCall : MonoBehaviour
                 yield return new WaitForSeconds(targetTime);
             }
         }
-        while (true)
+        else
         {
-            prepareTimer(firstCall);
-
-            // we're skipping first call because the inherited class' Start() method has not been called yet.
-            if (firstCall)
+            // runs indefinitely
+            while (true)
             {
-                firstCall = false;
-                yield return new WaitForSeconds(targetTime);
+                prepareTimer(firstCall);
+
+                // we're skipping first call because the inherited class' Start() method has not been called yet.
+                if (firstCall)
+                {
+                    firstCall = false;
+                    yield return new WaitForSeconds(targetTime);
+                }
+                else
+                {
+                    OnInterval();
+                    yield return new WaitForSeconds(targetTime);
+                }
+                
             }
-            OnInterval();
-            yield return new WaitForSeconds(targetTime);
         }
+        
     }
     
     protected virtual void Start()
