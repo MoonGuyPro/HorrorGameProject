@@ -92,12 +92,12 @@ public abstract class OutputLogic : MonoBehaviour
             }
 
         }
-        // XOR is also true if ALL inputs are true
-        if (count == inputs.Count)
+
+        // XOR returns true for odd number of true's, false for even
+        if (count % 2 == 0)
         {
-            return true;
+            return false;
         }
-        // returns true is count is one, false otherwise
-        return count == 1;
+        return true;
     }
 }
