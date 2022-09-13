@@ -7,7 +7,7 @@ using UnityEngine;
  * If needed the Start() method is also made virtual so it can be overriden, BUT base.Start() MUST BE CALLED!
  * (see AudioScripts/AmbientSounds/AmbientSpookySounds.cs for proper simple use of this class)
  */
-public abstract class AbstractRandomCall : MonoBehaviour
+public abstract class AbstractTimedCall : MonoBehaviour
 {   
     public float minInterval;
     public float maxInterval;
