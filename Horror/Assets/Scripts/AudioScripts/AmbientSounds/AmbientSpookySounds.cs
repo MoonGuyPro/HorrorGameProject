@@ -2,7 +2,7 @@
 
 namespace AudioScripts.AmbientSounds
 {
-    public class AmbientSpookySounds : AbstractRandomCall
+    public class AmbientSpookySounds : AbstractTimedCall
     {
         [SerializeField] private AudioClip[] clips;
         private AudioSource audioSource;

@@ -51,6 +51,10 @@ public class Inventory : MonoBehaviour
     // returns concatenated text of names of all inventory items to be displayed on UI
     public string printInGameNames()
     {
+        if (items.Count == 0)
+        {
+            return "Empty";
+        }
         string output = "";
         foreach (Pickable item in items)
         {

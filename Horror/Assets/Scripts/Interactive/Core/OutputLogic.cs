@@ -90,11 +90,14 @@ public abstract class OutputLogic : MonoBehaviour
             {
                 count++;
             }
-            if (count > 1)
-            {
-                return false;
-            }
+
         }
-        return count == 1;
+
+        // XOR returns true for odd number of true's, false for even
+        if (count % 2 == 0)
+        {
+            return false;
+        }
+        return true;
     }
 }

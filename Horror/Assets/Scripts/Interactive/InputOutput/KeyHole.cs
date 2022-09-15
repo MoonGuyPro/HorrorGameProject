@@ -1,22 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class KeyHole : InputLogic
 {
-    public int changed;
+    private int changed;
     public Inventory inv;
     public string keyName;
     public Transform keyModel;
+    
+    [SerializeField] protected AudioClip[] pickUpSounds;
+    protected AudioSource audioSource;
 
     private void Start()
     {
         isActive = true;
+        audioSource = GetComponent<AudioSource>();
     }
 
     protected override void Behavior()
     {
-        //inv.print();
         if (inv.itemExists(keyName))
         {
             changed ^= 1;
@@ -25,7 +26,6 @@ public class KeyHole : InputLogic
 
     public override bool Interact()
     {
-        //print("sdfdssdff");
         Behavior(); // Call input behavior (implemented in extended class)
 
         if (inv.itemExists(keyName))
@@ -36,6 +36,11 @@ public class KeyHole : InputLogic
             isActive = false;
 
             inv.removeItem(keyName);
+            
+            var soundNum = Random.Range(0, pickUpSounds.Length);
+            audioSource.clip = pickUpSounds[soundNum];
+            audioSource.Play();
+            
             return true;
         }
         return false;
