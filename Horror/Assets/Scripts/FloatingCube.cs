@@ -7,11 +7,18 @@ public class FloatingCube : MonoBehaviour
     Animator animator;
     //Value from the slider, and it converts to speed level
     [SerializeField] float speed = 1f;
+    //Values for the offset
+    //Min value 0
+    [SerializeField] float minOffset  = 0f;
+    //Max value 1
+    [SerializeField] float maxOffset = 1f;
 
     void Start()
     {
         //Get the animator, attached to the GameObject you are intending to animate.
         animator = gameObject.GetComponent<Animator>();
         animator.speed = speed;
+        //Random offset
+        GetComponent<Animator>().SetFloat("Offset", Random.Range(minOffset, maxOffset));
     }
 }
