@@ -16,6 +16,8 @@ public abstract class InputLogic : Interactive
         get { return output; }
         set { output = value; }
     }
+    
+    [Header("Sub-Level Finish")] public bool signalLevelFinish;
 
     // Input behavior after toggle (ex. animation)
     // Implement in extended class
@@ -39,6 +41,12 @@ public abstract class InputLogic : Interactive
 		if (isActive) {
             Toggle();   // Toggle state
 			Behavior(); // Call input behavior (implemented in extended class)
+			
+			// signal finish of a sub level to global variables 
+			if (signalLevelFinish)
+			{
+				GetComponent<SubLevelFinish>().SignalFinish();
+			}
 			
 			// Prevent further use if in single use mode
 			if (singleUse) {
