@@ -5,7 +5,7 @@ using UnityEngine;
 public class PortalTeleporter : MonoBehaviour
 {
 
-	public Transform player;
+	protected Transform player;
 	//Portal that this portal leads to
 	public GameObject otherPortal;
 
@@ -33,6 +33,8 @@ public class PortalTeleporter : MonoBehaviour
 		{
 			tpSounds[i].volume = 0.2f;
 		}
+
+		player = PlayerInstance.instance.transform;
 	}
 
 	// Update is called once per frame

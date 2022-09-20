@@ -3,7 +3,7 @@ using UnityEngine;
 public class KeyHole : InputLogic
 {
     private int changed;
-    public Inventory inv;
+    protected Inventory inv;
     public string keyName;
     public Transform keyModel;
     
@@ -14,6 +14,7 @@ public class KeyHole : InputLogic
     {
         isActive = true;
         audioSource = GetComponent<AudioSource>();
+        inv = PlayerInstance.instance.GetComponent<Inventory>();
     }
 
     protected override void Behavior()
