@@ -8,6 +8,5 @@ public class SubLevelFinish : MonoBehaviour
     public void SignalFinish()
     {
         StaticGlobalVariables.IncrementGates();
-        print(StaticGlobalVariables.GetGatesOpened());
     }
 }
