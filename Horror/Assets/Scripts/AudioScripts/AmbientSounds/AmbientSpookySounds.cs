@@ -14,7 +14,6 @@ namespace AudioScripts.AmbientSounds
 
         protected override void OnInterval()
         {
-            print("Playing soundsss");
             audioSource.clip = clips[Random.Range(0, clips.Length)];
             audioSource.Play();
         }
