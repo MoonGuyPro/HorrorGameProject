@@ -350,6 +350,17 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 248f5f6dbc7235945b47aaaeb9cbbf1d, type: 3}
+--- !u!114 &129272464 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6582303084592896096, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+  m_PrefabInstance: {fileID: 1385558963}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ed31e7b383ce88428baddc93eddf9e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &138660886 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b0933921e3c7c084c9343e861fc539df, type: 3}
@@ -464,6 +475,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: NewPortal
       objectReference: {fileID: 0}
+    - target: {fileID: 6582303084592896096, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: linkedPortal
+      value: 
+      objectReference: {fileID: 129272464}
+    - target: {fileID: 6582303084592896096, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: recursionLimit
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8236899894383661827, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -482,7 +501,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8236899894383661827, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -33.99
+      value: -7.73
       objectReference: {fileID: 0}
     - target: {fileID: 8236899894383661827, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3076,7 +3095,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1150802366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3585,6 +3604,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2297301254188097832, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3325394280552842106, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_Name
       value: NewPortal (1)
@@ -3593,6 +3616,10 @@ PrefabInstance:
       propertyPath: linkedPortal
       value: 
       objectReference: {fileID: 70386235}
+    - target: {fileID: 6582303084592896096, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: recursionLimit
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8236899894383661827, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_RootOrder
       value: 16
