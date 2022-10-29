@@ -7,8 +7,10 @@ using TMPro;
 public class PlayerInteraction : MonoBehaviour
 {
     public Transform PlayerCamera;
-    [Header("Max distance of interaction")]
+    [Header("SphereCast settings")]
     public float MaxDistance = 5;
+    public float Radius = 0.45f;
+
     [Header("Tip text")]
     public GameObject tipLabel;
 
@@ -47,7 +49,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         // Check if player looks at interactive or pickable object
         RaycastHit hit;
-        if (Physics.Raycast(PlayerCamera.transform.position, PlayerCamera.transform.forward, out hit, MaxDistance))
+        if (Physics.SphereCast(PlayerCamera.transform.position, Radius, PlayerCamera.transform.forward, out hit, MaxDistance))
         {
             if (hit.transform.tag == "Interactive")
             {
