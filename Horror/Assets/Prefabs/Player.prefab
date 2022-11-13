@@ -519,7 +519,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6894724014554846876}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9845b6c211072f64e8d5eb099499b683, type: 3}
   m_Name: 
@@ -1069,6 +1069,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerCamera: {fileID: 6844239358495087134}
   MaxDistance: 5
+  Radius: 0.45
   tipLabel: {fileID: 6894724015775020551}
   invLabel: {fileID: 620967980362144897}
   inv: {fileID: 5973567978434466695}
@@ -1274,7 +1275,6 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -1638,7 +1638,6 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 2
     m_TransformParent: {fileID: 6894724014554846869}
     m_Modifications:
     - target: {fileID: 3489525273450664418, guid: 6997d02538d79e44890e9fb6ec4c76e8, type: 3}
@@ -1730,7 +1729,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 6997d02538d79e44890e9fb6ec4c76e8, type: 3}
 --- !u!224 &1656586848116501963 stripped
 RectTransform:
@@ -1742,7 +1740,6 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 2
     m_TransformParent: {fileID: 6844239358495087134}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 175ec7428aa1f5743b0dcc620f3e664e, type: 3}
@@ -1834,7 +1831,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 175ec7428aa1f5743b0dcc620f3e664e, type: 3}
 --- !u!1 &6971655142900913936 stripped
 GameObject:
