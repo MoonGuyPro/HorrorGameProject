@@ -7,12 +7,12 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayLevel1() 
     {
-       SceneManager.LoadScene("InitScene");
+       SceneManager.LoadScene("EasyMechanics");
     }
 
     public void PlayLevel2() 
     {
-        SceneManager.LoadScene("InitScene");
+        SceneManager.LoadScene("EasyMechanics");
     }
 
     public void QuitGame()

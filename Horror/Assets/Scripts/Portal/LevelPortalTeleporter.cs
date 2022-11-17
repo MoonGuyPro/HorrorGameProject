@@ -5,14 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class LevelPortalTeleporter : MonoBehaviour
 {
-	public Transform player;
 	public string levelName;
-	//public Vector3 positionAfterTeleporting;
+/*	public Transform player;
+	public Vector3 positionAfterTeleporting;
 	public GameObject soundSource;
 	public bool canTeleport;
 	public bool playSound;
 
-	private AudioSource[] tpSounds;
+	private AudioSource[] tpSounds;*/
+
+	// Krystian here - We don't need all of these variables rn I guess
 
 	void OnTriggerEnter(Collider other)
     {
