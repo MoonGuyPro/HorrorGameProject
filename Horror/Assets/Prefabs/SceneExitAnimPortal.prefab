@@ -42,9 +42,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5575066822962252708}
   - component: {fileID: 4926877010748010015}
-  - component: {fileID: 1340902279945678703}
   - component: {fileID: 4926877010748010013}
   - component: {fileID: 4926877010748010014}
+  - component: {fileID: 8198487809294861185}
   m_Layer: 0
   m_Name: SceneExit
   m_TagString: Untagged
@@ -82,20 +82,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0, y: 7.04, z: 5.06}
   m_Center: {x: 0, y: -0.98, z: 0.27}
---- !u!114 &1340902279945678703
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5575066822962252731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2b4a739386cff5478fb950608f7fd3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetScene: MainValley
-  exitName: Walls_Valley
 --- !u!95 &4926877010748010013
 Animator:
   serializedVersion: 4
@@ -128,6 +114,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fa2e3b78bec46a438082275a9c220b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8198487809294861185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5575066822962252731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3908bf892a0d563438af604475945942, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  levelName: 
+  soundSource: {fileID: 0}
+  canTeleport: 0
+  playSound: 0
 --- !u!1 &5575066823009755131
 GameObject:
   m_ObjectHideFlags: 0

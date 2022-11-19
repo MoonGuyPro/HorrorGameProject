@@ -4,8 +4,12 @@ public class MainCamera : MonoBehaviour {
 
     Portal[] portals;
 
-    void Awake () {
+    public void FindPortals() {
         portals = FindObjectsOfType<Portal> ();
+    }
+
+    void Awake () {
+        FindPortals();
     }
 
     void OnPreCull () {
