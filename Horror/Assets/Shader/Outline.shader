@@ -116,8 +116,16 @@ Shader "Hidden/Roystan/Outline Post Process"
 
 				float4 black = float4(0.0, 0.0, 0.0, 1.0);
 				float4 red = float4(1.0, 0.0, 0.0, 1.0);
+<<<<<<< Updated upstream
 
 				if (edgeColor.r != _Color.r && edgeColor.g != _Color.g && edgeColor.b != _Color.b)
+=======
+				float4 white = float4(1.0, 1.0, 1.0, 1.0);
+
+				if (color.r == color.g && color.r == color.b && color.g == color.b)
+					return alphaBlend(color, black);
+				if ((edgeColor.r != 1.0f && edgeColor.g != 1.0f && edgeColor.b != 1.0f) || (edgeColor.r != 0.0f && edgeColor.g != 0.0f && edgeColor.b != 0.0f))
+>>>>>>> Stashed changes
 					return alphaBlend(edgeColor, black);
 				else
 					return edge;
