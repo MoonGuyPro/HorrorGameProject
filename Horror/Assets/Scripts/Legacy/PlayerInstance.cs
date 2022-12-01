@@ -9,6 +9,7 @@ public class PlayerInstance : MonoBehaviour
     {
         if (instance != null) Destroy(gameObject);
 		else instance = this;
+        DontDestroyOnLoad(gameObject);
 		playerCamera = GetComponent<PlayerInteraction>().PlayerCamera;	
     }
 

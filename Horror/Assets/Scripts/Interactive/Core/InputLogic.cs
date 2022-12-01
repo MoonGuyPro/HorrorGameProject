@@ -36,7 +36,7 @@ public abstract class InputLogic : Interactive
     }
 
     // Interaction by default toggles state, override if needed
-    public override bool Interact()
+    public override bool Interact(Inventory inv)
     {
 		if (isActive) {
             Toggle();   // Toggle state

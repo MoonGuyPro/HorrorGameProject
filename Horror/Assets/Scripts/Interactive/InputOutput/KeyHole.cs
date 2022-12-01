@@ -3,7 +3,6 @@ using UnityEngine;
 public class KeyHole : InputLogic
 {
     private int changed;
-    protected Inventory inv;
     public string keyName;
     public Transform keyModel;
     
@@ -14,18 +13,14 @@ public class KeyHole : InputLogic
     {
         isActive = true;
         audioSource = GetComponent<AudioSource>();
-        inv = PlayerInstance.instance.GetComponent<Inventory>();
     }
 
     protected override void Behavior()
     {
-        if (inv.itemExists(keyName))
-        {
-            changed ^= 1;
-        }
+
     }
 
-    public override bool Interact()
+    public override bool Interact(Inventory inv)
     {
         Behavior(); // Call input behavior (implemented in extended class)
 

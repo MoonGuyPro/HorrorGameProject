@@ -9,7 +9,7 @@ public class ClickLog : Interactive
         m_AudioSource = GetComponent<AudioSource>();
     }
 
-    public override bool Interact()
+    public override bool Interact(Inventory inv)
     {
         m_AudioSource.Play();
         return true;

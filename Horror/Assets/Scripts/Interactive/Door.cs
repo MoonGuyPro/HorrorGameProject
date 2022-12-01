@@ -13,7 +13,7 @@ public class Door : Interactive
         animator.SetBool("Opened", opened);
     }
 
-    public override bool Interact()
+    public override bool Interact(Inventory inv)
     {
         // This will set the bool the opposite of what it is.
         opened = !opened;
