@@ -385,13 +385,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1103649090650544910, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1584484109021429471, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ff8bbd4d62482b54e8330bcdc0f0bcc7, type: 2}
+    - target: {fileID: 2419983979973431318, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: m_ClearFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3325394280552842106, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_Name
       value: NewPortal
+      objectReference: {fileID: 0}
+    - target: {fileID: 3468017776000147159, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6582303084592896096, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: linkedPortal
@@ -3141,7 +3157,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh87032
+  m_Name: pb_Mesh25060
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4878,13 +4894,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2045166409433378223, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3222809851561510840, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
       propertyPath: m_Name
       value: NewPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 3960541989542829343, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6110616150076437359, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
       propertyPath: m_RootOrder
@@ -4933,6 +4953,18 @@ PrefabInstance:
     - target: {fileID: 6425218733583701178, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6930158332524653814, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
+      propertyPath: m_ClearFlags
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7109698426188206299, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7109698426188206300, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
+      propertyPath: antialiasingMode
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
@@ -6655,6 +6687,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: ff8bbd4d62482b54e8330bcdc0f0bcc7, type: 2}
     - target: {fileID: 5504288338158790118, guid: 7e716b3c5715e3e419590f4bc4c2c358, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ff8bbd4d62482b54e8330bcdc0f0bcc7, type: 2}
+    - target: {fileID: 5504288339405081970, guid: 7e716b3c5715e3e419590f4bc4c2c358, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ff8bbd4d62482b54e8330bcdc0f0bcc7, type: 2}
