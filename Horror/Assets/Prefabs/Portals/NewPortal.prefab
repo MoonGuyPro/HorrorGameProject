@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 6450564008368463412}
   - component: {fileID: 7607094984904566123}
   - component: {fileID: 7560450736423485574}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,7 +197,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5683240049152540367
 Transform:
   m_ObjectHideFlags: 0
@@ -352,25 +352,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: New Portal Camera
       objectReference: {fileID: 0}
-    - target: {fileID: 3425643403160771016, guid: 1a98d9e9b7ba8eb4da2e178c30c3cfef, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3425643403160771016, guid: 1a98d9e9b7ba8eb4da2e178c30c3cfef, type: 3}
-      propertyPath: m_IsActive
+    - target: {fileID: 3425643403160771018, guid: 1a98d9e9b7ba8eb4da2e178c30c3cfef, type: 3}
+      propertyPath: m_Depth
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3425643403160771018, guid: 1a98d9e9b7ba8eb4da2e178c30c3cfef, type: 3}
-      propertyPath: m_Depth
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3425643403160771018, guid: 1a98d9e9b7ba8eb4da2e178c30c3cfef, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3425643403160771018, guid: 1a98d9e9b7ba8eb4da2e178c30c3cfef, type: 3}
       propertyPath: m_ClearFlags
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3425643403160771018, guid: 1a98d9e9b7ba8eb4da2e178c30c3cfef, type: 3}
       propertyPath: field of view
@@ -382,15 +370,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3425643403160771018, guid: 1a98d9e9b7ba8eb4da2e178c30c3cfef, type: 3}
       propertyPath: far clip plane
-      value: 1000
+      value: 85.6
       objectReference: {fileID: 0}
     - target: {fileID: 3425643403160771018, guid: 1a98d9e9b7ba8eb4da2e178c30c3cfef, type: 3}
       propertyPath: m_RenderingPath
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3425643403160771018, guid: 1a98d9e9b7ba8eb4da2e178c30c3cfef, type: 3}
       propertyPath: near clip plane
-      value: 0.3
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 3425643403160771018, guid: 1a98d9e9b7ba8eb4da2e178c30c3cfef, type: 3}
       propertyPath: m_BackGroundColor.b
@@ -404,25 +392,21 @@ PrefabInstance:
       propertyPath: m_BackGroundColor.r
       value: 0.19215687
       objectReference: {fileID: 0}
-    - target: {fileID: 3425643403160771018, guid: 1a98d9e9b7ba8eb4da2e178c30c3cfef, type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 631
-      objectReference: {fileID: 0}
     - target: {fileID: 3425643403160771019, guid: 1a98d9e9b7ba8eb4da2e178c30c3cfef, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3425643403160771019, guid: 1a98d9e9b7ba8eb4da2e178c30c3cfef, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -53.619247
       objectReference: {fileID: 0}
     - target: {fileID: 3425643403160771019, guid: 1a98d9e9b7ba8eb4da2e178c30c3cfef, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 5.02
       objectReference: {fileID: 0}
     - target: {fileID: 3425643403160771019, guid: 1a98d9e9b7ba8eb4da2e178c30c3cfef, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -52.76
       objectReference: {fileID: 0}
     - target: {fileID: 3425643403160771019, guid: 1a98d9e9b7ba8eb4da2e178c30c3cfef, type: 3}
       propertyPath: m_LocalRotation.w
@@ -451,10 +435,6 @@ PrefabInstance:
     - target: {fileID: 3425643403160771019, guid: 1a98d9e9b7ba8eb4da2e178c30c3cfef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3425643403160771021, guid: 1a98d9e9b7ba8eb4da2e178c30c3cfef, type: 3}
-      propertyPath: volumeLayer.m_Bits
-      value: 768
       objectReference: {fileID: 0}
     - target: {fileID: 3425643403160771022, guid: 1a98d9e9b7ba8eb4da2e178c30c3cfef, type: 3}
       propertyPath: replacementShader
@@ -540,12 +520,8 @@ PrefabInstance:
       value: cameraShaderObject
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 175ec7428aa1f5743b0dcc620f3e664e, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 175ec7428aa1f5743b0dcc620f3e664e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1151388028547126963, guid: 175ec7428aa1f5743b0dcc620f3e664e, type: 3}
       propertyPath: m_LocalScale.x
@@ -566,10 +542,6 @@ PrefabInstance:
     - target: {fileID: 1151388028547126963, guid: 175ec7428aa1f5743b0dcc620f3e664e, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.177
-      objectReference: {fileID: 0}
-    - target: {fileID: 8164078558771037576, guid: 175ec7428aa1f5743b0dcc620f3e664e, type: 3}
-      propertyPath: m_Layer
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8164078558771037576, guid: 175ec7428aa1f5743b0dcc620f3e664e, type: 3}
       propertyPath: m_IsActive
