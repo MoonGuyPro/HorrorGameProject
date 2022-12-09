@@ -32,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!193 &3941490529233458534
 Tree:
@@ -72,6 +72,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 5211787985527717269}
+  - {fileID: 2100000, guid: 79fa8988ad1838d4e96adc138f96bc17, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -383,17 +384,17 @@ MonoBehaviour:
     rootSpread: 3.42
     groundOffset: 0
     rootMatrix:
-      e00: 0.4222774
+      e00: 1
       e01: 0
-      e02: -0.90646666
+      e02: 0
       e03: 0
-      e10: -0
+      e10: 0
       e11: 1
       e12: 0
       e13: 0
-      e20: 0.90646666
+      e20: 0
       e21: 0
-      e22: 0.4222774
+      e22: 1
       e23: 0
       e30: 0
       e31: 0
@@ -757,17 +758,17 @@ MonoBehaviour:
     pitch: -0
     rotation: {x: 0, y: 0, z: 0, w: 1}
     matrix:
-      e00: 0.4222774
+      e00: 1
       e01: 0
-      e02: -0.90646666
+      e02: 0
       e03: 0
-      e10: -0
+      e10: 0
       e11: 1
       e12: 0
       e13: 0
-      e20: 0.90646666
+      e20: 0
       e21: 0
-      e22: 0.4222774
+      e22: 1
       e23: 0
       e30: 0
       e31: 0
@@ -14592,7 +14593,7 @@ Material:
     - _SquashAmount: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _SpecColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
     - _TreeInstanceColor: {r: 1, g: 1, b: 1, a: 1}
     - _TreeInstanceScale: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
@@ -14644,7 +14645,7 @@ Material:
     - _TranslucencyViewDependency: 0.7
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _TranslucencyColor: {r: 0.73, g: 0.85, b: 0.41, a: 1}
+    - _TranslucencyColor: {r: 0.7267135, g: 0.8396226, b: 0.43169275, a: 1}
     - _TreeInstanceColor: {r: 1, g: 1, b: 1, a: 1}
     - _TreeInstanceScale: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

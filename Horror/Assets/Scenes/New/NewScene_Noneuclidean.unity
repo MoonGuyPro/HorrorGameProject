@@ -27053,7 +27053,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2045166409433378223, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2166076011228788861, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
+      propertyPath: field of view
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2166076011228788863, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
+      propertyPath: m_TagString
+      value: MainCamera
       objectReference: {fileID: 0}
     - target: {fileID: 2274387955083655353, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
       propertyPath: m_Enabled
@@ -31512,14 +31520,14 @@ PrefabInstance:
     - target: {fileID: 3709014534531502077, guid: be01df1bcd44c3c40b9b26e1e2a20849, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 5211787985527717269, guid: be01df1bcd44c3c40b9b26e1e2a20849, type: 3}
+      objectReference: {fileID: 2100000, guid: ff8bbd4d62482b54e8330bcdc0f0bcc7, type: 2}
     - target: {fileID: 3709014534531502077, guid: be01df1bcd44c3c40b9b26e1e2a20849, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 5318978885198513787, guid: be01df1bcd44c3c40b9b26e1e2a20849, type: 3}
+      objectReference: {fileID: 2100000, guid: ff8bbd4d62482b54e8330bcdc0f0bcc7, type: 2}
     - target: {fileID: 3709014534531502077, guid: be01df1bcd44c3c40b9b26e1e2a20849, type: 3}
       propertyPath: m_SelectedEditorRenderState
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5883234565649016253, guid: be01df1bcd44c3c40b9b26e1e2a20849, type: 3}
       propertyPath: m_Name
@@ -31641,12 +31649,16 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3709014534531502077, guid: be01df1bcd44c3c40b9b26e1e2a20849, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 5211787985527717269, guid: be01df1bcd44c3c40b9b26e1e2a20849, type: 3}
+    - target: {fileID: 3709014534531502077, guid: be01df1bcd44c3c40b9b26e1e2a20849, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 5318978885198513787, guid: be01df1bcd44c3c40b9b26e1e2a20849, type: 3}
     - target: {fileID: 3709014534531502077, guid: be01df1bcd44c3c40b9b26e1e2a20849, type: 3}
       propertyPath: m_SelectedEditorRenderState
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5883234565649016253, guid: be01df1bcd44c3c40b9b26e1e2a20849, type: 3}
       propertyPath: m_Name
@@ -32986,7 +32998,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 79fa8988ad1838d4e96adc138f96bc17, type: 2}
+  - {fileID: 2100000, guid: ff8bbd4d62482b54e8330bcdc0f0bcc7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -40198,7 +40210,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh30400
+  m_Name: pb_Mesh30374
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -40479,7 +40491,7 @@ GameObject:
   - component: {fileID: 2145223597}
   - component: {fileID: 2145223596}
   - component: {fileID: 2145223595}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RainUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45410,6 +45422,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3709014534531502077, guid: be01df1bcd44c3c40b9b26e1e2a20849, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 5211787985527717269, guid: be01df1bcd44c3c40b9b26e1e2a20849, type: 3}
+    - target: {fileID: 3709014534531502077, guid: be01df1bcd44c3c40b9b26e1e2a20849, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 5318978885198513787, guid: be01df1bcd44c3c40b9b26e1e2a20849, type: 3}
@@ -45532,9 +45548,13 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7284015955842399661, guid: fb8264c5a79459e47a8a1ad0d811694b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ff8bbd4d62482b54e8330bcdc0f0bcc7, type: 2}
+    - target: {fileID: 7284015955842399661, guid: fb8264c5a79459e47a8a1ad0d811694b, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: -1974423284405681990, guid: fb8264c5a79459e47a8a1ad0d811694b, type: 3}
+      objectReference: {fileID: 2100000, guid: ff8bbd4d62482b54e8330bcdc0f0bcc7, type: 2}
     - target: {fileID: 7284015955842399661, guid: fb8264c5a79459e47a8a1ad0d811694b, type: 3}
       propertyPath: m_SelectedEditorRenderState
       value: 3
