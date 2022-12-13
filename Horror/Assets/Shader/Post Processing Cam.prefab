@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 376036903442634250}
   - component: {fileID: 376036903442634248}
   - component: {fileID: 376036903442634251}
-  - component: {fileID: 307727451263955998}
   m_Layer: 9
   m_Name: Post Processing Cam
-  m_TagString: MainCamera
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33,7 +32,7 @@ Transform:
   m_Children:
   - {fileID: 376036902386046029}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &376036903442634248
 Camera:
@@ -86,18 +85,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 376036903442634253}
   m_Enabled: 1
---- !u!114 &307727451263955998
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 376036903442634253}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dac7c064453f326478cff908e3ac9ba3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &3165404312835131459
 PrefabInstance:
   m_ObjectHideFlags: 0
