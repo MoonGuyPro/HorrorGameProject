@@ -35,8 +35,6 @@ public class FPSController : PortalTraveller {
     float lastGroundedTime;
     bool disabled;
 
-    private bool isWalking;
-
     // These events were created for audio triggering purposes.
     // Using this is much simpler then (as before) checking all parameters in Update()
     [SerializeField] 
@@ -86,15 +84,12 @@ public class FPSController : PortalTraveller {
         float currentSpeed = (Input.GetKey (KeyCode.LeftShift)) ? runSpeed : walkSpeed;
         Vector3 targetVelocity = worldInputDir * currentSpeed;
         velocity = Vector3.SmoothDamp (velocity, targetVelocity, ref smoothV, smoothMoveTime);
-        if (velocity.magnitude > 1f && jumping == false && !isWalking) {
-            print("invoking OnWalking");
+        if (velocity.magnitude > 1f && jumping == false) 
+        {
             OnWalking.Invoke();
-            isWalking = true;
         } else if (velocity.magnitude < 1f || jumping)
         {
-            print("invoking StopWalking");
             OnStopWalking.Invoke();
-            isWalking = false;
         }
 
         verticalVelocity -= gravity * Time.deltaTime;

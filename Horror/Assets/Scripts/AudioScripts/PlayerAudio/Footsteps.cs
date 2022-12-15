@@ -37,7 +37,6 @@ public class Footsteps : MonoBehaviour
     {
         while (true)
         {
-            print("playing footsteps");
             FMODUnity.RuntimeManager.PlayOneShot(footstepEvent);
             isPlaying = true;
             yield return new WaitForSeconds(footstepInterval); 
