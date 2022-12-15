@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class FPSController : PortalTraveller {
 
@@ -33,6 +34,18 @@ public class FPSController : PortalTraveller {
     bool jumping;
     float lastGroundedTime;
     bool disabled;
+
+    private bool isWalking;
+
+    // These events were created for audio triggering purposes.
+    // Using this is much simpler then (as before) checking all parameters in Update()
+    [SerializeField] 
+    private UnityEvent OnWalking;
+    // this event will trigger on stopping or jumping. Just to stop the footsteps playback.
+    // possible later split into two events stop and jump.
+    [SerializeField]
+    private UnityEvent OnStopWalking;
+
 
     void Start () {
         cam = Camera.main;
@@ -73,6 +86,16 @@ public class FPSController : PortalTraveller {
         float currentSpeed = (Input.GetKey (KeyCode.LeftShift)) ? runSpeed : walkSpeed;
         Vector3 targetVelocity = worldInputDir * currentSpeed;
         velocity = Vector3.SmoothDamp (velocity, targetVelocity, ref smoothV, smoothMoveTime);
+        if (velocity.magnitude > 1f && jumping == false && !isWalking) {
+            print("invoking OnWalking");
+            OnWalking.Invoke();
+            isWalking = true;
+        } else if (velocity.magnitude < 1f || jumping)
+        {
+            print("invoking StopWalking");
+            OnStopWalking.Invoke();
+            isWalking = false;
+        }
 
         verticalVelocity -= gravity * Time.deltaTime;
         velocity = new Vector3 (velocity.x, verticalVelocity, velocity.z);
@@ -108,8 +131,8 @@ public class FPSController : PortalTraveller {
         smoothPitch = Mathf.SmoothDampAngle (smoothPitch, pitch, ref pitchSmoothV, rotationSmoothTime);
         smoothYaw = Mathf.SmoothDampAngle (smoothYaw, yaw, ref yawSmoothV, rotationSmoothTime);
 
-        transform.eulerAngles = Vector3.up * smoothYaw;
-        cam.transform.localEulerAngles = Vector3.right * smoothPitch;
+        transform.eulerAngles = Vector3.up * yaw;
+        cam.transform.localEulerAngles = Vector3.right * pitch;
 
     }
 

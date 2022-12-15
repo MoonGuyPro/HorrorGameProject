@@ -8,73 +8,46 @@ using UnityEngine.Serialization;
 public class Footsteps : MonoBehaviour
 {
     [Header("Footsteps")]
-    [SerializeField] GameObject player;
-    
+
     [FormerlySerializedAs("walkingSpeed")]
     [Tooltip("Interval between footsteps in seconds. 0.5 = 2 steps per second")]
-    [SerializeField] float footstepInterval  = 0.7f;
-    PlayerMovement pm;
+    [SerializeField] float footstepInterval = 0.7f;
+    
+    [SerializeField, Tooltip("Audio event for footstep sounds.")]
+    private FMODUnity.EventReference footstepEvent;
 
-    public List<AudioSource> footsteps;
-
-    private bool isPlaying;
-    private IEnumerator coroutine;
+    private bool isPlaying = false;
+    private IEnumerator footstepsCoroutine;
 
     // Start is called before the first frame update
     void Start()
     {
-        pm = player.GetComponent<PlayerMovement>();
-        isPlaying = false;
-        AudioSource[] temp = player.GetComponents<AudioSource>();
-        foreach (AudioSource aS in temp)
-        {
-            footsteps.Add(aS);
-        }        
-        // we're removing all other audio sources because they are not footsteps (how clips are handled here will be changed in the future)
-        for (int i = footsteps.Count - 1; i > 3; i--)
-        {
-            footsteps.Remove(footsteps[i]);
-        }
-        foreach (AudioSource aS in footsteps)
-        {
-            aS.volume = 0.6f;
-        }
-
-        coroutine = playFootsteps(footstepInterval);
+        footstepsCoroutine = playFootsteps();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void StartFootstepsCoroutine()
     {
-        // if we're standing on the ground AND the footsteps are not already playing
-        // AND we're moving in any direction, play footsteps
-        if (pm.grounded && !isPlaying && (pm.rb.velocity.sqrMagnitude > 10))
+        if (!isPlaying)
         {
-            StartCoroutine(coroutine);    
-        }
-        // if we're jumping or are not moving, dont play footsteps
-        if (!pm.grounded || (pm.rb.velocity.sqrMagnitude < 10))
-        {
-            if (isPlaying)
-            {
-                stopFootsteps();
-            } 
+            StartCoroutine(footstepsCoroutine); 
         }
     }
     
-    private IEnumerator playFootsteps(float interval)
+    public IEnumerator playFootsteps()
     {
         while (true)
         {
-            footsteps[Random.Range(0, 4)].Play();
+            print("playing footsteps");
+            FMODUnity.RuntimeManager.PlayOneShot(footstepEvent);
             isPlaying = true;
             yield return new WaitForSeconds(footstepInterval); 
         }
+
     }
 
-    private void stopFootsteps()
+    public void StopFootstepsCoroutine()
     {
         isPlaying = false;
-        StopCoroutine(coroutine);
+        StopCoroutine(footstepsCoroutine);
     }
 }
