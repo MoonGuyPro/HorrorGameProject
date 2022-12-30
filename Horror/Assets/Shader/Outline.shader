@@ -67,14 +67,14 @@ Shader "Hidden/Roystan/Outline Post Process"
 			#endif
 
 				o.texcoordStereo = TransformStereoScreenSpaceTex(o.texcoord, 1.0);
-
+				
 				return o;
 			}
 
 			float4 Frag(Varyings i) : SV_Target
 			{
-				float halfScaleFloor = floor(1 * 0.5);
-				float halfScaleCeil = ceil(1 * 0.5);
+				float halfScaleFloor = floor(_Scale * 0.5);
+				float halfScaleCeil = ceil(_Scale * 0.5);
 
 				float ScaleFloor = floor(_Scale);
 				float ScaleCeil = floor(_Scale);
@@ -101,7 +101,7 @@ Shader "Hidden/Roystan/Outline Post Process"
 
 				float depthFiniteDifference0 = depth1 - depth0;
 				float depthFiniteDifference1 = depth3 - depth2;
-
+				
 				float depthFiniteDifference2 = depth5 - depth4;
 				float depthFiniteDifference3 = depth7 - depth6;
 		
@@ -109,7 +109,7 @@ Shader "Hidden/Roystan/Outline Post Process"
 				float3 normal1 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, topRightUV).rgb;
 				float3 normal2 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, bottomRightUV).rgb;
 				float3 normal3 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, topLeftUV).rgb;
-
+				
 				float3 normalFiniteDifference0 = normal1 - normal0;
 				float3 normalFiniteDifference1 = normal3 - normal2;
 
@@ -119,7 +119,7 @@ Shader "Hidden/Roystan/Outline Post Process"
 				float3 normalColor = sqrt(pow(normalFiniteDifference0, 2) + pow(normalFiniteDifference1, 2));
 				float normalEdge = sqrt(pow(normalFiniteDifference0, 2) + pow(normalFiniteDifference1, 2)).g;
 
-				float depthEdge = sqrt(pow(depthFiniteDifference0, 2) + pow(depthFiniteDifference1, 2)).r;
+				float depthEdge = sqrt(pow(depthFiniteDifference2, 2) + pow(depthFiniteDifference3, 2)).r;
 				float depthEdgeDouble = sqrt(pow(depthFiniteDifference2, 2) + pow(depthFiniteDifference3, 2)).r;
 				
 				//normalEdge = normalEdge > 0.01 ? 1 : 0;
@@ -129,25 +129,29 @@ Shader "Hidden/Roystan/Outline Post Process"
 				float depth = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, sampler_CameraDepthTexture, i.texcoord).r;
 
 				// These are... idk but I need this xD
-				float tooMuch = depthEdge > 0.0003 ? 1 : 0;
-				float h =  normalColor.r * normalColor.g * normalColor.b * 1000;
+				float h =  normalColor.r * normalColor.g * normalColor.b * 500;
 				float sus = max(normalColor.r, max(normalColor.g, normalColor.b));
-				sus *= sqrt(depth) * 5;
-				float bruh = depthEdge * 5000;
-				bruh = bruh < 1 ? sqrt(bruh) * 0.5 : 1;
+				float normalSum = normalColor.r + normalColor.g + normalColor.b;
+				
+				// ADOIASJDPOIASJDIOPASJDPOISOIPDJAD
+				
+				sus = sus > 0.05 ? sus : 0;
+				
+				//sus = sus > 0 ? sus * pow(depth, 2) * 6000 : 0;
+				
 
+				color *= clamp(pow(depth, 1.7) * 2000, 0, 0.5);
+				
+				float4 colorEdge = sus * color * 4;
+				//float4 weirdEdge = sus * float4(normalColor, 1) * 0.2;
+				
+				return colorEdge;
 				
 				/* CHOOSE YOUR WARRIOR HERE!!! */
-
-				//return float4(normalColor, 1);
 				
 				// Prob best one
-				return sus * clamp(color * 0.7 + float4(normalColor, 1) * 0.3, 0, 1) * 1.5;
+				return clamp(sus * 0.1, 0, 0.1) * 10 * clamp(color * 0.7 + float4(normalColor, 1) * 0.3, 0, 1);
 
-				// ... and with colored faces
-				//return (sus + 0.06) * clamp(color * 0.7 + float4(normalColor, 1) * 0.3, 0, 2) * 1.5;
-
-				
 				// Like best, but more filled
 				//sus *= sqrt(depth) * 100;
 				//return clamp(sus * 0.1, 0, 0.1) * 10 * clamp(color * 0.7 + float4(normalColor, 1) * 0.3, 0, 1);
