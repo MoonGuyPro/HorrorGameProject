@@ -1,38 +1,36 @@
 ﻿
 using System;
+using System.IO;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
 [Serializable]
-[PostProcess(typeof(PostProcessOutlineRenderer), PostProcessEvent.BeforeStack, "Roystan/Post Process Outline")]
+[PostProcess(typeof(PostProcessOutlineRenderer), PostProcessEvent.BeforeStack, "Post Process Outline")]
 public sealed class PostProcessOutline : PostProcessEffectSettings
 {
     // Add to the PostProcessOutline class.
     public IntParameter scale = new IntParameter { value = 1 };
-    public FloatParameter depthThreshold = new FloatParameter { value = 1.5f };
-    [Range(0, 1)]
-    public FloatParameter normalThreshold = new FloatParameter { value = 0.4f };
-    [Range(0, 1)]
-    public FloatParameter depthNormalThreshold = new FloatParameter { value = 0.5f };
-    public FloatParameter depthNormalThresholdScale = new FloatParameter { value = 7 };
-    public ColorParameter color = new ColorParameter { value = Color.white };
+    public FloatParameter lowCutOff = new FloatParameter { value = 0.08f };
+    public FloatParameter fadeOutPower = new FloatParameter { value = 1.7f };
+    public FloatParameter fadeOutDistance = new FloatParameter { value = 2000f };
+    public FloatParameter brightnessClamp = new FloatParameter { value = 0.5f };
+    public FloatParameter brightnessScale = new FloatParameter { value = 2f };
 }
 
 public sealed class PostProcessOutlineRenderer : PostProcessEffectRenderer<PostProcessOutline>
 {
     public override void Render(PostProcessRenderContext context)
     {
-        var sheet = context.propertySheets.Get(Shader.Find("Hidden/Roystan/Outline Post Process"));
+        var sheet = context.propertySheets.Get(Shader.Find("Hidden/Outline Post Process"));
         // Add to the Render method in the PostProcessOutlineRenderer class, just below var sheet declaration.
         sheet.properties.SetFloat("_Scale", settings.scale);
-        sheet.properties.SetFloat("_DepthThreshold", settings.depthThreshold);
-        sheet.properties.SetFloat("_NormalThreshold", settings.normalThreshold);
         Matrix4x4 clipToView = GL.GetGPUProjectionMatrix(context.camera.projectionMatrix, true).inverse;
         sheet.properties.SetMatrix("_ClipToView", clipToView);
-        sheet.properties.SetFloat("_DepthNormalThreshold", settings.depthNormalThreshold);
-        sheet.properties.SetFloat("_DepthNormalThresholdScale", settings.depthNormalThresholdScale);
-        sheet.properties.SetColor("_Color", settings.color);
         context.command.BlitFullscreenTriangle(context.source, context.destination, sheet, 0);
-    
+        sheet.properties.SetFloat("_LowCutOff", settings.lowCutOff);
+        sheet.properties.SetFloat("_FadeOutPower", settings.fadeOutPower);
+        sheet.properties.SetFloat("_FadeOutDistance", settings.fadeOutDistance);
+        sheet.properties.SetFloat("_BrightnessClamp", settings.brightnessClamp);
+        sheet.properties.SetFloat("_BrightnessScale", settings.brightnessScale);
     }
 }
