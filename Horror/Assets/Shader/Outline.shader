@@ -73,8 +73,8 @@ Shader "Hidden/Roystan/Outline Post Process"
 
 			float4 Frag(Varyings i) : SV_Target
 			{
-				float halfScaleFloor = floor(_Scale * 0.5);
-				float halfScaleCeil = ceil(_Scale * 0.5);
+				float halfScaleFloor = floor(1 * 0.5);
+				float halfScaleCeil = ceil(1 * 0.5);
 
 				float ScaleFloor = floor(_Scale);
 				float ScaleCeil = floor(_Scale);
@@ -129,14 +129,25 @@ Shader "Hidden/Roystan/Outline Post Process"
 				float depth = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, sampler_CameraDepthTexture, i.texcoord).r;
 
 				// These are... idk but I need this xD
+				float tooMuch = depthEdge > 0.0003 ? 1 : 0;
 				float h =  normalColor.r * normalColor.g * normalColor.b * 1000;
 				float sus = max(normalColor.r, max(normalColor.g, normalColor.b));
+				sus *= sqrt(depth) * 5;
+				float bruh = depthEdge * 5000;
+				bruh = bruh < 1 ? sqrt(bruh) * 0.5 : 1;
+
 				
 				/* CHOOSE YOUR WARRIOR HERE!!! */
+
+				//return float4(normalColor, 1);
 				
 				// Prob best one
-				return clamp(sus * 0.1, 0, 0.1) * 10 * clamp(color * 0.7 + float4(normalColor, 1) * 0.3, 0, 1);
+				return sus * clamp(color * 0.7 + float4(normalColor, 1) * 0.3, 0, 1) * 1.5;
 
+				// ... and with colored faces
+				//return (sus + 0.06) * clamp(color * 0.7 + float4(normalColor, 1) * 0.3, 0, 2) * 1.5;
+
+				
 				// Like best, but more filled
 				//sus *= sqrt(depth) * 100;
 				//return clamp(sus * 0.1, 0, 0.1) * 10 * clamp(color * 0.7 + float4(normalColor, 1) * 0.3, 0, 1);
