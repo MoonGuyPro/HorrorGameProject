@@ -76,18 +76,34 @@ Shader "Hidden/Roystan/Outline Post Process"
 				float halfScaleFloor = floor(_Scale * 0.5);
 				float halfScaleCeil = ceil(_Scale * 0.5);
 
+				float ScaleFloor = floor(_Scale);
+				float ScaleCeil = floor(_Scale);
+
 				float2 bottomLeftUV = i.texcoord - float2(_MainTex_TexelSize.x, _MainTex_TexelSize.y) * halfScaleFloor;
 				float2 topRightUV = i.texcoord + float2(_MainTex_TexelSize.x, _MainTex_TexelSize.y) * halfScaleCeil;
 				float2 bottomRightUV = i.texcoord + float2(_MainTex_TexelSize.x * halfScaleCeil, -_MainTex_TexelSize.y * halfScaleFloor);
 				float2 topLeftUV = i.texcoord + float2(-_MainTex_TexelSize.x * halfScaleFloor, _MainTex_TexelSize.y * halfScaleCeil);
 
+				float2 bottomLeftUVDouble = i.texcoord - float2(_MainTex_TexelSize.x, _MainTex_TexelSize.y) * halfScaleFloor;
+				float2 topRightUVDouble = i.texcoord + float2(_MainTex_TexelSize.x, _MainTex_TexelSize.y) * halfScaleCeil;
+				float2 bottomRightUVDouble = i.texcoord + float2(_MainTex_TexelSize.x * halfScaleCeil, -_MainTex_TexelSize.y * halfScaleFloor);
+				float2 topLeftUVDouble = i.texcoord + float2(-_MainTex_TexelSize.x * halfScaleFloor, _MainTex_TexelSize.y * halfScaleCeil);
+				
 				float depth0 = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, sampler_CameraDepthTexture, bottomLeftUV).r;
 				float depth1 = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, sampler_CameraDepthTexture, topRightUV).r;
 				float depth2 = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, sampler_CameraDepthTexture, bottomRightUV).r;
 				float depth3 = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, sampler_CameraDepthTexture, topLeftUV).r;
 
+				float depth4 = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, sampler_CameraDepthTexture, bottomLeftUVDouble).r;
+				float depth5 = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, sampler_CameraDepthTexture, topRightUVDouble).r;
+				float depth6 = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, sampler_CameraDepthTexture, bottomRightUVDouble).r;
+				float depth7 = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, sampler_CameraDepthTexture, topLeftUVDouble).r;
+
 				float depthFiniteDifference0 = depth1 - depth0;
 				float depthFiniteDifference1 = depth3 - depth2;
+
+				float depthFiniteDifference2 = depth5 - depth4;
+				float depthFiniteDifference3 = depth7 - depth6;
 		
 				float3 normal0 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, bottomLeftUV).rgb;
 				float3 normal1 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, topRightUV).rgb;
@@ -97,7 +113,61 @@ Shader "Hidden/Roystan/Outline Post Process"
 				float3 normalFiniteDifference0 = normal1 - normal0;
 				float3 normalFiniteDifference1 = normal3 - normal2;
 
-				float3 viewNormal = normal0 * 2 - 1;
+
+				//return SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, i.texcoord).b;
+				//return float4(normalFiniteDifference0, 1);
+				float3 normalColor = sqrt(pow(normalFiniteDifference0, 2) + pow(normalFiniteDifference1, 2));
+				float normalEdge = sqrt(pow(normalFiniteDifference0, 2) + pow(normalFiniteDifference1, 2)).g;
+
+				float depthEdge = sqrt(pow(depthFiniteDifference0, 2) + pow(depthFiniteDifference1, 2)).r;
+				float depthEdgeDouble = sqrt(pow(depthFiniteDifference2, 2) + pow(depthFiniteDifference3, 2)).r;
+				
+				//normalEdge = normalEdge > 0.01 ? 1 : 0;
+				
+				float4 color = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.texcoord);
+				
+				float depth = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, sampler_CameraDepthTexture, i.texcoord).r;
+
+				// These are... idk but I need this xD
+				float h =  normalColor.r * normalColor.g * normalColor.b * 1000;
+				float sus = max(normalColor.r, max(normalColor.g, normalColor.b));
+				
+				/* CHOOSE YOUR WARRIOR HERE!!! */
+				
+				// Prob best one
+				return clamp(sus * 0.1, 0, 0.1) * 10 * clamp(color * 0.7 + float4(normalColor, 1) * 0.3, 0, 1);
+
+				// Like best, but more filled
+				//sus *= sqrt(depth) * 100;
+				//return clamp(sus * 0.1, 0, 0.1) * 10 * clamp(color * 0.7 + float4(normalColor, 1) * 0.3, 0, 1);
+				
+				// Calmer edges from normals
+				//return max(normalColor.r, max(normalColor.g, normalColor.b)) * clamp(color, 0, 1);
+				
+				// Cool gray
+				//return sqrt(depthEdge) * 30;
+
+				// Colored normals edges
+				//return float4(normalColor.rgb, 1) * clamp(color, 0, 3);
+
+				// Just edges from normals
+				//return min(h, 1) * color;
+				
+				// ... and with faces
+				//return clamp(h, 0.05, 1) * color;
+
+				// Same but without GLOW
+				//return min(h, 1) * clamp(color, 0, 1);
+				//return clamp(h, 0.12, 1) * clamp(color, 0, 1);
+				
+				/* END OF WARRIORS */
+
+				/*  |
+				 *	|  We needn't it rn lol
+				 *	V
+				 */
+
+				/*float3 viewNormal = normal0 * 2 - 1;
 				float NdotV = 1 - dot(viewNormal, -i.viewSpaceDir);
 				float normalThreshold01 = saturate((NdotV - _DepthNormalThreshold) / (1 - _DepthNormalThreshold));
 				float normalThreshold = normalThreshold01 * _DepthNormalThresholdScale + 1;
@@ -110,17 +180,17 @@ Shader "Hidden/Roystan/Outline Post Process"
 				edgeNormal = edgeNormal > _NormalThreshold ? 1 : 0;
 
 				float edge = max(edgeDepth, edgeNormal);
-				float4 color = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.texcoord);
+				//float4 color = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.texcoord);
 
 				float4 edgeColor = float4(color.rgb, color.a * edge);
 
 				float4 black = float4(0.0, 0.0, 0.0, 1.0);
 				float4 red = float4(1.0, 0.0, 0.0, 1.0);
-
+				
 				if (edgeColor.r != 1.0f && edgeColor.g != 1.0f && edgeColor.b != 1.0f)
 					return alphaBlend(edgeColor, black);
 				else
-					return edge;
+					return edge;*/
 			}
 			ENDHLSL
 		}
