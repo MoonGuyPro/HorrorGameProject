@@ -8,21 +8,24 @@ public class Portal : MonoBehaviour {
     public Portal linkedPortal;
     public MeshRenderer screen;
     public int recursionLimit = 5;
-    [FormerlySerializedAs("shaderCamera")] public Camera shaderCam;
-
+    public Camera shaderCam;
+    public RenderReplacementShaderToTexture renderReplacement;
+    
     [Header ("Advanced Settings")]
     public float nearClipOffset = 0.05f;
     public float nearClipLimit = 0.2f;
-
+    
     // Private variables
     RenderTexture viewTexture;
     Camera portalCam;
     Camera playerCam;
+    Camera normalCam;
     Material firstRecursionMat;
     List<PortalTraveller> trackedTravellers;
     MeshFilter screenMeshFilter;
 
-    void Awake () {
+    void Awake ()
+    {
         playerCam = Camera.main;
         portalCam = GetComponentInChildren<Camera> ();
         portalCam.enabled = false;
@@ -113,7 +116,9 @@ public class Portal : MonoBehaviour {
             portalCam.transform.SetPositionAndRotation (renderPositions[i], renderRotations[i]);
             SetNearClipPlane ();
             HandleClipping ();
-            portalCam.Render ();
+            
+            renderReplacement.RenderNormals();
+            portalCam.Render();
             shaderCam.Render();
 
             if (i == startIndex) {

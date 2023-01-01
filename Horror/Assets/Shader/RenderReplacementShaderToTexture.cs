@@ -23,7 +23,8 @@ public class RenderReplacementShaderToTexture : MonoBehaviour
     [SerializeField]
     string targetTexture = "_RenderTexture";
 
-    private RenderTexture renderTexture;
+    [HideInInspector]
+    RenderTexture renderTexture;
     private new Camera camera;
 
     private void Start()
@@ -38,7 +39,9 @@ public class RenderReplacementShaderToTexture : MonoBehaviour
         // Create a render texture matching the main camera's current dimensions.
         renderTexture = new RenderTexture(thisCamera.pixelWidth, thisCamera.pixelHeight, renderTextureDepth, renderTextureFormat);
         renderTexture.filterMode = filterMode;
+
         // Surface the render texture as a global variable, available to all shaders.
+        Debug.Log(targetTexture);
         Shader.SetGlobalTexture(targetTexture, renderTexture);
 
         // Setup a copy of the camera to render the scene using the normals shader.
@@ -52,4 +55,14 @@ public class RenderReplacementShaderToTexture : MonoBehaviour
         camera.clearFlags = cameraClearFlags;
         camera.backgroundColor = background;
     }
+
+    // Render normals and pass to uniform
+    public void RenderNormals()
+    {
+        camera.Render();
+        Shader.SetGlobalTexture(targetTexture, renderTexture);
+    }
+        
 }
+
+

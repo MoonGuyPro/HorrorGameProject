@@ -310,6 +310,7 @@ MonoBehaviour:
   screen: {fileID: 7560450736423485574}
   recursionLimit: 2
   shaderCam: {fileID: 3196418830659105523}
+  renderReplacement: {fileID: 3196418830659105527}
   nearClipOffset: 0.05
   nearClipLimit: 0.2
 --- !u!65 &2297301254188097832
@@ -349,6 +350,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 5683240049152540367}
     m_Modifications:
+    - target: {fileID: 3376070113570561035, guid: 0365c51cc84e1cb479a922c7e4aad432, type: 3}
+      propertyPath: portal
+      value: 
+      objectReference: {fileID: 6582303084592896096}
     - target: {fileID: 3376070113570561035, guid: 0365c51cc84e1cb479a922c7e4aad432, type: 3}
       propertyPath: background.b
       value: 1
@@ -444,6 +449,17 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 3376070113570561039, guid: 0365c51cc84e1cb479a922c7e4aad432, type: 3}
   m_PrefabInstance: {fileID: 180636687282581244}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3196418830659105527 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3376070113570561035, guid: 0365c51cc84e1cb479a922c7e4aad432, type: 3}
+  m_PrefabInstance: {fileID: 180636687282581244}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1bfd321ce657e749a92d9bad49d3560, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5850885827497351220
 PrefabInstance:
   m_ObjectHideFlags: 0

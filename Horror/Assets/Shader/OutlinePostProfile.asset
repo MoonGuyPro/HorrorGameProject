@@ -33,18 +33,18 @@ MonoBehaviour:
   scale:
     overrideState: 0
     value: 1
-  depthThreshold:
-    overrideState: 1
-    value: 2.47
-  normalThreshold:
+  lowCutOff:
     overrideState: 0
-    value: 0.104
-  depthNormalThreshold:
+    value: 0.08
+  fadeOutPower:
     overrideState: 0
-    value: 0.397
-  depthNormalThresholdScale:
+    value: 1.7
+  fadeOutDistance:
     overrideState: 0
-    value: -97.7
-  color:
+    value: 2000
+  brightnessClamp:
     overrideState: 0
-    value: {r: 0.514181, g: 1, b: 0, a: 1}
+    value: 0.5
+  brightnessScale:
+    overrideState: 0
+    value: 2
