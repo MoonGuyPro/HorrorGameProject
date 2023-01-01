@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Portal : MonoBehaviour {
     [Header ("Main Settings")]
     public Portal linkedPortal;
     public MeshRenderer screen;
     public int recursionLimit = 5;
+    [FormerlySerializedAs("shaderCamera")] public Camera shaderCam;
 
     [Header ("Advanced Settings")]
     public float nearClipOffset = 0.05f;
@@ -86,6 +88,7 @@ public class Portal : MonoBehaviour {
 
         int startIndex = 0;
         portalCam.projectionMatrix = playerCam.projectionMatrix;
+        shaderCam.projectionMatrix = playerCam.projectionMatrix;
         for (int i = 0; i < recursionLimit; i++) {
             if (i > 0) {
                 // No need for recursive rendering if linked portal is not visible through this portal
@@ -111,6 +114,7 @@ public class Portal : MonoBehaviour {
             SetNearClipPlane ();
             HandleClipping ();
             portalCam.Render ();
+            shaderCam.Render();
 
             if (i == startIndex) {
                 linkedPortal.screen.material.SetInt ("displayMask", 1);
@@ -190,6 +194,7 @@ public class Portal : MonoBehaviour {
             viewTexture = new RenderTexture (Screen.width, Screen.height, 0);
             // Render the view from the portal camera to the view texture
             portalCam.targetTexture = viewTexture;
+            shaderCam.targetTexture = viewTexture;
             // Display the view texture on the screen of the linked portal
             linkedPortal.screen.material.SetTexture ("_MainTex", viewTexture);
         }
@@ -266,8 +271,10 @@ public class Portal : MonoBehaviour {
             // Update projection based on new clip plane
             // Calculate matrix with player cam so that player camera settings (fov, etc) are used
             portalCam.projectionMatrix = playerCam.CalculateObliqueMatrix (clipPlaneCameraSpace);
+            shaderCam.projectionMatrix = playerCam.CalculateObliqueMatrix (clipPlaneCameraSpace);
         } else {
             portalCam.projectionMatrix = playerCam.projectionMatrix;
+            shaderCam.projectionMatrix = playerCam.projectionMatrix;
         }
     }
 
