@@ -105,7 +105,8 @@ Shader "Hidden/Outline Post Process"
 				edgeValue = edgeValue > _LowCutOff ? edgeValue : 0;
 
 				// Decrease color at distance using depth buffor
-				color *= clamp(pow(depth, _FadeOutPower) * _FadeOutDistance, 0, 0.5);
+				// Krystian here - 
+				//color *= clamp(pow(depth, _FadeOutPower) * _FadeOutDistance, 0, 0.5);
 				
 				// Mix edge with color for output
 				color = clamp(color, 0, _BrightnessClamp);

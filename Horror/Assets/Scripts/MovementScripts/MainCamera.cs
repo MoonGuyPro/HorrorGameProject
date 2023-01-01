@@ -18,16 +18,17 @@ public class MainCamera : MonoBehaviour {
         for (int i = 0; i < portals.Length; i++) {
             portals[i].PrePortalRender ();
         }
+        
         for (int i = 0; i < portals.Length; i++) {
             portals[i].Render ();
         }
         
-        //renderReplacement.RenderNormals();
 
         for (int i = 0; i < portals.Length; i++) {
             portals[i].PostPortalRender ();
         }
 
+        renderReplacement.RenderNormals();
     }
 
 }
