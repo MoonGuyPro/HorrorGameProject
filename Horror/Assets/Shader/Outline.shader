@@ -104,8 +104,9 @@ Shader "Hidden/Outline Post Process"
 				// Cut off very low values
 				edgeValue = edgeValue > _LowCutOff ? edgeValue : 0;
 
+				// Krystian here - this is actually a terrible idea, because it gives away where portals are
 				// Decrease color at distance using depth buffor
-				color *= clamp(pow(depth, _FadeOutPower) * _FadeOutDistance, 0, 0.5);
+				//color *= clamp(pow(depth, _FadeOutPower) * _FadeOutDistance, 0, 0.5);
 				
 				// Mix edge with color for output
 				color = clamp(color, 0, _BrightnessClamp);
