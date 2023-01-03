@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayLevel1() 
     {
-       SceneManager.LoadScene("EasyMechanics");
+       SceneManager.LoadScene("NewScene_Noneuclidean");
     }
 
     public void PlayLevel2() 
