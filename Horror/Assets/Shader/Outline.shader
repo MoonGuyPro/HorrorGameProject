@@ -1,4 +1,4 @@
-Shader "Hidden/Outline Post Process"
+Shader "Hidden/Roystan/Post Process Outline"
 {
     SubShader
     {

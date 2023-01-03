@@ -21,7 +21,7 @@ public sealed class PostProcessOutlineRenderer : PostProcessEffectRenderer<PostP
 {
     public override void Render(PostProcessRenderContext context)
     {
-        var sheet = context.propertySheets.Get(Shader.Find("Hidden/Outline Post Process"));
+        var sheet = context.propertySheets.Get(Shader.Find("Hidden/Roystan/Post Process Outline"));
         // Add to the Render method in the PostProcessOutlineRenderer class, just below var sheet declaration.
         sheet.properties.SetFloat("_Scale", settings.scale);
         Matrix4x4 clipToView = GL.GetGPUProjectionMatrix(context.camera.projectionMatrix, true).inverse;
