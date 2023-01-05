@@ -28,7 +28,7 @@ public class MainCamera : MonoBehaviour {
             portals[i].PostPortalRender ();
         }
 
-        renderReplacement.RenderNormals();
+        //renderReplacement.RenderNormals();
     }
 
 }
