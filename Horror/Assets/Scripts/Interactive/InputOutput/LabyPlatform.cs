@@ -12,11 +12,14 @@ public class LabyPlatform : OutputLogic
     public float spinAngle = 180;
     [Tooltip("Enable spin when scaling platform")] 
     public bool bEnableSpin = true;
-
+    [Tooltip("Platform appears only when activated")] 
+    public bool bOnlyActivated = false;
+    
     public Transform player;
 
     private float defaultHeight ;
     private float defaultWidth ;
+    private float defaultAngle;
     private float currentScale = 1;
     private bool bScaling = true;
 
@@ -27,12 +30,13 @@ public class LabyPlatform : OutputLogic
         var localScale = transform.localScale;
         defaultHeight = localScale.y;
         defaultWidth = localScale.x;
+        defaultAngle = transform.rotation.y;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (bScaling)
+        if (bScaling && !bOnlyActivated)
         {
             float distance = (transform.position - player.position).magnitude;
         
@@ -42,7 +46,7 @@ public class LabyPlatform : OutputLogic
             if(bEnableSpin)
             {
                 float angle = currentScale / 1 * spinAngle;
-                transform.rotation = Quaternion.Euler(Vector3.up * angle);
+                transform.rotation = Quaternion.Euler(Vector3.up * (angle + defaultAngle));
             }
         }
         else
@@ -52,7 +56,7 @@ public class LabyPlatform : OutputLogic
             if(bEnableSpin)
             {
                 float angle = currentScale / 1 * spinAngle;
-                transform.rotation = Quaternion.Euler(Vector3.up * angle);
+                transform.rotation = Quaternion.Euler(Vector3.up * (angle + defaultAngle));
             }
         }
     }

@@ -17,6 +17,7 @@ public class ProximityPlatform : MonoBehaviour
 
     private float defaultHeight ;
     private float defaultWidth ;
+    private float defaultAngle;
     private float currentScale = 1;
 
     // Start is called before the first frame update
@@ -25,6 +26,7 @@ public class ProximityPlatform : MonoBehaviour
         var localScale = transform.localScale;
         defaultHeight = localScale.y;
         defaultWidth = localScale.x;
+        //defaultAngle = transform.localRotation.y;
     }
 
     // Update is called once per frame
@@ -38,7 +40,7 @@ public class ProximityPlatform : MonoBehaviour
         if(bEnableSpin)
         {
             float angle = currentScale / 1 * spinAngle;
-            transform.rotation = Quaternion.Euler(Vector3.up * angle);
+            transform.localRotation = Quaternion.Euler(Vector3.up * angle);
         }
     }
 
