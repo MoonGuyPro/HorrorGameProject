@@ -21,7 +21,7 @@ public class LabyPath : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         float distance = (transform.position - player.position).magnitude;
         if (distance >= maxRange)
