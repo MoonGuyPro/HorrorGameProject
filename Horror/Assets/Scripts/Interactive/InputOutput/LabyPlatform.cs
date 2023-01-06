@@ -46,18 +46,23 @@ public class LabyPlatform : OutputLogic
             if(bEnableSpin)
             {
                 float angle = currentScale / 1 * spinAngle;
-                transform.rotation = Quaternion.Euler(Vector3.up * (angle + defaultAngle));
+                transform.localRotation = Quaternion.Euler(Vector3.up * angle);
             }
         }
-        else
+        else if (!bScaling)
         {
             currentScale = Mathf.Clamp(currentScale + 0.6f * Time.deltaTime, 0f, 1f);
             transform.localScale = new Vector3(currentScale * defaultWidth, currentScale * defaultHeight, currentScale * defaultWidth);
             if(bEnableSpin)
             {
                 float angle = currentScale / 1 * spinAngle;
-                transform.rotation = Quaternion.Euler(Vector3.up * (angle + defaultAngle));
+                transform.localRotation = Quaternion.Euler(Vector3.up * angle);
             }
+        }
+        else
+        {
+            transform.localScale = new Vector3(0, 0, 0);
+            transform.localRotation = new Quaternion();
         }
     }
 
