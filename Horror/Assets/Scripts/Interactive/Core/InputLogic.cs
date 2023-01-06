@@ -10,13 +10,9 @@ public abstract class InputLogic : Interactive
     [Header("Default state")] public bool active;
     
     // Reference to output object
-    protected OutputLogic output;
-    public OutputLogic Output
-    {
-        get { return output; }
-        set { output = value; }
-    }
-    
+    [HideInInspector]
+    public List<OutputLogic> outputs;
+
     [Header("Sub-Level Finish")] public bool signalLevelFinish;
 
     // Input behavior after toggle (ex. animation)
@@ -29,9 +25,9 @@ public abstract class InputLogic : Interactive
         active = !active;
         // output can be null if there is no output object.
         // for example click to trigger audio.
-        if (output != null)
+        foreach(OutputLogic output in outputs)
             output.CheckState(); // Check state of output
-        else
+        if(outputs.Count == 0)
            Debug.LogWarning("InputLogic: Changed state but output is null!"); 
     }
 

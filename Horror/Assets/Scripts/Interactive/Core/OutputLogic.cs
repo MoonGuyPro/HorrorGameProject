@@ -53,7 +53,7 @@ public abstract class OutputLogic : MonoBehaviour
         // Add reference of output to every input
         foreach (InputLogic input in inputs)
         {
-            input.Output = this;
+            input.outputs.Add(this);
         }
 
         // Check starting state
