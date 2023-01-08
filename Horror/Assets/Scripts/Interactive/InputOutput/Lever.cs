@@ -1,25 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 
 public class Lever : InputLogic
 {
     private Animator animator;
-    private AudioSource s;
     public int changed;
+
+    [SerializeField]
+    private EventReference eventRef;
 
     public void Start()
     {
         changed = 0;
         animator = transform.GetComponentInParent<Animator>();
-        s = GetComponent<AudioSource>();
     }
 
     protected override void Behavior()
     {
         // Animate on state change
+        RuntimeManager.PlayOneShotAttached(eventRef, gameObject);
         animator.SetBool("active", active);
-        s.Play();
         changed ^= 1;
     }
 }

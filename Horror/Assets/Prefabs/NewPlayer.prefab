@@ -186,9 +186,17 @@ Camera:
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -391,6 +399,7 @@ GameObject:
   - component: {fileID: 54404533167276857}
   - component: {fileID: 237806285607542013}
   - component: {fileID: 1207243858440573845}
+  - component: {fileID: 8807056037528276804}
   m_Layer: 0
   m_Name: NewPlayer
   m_TagString: Player
@@ -456,10 +465,34 @@ MonoBehaviour:
   pitch: 0.5499961
   OnWalking:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8807056037528276804}
+        m_TargetAssemblyTypeName: Footsteps, Assembly-CSharp
+        m_MethodName: StartFootstepsCoroutine
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnStopWalking:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8807056037528276804}
+        m_TargetAssemblyTypeName: Footsteps, Assembly-CSharp
+        m_MethodName: StopFootstepsCoroutine
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!143 &8330153873525840688
 CharacterController:
   m_ObjectHideFlags: 0
@@ -468,9 +501,17 @@ CharacterController:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3222809851561510840}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Height: 4
   m_Radius: 0.8
   m_SlopeLimit: 45
@@ -521,6 +562,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attenuationObject: {fileID: 0}
+--- !u!114 &8807056037528276804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3222809851561510840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a76ecef19ca34cc4b879020d9ee6b565, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footstepInterval: 0.5
+  footstepEvent:
+    Guid:
+      Data1: 1222202300
+      Data2: 1241648102
+      Data3: 2092187542
+      Data4: -887489727
+    Path: event:/SFX/Player/Footsteps
+  footstepsTypeParameterName: FootstepsType
+  footstepsTypeParameterValue: 0
 --- !u!1 &5504977929712146625
 GameObject:
   m_ObjectHideFlags: 0
@@ -848,7 +911,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 2
+    serializedVersion: 3
     m_TransformParent: {fileID: 6110616150076437359}
     m_Modifications:
     - target: {fileID: 376036902386046024, guid: 700437983458030458639df620f0efb7, type: 3}
@@ -962,7 +1025,18 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 376036902386046031, guid: 700437983458030458639df620f0efb7, type: 3}
     - {fileID: 376036903442634251, guid: 700437983458030458639df620f0efb7, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 376036903442634253, guid: 700437983458030458639df620f0efb7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8086042604412198752}
+    - targetCorrespondingSourceObject: {fileID: 376036903442634253, guid: 700437983458030458639df620f0efb7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9002787967341863941}
+    - targetCorrespondingSourceObject: {fileID: 376036902386046030, guid: 700437983458030458639df620f0efb7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9176584315920347274}
   m_SourcePrefab: {fileID: 100100000, guid: 700437983458030458639df620f0efb7, type: 3}
 --- !u!4 &2166076010137860667 stripped
 Transform:
@@ -1034,7 +1108,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 2
+    serializedVersion: 3
     m_TransformParent: {fileID: 6110616150076437359}
     m_Modifications:
     - target: {fileID: 3489525273450664418, guid: 6997d02538d79e44890e9fb6ec4c76e8, type: 3}
@@ -1130,7 +1204,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6997d02538d79e44890e9fb6ec4c76e8, type: 3}
 --- !u!224 &1242054266256802456 stripped
 RectTransform:
@@ -1142,7 +1218,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 2
+    serializedVersion: 3
     m_TransformParent: {fileID: 1619265656077581785}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 175ec7428aa1f5743b0dcc620f3e664e, type: 3}
@@ -1242,7 +1318,9 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 175ec7428aa1f5743b0dcc620f3e664e, type: 3}
 --- !u!4 &4448847625839986597 stripped
 Transform:
