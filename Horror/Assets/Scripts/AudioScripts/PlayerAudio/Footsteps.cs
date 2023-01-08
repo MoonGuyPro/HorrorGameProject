@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -18,6 +16,9 @@ public class Footsteps : MonoBehaviour
 
     private bool isPlaying = false;
     private IEnumerator footstepsCoroutine;
+
+    public string footstepsTypeParameterName = "FootstepsType";
+    public float footstepsTypeParameterValue = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +38,7 @@ public class Footsteps : MonoBehaviour
     {
         while (true)
         {
-            FMODUnity.RuntimeManager.PlayOneShot(footstepEvent);
+            PlayOneShotWithParam();
             isPlaying = true;
             yield return new WaitForSeconds(footstepInterval); 
         }
@@ -48,5 +49,13 @@ public class Footsteps : MonoBehaviour
     {
         isPlaying = false;
         StopCoroutine(footstepsCoroutine);
+    }
+
+    public void PlayOneShotWithParam()
+    {
+        var instance = RuntimeManager.CreateInstance(footstepEvent);
+        instance.setParameterByName(footstepsTypeParameterName, footstepsTypeParameterValue);
+        instance.start();
+        instance.release();
     }
 }
