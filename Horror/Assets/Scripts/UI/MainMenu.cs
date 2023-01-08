@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayLevel1() 
     {
-       SceneManager.LoadScene("NewScene_Noneuclidean");
+       SceneManager.LoadScene("VideoPlayer");
     }
 
     public void PlayLevel2() 
