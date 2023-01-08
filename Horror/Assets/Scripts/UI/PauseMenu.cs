@@ -49,7 +49,6 @@ public class PauseMenu : MonoBehaviour
         Resume();
 		GameObject player = GameObject.FindGameObjectWithTag("Player");
 		if(player) { Destroy(player); }
-		
     }
 
     public void Quit() 
