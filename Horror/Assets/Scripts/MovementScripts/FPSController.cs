@@ -13,7 +13,7 @@ public class FPSController : PortalTraveller {
 
     public bool lockCursor;
     public float mouseSensitivity = 10;
-    public Vector2 pitchMinMax = new Vector2 (-40, 85);
+    public Vector2 pitchMinMax = new Vector2 (-90, 90); // Change to limit camera angles (currently no limit)
     public float rotationSmoothTime = 0.1f;
 
     CharacterController controller;
