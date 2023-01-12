@@ -5,6 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+
+    void Start()
+    {
+        Cursor.visible = true;
+    }
+
     public void PlayLevel1() 
     {
        SceneManager.LoadScene("VideoPlayer");
