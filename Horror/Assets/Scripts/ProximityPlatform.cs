@@ -15,18 +15,13 @@ public class ProximityPlatform : MonoBehaviour
 
     public Transform player;
 
-    private float defaultHeight ;
-    private float defaultWidth ;
-    private float defaultAngle;
-    private float currentScale = 1;
+    private Vector3 defaultScale;
+    private float currentScaleMul = 1;
 
     // Start is called before the first frame update
     void Start()
     {
-        var localScale = transform.localScale;
-        defaultHeight = localScale.y;
-        defaultWidth = localScale.x;
-        //defaultAngle = transform.localRotation.y;
+        defaultScale = transform.localScale;
     }
 
     // Update is called once per frame
@@ -34,12 +29,12 @@ public class ProximityPlatform : MonoBehaviour
     {
         float distance = (transform.position - player.position).magnitude;
         
-        currentScale = 1 - SuperLerp(distance, 0, 1, minRange, maxRange);
-        transform.localScale = new Vector3(currentScale * defaultWidth, currentScale * defaultHeight, currentScale * defaultWidth);
+        currentScaleMul = 1 - SuperLerp(distance, 0, 1, minRange, maxRange);
+        transform.localScale = defaultScale * currentScaleMul;
     
         if(bEnableSpin)
         {
-            float angle = currentScale / 1 * spinAngle;
+            float angle = currentScaleMul / 1 * spinAngle;
             transform.localRotation = Quaternion.Euler(Vector3.up * angle);
         }
     }

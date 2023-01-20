@@ -17,20 +17,15 @@ public class LabyPlatform : OutputLogic
     
     public Transform player;
 
-    private float defaultHeight ;
-    private float defaultWidth ;
-    private float defaultAngle;
-    private float currentScale = 1;
+    private Vector3 defaultScale;
+    private float currentScaleMul = 1;
     private bool bScaling = true;
 
     // Start is called before the first frame update
     void Start()
     {
         base.Start();
-        var localScale = transform.localScale;
-        defaultHeight = localScale.y;
-        defaultWidth = localScale.x;
-        defaultAngle = transform.rotation.y;
+        defaultScale = transform.localScale;
     }
 
     // Update is called once per frame
@@ -40,27 +35,28 @@ public class LabyPlatform : OutputLogic
         {
             float distance = (transform.position - player.position).magnitude;
         
-            currentScale = 1 - SuperLerp(distance, 0, 1, minRange, maxRange);
-            transform.localScale = new Vector3(currentScale * defaultWidth, currentScale * defaultHeight, currentScale * defaultWidth);
+            currentScaleMul = 1 - SuperLerp(distance, 0, 1, minRange, maxRange);
+            transform.localScale = defaultScale * currentScaleMul;
         
             if(bEnableSpin)
             {
-                float angle = currentScale / 1 * spinAngle;
+                float angle = currentScaleMul / 1 * spinAngle;
                 transform.localRotation = Quaternion.Euler(Vector3.up * angle);
             }
         }
         else if (!bScaling)
         {
-            currentScale = Mathf.Clamp(currentScale + 0.6f * Time.deltaTime, 0f, 1f);
-            transform.localScale = new Vector3(currentScale * defaultWidth, currentScale * defaultHeight, currentScale * defaultWidth);
+            currentScaleMul = Mathf.Clamp(currentScaleMul + 0.6f * Time.deltaTime, 0f, 1f);
+            transform.localScale = defaultScale * currentScaleMul;
             if(bEnableSpin)
             {
-                float angle = currentScale / 1 * spinAngle;
+                float angle = currentScaleMul / 1 * spinAngle;
                 transform.localRotation = Quaternion.Euler(Vector3.up * angle);
             }
         }
         else
         {
+            currentScaleMul = 0.0f;
             transform.localScale = new Vector3(0, 0, 0);
             transform.localRotation = new Quaternion();
         }
