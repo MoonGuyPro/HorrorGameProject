@@ -13,8 +13,7 @@ public class ProximityPlatform : MonoBehaviour
     [Tooltip("Enable spin when scaling platform")] 
     public bool bEnableSpin = true;
 
-    public Transform player;
-
+    private Transform player;
     private Vector3 defaultScale;
     private float currentScaleMul = 1;
 
@@ -22,6 +21,7 @@ public class ProximityPlatform : MonoBehaviour
     void Start()
     {
         defaultScale = transform.localScale;
+        player = Camera.main.transform;
     }
 
     // Update is called once per frame

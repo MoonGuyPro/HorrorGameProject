@@ -8,16 +8,16 @@ public class LabyPath : MonoBehaviour
     [Tooltip("At minimal range and lower block is fully hidden")] 
     public float minRange = 3;
     
-    public Transform player;
     public Animator animator;
 
+    private Transform player;
     private float defaultHeight = 1;
     private float defaultWidth = 1;
     
     // Start is called before the first frame update
     void Start()
     {
-
+        player = Camera.main.transform;
     }
 
     // Update is called once per frame

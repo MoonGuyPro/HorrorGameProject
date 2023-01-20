@@ -15,8 +15,7 @@ public class LabyPlatform : OutputLogic
     [Tooltip("Platform appears only when activated")] 
     public bool bOnlyActivated = false;
     
-    public Transform player;
-
+    private Transform player;
     private Vector3 defaultScale;
     private float currentScaleMul = 1;
     private bool bScaling = true;
@@ -26,6 +25,7 @@ public class LabyPlatform : OutputLogic
     {
         base.Start();
         defaultScale = transform.localScale;
+        player = Camera.main.transform;
     }
 
     // Update is called once per frame
