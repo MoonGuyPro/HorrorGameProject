@@ -1,16 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SlideDoor : OutputLogic
 {
     [HideInInspector] public Animator animator;
-    [HideInInspector] public int changed = 0;
+    [HideInInspector] public bool changed = false;
 
+    [SerializeField] 
+    private UnityEvent onStateChange;
+    
+    private new void Start()
+    {
+        base.Start();
+        changed = active;
+    }
     protected override void Behavior()
     {
-        animator = transform.GetComponentInParent<Animator>(); // Yes, this looks silly (compared to Lever), but I'm bad at C#
+        animator = GetComponent<Animator>(); // Yes, this looks silly (compared to Lever), but I'm bad at C#
         animator.SetBool("active", active);
-        changed ^= 1;
+        Debug.Log("changed: " + changed + " active: " + active);
+        if (changed != active)
+        {
+            onStateChange.Invoke();
+        }
+        changed = active;
     }
 }

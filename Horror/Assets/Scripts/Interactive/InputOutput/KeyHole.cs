@@ -1,3 +1,4 @@
+using FMODUnity;
 using UnityEngine;
 
 public class KeyHole : InputLogic
@@ -5,14 +6,12 @@ public class KeyHole : InputLogic
     private int changed;
     public string keyName;
     public Transform keyModel;
-    
-    [SerializeField] protected AudioClip[] pickUpSounds;
-    protected AudioSource audioSource;
+
+    [SerializeField] private EventReference keyUseSound;
 
     private void Start()
     {
         isActive = true;
-        audioSource = GetComponent<AudioSource>();
     }
 
     protected override void Behavior()
@@ -33,9 +32,7 @@ public class KeyHole : InputLogic
 
             inv.removeItem(keyName);
             
-            var soundNum = Random.Range(0, pickUpSounds.Length);
-            audioSource.clip = pickUpSounds[soundNum];
-            audioSource.Play();
+            RuntimeManager.PlayOneShotAttached(keyUseSound, gameObject);
             
             return true;
         }

@@ -1,3 +1,4 @@
+using FMODUnity;
 using UnityEngine;
 
 public abstract class Pickable : MonoBehaviour
@@ -7,10 +8,9 @@ public abstract class Pickable : MonoBehaviour
     [SerializeField] public string ingameName;
     // not needed for now i think
     //[SerializeField] public GameObject obj;
-    [SerializeField] protected AudioClip[] pickUpSounds;
+    [SerializeField] protected EventReference pickUpSound;
     protected Transform objTransform;
-    protected AudioSource audioSource;
 
-    
+
     public abstract void interact();
 }
