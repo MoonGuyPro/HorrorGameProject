@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using FMODUnity;
 using UnityEngine;
 
-public class TreesCreaking : AbstractTimedCall
+public class TimedOneShot : AbstractTimedCall
 {
     [SerializeField]
     private EventReference sound;
