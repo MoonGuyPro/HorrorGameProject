@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using FMODUnity;
 using UnityEngine;
 
@@ -8,12 +9,17 @@ using UnityEngine;
 public class PlayOnInteractive : OutputLogic
 {
     [SerializeField] private EventReference eventRef;
+    [SerializeField] private List<GameObject> soundsToBeDestroyed = new List<GameObject>();
 
     protected override void Behavior()
     {
         if (active)
         {
             RuntimeManager.PlayOneShot(eventRef);
+            foreach (var go in soundsToBeDestroyed)
+            {
+                Destroy(go);
+            }
         }
     }
 }
