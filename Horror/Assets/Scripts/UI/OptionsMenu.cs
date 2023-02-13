@@ -1,18 +1,127 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class OptionsMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private GameObject audioOptionsMenu;
+    [SerializeField] private GameObject graphicsOptionsMenu;
+    [SerializeField] private GameObject controlsOptionsMenu;
+
+    private void Awake()
     {
-        
+        masterBus = FMODUnity.RuntimeManager.GetBus("bus:/Master");
+        musicBus = FMODUnity.RuntimeManager.GetBus("bus:/Master/Music");
+        sfxBus = FMODUnity.RuntimeManager.GetBus("bus:/Master/SFX");
+        ambienceBus = FMODUnity.RuntimeManager.GetBus("bus:/Master/Ambience");
+    }
+    
+    private void Start()
+    {
+        masterBus.setVolume(masterVolume);
+        musicBus.setVolume(musicVolume);
+        sfxBus.setVolume(sfxVolume);
+        ambienceBus.setVolume(ambienceVolume);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        masterBus.setVolume(masterVolume);
+        musicBus.setVolume(musicVolume);
+        sfxBus.setVolume(sfxVolume);
+        ambienceBus.setVolume(ambienceVolume);
     }
+
+    #region AudioSettings
+    [Header("Audio")]
+    public GameObject masterVolumeSlider;
+    public GameObject masterVolumeLabel;
+    public GameObject musicSlider;
+    public GameObject musicVolumeLabel;
+    public GameObject soundSlider;
+    public GameObject soundVolumeLabel;
+    public GameObject ambientSlider;
+    public GameObject ambientVolumeLabel;
+    
+    FMOD.Studio.Bus masterBus;
+    FMOD.Studio.Bus musicBus;
+    FMOD.Studio.Bus sfxBus;
+    FMOD.Studio.Bus ambienceBus;
+    float masterVolume = 0.8f;
+    float musicVolume = 0.8f;
+    float sfxVolume = 0.8f;
+    float ambienceVolume = 0.8f;
+    
+    public void SetMasterVolume(float volume)
+    {
+        masterVolume = volume;
+        int value = (int)(masterVolume * 100.0f);
+        masterVolumeLabel.GetComponent<TMPro.TextMeshProUGUI>().text = value.ToString();
+    }
+    
+    public void SetMusicVolume(float volume)
+    {
+        musicVolume = volume;
+        int value = (int)(musicVolume * 100.0f);
+        musicVolumeLabel.GetComponent<TMPro.TextMeshProUGUI>().text = value.ToString();
+    }
+    
+    public void SetSFXVolume(float volume)
+    {
+        sfxVolume = volume;
+        int value = (int)(sfxVolume * 100.0f);
+        soundVolumeLabel.GetComponent<TMPro.TextMeshProUGUI>().text = value.ToString();
+    }
+    
+    public void SetAmbienceVolume(float volume)
+    {
+        ambienceVolume = volume;
+        int value = (int)(ambienceVolume * 100.0f);
+        ambientVolumeLabel.GetComponent<TMPro.TextMeshProUGUI>().text = value.ToString();
+    }
+    
+    public float GetMasterVolume()
+    {
+        return masterVolume;
+    }
+
+    #endregion
+    
+    #region GraphicsSettings
+    #endregion
+    
+    #region ControlsSettings
+    #endregion
+    
+    #region MenuNavigation
+    
+    public void OnAudioPressed()
+    {
+        audioOptionsMenu.SetActive(true);
+        graphicsOptionsMenu.SetActive(false);
+        controlsOptionsMenu.SetActive(false);
+    }
+    
+    public void OnGraphicsPressed()
+    {
+        audioOptionsMenu.SetActive(false);
+        graphicsOptionsMenu.SetActive(true);
+        controlsOptionsMenu.SetActive(false);
+    }
+    
+    public void OnControlsPressed()
+    {
+        audioOptionsMenu.SetActive(false);
+        graphicsOptionsMenu.SetActive(false);
+        controlsOptionsMenu.SetActive(true);
+    }
+
+    public void OnBackPressed()
+    {
+        Debug.Log("Back pressed.");
+        //SetActive(false);
+        return;
+    }
+    #endregion
 }

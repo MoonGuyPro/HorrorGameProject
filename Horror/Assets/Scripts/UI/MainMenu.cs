@@ -5,14 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void PlayLevel1() 
+    public void Play() 
     {
        SceneManager.LoadScene("NewScene_Noneuclidean");
-    }
-
-    public void PlayLevel2() 
-    {
-        SceneManager.LoadScene("EasyMechanics");
     }
 
     public void QuitGame()
