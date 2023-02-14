@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 
 public class VineTrap : MonoBehaviour
@@ -8,6 +9,9 @@ public class VineTrap : MonoBehaviour
     private FPSController fpsController;
     private Animator anim;
     private float playerHeight = 2.0f;
+    
+    [SerializeField]
+    private EventReference eventRef;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +37,7 @@ public class VineTrap : MonoBehaviour
         
         // Play closing animation
         anim.SetBool("Opened", false);
+        RuntimeManager.PlayOneShotAttached(eventRef, gameObject);
         yield return null;
         yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
 
@@ -42,6 +47,7 @@ public class VineTrap : MonoBehaviour
         
         // Play opening animation
         anim.SetBool("Opened", true);
+        RuntimeManager.PlayOneShotAttached(eventRef, gameObject);
         yield return null;
         yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
         
