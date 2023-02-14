@@ -44,6 +44,7 @@ public class FPSController : PortalTraveller {
     [SerializeField]
     private UnityEvent OnStopWalking;
 
+    [HideInInspector] public bool bStuck;
 
     void Start () {
         cam = Camera.main;
@@ -77,29 +78,35 @@ public class FPSController : PortalTraveller {
         }
 
         Vector2 input = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
-
+        
         Vector3 inputDir = new Vector3 (input.x, 0, input.y).normalized;
         Vector3 worldInputDir = transform.TransformDirection (inputDir);
 
         float currentSpeed = (Input.GetKey (KeyCode.LeftShift)) ? runSpeed : walkSpeed;
         Vector3 targetVelocity = worldInputDir * currentSpeed;
         velocity = Vector3.SmoothDamp (velocity, targetVelocity, ref smoothV, smoothMoveTime);
-        if (velocity.magnitude > 1f && jumping == false) 
+        if (velocity.magnitude > 1f && jumping == false && !bStuck) 
         {
             OnWalking.Invoke();
-        } else if (velocity.magnitude < 1f || jumping)
+        } else if (velocity.magnitude < 1f || jumping || bStuck)
         {
             OnStopWalking.Invoke();
         }
 
         verticalVelocity -= gravity * Time.deltaTime;
+        
         velocity = new Vector3 (velocity.x, verticalVelocity, velocity.z);
 
-        var flags = controller.Move (velocity * Time.deltaTime);
-        if (flags == CollisionFlags.Below) {
-            jumping = false;
-            lastGroundedTime = Time.time;
-            verticalVelocity = 0;
+        // Stop player if he's stuck
+        if (!bStuck)
+        {
+            var flags = controller.Move(velocity * Time.deltaTime);
+            if (flags == CollisionFlags.Below)
+            {
+                jumping = false;
+                lastGroundedTime = Time.time;
+                verticalVelocity = 0;
+            }
         }
 
         if (Input.GetKeyDown (KeyCode.Space)) {
