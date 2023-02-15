@@ -13,6 +13,7 @@ public class FPSController : PortalTraveller {
 
     public bool lockCursor;
     public float mouseSensitivity = 10;
+    private float camSensitivity = 0.8f; //This sensitivity is retreived from PlayerPrefs (Settings)
     public Vector2 pitchMinMax = new Vector2 (-40, 85);
     public float rotationSmoothTime = 0.1f;
 
@@ -45,7 +46,8 @@ public class FPSController : PortalTraveller {
     private UnityEvent OnStopWalking;
 
 
-    void Start () {
+    void Start ()
+    {
         cam = Camera.main;
         if (lockCursor) {
             Cursor.lockState = CursorLockMode.Locked;
@@ -119,9 +121,13 @@ public class FPSController : PortalTraveller {
             mX = 0;
             mY = 0;
         }
+        
+        // Ideally this should be placed in a separate function and called whenever player exits options menu.
+        // Leaving it here for testing purposes, remind me to move it somewhere else later - Kris
+        camSensitivity = PlayerPrefs.GetFloat("sensitivity", 0.8f);
 
-        yaw += mX * mouseSensitivity;
-        pitch -= mY * mouseSensitivity;
+        yaw += mX * mouseSensitivity * camSensitivity;
+        pitch -= mY * mouseSensitivity * camSensitivity;
         pitch = Mathf.Clamp (pitch, pitchMinMax.x, pitchMinMax.y);
         smoothPitch = Mathf.SmoothDampAngle (smoothPitch, pitch, ref pitchSmoothV, rotationSmoothTime);
         smoothYaw = Mathf.SmoothDampAngle (smoothYaw, yaw, ref yawSmoothV, rotationSmoothTime);

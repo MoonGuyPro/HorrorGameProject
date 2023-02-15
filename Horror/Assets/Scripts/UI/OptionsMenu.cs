@@ -11,10 +11,26 @@ public class OptionsMenu : MonoBehaviour
 
     private void Awake()
     {
+        // FMOD stuff
         masterBus = FMODUnity.RuntimeManager.GetBus("bus:/Master");
         musicBus = FMODUnity.RuntimeManager.GetBus("bus:/Master/Music");
         sfxBus = FMODUnity.RuntimeManager.GetBus("bus:/Master/SFX");
         ambienceBus = FMODUnity.RuntimeManager.GetBus("bus:/Master/Ambience");
+        
+        // Load PlayerPrefs
+        
+        // Audio
+        masterVolume = PlayerPrefs.GetFloat("masterVolume", 0.8f);
+        musicVolume = PlayerPrefs.GetFloat("musicVolume", 0.8f);
+        sfxVolume = PlayerPrefs.GetFloat("sfxVolume", 0.8f);
+        ambienceVolume = PlayerPrefs.GetFloat("ambienceVolume", 0.8f);
+        
+        // Graphics
+        //todo
+        
+        // Controls
+        sensitivity = PlayerPrefs.GetFloat("sensitivity", 0.8f);
+        invertYAxis = PlayerPrefs.GetInt("invertYAxis   ", 0) == 1;
     }
     
     private void Start()
@@ -92,6 +108,35 @@ public class OptionsMenu : MonoBehaviour
     #endregion
     
     #region ControlsSettings
+    [Header("Controls")]
+    public GameObject sensitivitySlider;
+    public GameObject sensitivityLabel;
+
+    float sensitivity = 0.8f;
+    bool invertYAxis = false;
+
+    public void SetSensitivity(float newSens)
+    {
+        sensitivity = newSens;
+        int value = (int)(sensitivity * 100.0f);
+        sensitivityLabel.GetComponent<TMPro.TextMeshProUGUI>().text = value.ToString() + "%";
+    }
+    
+    public float GetSensitivity()
+    {
+        return sensitivity;
+    }
+    
+    public void SetInvertYAxis(bool invert)
+    {
+        invertYAxis = invert;
+    }
+    
+    public bool GetInvertYAxis()
+    {
+        return invertYAxis;
+    }
+    
     #endregion
     
     #region MenuNavigation
@@ -119,7 +164,8 @@ public class OptionsMenu : MonoBehaviour
 
     public void OnBackPressed()
     {
-        Debug.Log("Back pressed.");
+        PlayerPrefs.Save();
+        Debug.Log("Preferences saved.");
         //SetActive(false);
         return;
     }
