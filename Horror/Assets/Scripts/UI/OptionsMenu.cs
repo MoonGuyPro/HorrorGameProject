@@ -16,21 +16,6 @@ public class OptionsMenu : MonoBehaviour
         musicBus = FMODUnity.RuntimeManager.GetBus("bus:/Master/Music");
         sfxBus = FMODUnity.RuntimeManager.GetBus("bus:/Master/SFX");
         ambienceBus = FMODUnity.RuntimeManager.GetBus("bus:/Master/Ambience");
-        
-        // Load PlayerPrefs
-        
-        // Audio
-        masterVolume = PlayerPrefs.GetFloat("masterVolume", 0.8f);
-        musicVolume = PlayerPrefs.GetFloat("musicVolume", 0.8f);
-        sfxVolume = PlayerPrefs.GetFloat("sfxVolume", 0.8f);
-        ambienceVolume = PlayerPrefs.GetFloat("ambienceVolume", 0.8f);
-        
-        // Graphics
-        //todo
-        
-        // Controls
-        sensitivity = PlayerPrefs.GetFloat("sensitivity", 0.8f);
-        invertYAxis = PlayerPrefs.GetInt("invertYAxis   ", 0) == 1;
     }
     
     private void Start()
@@ -39,6 +24,37 @@ public class OptionsMenu : MonoBehaviour
         musicBus.setVolume(musicVolume);
         sfxBus.setVolume(sfxVolume);
         ambienceBus.setVolume(ambienceVolume);
+
+        // Resolutions dropdown setup
+        resolutions = Screen.resolutions;
+        resolutionDropdown.ClearOptions();
+        int currentResIndex = 0;
+        List<string> resolutionOptions = new List<string>();
+        for (int i = 0; i < resolutions.Length; i++)
+        {
+            string resOption = resolutions[i].width + "x" + resolutions[i].height;
+            resolutionOptions.Add(resOption);
+            if (resolutions[i].width == Screen.width && resolutions[i].height == Screen.height)
+            {
+                currentResIndex = i;
+            }
+                
+        }
+
+        resolutionDropdown.AddOptions(resolutionOptions);
+        resolutionDropdown.value = currentResIndex;
+        resolutionDropdown.RefreshShownValue();
+        
+        // Load PlayerPrefs
+        // Audio
+        masterVolume = PlayerPrefs.GetFloat("masterVolume", 0.8f);
+        musicVolume = PlayerPrefs.GetFloat("musicVolume", 0.8f);
+        sfxVolume = PlayerPrefs.GetFloat("sfxVolume", 0.8f);
+        ambienceVolume = PlayerPrefs.GetFloat("ambienceVolume", 0.8f);
+
+        // Controls
+        sensitivity = PlayerPrefs.GetFloat("sensitivity", 0.8f);
+        invertYAxis = PlayerPrefs.GetInt("invertYAxis", 0) == 1;
     }
 
     private void Update()
@@ -73,28 +89,28 @@ public class OptionsMenu : MonoBehaviour
     {
         masterVolume = volume;
         int value = (int)(masterVolume * 100.0f);
-        masterVolumeLabel.GetComponent<TMPro.TextMeshProUGUI>().text = value.ToString();
+        masterVolumeLabel.GetComponent<TMPro.TextMeshProUGUI>().text = value.ToString() + "%";
     }
     
     public void SetMusicVolume(float volume)
     {
         musicVolume = volume;
         int value = (int)(musicVolume * 100.0f);
-        musicVolumeLabel.GetComponent<TMPro.TextMeshProUGUI>().text = value.ToString();
+        musicVolumeLabel.GetComponent<TMPro.TextMeshProUGUI>().text = value.ToString() + "%";
     }
     
     public void SetSFXVolume(float volume)
     {
         sfxVolume = volume;
         int value = (int)(sfxVolume * 100.0f);
-        soundVolumeLabel.GetComponent<TMPro.TextMeshProUGUI>().text = value.ToString();
+        soundVolumeLabel.GetComponent<TMPro.TextMeshProUGUI>().text = value.ToString() + "%";
     }
     
     public void SetAmbienceVolume(float volume)
     {
         ambienceVolume = volume;
         int value = (int)(ambienceVolume * 100.0f);
-        ambientVolumeLabel.GetComponent<TMPro.TextMeshProUGUI>().text = value.ToString();
+        ambientVolumeLabel.GetComponent<TMPro.TextMeshProUGUI>().text = value.ToString() + "%";
     }
     
     public float GetMasterVolume()
@@ -105,6 +121,30 @@ public class OptionsMenu : MonoBehaviour
     #endregion
     
     #region GraphicsSettings
+    
+    [Header("Graphics")]
+    public TMP_Dropdown resolutionDropdown;
+
+    private Resolution[] resolutions;
+
+    public void SetGraphicsQuality(int qualityIndex)
+    {
+        // Kris here - this probably won't work as expected since I don't know what's inside QualitySettings just yet
+        // And I hope there's no need to use PlayerPrefs and Unity will remember user's choice, or I'm gonna be sad.
+        QualitySettings.SetQualityLevel(qualityIndex);
+    }
+
+    public void SetFullscreen(bool isFullscreen)
+    {
+        Screen.fullScreen = isFullscreen;
+    }
+
+    public void SetResolution(int resIndex)
+    {
+        Resolution res = resolutions[resIndex];
+        Screen.SetResolution(res.width, res.height, Screen.fullScreen);
+    }
+    
     #endregion
     
     #region ControlsSettings

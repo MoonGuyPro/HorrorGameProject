@@ -125,9 +125,12 @@ public class FPSController : PortalTraveller {
         // Ideally this should be placed in a separate function and called whenever player exits options menu.
         // Leaving it here for testing purposes, remind me to move it somewhere else later - Kris
         camSensitivity = PlayerPrefs.GetFloat("sensitivity", 0.8f);
-
-        yaw += mX * mouseSensitivity * camSensitivity;
-        pitch -= mY * mouseSensitivity * camSensitivity;
+        bool invertY = PlayerPrefs.GetInt("invertYAxis", 0) == 1;
+        
+        float rotSensitivity = mouseSensitivity * camSensitivity;
+        
+        yaw += mX * rotSensitivity;
+        pitch -= invertY ? mY * rotSensitivity : -mY * rotSensitivity;
         pitch = Mathf.Clamp (pitch, pitchMinMax.x, pitchMinMax.y);
         smoothPitch = Mathf.SmoothDampAngle (smoothPitch, pitch, ref pitchSmoothV, rotationSmoothTime);
         smoothYaw = Mathf.SmoothDampAngle (smoothYaw, yaw, ref yawSmoothV, rotationSmoothTime);
@@ -147,5 +150,4 @@ public class FPSController : PortalTraveller {
         velocity = toPortal.TransformVector (fromPortal.InverseTransformVector (velocity));
         Physics.SyncTransforms ();
     }
-
 }
