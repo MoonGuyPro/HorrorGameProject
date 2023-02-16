@@ -13,6 +13,7 @@ public class FPSController : PortalTraveller {
 
     public bool lockCursor;
     public float mouseSensitivity = 10;
+    // Kris here - merge f-ed something up and I'm not sure if that's the correct amount
     public Vector2 pitchMinMax = new Vector2 (-90, 90); // Change to limit camera angles (currently no limit)
     public float rotationSmoothTime = 0.1f;
 
@@ -26,6 +27,7 @@ public class FPSController : PortalTraveller {
     float yawSmoothV;
     float pitchSmoothV;
     float verticalVelocity;
+    float camSensitivity = 0.8f; //This sensitivity is retreived from PlayerPrefs (Settings)
     Vector3 velocity;
     Vector3 smoothV;
     Vector3 rotationSmoothVelocity;
@@ -46,7 +48,8 @@ public class FPSController : PortalTraveller {
 
     [HideInInspector] public bool bStuck;
 
-    void Start () {
+    void Start ()
+    {
         cam = Camera.main;
         if (lockCursor) {
             Cursor.lockState = CursorLockMode.Locked;
@@ -126,9 +129,16 @@ public class FPSController : PortalTraveller {
             mX = 0;
             mY = 0;
         }
-
-        yaw += mX * mouseSensitivity;
-        pitch -= mY * mouseSensitivity;
+        
+        // Ideally this should be placed in a separate function and called whenever player exits options menu.
+        // Leaving it here for testing purposes, remind me to move it somewhere else later - Kris
+        camSensitivity = PlayerPrefs.GetFloat("sensitivity", 0.8f);
+        bool invertY = PlayerPrefs.GetInt("invertYAxis", 0) == 1;
+        
+        float rotSensitivity = mouseSensitivity * camSensitivity;
+        
+        yaw += mX * rotSensitivity;
+        pitch -= invertY ? mY * rotSensitivity : -mY * rotSensitivity;
         pitch = Mathf.Clamp (pitch, pitchMinMax.x, pitchMinMax.y);
         smoothPitch = Mathf.SmoothDampAngle (smoothPitch, pitch, ref pitchSmoothV, rotationSmoothTime);
         smoothYaw = Mathf.SmoothDampAngle (smoothYaw, yaw, ref yawSmoothV, rotationSmoothTime);
@@ -148,5 +158,4 @@ public class FPSController : PortalTraveller {
         velocity = toPortal.TransformVector (fromPortal.InverseTransformVector (velocity));
         Physics.SyncTransforms ();
     }
-
 }

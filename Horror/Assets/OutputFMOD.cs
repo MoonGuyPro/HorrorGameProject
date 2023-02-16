@@ -8,7 +8,7 @@ public class OutputFMOD : OutputLogic
 {
     private StudioEventEmitter emitter;
 
-    void Start()
+    new void Start()
     {
         base.Start();
         emitter = GetComponent<StudioEventEmitter>();

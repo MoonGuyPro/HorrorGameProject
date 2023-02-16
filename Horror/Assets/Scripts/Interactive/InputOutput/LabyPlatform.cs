@@ -21,7 +21,7 @@ public class LabyPlatform : OutputLogic
     private bool bScaling = true;
 
     // Start is called before the first frame update
-    void Start()
+    new void Start()
     {
         base.Start();
         defaultScale = transform.localScale;
@@ -65,7 +65,7 @@ public class LabyPlatform : OutputLogic
     float SuperLerp (float value, float from, float to, float from2, float to2) {
         if (value <= from2)
             return from;
-        else if (value >= to2)
+        if (value >= to2)
             return to;
         return (to - from) * ((value - from2) / (to2 - from2)) + from;
     }
