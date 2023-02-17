@@ -2,11 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using FMODUnity;
 
 public class PauseMenu : MonoBehaviour
 {
     public static bool IsPaused = false;
     public GameObject PauseMenuUI;
+    
+    [SerializeField]
+    private EventReference hover;
+    [SerializeField]
+    private EventReference press;
 
     void Update()
     {
@@ -55,5 +61,15 @@ public class PauseMenu : MonoBehaviour
     {
         Debug.Log("Quitting game...");
         Application.Quit();
+    }
+    
+    public void PlayHoverSound()
+    {
+        RuntimeManager.PlayOneShot(hover);
+    }
+
+    public void PlayPressSound()
+    {
+        RuntimeManager.PlayOneShot(press);
     }
 }
