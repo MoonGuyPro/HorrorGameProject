@@ -138,7 +138,7 @@ public class FPSController : PortalTraveller {
         float rotSensitivity = mouseSensitivity * camSensitivity;
         
         yaw += mX * rotSensitivity;
-        pitch -= invertY ? mY * rotSensitivity : -mY * rotSensitivity;
+        pitch -= invertY ? -mY * rotSensitivity : mY * rotSensitivity;
         pitch = Mathf.Clamp (pitch, pitchMinMax.x, pitchMinMax.y);
         smoothPitch = Mathf.SmoothDampAngle (smoothPitch, pitch, ref pitchSmoothV, rotationSmoothTime);
         smoothYaw = Mathf.SmoothDampAngle (smoothYaw, yaw, ref yawSmoothV, rotationSmoothTime);
