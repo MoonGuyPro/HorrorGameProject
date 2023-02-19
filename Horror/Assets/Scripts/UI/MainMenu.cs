@@ -16,7 +16,7 @@ public class MainMenu : MonoBehaviour
         Cursor.visible = true;
     }
 
-    public void PlayLevel1() 
+    public void Play() 
     {
        SceneManager.LoadScene("VideoPlayer");
     }
