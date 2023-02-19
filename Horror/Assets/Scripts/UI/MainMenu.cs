@@ -4,6 +4,7 @@ using FMODUnity;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+using Utils;
 using Button = UnityEngine.UI.Button;
 using Cursor = UnityEngine.Cursor;
 
@@ -19,8 +20,8 @@ public class MainMenu : MonoBehaviour
     
     void Start()
     {
-        print(PlayerPrefs.GetString("lastLevel", null));
-        if (PlayerPrefs.GetString("lastLevel", null) == "")
+        print(HandleSaveFile.LoadProgress());
+        if (HandleSaveFile.LoadProgress() == "")
         {
             continueButton.interactable = false;
         }
@@ -29,7 +30,7 @@ public class MainMenu : MonoBehaviour
 
     public void Continue()
     {
-        SceneManager.LoadScene(PlayerPrefs.GetString("lastLevel"));
+        SceneManager.LoadScene(HandleSaveFile.LoadProgress());
     }
     
     public void NewGame() 
