@@ -5,8 +5,16 @@ using UnityEngine;
 
 public class VineTrigger : MonoBehaviour
 {
+    public enum Mode
+    {
+        ChangeLocation,
+        ChangeLevel
+    };
+    
     private VineTrap vineTrap;
+    public Mode mode = Mode.ChangeLocation;
     public Transform targetLocation;
+    public string targetLevel;
 
     private void Start()
     {
@@ -19,7 +27,14 @@ public class VineTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        vineTrap.TrapAndTeleport(targetLocation.position);
+        if (mode == Mode.ChangeLocation)
+        {
+            vineTrap.TrapAndTeleport(targetLocation.position);
+        }
+        else
+        {
+            vineTrap.TrapAndChangeLevel(targetLevel);
+        }
     }
     
 }
