@@ -401,6 +401,7 @@ GameObject:
   - component: {fileID: 1207243858440573845}
   - component: {fileID: 8807056037528276804}
   - component: {fileID: 7728868339006154497}
+  - component: {fileID: 6435092143091971558}
   m_Layer: 0
   m_Name: NewPlayer
   m_TagString: Player
@@ -494,6 +495,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  bStuck: 0
 --- !u!143 &8330153873525840688
 CharacterController:
   m_ObjectHideFlags: 0
@@ -595,6 +597,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9699fa3fd8664fc5a781765f61ca36b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6435092143091971558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3222809851561510840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c3bf95e40d624d44a2c01dd3bf2cb20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5504977929712146625
@@ -1214,6 +1228,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3489525273450664430, guid: 6997d02538d79e44890e9fb6ec4c76e8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489525273597854231, guid: 6997d02538d79e44890e9fb6ec4c76e8, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
