@@ -123,33 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &38099982 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3222809851561510840, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
-  m_PrefabInstance: {fileID: 190150196}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &38099983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 38099982}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a76ecef19ca34cc4b879020d9ee6b565, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  footstepInterval: 0.5
-  footstepEvent:
-    Guid:
-      Data1: 1222202300
-      Data2: 1241648102
-      Data3: 2092187542
-      Data4: -887489727
-    Path: event:/SFX/Player/Footsteps
-  footstepsTypeParameterName: FootstepsType
-  footstepsTypeParameterValue: 1
 --- !u!1001 &39075968
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -923,62 +896,6 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3141441416020032334, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
-      propertyPath: OnWalking.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3141441416020032334, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
-      propertyPath: OnStopWalking.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3141441416020032334, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
-      propertyPath: OnWalking.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3141441416020032334, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
-      propertyPath: OnWalking.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 38099983}
-    - target: {fileID: 3141441416020032334, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
-      propertyPath: OnStopWalking.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3141441416020032334, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
-      propertyPath: OnWalking.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3141441416020032334, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
-      propertyPath: OnStopWalking.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 38099983}
-    - target: {fileID: 3141441416020032334, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
-      propertyPath: OnWalking.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StartFootstepsCoroutine
-      objectReference: {fileID: 0}
-    - target: {fileID: 3141441416020032334, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
-      propertyPath: OnStopWalking.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3141441416020032334, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
-      propertyPath: OnStopWalking.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StopFootstepsCoroutine
-      objectReference: {fileID: 0}
-    - target: {fileID: 3141441416020032334, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
-      propertyPath: OnWalking.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Footsteps, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3141441416020032334, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
-      propertyPath: OnStopWalking.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Footsteps, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3141441416020032334, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
-      propertyPath: OnWalking.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 3141441416020032334, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
-      propertyPath: OnStopWalking.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 3222809851561510840, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
       propertyPath: m_Name
       value: NewPlayer
@@ -1123,6 +1040,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8807056037528276804, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
+      propertyPath: footstepsTypeParameterValue
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9078026275852966408, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1139,9 +1060,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3222809851561510840, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 38099983}
     - targetCorrespondingSourceObject: {fileID: 1242054265377410428, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 416826042}

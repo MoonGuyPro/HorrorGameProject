@@ -11,6 +11,11 @@ public class Footsteps : MonoBehaviour
     [Tooltip("Interval between footsteps in seconds. 0.5 = 2 steps per second")]
     [SerializeField] float footstepInterval = 0.7f;
     
+    [Tooltip("Interval between running footsteps in seconds. 0.5 = 2 steps per second")]
+    [SerializeField] float runStepsInterval = 0.33f;
+
+    private float currentStepsInterval = 0.5f;
+    
     [SerializeField, Tooltip("Audio event for footstep sounds.")]
     private FMODUnity.EventReference footstepEvent;
 
@@ -26,6 +31,18 @@ public class Footsteps : MonoBehaviour
         footstepsCoroutine = playFootsteps();
     }
 
+    public IEnumerator playFootsteps()
+    {
+        while (true)
+        {
+            PlayOneShotWithParam();
+            isPlaying = true;
+            //Debug.Log("current speed" + currentStepsInterval);
+            yield return new WaitForSeconds(currentStepsInterval); 
+        }
+
+    }
+    
     public void StartFootstepsCoroutine()
     {
         if (!isPlaying)
@@ -33,22 +50,21 @@ public class Footsteps : MonoBehaviour
             StartCoroutine(footstepsCoroutine); 
         }
     }
-    
-    public IEnumerator playFootsteps()
-    {
-        while (true)
-        {
-            PlayOneShotWithParam();
-            isPlaying = true;
-            yield return new WaitForSeconds(footstepInterval); 
-        }
-
-    }
 
     public void StopFootstepsCoroutine()
     {
         isPlaying = false;
         StopCoroutine(footstepsCoroutine);
+    }
+
+    public void SetRunningSpeed()
+    {
+        currentStepsInterval = runStepsInterval;
+    }
+
+    public void SetWalkingSpeed()
+    {
+        currentStepsInterval = footstepInterval;
     }
 
     public void PlayOneShotWithParam()

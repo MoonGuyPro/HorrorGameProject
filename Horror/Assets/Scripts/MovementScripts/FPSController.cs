@@ -40,6 +40,11 @@ public class FPSController : PortalTraveller {
     // These events were created for audio triggering purposes.
     // Using this is much simpler then (as before) checking all parameters in Update()
     [SerializeField] 
+    private UnityEvent OnStartWalking;
+    
+    [SerializeField] 
+    private UnityEvent OnRunning;
+    [SerializeField] 
     private UnityEvent OnWalking;
     // this event will trigger on stopping or jumping. Just to stop the footsteps playback.
     // possible later split into two events stop and jump.
@@ -90,7 +95,16 @@ public class FPSController : PortalTraveller {
         velocity = Vector3.SmoothDamp (velocity, targetVelocity, ref smoothV, smoothMoveTime);
         if (velocity.magnitude > 1f && jumping == false && !bStuck) 
         {
-            OnWalking.Invoke();
+            if (currentSpeed > runSpeed - 0.1)
+            {
+                OnRunning.Invoke();
+            }
+            else
+            {
+                OnWalking.Invoke();
+            }
+            
+            OnStartWalking.Invoke();
         } else if (velocity.magnitude < 1f || jumping || bStuck)
         {
             OnStopWalking.Invoke();
