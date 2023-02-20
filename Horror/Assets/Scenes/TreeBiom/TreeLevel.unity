@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6213,33 +6213,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2327724707748263681, guid: c44b3c334d3d6544c81eee3034ba1a39, type: 3}
   m_PrefabInstance: {fileID: 913710863}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &941400015 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3222809851561510840, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
-  m_PrefabInstance: {fileID: 1248336271}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &941400023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 941400015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a76ecef19ca34cc4b879020d9ee6b565, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  footstepInterval: 0.5
-  footstepEvent:
-    Guid:
-      Data1: 1222202300
-      Data2: 1241648102
-      Data3: 2092187542
-      Data4: -887489727
-    Path: event:/SFX/Player/Footsteps
-  footstepsTypeParameterName: FootstepsType
-  footstepsTypeParameterValue: 0
 --- !u!4 &951486414 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3942745656040561391, guid: e0627ec666513d34486feb1ec7cc7207, type: 3}
@@ -22647,70 +22620,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3141441416020032334, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
-      propertyPath: smoothMoveTime
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3141441416020032334, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
-      propertyPath: mouseSensitivity
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3141441416020032334, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
-      propertyPath: OnWalking.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3141441416020032334, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
-      propertyPath: OnStopWalking.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3141441416020032334, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
-      propertyPath: OnWalking.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3141441416020032334, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
-      propertyPath: OnWalking.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 941400023}
-    - target: {fileID: 3141441416020032334, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
-      propertyPath: OnStopWalking.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3141441416020032334, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
-      propertyPath: OnWalking.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3141441416020032334, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
-      propertyPath: OnStopWalking.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 941400023}
-    - target: {fileID: 3141441416020032334, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
-      propertyPath: OnWalking.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StartFootstepsCoroutine
-      objectReference: {fileID: 0}
-    - target: {fileID: 3141441416020032334, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
-      propertyPath: OnStopWalking.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3141441416020032334, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
-      propertyPath: OnStopWalking.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StopFootstepsCoroutine
-      objectReference: {fileID: 0}
-    - target: {fileID: 3141441416020032334, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
-      propertyPath: OnWalking.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Footsteps, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3141441416020032334, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
-      propertyPath: OnStopWalking.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Footsteps, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3141441416020032334, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
-      propertyPath: OnWalking.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 3141441416020032334, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
-      propertyPath: OnStopWalking.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 3222809851561510840, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
       propertyPath: m_Name
       value: NewPlayer
@@ -22774,10 +22683,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3222809851561510840, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 941400023}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
 --- !u!1001 &1250668473
 PrefabInstance:
@@ -62918,7 +62824,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh91380
+  m_Name: pb_Mesh30868
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2

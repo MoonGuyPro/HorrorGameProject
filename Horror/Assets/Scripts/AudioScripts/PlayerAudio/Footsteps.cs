@@ -54,7 +54,7 @@ public class Footsteps : MonoBehaviour
     public void StopFootstepsCoroutine()
     {
         isPlaying = false;
-        StopCoroutine(footstepsCoroutine);
+        StopAllCoroutines();
     }
 
     public void SetRunningSpeed()
