@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3033676055856316989}
   - component: {fileID: 3765616581941955648}
   - component: {fileID: 7117780311209337972}
+  - component: {fileID: 1317067734762876745}
   m_Layer: 0
   m_Name: sticks
   m_TagString: Untagged
@@ -32,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!193 &3033676055856316989
 Tree:
@@ -93,6 +94,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1317067734762876745
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3278530283101743242}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 19.011108, y: 7.5936265, z: 2.3423908}
+  m_Center: {x: 0.15032674, y: 3.7968132, z: 0.25518492}
 --- !u!43 &-7806429686259313896
 Mesh:
   m_ObjectHideFlags: 0
