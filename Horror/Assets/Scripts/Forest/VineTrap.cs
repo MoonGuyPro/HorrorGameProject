@@ -65,12 +65,10 @@ public class VineTrap : MonoBehaviour
         transform.position = targetLocation.transform.position;
         fpsController.transform.position = targetLocation.position + new Vector3(0, playerHeight, 0);
         
-        // Rotate
-        print(targetLocation.eulerAngles);
-        print(fpsController.transform.eulerAngles);
-        fpsController.transform.eulerAngles = targetLocation.eulerAngles;
-        transform.eulerAngles = targetLocation.eulerAngles + fpsController.transform.eulerAngles;
-        
+        // Rotate camera and vines
+        fpsController.yaw = targetLocation.eulerAngles.y + 180.0f;
+        transform.eulerAngles = targetLocation.eulerAngles;
+
         // Play opening animation
         anim.SetBool("Opened", true);
         RuntimeManager.PlayOneShotAttached(eventRef, gameObject);
@@ -116,8 +114,7 @@ public class VineTrap : MonoBehaviour
         lastCameraRotation.x = lastCameraRotation.x > 90.0f ? 0.0f : lastCameraRotation.x;
         
         // Restore camera rotation
-        //fpsController.transform.eulerAngles = lastPlayerRotation;
-        //transform.eulerAngles = lastPlayerRotation;
+        transform.eulerAngles = lastPlayerRotation;
         Camera.main.transform.localEulerAngles = lastCameraRotation;
 
         // Play opening animation
