@@ -26,7 +26,7 @@ public class ProximityPlatform : MonoBehaviour
 
     // Update is called once per frame
     void FixedUpdate()
-    {
+    { 
         float distance = (transform.position - player.position).magnitude;
         
         currentScaleMul = 1 - SuperLerp(distance, 0, 1, minRange, maxRange);
