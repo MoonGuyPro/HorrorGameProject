@@ -29,7 +29,7 @@ public class VineTrigger : MonoBehaviour
     {
         if (mode == Mode.ChangeLocation)
         {
-            vineTrap.TrapAndTeleport(targetLocation.position);
+            vineTrap.TrapAndTeleport(targetLocation);
         }
         else
         {

@@ -17,7 +17,7 @@ public class VineTrap : MonoBehaviour
     // Save player rotation on level change to make it seamless
     private static Vector3 lastPlayerRotation;
     private static Vector3 lastCameraRotation;
-    private static bool trapOnSpawn = false;
+    [SerializeField] private bool trapOnSpawn = false;
 
     // Start is called before the first frame update
     void Start()
@@ -35,9 +35,9 @@ public class VineTrap : MonoBehaviour
     }
     
     // Called by VineTrigger - trap teleports to other location
-    public void TrapAndTeleport(Vector3 targetPosition)
+    public void TrapAndTeleport(Transform targetLocation)
     {
-        IEnumerator coEnumerator = Teleport(targetPosition);
+        IEnumerator coEnumerator = Teleport(targetLocation);
         StartCoroutine(coEnumerator);
     }
 
@@ -49,7 +49,7 @@ public class VineTrap : MonoBehaviour
     }
     
     // Teleport implementation
-    private IEnumerator Teleport(Vector3 targetPosition)
+    private IEnumerator Teleport(Transform targetLocation)
     {
         // Stuck player and teleport vines to him
         fpsController.bStuck = true;
@@ -62,8 +62,14 @@ public class VineTrap : MonoBehaviour
         yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
 
         // Teleport
-        transform.position = targetPosition;
-        fpsController.transform.position = targetPosition + new Vector3(0, playerHeight, 0);
+        transform.position = targetLocation.transform.position;
+        fpsController.transform.position = targetLocation.position + new Vector3(0, playerHeight, 0);
+        
+        // Rotate
+        print(targetLocation.eulerAngles);
+        print(fpsController.transform.eulerAngles);
+        fpsController.transform.eulerAngles = targetLocation.eulerAngles;
+        transform.eulerAngles = targetLocation.eulerAngles + fpsController.transform.eulerAngles;
         
         // Play opening animation
         anim.SetBool("Opened", true);
@@ -91,7 +97,7 @@ public class VineTrap : MonoBehaviour
         // Cache rotation and change level
         lastPlayerRotation = fpsController.transform.eulerAngles;
         lastCameraRotation = Camera.main.transform.localEulerAngles;
-        print(Camera.main.transform.localEulerAngles);
+        //print(Camera.main.transform.localEulerAngles);
         trapOnSpawn = true;
         SceneManager.LoadScene(level);
     }
@@ -110,7 +116,8 @@ public class VineTrap : MonoBehaviour
         lastCameraRotation.x = lastCameraRotation.x > 90.0f ? 0.0f : lastCameraRotation.x;
         
         // Restore camera rotation
-        fpsController.transform.eulerAngles = lastPlayerRotation;
+        //fpsController.transform.eulerAngles = lastPlayerRotation;
+        //transform.eulerAngles = lastPlayerRotation;
         Camera.main.transform.localEulerAngles = lastCameraRotation;
 
         // Play opening animation
@@ -119,8 +126,8 @@ public class VineTrap : MonoBehaviour
         yield return null;
         yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
         
-        print(lastCameraRotation);
-        print(Camera.main.transform.localEulerAngles);
+        //print(lastCameraRotation);
+        //print(Camera.main.transform.localEulerAngles);
         
         // Unstuck player
         fpsController.bStuck = false;
