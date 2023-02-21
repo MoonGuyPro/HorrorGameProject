@@ -107,7 +107,6 @@ public class FPSController : PortalTraveller {
             OnStartWalking.Invoke();
         } else if (velocity.magnitude < 1f || jumping || bStuck)
         {
-            Debug.Log("stopping");
             OnStopWalking.Invoke();
         }
 
