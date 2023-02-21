@@ -17,8 +17,10 @@ namespace Utils
             if (Input.GetKeyDown(KeyCode.RightBracket))
                 DebugChange("Walls");
             if (Input.GetKeyDown(KeyCode.L))
-                DebugChange("Lights");
+                DebugChange("TreeLevel2");
             if (Input.GetKeyDown(KeyCode.Semicolon))
+                DebugChange("Lights");
+            if (Input.GetKeyDown(KeyCode.Backslash))
                 DebugChange("EasyMechanics");
         }
 
