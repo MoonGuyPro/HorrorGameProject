@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7332840814102875586}
   - component: {fileID: 3937867127598435200}
   - component: {fileID: 5332367869526132066}
-  - component: {fileID: 7687688581929907057}
+  - component: {fileID: 2585122989000113219}
   m_Layer: 0
   m_Name: Jump_Tree
   m_TagString: Untagged
@@ -109,8 +109,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxRange: 20
   minRange: 12
---- !u!64 &7687688581929907057
-MeshCollider:
+--- !u!65 &2585122989000113219
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -127,10 +127,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -2323307184621681860}
+  serializedVersion: 3
+  m_Size: {x: 4.8187456, y: 5.584453, z: 4.890259}
+  m_Center: {x: -0.07912403, y: 2.7922266, z: -0.23370361}
 --- !u!21 &-8436538626867406499
 Material:
   serializedVersion: 8
