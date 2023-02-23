@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RootPlatform : MonoBehaviour
@@ -12,6 +13,8 @@ public class RootPlatform : MonoBehaviour
     private Transform player;
     private Vector3 defaultPosition;
     private float maxOffset = -6.0f;
+
+    private float lastOffset = 0.0f;
     
     void Start()
     {
@@ -24,6 +27,8 @@ public class RootPlatform : MonoBehaviour
         float distance = (transform.position - player.position).magnitude;
         
         float currentOffset = SuperLerp(distance, 0, maxOffset, minRange, maxRange);
+        currentOffset = lastOffset + (currentOffset - lastOffset) * 0.3f;
+        lastOffset = currentOffset;
         transform.position = defaultPosition + new Vector3(0, currentOffset, 0);
     }
 
