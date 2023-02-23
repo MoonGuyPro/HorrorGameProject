@@ -13,7 +13,6 @@ public class FPSController : PortalTraveller {
 
     public bool lockCursor;
     public float mouseSensitivity = 10;
-    // Kris here - merge f-ed something up and I'm not sure if that's the correct amount
     public Vector2 pitchMinMax = new Vector2 (-90, 90); // Change to limit camera angles (currently no limit)
     public float rotationSmoothTime = 0.1f;
 
@@ -56,7 +55,8 @@ public class FPSController : PortalTraveller {
     void Start ()
     {
         cam = Camera.main;
-        if (lockCursor) {
+        if (lockCursor) 
+        {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
@@ -64,24 +64,30 @@ public class FPSController : PortalTraveller {
         controller = GetComponent<CharacterController> ();
 
         yaw = transform.eulerAngles.y;
-        pitch = cam.transform.localEulerAngles.x;
+        if (cam)
+        {
+            pitch = cam.transform.localEulerAngles.x;
+        }
         smoothYaw = yaw;
         smoothPitch = pitch;
     }
 
     void Update () {
-        if (Input.GetKeyDown (KeyCode.P)) {
+        if (Input.GetKeyDown (KeyCode.P)) 
+        {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            Debug.Break ();
+            Debug.Break();
         }
-        if (Input.GetKeyDown (KeyCode.O)) {
+        if (Input.GetKeyDown (KeyCode.O)) 
+        {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             disabled = !disabled;
         }
 
-        if (disabled) {
+        if (disabled) 
+        {
             return;
         }
 
@@ -90,7 +96,7 @@ public class FPSController : PortalTraveller {
         Vector3 inputDir = new Vector3 (input.x, 0, input.y).normalized;
         Vector3 worldInputDir = transform.TransformDirection (inputDir);
 
-        float currentSpeed = (Input.GetKey (KeyCode.LeftShift)) ? runSpeed : walkSpeed;
+        float currentSpeed = Input.GetKey(KeyCode.LeftShift) ? runSpeed : walkSpeed;
         Vector3 targetVelocity = worldInputDir * currentSpeed;
         velocity = Vector3.SmoothDamp (velocity, targetVelocity, ref smoothV, smoothMoveTime);
         if (velocity.magnitude > 1f && jumping == false && !bStuck) 
@@ -103,9 +109,9 @@ public class FPSController : PortalTraveller {
             {
                 OnWalking.Invoke();
             }
-            
             OnStartWalking.Invoke();
-        } else if (velocity.magnitude < 1f || jumping || bStuck)
+        }
+        else if (velocity.magnitude < 1f || jumping || bStuck)
         {
             OnStopWalking.Invoke();
         }

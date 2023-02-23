@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class PlayerInteraction : MonoBehaviour
@@ -24,11 +21,11 @@ public class PlayerInteraction : MonoBehaviour
     private Pickable pickable;
 
     private bool alreadyLooking;
+    private const string interactionKey = "F"; //I will change this when we have the ability to edit keybinds.
 
-    // If tipLabel is null show warning
     void Start()
     {
-        if(tipLabel == null)
+        if(tipLabel == null) // If tipLabel is null show warning
         {
             Debug.LogWarning("PlayerInteractive.cs: tipText is null - cannot show interaction tips!");
         }
@@ -51,7 +48,7 @@ public class PlayerInteraction : MonoBehaviour
         RaycastHit hit;
         if (Physics.SphereCast(PlayerCamera.transform.position, Radius, PlayerCamera.transform.forward, out hit, MaxDistance))
         {
-            if (hit.transform.tag == "Interactive")
+            if (hit.transform.CompareTag("Interactive"))
             {
                 // Show tip on screen
                 interactive = hit.transform.GetComponentInParent<Interactive>();
@@ -70,7 +67,7 @@ public class PlayerInteraction : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.F))
                     {
                         // Call interaction
-                        interactive = hit.transform.GetComponentInParent<Interactive>();
+                        interactive = hit.transform.GetComponentInParent<Interactive>(); //isn't it redundant?
                         if (!interactive.Interact(inv))
                         {
                             setTipText(interactive.altTip);
@@ -82,7 +79,8 @@ public class PlayerInteraction : MonoBehaviour
                     alreadyLooking = true;
                 } 
             }
-            if (hit.transform.tag == "Pickable")
+            
+            if (hit.transform.CompareTag("Pickable"))
             {
                 pickable = hit.transform.GetComponentInParent<Pickable>();
                 setTipText(pickable.tip);
@@ -91,7 +89,7 @@ public class PlayerInteraction : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.F))
                 {
                     // Call interaction
-                    pickable = hit.transform.GetComponentInParent<Pickable>();
+                    pickable = hit.transform.GetComponentInParent<Pickable>(); //isn't it redundant?
                     inv.addItem(pickable);
                     pickable.interact();
                     updateInventoryText();
@@ -109,20 +107,28 @@ public class PlayerInteraction : MonoBehaviour
     // Just in case check if tipLabel is null
     void setTipText(string tip)
     {
-        if(tipLabel != null)
-            textMesh.text = tip + " [F]";
+        if (tipLabel)
+        {
+            textMesh.text = tip + " [" + interactionKey + "]";
+        }
     }
 
-    void toggleTipText(bool enabled)
+    void toggleTipText(bool bEnabled)
     {
-        if(tipLabel != null)
-            tipLabel.SetActive(enabled);
+        if (tipLabel)
+        {
+            tipLabel.SetActive(bEnabled);
+        }
     }
 
     void updateInventoryText()
     {
-        string newInvText = "Inventory:\n";
-        newInvText += inv.printInGameNames();
-        inventoryTextMesh.text = newInvText;
+        string invContent = inv.printInGameNames();
+        if (invContent == "Empty")
+        {
+            inventoryTextMesh.text = "";
+            return;
+        }
+        inventoryTextMesh.text = "Inventory:\n" + invContent;
     }
 }
