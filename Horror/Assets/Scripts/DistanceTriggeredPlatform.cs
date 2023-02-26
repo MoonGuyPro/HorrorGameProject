@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 
 public class DistanceTriggeredPlatform : MonoBehaviour
@@ -26,7 +27,12 @@ public class DistanceTriggeredPlatform : MonoBehaviour
     
     [SerializeField, Tooltip("Offset (downwards) from the default position at which the platform hides")]
     private float hideOffset = 3.0f;
-    
+
+    [SerializeField] 
+    private EventReference upSound;
+    [SerializeField]
+    private EventReference downSound;
+
     void Start()
     {
         player = Camera.main.transform;
@@ -48,6 +54,7 @@ public class DistanceTriggeredPlatform : MonoBehaviour
             {
                 firstFrame = true;
                 interpolator = 0.0f;
+                RuntimeManager.PlayOneShotAttached(upSound, gameObject);
             }
         }
 
@@ -58,6 +65,7 @@ public class DistanceTriggeredPlatform : MonoBehaviour
             {
                 firstFrame = true;
                 interpolator = 0.0f;
+                RuntimeManager.PlayOneShotAttached(downSound, gameObject);
             }
         }
         triggerPrevFrameValue = trigger;
