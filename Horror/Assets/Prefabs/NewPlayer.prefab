@@ -437,7 +437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1908c499da172eb4598ccd355c0c3823, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerCamera: {fileID: 0}
+  PlayerCamera: {fileID: 2166076011228788860}
   MaxDistance: 5
   Radius: 0.45
   tipLabel: {fileID: 2192962791296625439}
@@ -859,11 +859,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 376036902386046028, guid: 700437983458030458639df620f0efb7, type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 375
+      value: 343
       objectReference: {fileID: 0}
     - target: {fileID: 376036902386046030, guid: 700437983458030458639df620f0efb7, type: 3}
       propertyPath: m_Name
-      value: Post-Processing
+      value: Post-Processing Player
       objectReference: {fileID: 0}
     - target: {fileID: 376036902386046030, guid: 700437983458030458639df620f0efb7, type: 3}
       propertyPath: m_IsActive
@@ -884,6 +884,10 @@ PrefabInstance:
     - target: {fileID: 376036903442634248, guid: 700437983458030458639df620f0efb7, type: 3}
       propertyPath: m_OcclusionCulling
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 376036903442634248, guid: 700437983458030458639df620f0efb7, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 544
       objectReference: {fileID: 0}
     - target: {fileID: 376036903442634250, guid: 700437983458030458639df620f0efb7, type: 3}
       propertyPath: m_RootOrder
@@ -1004,6 +1008,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1bfd321ce657e749a92d9bad49d3560, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &2166076011228788860 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 376036902386046029, guid: 700437983458030458639df620f0efb7, type: 3}
+  m_PrefabInstance: {fileID: 1961459706126003249}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2166076011228788863 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 376036902386046030, guid: 700437983458030458639df620f0efb7, type: 3}

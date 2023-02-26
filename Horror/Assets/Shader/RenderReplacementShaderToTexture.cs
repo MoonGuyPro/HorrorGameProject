@@ -41,7 +41,7 @@ public class RenderReplacementShaderToTexture : MonoBehaviour
         renderTexture.filterMode = filterMode;
 
         // Surface the render texture as a global variable, available to all shaders.
-        Debug.Log(targetTexture);
+        //Debug.Log(targetTexture);
         Shader.SetGlobalTexture(targetTexture, renderTexture);
 
         // Setup a copy of the camera to render the scene using the normals shader.

@@ -11,6 +11,10 @@ public class MainCamera : MonoBehaviour {
 
     void Awake () {
         FindPortals();
+        if (renderReplacement == null)
+        {
+            Debug.Log("There's no Render Replacement Shader To Texture");
+        }
     }
 
     void OnPreCull () {
@@ -28,7 +32,9 @@ public class MainCamera : MonoBehaviour {
             portals[i].PostPortalRender ();
         }
 
-        renderReplacement.RenderNormals();
+        if (renderReplacement != null) {
+            renderReplacement.RenderNormals();
+        }
     }
 
 }
