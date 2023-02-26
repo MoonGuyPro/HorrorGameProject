@@ -453,9 +453,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   graphicsObject: {fileID: 6670981775120347410}
   walkSpeed: 10
-  runSpeed: 15
+  runSpeed: 20
   smoothMoveTime: 0.1
-  jumpForce: 8
+  jumpForce: 9
   gravity: 18
   lockCursor: 1
   mouseSensitivity: 3
@@ -465,10 +465,34 @@ MonoBehaviour:
   pitch: 0.5499961
   OnStartWalking:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8807056037528276804}
+        m_TargetAssemblyTypeName: Footsteps, Assembly-CSharp
+        m_MethodName: StartFootstepsCoroutine
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnRunning:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8807056037528276804}
+        m_TargetAssemblyTypeName: Footsteps, Assembly-CSharp
+        m_MethodName: SetRunningSpeed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnWalking:
     m_PersistentCalls:
       m_Calls:
