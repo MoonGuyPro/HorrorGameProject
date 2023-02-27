@@ -8,19 +8,19 @@ namespace Utils
     {
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.O))
+            if (Input.GetKeyDown(KeyCode.I))
                 DebugChange("TreeLevel");
+            if (Input.GetKeyDown(KeyCode.O))
+                DebugChange("TreeLevel2");
             if (Input.GetKeyDown(KeyCode.P))
                 DebugChange("Caves");
             if (Input.GetKeyDown(KeyCode.LeftBracket))
                 DebugChange("Labyrinth");
             if (Input.GetKeyDown(KeyCode.RightBracket))
-                DebugChange("Walls");
-            if (Input.GetKeyDown(KeyCode.L))
-                DebugChange("TreeLevel2");
-            if (Input.GetKeyDown(KeyCode.Semicolon))
                 DebugChange("Lights");
-            if (Input.GetKeyDown(KeyCode.Backslash))
+            if (Input.GetKeyDown(KeyCode.L))
+                DebugChange("Walls");
+            if (Input.GetKeyDown(KeyCode.Semicolon))
                 DebugChange("EasyMechanics");
         }
 
