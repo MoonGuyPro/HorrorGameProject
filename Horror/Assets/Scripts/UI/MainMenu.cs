@@ -25,7 +25,10 @@ public class MainMenu : MonoBehaviour
         {
             continueButton.interactable = false;
         }
+        
+        // DONT TOUCH THESE!!!
         Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void Continue()
