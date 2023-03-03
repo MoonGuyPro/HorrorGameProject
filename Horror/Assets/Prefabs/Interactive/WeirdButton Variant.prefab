@@ -136,7 +136,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 3bdb1822d950d8a45b144402b7e9a970, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3bdb1822d950d8a45b144402b7e9a970, type: 3}
       propertyPath: m_LocalPosition.x
@@ -184,7 +184,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: fa50b45d5d27d5149b576f169685f443, type: 2}
     - target: {fileID: 919132149155446097, guid: 3bdb1822d950d8a45b144402b7e9a970, type: 3}
       propertyPath: m_Name
-      value: WeirdButton
+      value: WeirdButton Variant
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3bdb1822d950d8a45b144402b7e9a970, type: 3}
       propertyPath: m_TagString
@@ -200,6 +200,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3bdb1822d950d8a45b144402b7e9a970, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1912506252}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3bdb1822d950d8a45b144402b7e9a970, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8457017043126606449}
   m_SourcePrefab: {fileID: 100100000, guid: 3bdb1822d950d8a45b144402b7e9a970, type: 3}
 --- !u!4 &8346347004571921254 stripped
 Transform:
@@ -245,3 +248,24 @@ MonoBehaviour:
       Data3: 1928011186
       Data4: 207328883
     Path: event:/SFX/Cubes/CubeDrone
+--- !u!65 &8457017043126606449
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8691945964972798428}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.021912124, y: 0.026720753, z: 0.06}
+  m_Center: {x: 0.0004406278, y: -0.00050413975, z: 0.03}
