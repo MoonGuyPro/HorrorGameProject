@@ -54,6 +54,7 @@ public class RenderReplacementShaderToTexture : MonoBehaviour
         camera.depth = thisCamera.depth - 1;
         camera.clearFlags = cameraClearFlags;
         camera.backgroundColor = background;
+        camera.enabled = false;
     }
 
     // Render normals and pass to uniform

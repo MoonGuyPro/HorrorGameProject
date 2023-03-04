@@ -32,6 +32,8 @@ public class Portal : MonoBehaviour {
         trackedTravellers = new List<PortalTraveller> ();
         screenMeshFilter = screen.GetComponent<MeshFilter> ();
         screen.material.SetInt ("displayMask", 1);
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = -1;
     }
 
     void LateUpdate () {
@@ -116,8 +118,11 @@ public class Portal : MonoBehaviour {
             portalCam.transform.SetPositionAndRotation (renderPositions[i], renderRotations[i]);
             SetNearClipPlane ();
             HandleClipping ();
-            
-            renderReplacement.RenderNormals();
+
+            if (renderReplacement != null)
+            {
+                renderReplacement.RenderNormals();
+            }
             portalCam.Render();
             shaderCam.Render();
 
