@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3941490529233458534}
   - component: {fileID: 1855819274007657340}
   - component: {fileID: 3709014534531502077}
+  - component: {fileID: 3854764899404446925}
   m_Layer: 0
   m_Name: Tree 1
   m_TagString: Untagged
@@ -32,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!193 &3941490529233458534
 Tree:
@@ -94,6 +95,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3854764899404446925
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5883234565649016253}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10.498532, y: 9.2068, z: 7.3718185}
+  m_Center: {x: 0.125175, y: 4.473132, z: -0.16098177}
 --- !u!43 &-8516365624273063450
 Mesh:
   m_ObjectHideFlags: 0
@@ -384,17 +406,17 @@ MonoBehaviour:
     rootSpread: 3.42
     groundOffset: 0
     rootMatrix:
-      e00: 0.4222703
+      e00: 0.71008843
       e01: 0
-      e02: -0.90647
+      e02: -0.7041125
       e03: 0
-      e10: 0
-      e11: -1
+      e10: -0
+      e11: 1
       e12: 0
       e13: 0
-      e20: -0.90647
-      e21: -0
-      e22: -0.4222703
+      e20: 0.7041125
+      e21: 0
+      e22: 0.71008843
       e23: 0
       e30: 0
       e31: 0
@@ -758,17 +780,17 @@ MonoBehaviour:
     pitch: -0
     rotation: {x: 0, y: 0, z: 0, w: 1}
     matrix:
-      e00: 0.4222703
+      e00: 0.71008843
       e01: 0
-      e02: -0.90647
+      e02: -0.7041125
       e03: 0
-      e10: 0
-      e11: -1
+      e10: -0
+      e11: 1
       e12: 0
       e13: 0
-      e20: -0.90647
-      e21: -0
-      e22: -0.4222703
+      e20: 0.7041125
+      e21: 0
+      e22: 0.71008843
       e23: 0
       e30: 0
       e31: 0
@@ -14576,15 +14598,15 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpSpecMap:
-        m_Texture: {fileID: 2800000, guid: 1c60f67ca1aef334b98022329451aa84, type: 3}
+        m_Texture: {fileID: 2800000, guid: ef020d082a68ab14285a8af3ba100fec, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 29ad845d472048c4988eccba0e399590, type: 3}
+        m_Texture: {fileID: 2800000, guid: 00751fca9c614f14283db699ce7c5158, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TranslucencyMap:
-        m_Texture: {fileID: 2800000, guid: fc7478bd52bb34d4bb76dd5fb89bab08, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5d3237830cb3f8c449025aca60de0bf3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
@@ -14621,19 +14643,19 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpSpecMap:
-        m_Texture: {fileID: 2800000, guid: 1c60f67ca1aef334b98022329451aa84, type: 3}
+        m_Texture: {fileID: 2800000, guid: ef020d082a68ab14285a8af3ba100fec, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 29ad845d472048c4988eccba0e399590, type: 3}
+        m_Texture: {fileID: 2800000, guid: 00751fca9c614f14283db699ce7c5158, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ShadowTex:
-        m_Texture: {fileID: 2800000, guid: e64aa4289ebcebb44bb1a4b2c83943c4, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1447c08d62d7ee34183737f61b946532, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _TranslucencyMap:
-        m_Texture: {fileID: 2800000, guid: fc7478bd52bb34d4bb76dd5fb89bab08, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5d3237830cb3f8c449025aca60de0bf3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
