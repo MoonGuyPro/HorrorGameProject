@@ -18,6 +18,12 @@ public class MainMenu : MonoBehaviour
     [SerializeField] 
     private Button continueButton;
     
+    private void Awake()
+    {
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = -1;
+    }
+    
     void Start()
     {
         print(HandleSaveFile.LoadProgress());

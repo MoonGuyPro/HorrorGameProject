@@ -16,26 +16,24 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) 
+        if (!Input.GetKeyDown(KeyCode.Escape)) return;
+        if (!IsPaused)
         {
-            if (IsPaused)
-            {
-                Resume();
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
-            }
-            else
-            {
-                Pause();
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-            }
+            Pause();
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Resume();
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
     }
 
     void Pause() 
     {
-        Debug.Log("Paused!");
+        //Debug.Log("Paused!");
         PauseMenuUI.SetActive(true);
         Time.timeScale = 0.0f;
         IsPaused = true;
@@ -43,7 +41,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
-        Debug.Log("Resumed!");
+        //Debug.Log("Resumed!");
         PauseMenuUI.SetActive(false);
         Time.timeScale = 1.0f;
         IsPaused = false;

@@ -20,6 +20,14 @@ public class OptionsMenu : MonoBehaviour
     
     private void Start()
     {
+        
+        // Hide all menus cuz Unity screwed something up
+        audioOptionsMenu.SetActive(true);
+        graphicsOptionsMenu.SetActive(false);
+        controlsOptionsMenu.SetActive(false);
+        keybindsMenu.SetActive(false);
+        
+        // Volume buses
         masterBus.setVolume(masterVolume);
         musicBus.setVolume(musicVolume);
         sfxBus.setVolume(sfxVolume);
@@ -40,7 +48,6 @@ public class OptionsMenu : MonoBehaviour
             }
                 
         }
-
         resolutionDropdown.AddOptions(resolutionOptions);
         resolutionDropdown.value = currentResIndex;
         resolutionDropdown.RefreshShownValue();
@@ -89,28 +96,28 @@ public class OptionsMenu : MonoBehaviour
     {
         masterVolume = volume;
         int value = (int)(masterVolume * 100.0f);
-        masterVolumeLabel.GetComponent<TMPro.TextMeshProUGUI>().text = value.ToString() + "%";
+        masterVolumeLabel.GetComponent<TextMeshProUGUI>().text = value + "%";
     }
     
     public void SetMusicVolume(float volume)
     {
         musicVolume = volume;
         int value = (int)(musicVolume * 100.0f);
-        musicVolumeLabel.GetComponent<TMPro.TextMeshProUGUI>().text = value.ToString() + "%";
+        musicVolumeLabel.GetComponent<TextMeshProUGUI>().text = value + "%";
     }
     
     public void SetSFXVolume(float volume)
     {
         sfxVolume = volume;
         int value = (int)(sfxVolume * 100.0f);
-        soundVolumeLabel.GetComponent<TMPro.TextMeshProUGUI>().text = value.ToString() + "%";
+        soundVolumeLabel.GetComponent<TextMeshProUGUI>().text = value + "%";
     }
     
     public void SetAmbienceVolume(float volume)
     {
         ambienceVolume = volume;
         int value = (int)(ambienceVolume * 100.0f);
-        ambientVolumeLabel.GetComponent<TMPro.TextMeshProUGUI>().text = value.ToString() + "%";
+        ambientVolumeLabel.GetComponent<TextMeshProUGUI>().text = value + "%";
     }
     
     public float GetMasterVolume()
@@ -151,6 +158,9 @@ public class OptionsMenu : MonoBehaviour
     [Header("Controls")]
     public GameObject sensitivitySlider;
     public GameObject sensitivityLabel;
+    public GameObject editKeybindsButton;
+    public GameObject keybindsMenu;
+    public GameObject backToControlsButton;
 
     float sensitivity = 0.8f;
     bool invertYAxis = false;
@@ -159,7 +169,7 @@ public class OptionsMenu : MonoBehaviour
     {
         sensitivity = newSens;
         int value = (int)(sensitivity * 100.0f);
-        sensitivityLabel.GetComponent<TMPro.TextMeshProUGUI>().text = value.ToString() + "%";
+        sensitivityLabel.GetComponent<TextMeshProUGUI>().text = value + "%";
     }
     
     public float GetSensitivity()
@@ -176,7 +186,6 @@ public class OptionsMenu : MonoBehaviour
     {
         return invertYAxis;
     }
-    
     #endregion
     
     #region MenuNavigation
@@ -186,6 +195,7 @@ public class OptionsMenu : MonoBehaviour
         audioOptionsMenu.SetActive(true);
         graphicsOptionsMenu.SetActive(false);
         controlsOptionsMenu.SetActive(false);
+        keybindsMenu.SetActive(false);
     }
     
     public void OnGraphicsPressed()
@@ -193,12 +203,26 @@ public class OptionsMenu : MonoBehaviour
         audioOptionsMenu.SetActive(false);
         graphicsOptionsMenu.SetActive(true);
         controlsOptionsMenu.SetActive(false);
+        keybindsMenu.SetActive(false);
     }
     
     public void OnControlsPressed()
     {
         audioOptionsMenu.SetActive(false);
         graphicsOptionsMenu.SetActive(false);
+        controlsOptionsMenu.SetActive(true);
+        keybindsMenu.SetActive(false);
+    }
+
+    public void OnKeybindsPressed()
+    {
+        controlsOptionsMenu.SetActive(false);
+        keybindsMenu.SetActive(true);
+    }
+    
+    public void OnBackToControlsPressed()
+    {
+        keybindsMenu.SetActive(false);
         controlsOptionsMenu.SetActive(true);
     }
 
