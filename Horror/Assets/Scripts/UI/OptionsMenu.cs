@@ -16,6 +16,8 @@ public class OptionsMenu : MonoBehaviour
         musicBus = FMODUnity.RuntimeManager.GetBus("bus:/Master/Music");
         sfxBus = FMODUnity.RuntimeManager.GetBus("bus:/Master/SFX");
         ambienceBus = FMODUnity.RuntimeManager.GetBus("bus:/Master/Ambience");
+
+        masterBus.setVolume(0.0f);
     }
     
     private void Start()
