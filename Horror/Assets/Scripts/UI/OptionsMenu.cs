@@ -16,6 +16,19 @@ public class OptionsMenu : MonoBehaviour
         musicBus = FMODUnity.RuntimeManager.GetBus("bus:/Master/Music");
         sfxBus = FMODUnity.RuntimeManager.GetBus("bus:/Master/SFX");
         ambienceBus = FMODUnity.RuntimeManager.GetBus("bus:/Master/Ambience");
+        
+        // Load PlayerPrefs
+        
+        // Audio // moved these here from Update since they were triggered when the options were enabled first time,
+        // not instantly when the game started, so there was a volume jump when the options were opened
+        masterVolume = PlayerPrefs.GetFloat("masterVolume", 0.8f);
+        musicVolume = PlayerPrefs.GetFloat("musicVolume", 0.8f);
+        sfxVolume = PlayerPrefs.GetFloat("sfxVolume", 0.8f);
+        ambienceVolume = PlayerPrefs.GetFloat("ambienceVolume", 0.8f);
+
+        // Controls
+        sensitivity = PlayerPrefs.GetFloat("sensitivity", 0.8f);
+        invertYAxis = PlayerPrefs.GetInt("invertYAxis", 0) == 1;
 
         masterBus.setVolume(0.0f);
     }
@@ -46,17 +59,6 @@ public class OptionsMenu : MonoBehaviour
         resolutionDropdown.AddOptions(resolutionOptions);
         resolutionDropdown.value = currentResIndex;
         resolutionDropdown.RefreshShownValue();
-        
-        // Load PlayerPrefs
-        // Audio
-        masterVolume = PlayerPrefs.GetFloat("masterVolume", 0.8f);
-        musicVolume = PlayerPrefs.GetFloat("musicVolume", 0.8f);
-        sfxVolume = PlayerPrefs.GetFloat("sfxVolume", 0.8f);
-        ambienceVolume = PlayerPrefs.GetFloat("ambienceVolume", 0.8f);
-
-        // Controls
-        sensitivity = PlayerPrefs.GetFloat("sensitivity", 0.8f);
-        invertYAxis = PlayerPrefs.GetInt("invertYAxis", 0) == 1;
     }
 
     private void Update()
