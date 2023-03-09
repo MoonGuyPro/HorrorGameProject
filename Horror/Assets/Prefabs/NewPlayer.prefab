@@ -153,7 +153,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1619265656077581785
 Transform:
   m_ObjectHideFlags: 0
@@ -574,7 +574,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1908c499da172eb4598ccd355c0c3823, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerCamera: {fileID: 1619265656077581785}
+  PlayerCamera: {fileID: 2166076010137860667}
   MaxDistance: 5
   Radius: 0.45
   tipLabel: {fileID: 2192962791296625439}
@@ -1000,7 +1000,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 376036902386046030, guid: 700437983458030458639df620f0efb7, type: 3}
       propertyPath: m_Name
-      value: Post-Processing
+      value: Player Post-Processing
       objectReference: {fileID: 0}
     - target: {fileID: 376036902386046030, guid: 700437983458030458639df620f0efb7, type: 3}
       propertyPath: m_IsActive
@@ -1008,7 +1008,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 376036902386046030, guid: 700437983458030458639df620f0efb7, type: 3}
       propertyPath: m_TagString
-      value: MainCamera
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 376036903442634248, guid: 700437983458030458639df620f0efb7, type: 3}
       propertyPath: m_Enabled
@@ -1072,7 +1072,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 376036903442634253, guid: 700437983458030458639df620f0efb7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 376036903442634253, guid: 700437983458030458639df620f0efb7, type: 3}
       propertyPath: m_TagString
@@ -1086,10 +1086,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 376036903442634253, guid: 700437983458030458639df620f0efb7, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8086042604412198752}
+      addedObject: {fileID: 9002787967341863941}
     - targetCorrespondingSourceObject: {fileID: 376036903442634253, guid: 700437983458030458639df620f0efb7, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 9002787967341863941}
+      addedObject: {fileID: 1305221712235157231}
     - targetCorrespondingSourceObject: {fileID: 376036902386046030, guid: 700437983458030458639df620f0efb7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9176584315920347274}
@@ -1104,19 +1104,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 376036903442634253, guid: 700437983458030458639df620f0efb7, type: 3}
   m_PrefabInstance: {fileID: 1961459706126003249}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8086042604412198752
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2166076010137860668}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dac7c064453f326478cff908e3ac9ba3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  renderReplacement: {fileID: 2166076011228788857}
 --- !u!114 &9002787967341863941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1130,6 +1117,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attenuationObject: {fileID: 0}
+--- !u!114 &1305221712235157231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2166076010137860668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02cd644a4cd5efc4081bb2ec4bd6ab23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderReplacement: {fileID: 2166076011228788857}
 --- !u!114 &2166076011228788857 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 376036902386046024, guid: 700437983458030458639df620f0efb7, type: 3}

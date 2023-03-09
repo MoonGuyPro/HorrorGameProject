@@ -8,8 +8,8 @@ public class Portal : MonoBehaviour {
     public Portal linkedPortal;
     public MeshRenderer screen;
     public int recursionLimit = 5;
-    //public Camera shaderCam;
-    //public RenderReplacementShaderToTexture renderReplacement;
+    public Camera shaderCam;
+    public RenderReplacementShaderToTexture renderReplacement;
     
     [Header ("Advanced Settings")]
     public float nearClipOffset = 0.05f;
@@ -29,6 +29,7 @@ public class Portal : MonoBehaviour {
         playerCam = Camera.main;
         portalCam = GetComponentInChildren<Camera> ();
         portalCam.enabled = false;
+        shaderCam.enabled = false;
         trackedTravellers = new List<PortalTraveller> ();
         screenMeshFilter = screen.GetComponent<MeshFilter> ();
         screen.material.SetInt ("displayMask", 1);
@@ -91,7 +92,8 @@ public class Portal : MonoBehaviour {
 
         int startIndex = 0;
         portalCam.projectionMatrix = playerCam.projectionMatrix;
-        //shaderCam.projectionMatrix = playerCam.projectionMatrix;
+        if(shaderCam != null)
+            shaderCam.projectionMatrix = playerCam.projectionMatrix;
         for (int i = 0; i < recursionLimit; i++) {
             if (i > 0) {
                 // No need for recursive rendering if linked portal is not visible through this portal
@@ -116,10 +118,14 @@ public class Portal : MonoBehaviour {
             portalCam.transform.SetPositionAndRotation (renderPositions[i], renderRotations[i]);
             SetNearClipPlane ();
             HandleClipping ();
-            
-            //renderReplacement.RenderNormals();
+
+            if (renderReplacement != null)
+            {
+                renderReplacement.RenderNormals();
+            }
             portalCam.Render();
-            //shaderCam.Render();
+            if (shaderCam != null)
+                shaderCam.Render();
 
             if (i == startIndex) {
                 linkedPortal.screen.material.SetInt ("displayMask", 1);
@@ -199,7 +205,8 @@ public class Portal : MonoBehaviour {
             viewTexture = new RenderTexture (Screen.width, Screen.height, 0);
             // Render the view from the portal camera to the view texture
             portalCam.targetTexture = viewTexture;
-            //shaderCam.targetTexture = viewTexture;
+            if (shaderCam != null)
+                shaderCam.targetTexture = viewTexture;
             // Display the view texture on the screen of the linked portal
             linkedPortal.screen.material.SetTexture ("_MainTex", viewTexture);
         }
@@ -276,10 +283,12 @@ public class Portal : MonoBehaviour {
             // Update projection based on new clip plane
             // Calculate matrix with player cam so that player camera settings (fov, etc) are used
             portalCam.projectionMatrix = playerCam.CalculateObliqueMatrix (clipPlaneCameraSpace);
-            //shaderCam.projectionMatrix = playerCam.CalculateObliqueMatrix (clipPlaneCameraSpace);
+            if (shaderCam != null)
+                shaderCam.projectionMatrix = playerCam.CalculateObliqueMatrix (clipPlaneCameraSpace);
         } else {
             portalCam.projectionMatrix = playerCam.projectionMatrix;
-            //shaderCam.projectionMatrix = playerCam.projectionMatrix;
+            if (shaderCam != null)
+                shaderCam.projectionMatrix = playerCam.projectionMatrix;
         }
     }
 

@@ -33,6 +33,24 @@ Shader "Hidden/Roystan/Post Process Outline"
             float _BrightnessScale;
 			float4x4 _ClipToView;
 
+			float halfScaleFloor;
+			float halfScaleCeil;
+			float2 bottomLeftUV;
+			float2 topRightUV;
+			float2 bottomRightUV;
+			float2 topLeftUV;
+			float3 normal0;
+			float3 normal1;
+			float3 normal2;
+			float3 normal3;
+
+			float3 normalFiniteDifference0;
+			float3 normalFiniteDifference1;
+			float3 normalEdge;
+			float4 color;
+			float depth;
+			float edgeValue;
+
 			// Combines the top and bottom colors using normal blending.
 			// https://en.wikipedia.org/wiki/Blend_modes#Normal_blend_mode
 			// This performs the same operation as Blend SrcAlpha OneMinusSrcAlpha.
@@ -74,32 +92,32 @@ Shader "Hidden/Roystan/Post Process Outline"
 			float4 Frag(Varyings i) : SV_Target
 			{
 				// Calculate UV for comparison
-				float halfScaleFloor = floor(_Scale * 0.5);
-				float halfScaleCeil = ceil(_Scale * 0.5);
-				float2 bottomLeftUV = i.texcoord - float2(_MainTex_TexelSize.x, _MainTex_TexelSize.y) * halfScaleFloor;
-				float2 topRightUV = i.texcoord + float2(_MainTex_TexelSize.x, _MainTex_TexelSize.y) * halfScaleCeil;
-				float2 bottomRightUV = i.texcoord + float2(_MainTex_TexelSize.x * halfScaleCeil, -_MainTex_TexelSize.y * halfScaleFloor);
-				float2 topLeftUV = i.texcoord + float2(-_MainTex_TexelSize.x * halfScaleFloor, _MainTex_TexelSize.y * halfScaleCeil);
+				halfScaleFloor = floor(_Scale * 0.5);
+				halfScaleCeil = ceil(_Scale * 0.5);
+				bottomLeftUV = i.texcoord - float2(_MainTex_TexelSize.x, _MainTex_TexelSize.y) * halfScaleFloor;
+				topRightUV = i.texcoord + float2(_MainTex_TexelSize.x, _MainTex_TexelSize.y) * halfScaleCeil;
+				bottomRightUV = i.texcoord + float2(_MainTex_TexelSize.x * halfScaleCeil, -_MainTex_TexelSize.y * halfScaleFloor);
+				topLeftUV = i.texcoord + float2(-_MainTex_TexelSize.x * halfScaleFloor, _MainTex_TexelSize.y * halfScaleCeil);
 
 				// Get normals
-				float3 normal0 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, bottomLeftUV).rgb;
-				float3 normal1 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, topRightUV).rgb;
-				float3 normal2 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, bottomRightUV).rgb;
-				float3 normal3 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, topLeftUV).rgb;
+				normal0 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, bottomLeftUV).rgb;
+				normal1 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, topRightUV).rgb;
+				normal2 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, bottomRightUV).rgb;
+				normal3 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, topLeftUV).rgb;
 
 				// Calculate edge
-				float3 normalFiniteDifference0 = normal1 - normal0;
-				float3 normalFiniteDifference1 = normal3 - normal2;
-				float3 normalEdge = sqrt(pow(normalFiniteDifference0, 2) + pow(normalFiniteDifference1, 2));
+				normalFiniteDifference0 = normal1 - normal0;
+				normalFiniteDifference1 = normal3 - normal2;
+				normalEdge = sqrt(pow(normalFiniteDifference0, 2) + pow(normalFiniteDifference1, 2));
 
 				// Color pre post-processing
-				float4 color = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.texcoord);
+				color = SAMPLE_TEXTURE2D(_MainTex, sampler_MainTex, i.texcoord);
 					
 				// Get depth from buffor
-				float depth = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, sampler_CameraDepthTexture, i.texcoord).r;
+				depth = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, sampler_CameraDepthTexture, i.texcoord).r;
 
 				// Convert to single float (don't ask me why I used such formula, it just works)
-				float edgeValue = max(normalEdge.r, max(normalEdge.g, normalEdge.b));
+				edgeValue = max(normalEdge.r, max(normalEdge.g, normalEdge.b));
 				
 				// Cut off very low values
 				edgeValue = edgeValue > _LowCutOff ? edgeValue : 0;
