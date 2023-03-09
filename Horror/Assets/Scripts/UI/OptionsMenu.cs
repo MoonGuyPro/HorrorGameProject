@@ -39,6 +39,9 @@ public class OptionsMenu : MonoBehaviour
         musicBus.setVolume(musicVolume);
         sfxBus.setVolume(sfxVolume);
         ambienceBus.setVolume(ambienceVolume);
+        
+        // Hide everything (except audio) because Unity is stupid
+        OnAudioPressed();
 
         // Resolutions dropdown setup
         resolutions = Screen.resolutions;
@@ -184,12 +187,17 @@ public class OptionsMenu : MonoBehaviour
     #endregion
     
     #region MenuNavigation
+
+    public GameObject controlsOverviewMenu;
+    public GameObject controlsOverviewButton;
+    public GameObject returnToControlsButton;
     
     public void OnAudioPressed()
     {
         audioOptionsMenu.SetActive(true);
         graphicsOptionsMenu.SetActive(false);
         controlsOptionsMenu.SetActive(false);
+        controlsOverviewMenu.SetActive(false);
     }
     
     public void OnGraphicsPressed()
@@ -197,6 +205,7 @@ public class OptionsMenu : MonoBehaviour
         audioOptionsMenu.SetActive(false);
         graphicsOptionsMenu.SetActive(true);
         controlsOptionsMenu.SetActive(false);
+        controlsOverviewMenu.SetActive(false);
     }
     
     public void OnControlsPressed()
@@ -204,6 +213,19 @@ public class OptionsMenu : MonoBehaviour
         audioOptionsMenu.SetActive(false);
         graphicsOptionsMenu.SetActive(false);
         controlsOptionsMenu.SetActive(true);
+        controlsOverviewMenu.SetActive(false);
+    }
+
+    public void OnControlsOverviewPressed()
+    {
+        controlsOptionsMenu.SetActive(false);
+        controlsOverviewMenu.SetActive(true);
+    }
+    
+    public void OnReturnToControlsPressed()
+    {
+        controlsOptionsMenu.SetActive(true);
+        controlsOverviewMenu.SetActive(false);
     }
 
     public void OnBackPressed()
