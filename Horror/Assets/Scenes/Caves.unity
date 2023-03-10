@@ -123,6 +123,61 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &5608435 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 263fbd2983bd86044bd965ce01353ee5, type: 3}
+  m_PrefabInstance: {fileID: 232963564}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5608436
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5608435}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 96849d64966406e418b9d5305a3c1ad4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &5608440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5608435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 960942613
+      Data2: 1161994970
+      Data3: -1468944453
+      Data4: 1562949087
+    Path: event:/SFX/Caves/Cart
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!4 &14863696 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7413659883413353598, guid: 9380f34c10f5fe34e863c769353585c0, type: 3}
@@ -1028,20 +1083,16 @@ PrefabInstance:
       value: 536.6721
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 01374c5d3cd74cd45a1ab6b8306479b7, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1645.4843
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 01374c5d3cd74cd45a1ab6b8306479b7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 113.56
+      value: 114.91997
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 01374c5d3cd74cd45a1ab6b8306479b7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -157.29
+      value: -157.3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 01374c5d3cd74cd45a1ab6b8306479b7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -122.62
+      value: -122.590004
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 01374c5d3cd74cd45a1ab6b8306479b7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1163,7 +1214,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 5ea05a8b11e98ef469c1219f0a2886b8, type: 3}
       propertyPath: m_RootOrder
-      value: 43
+      value: 42
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5ea05a8b11e98ef469c1219f0a2886b8, type: 3}
       propertyPath: m_LocalScale.x
@@ -1503,6 +1554,68 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 855131390749405241, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+--- !u!1 &167806992
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 167806994}
+  - component: {fileID: 167806993}
+  m_Layer: 0
+  m_Name: CavesFallingRocks (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &167806993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167806992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 198020154
+      Data2: 1306218487
+      Data3: 1496118424
+      Data4: -965228857
+    Path: event:/SFX/Caves/RocksFalling
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!4 &167806994
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167806992}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -459.9, y: 2, z: -483.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 54
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &170503770 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
@@ -1795,7 +1908,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6110616150076437359, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -294.12
+      value: -295.16
       objectReference: {fileID: 0}
     - target: {fileID: 6110616150076437359, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1803,7 +1916,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6110616150076437359, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -517.23
+      value: -513.49
       objectReference: {fileID: 0}
     - target: {fileID: 6110616150076437359, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1924,68 +2037,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 01374c5d3cd74cd45a1ab6b8306479b7, type: 3}
   m_PrefabInstance: {fileID: 1732830969}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &204346402
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 204346404}
-  - component: {fileID: 204346403}
-  m_Layer: 0
-  m_Name: CavesFallingRocks (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &204346403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 204346402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 198020154
-      Data2: 1306218487
-      Data3: 1496118424
-      Data4: -965228857
-    Path: event:/SFX/Caves/RocksFalling
-  Event: 
-  PlayEvent: 1
-  StopEvent: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
---- !u!4 &204346404
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 204346402}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -318.08, y: 2, z: -503.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 53
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &205174257
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2255,7 +2306,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 816c3e37a32a7f34fbefe884f50f54eb, type: 3}
       propertyPath: m_RootOrder
-      value: 39
+      value: 38
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 816c3e37a32a7f34fbefe884f50f54eb, type: 3}
       propertyPath: m_LocalScale.x
@@ -2543,15 +2594,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 263fbd2983bd86044bd965ce01353ee5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -351.04
+      value: -404.6563
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 263fbd2983bd86044bd965ce01353ee5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -24.5
+      value: -24.500006
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 263fbd2983bd86044bd965ce01353ee5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -488.32
+      value: -425.94867
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 263fbd2983bd86044bd965ce01353ee5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2595,66 +2646,11 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 263fbd2983bd86044bd965ce01353ee5, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1373599764}
+      addedObject: {fileID: 5608436}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 263fbd2983bd86044bd965ce01353ee5, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1373599765}
+      addedObject: {fileID: 5608440}
   m_SourcePrefab: {fileID: 100100000, guid: 263fbd2983bd86044bd965ce01353ee5, type: 3}
---- !u!1 &242792670 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 263fbd2983bd86044bd965ce01353ee5, type: 3}
-  m_PrefabInstance: {fileID: 1411560679}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &242792674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 242792670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 960942613
-      Data2: 1161994970
-      Data3: -1468944453
-      Data4: 1562949087
-    Path: event:/SFX/Caves/Cart
-  Event: 
-  PlayEvent: 1
-  StopEvent: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
---- !u!95 &242792675
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 242792670}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6cc4251782e385a40bdad7994a0beb48, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
 --- !u!1001 &245455960
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2943,7 +2939,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 52
+  m_RootOrder: 51
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &276958524 stripped
 Transform:
@@ -3156,7 +3152,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 5ea05a8b11e98ef469c1219f0a2886b8, type: 3}
       propertyPath: m_RootOrder
-      value: 38
+      value: 37
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5ea05a8b11e98ef469c1219f0a2886b8, type: 3}
       propertyPath: m_LocalScale.x
@@ -3298,6 +3294,61 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
   m_PrefabInstance: {fileID: 1429134562}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &306040663 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 263fbd2983bd86044bd965ce01353ee5, type: 3}
+  m_PrefabInstance: {fileID: 1362045335}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &306040664
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306040663}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1cff916583d9c9a4a949bacc1558181d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &306040668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 306040663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 960942613
+      Data2: 1161994970
+      Data3: -1468944453
+      Data4: 1562949087
+    Path: event:/SFX/Caves/Cart
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!4 &312808465 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
@@ -3937,7 +3988,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 5ea05a8b11e98ef469c1219f0a2886b8, type: 3}
       propertyPath: m_RootOrder
-      value: 44
+      value: 43
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5ea05a8b11e98ef469c1219f0a2886b8, type: 3}
       propertyPath: m_LocalScale.x
@@ -4157,7 +4208,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh190936
+  m_Name: pb_Mesh81206
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -4433,7 +4484,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh190788
+  m_Name: pb_Mesh81058
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -4602,7 +4653,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 5ea05a8b11e98ef469c1219f0a2886b8, type: 3}
       propertyPath: m_RootOrder
-      value: 37
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5ea05a8b11e98ef469c1219f0a2886b8, type: 3}
       propertyPath: m_LocalScale.x
@@ -5073,7 +5124,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 43f971c57f729de4d9f1dc7ea39d9253, type: 3}
       propertyPath: m_RootOrder
-      value: 40
+      value: 39
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 43f971c57f729de4d9f1dc7ea39d9253, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5317,7 +5368,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh190278
+  m_Name: pb_Mesh80542
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -5584,61 +5635,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -153830957423991239, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
---- !u!1 &513017110 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 263fbd2983bd86044bd965ce01353ee5, type: 3}
-  m_PrefabInstance: {fileID: 1362045335}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &513017114
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 513017110}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1cff916583d9c9a4a949bacc1558181d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
---- !u!114 &513017115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 513017110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 960942613
-      Data2: 1161994970
-      Data3: -1468944453
-      Data4: 1562949087
-    Path: event:/SFX/Caves/Cart
-  Event: 
-  PlayEvent: 1
-  StopEvent: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!1 &521859177
 GameObject:
   m_ObjectHideFlags: 0
@@ -6900,71 +6896,6 @@ Transform:
   m_Father: {fileID: 787848812}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 177.169, z: 0}
---- !u!1001 &523568775
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 5ea05a8b11e98ef469c1219f0a2886b8, type: 3}
-      propertyPath: m_RootOrder
-      value: 36
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5ea05a8b11e98ef469c1219f0a2886b8, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 93.544
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5ea05a8b11e98ef469c1219f0a2886b8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -330.32364
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5ea05a8b11e98ef469c1219f0a2886b8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -24.999987
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5ea05a8b11e98ef469c1219f0a2886b8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -513.47314
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5ea05a8b11e98ef469c1219f0a2886b8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.6639103
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5ea05a8b11e98ef469c1219f0a2886b8, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.6639092
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5ea05a8b11e98ef469c1219f0a2886b8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.24335968
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5ea05a8b11e98ef469c1219f0a2886b8, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.24335934
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5ea05a8b11e98ef469c1219f0a2886b8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5ea05a8b11e98ef469c1219f0a2886b8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5ea05a8b11e98ef469c1219f0a2886b8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -40.261
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 5ea05a8b11e98ef469c1219f0a2886b8, type: 3}
-      propertyPath: m_Name
-      value: cave_floor_tracks (13)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5ea05a8b11e98ef469c1219f0a2886b8, type: 3}
 --- !u!1001 &527338931
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10279,7 +10210,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh190732
+  m_Name: pb_Mesh80996
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -12511,7 +12442,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh190708
+  m_Name: pb_Mesh80972
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -12680,7 +12611,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 5ea05a8b11e98ef469c1219f0a2886b8, type: 3}
       propertyPath: m_RootOrder
-      value: 48
+      value: 47
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5ea05a8b11e98ef469c1219f0a2886b8, type: 3}
       propertyPath: m_LocalScale.x
@@ -14334,68 +14265,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 01374c5d3cd74cd45a1ab6b8306479b7, type: 3}
   m_PrefabInstance: {fileID: 871922609}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &877751735
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 877751737}
-  - component: {fileID: 877751736}
-  m_Layer: 0
-  m_Name: CavesFallingRocks (4)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &877751736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 877751735}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 198020154
-      Data2: 1306218487
-      Data3: 1496118424
-      Data4: -965228857
-    Path: event:/SFX/Caves/RocksFalling
-  Event: 
-  PlayEvent: 1
-  StopEvent: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
---- !u!4 &877751737
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 877751735}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -552.4, y: 2, z: -502.3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 56
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &881121507
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14406,7 +14275,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 5ea05a8b11e98ef469c1219f0a2886b8, type: 3}
       propertyPath: m_RootOrder
-      value: 45
+      value: 44
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5ea05a8b11e98ef469c1219f0a2886b8, type: 3}
       propertyPath: m_LocalScale.x
@@ -19179,18 +19048,80 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1069097821}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -321.7, y: -0.011708607, z: -75.2}
+  m_LocalPosition: {x: -340.4, y: -0.011708607, z: -285.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 50
+  m_RootOrder: 49
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1070855299 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 3fb396fa24c454046b58bdf27a17e3b0, type: 3}
   m_PrefabInstance: {fileID: 552243905}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1090014958
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1090014960}
+  - component: {fileID: 1090014959}
+  m_Layer: 0
+  m_Name: CavesFallingRocks (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1090014959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090014958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 198020154
+      Data2: 1306218487
+      Data3: 1496118424
+      Data4: -965228857
+    Path: event:/SFX/Caves/RocksFalling
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!4 &1090014960
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1090014958}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -437.1, y: 2, z: -277.4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 55
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1111456389
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20944,7 +20875,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 51
+  m_RootOrder: 50
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1187367440
 PrefabInstance:
@@ -21222,7 +21153,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 41
+  m_RootOrder: 40
   m_LocalEulerAnglesHint: {x: 0, y: -22.217, z: 0}
 --- !u!1001 &1204012347
 PrefabInstance:
@@ -21508,7 +21439,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh190444
+  m_Name: pb_Mesh80708
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -22216,6 +22147,7 @@ Transform:
   - {fileID: 1615681156}
   - {fileID: 397320192}
   - {fileID: 2023356895}
+  - {fileID: 1433364689}
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -22653,7 +22585,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh190912
+  m_Name: pb_Mesh81182
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -23161,68 +23093,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
---- !u!1 &1327737430
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1327737432}
-  - component: {fileID: 1327737431}
-  m_Layer: 0
-  m_Name: CavesFallingRocks (3)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1327737431
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1327737430}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 198020154
-      Data2: 1306218487
-      Data3: 1496118424
-      Data4: -965228857
-    Path: event:/SFX/Caves/RocksFalling
-  Event: 
-  PlayEvent: 1
-  StopEvent: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
---- !u!4 &1327737432
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1327737430}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -303.3, y: 2, z: -255.7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 55
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1336650273
 GameObject:
   m_ObjectHideFlags: 0
@@ -23374,7 +23244,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 263fbd2983bd86044bd965ce01353ee5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -321.5
+      value: -333.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 263fbd2983bd86044bd965ce01353ee5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -23426,66 +23296,11 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 263fbd2983bd86044bd965ce01353ee5, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 513017114}
+      addedObject: {fileID: 306040664}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 263fbd2983bd86044bd965ce01353ee5, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 513017115}
+      addedObject: {fileID: 306040668}
   m_SourcePrefab: {fileID: 100100000, guid: 263fbd2983bd86044bd965ce01353ee5, type: 3}
---- !u!1 &1373599760 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 263fbd2983bd86044bd965ce01353ee5, type: 3}
-  m_PrefabInstance: {fileID: 232963564}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1373599764
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1373599760}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 96849d64966406e418b9d5305a3c1ad4, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
---- !u!114 &1373599765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1373599760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 960942613
-      Data2: 1161994970
-      Data3: -1468944453
-      Data4: 1562949087
-    Path: event:/SFX/Caves/Cart
-  Event: 
-  PlayEvent: 1
-  StopEvent: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!1 &1375059620
 GameObject:
   m_ObjectHideFlags: 0
@@ -24830,7 +24645,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh190958
+  m_Name: pb_Mesh81228
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -26434,7 +26249,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 263fbd2983bd86044bd965ce01353ee5, type: 3}
       propertyPath: m_RootOrder
-      value: 42
+      value: 41
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 263fbd2983bd86044bd965ce01353ee5, type: 3}
       propertyPath: m_LocalScale.y
@@ -26494,10 +26309,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 263fbd2983bd86044bd965ce01353ee5, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 242792675}
+      addedObject: {fileID: 2112979848}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 263fbd2983bd86044bd965ce01353ee5, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 242792674}
+      addedObject: {fileID: 2112979852}
   m_SourcePrefab: {fileID: 100100000, guid: 263fbd2983bd86044bd965ce01353ee5, type: 3}
 --- !u!1001 &1424552321
 PrefabInstance:
@@ -26776,6 +26591,100 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 504098391}
   m_SourcePrefab: {fileID: 100100000, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+--- !u!1 &1433364688
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1433364689}
+  - component: {fileID: 1433364690}
+  m_Layer: 0
+  m_Name: Point Light (22)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1433364689
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433364688}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -16.9, y: 48.26, z: -111.32}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1244556375}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &1433364690
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433364688}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 2
+  m_Range: 150.09
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!4 &1434356795 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
@@ -28496,7 +28405,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh190406
+  m_Name: pb_Mesh80670
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -28924,7 +28833,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 49
+  m_RootOrder: 48
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1606299391 stripped
 GameObject:
@@ -29427,7 +29336,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh191014
+  m_Name: pb_Mesh81284
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -29874,68 +29783,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01374c5d3cd74cd45a1ab6b8306479b7, type: 3}
---- !u!1 &1741263560
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1741263562}
-  - component: {fileID: 1741263561}
-  m_Layer: 0
-  m_Name: CavesFallingRocks (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1741263561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1741263560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 198020154
-      Data2: 1306218487
-      Data3: 1496118424
-      Data4: -965228857
-    Path: event:/SFX/Caves/RocksFalling
-  Event: 
-  PlayEvent: 1
-  StopEvent: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
---- !u!4 &1741263562
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1741263560}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -465, y: 2, z: -255.7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 54
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1742512516
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33693,7 +33540,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh190204
+  m_Name: pb_Mesh80468
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -35119,7 +34966,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh190156
+  m_Name: pb_Mesh80422
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -38828,7 +38675,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh190190
+  m_Name: pb_Mesh80454
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -39296,7 +39143,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 5ea05a8b11e98ef469c1219f0a2886b8, type: 3}
       propertyPath: m_RootOrder
-      value: 46
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5ea05a8b11e98ef469c1219f0a2886b8, type: 3}
       propertyPath: m_LocalScale.x
@@ -39701,6 +39548,68 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01374c5d3cd74cd45a1ab6b8306479b7, type: 3}
+--- !u!1 &2012296084
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2012296086}
+  - component: {fileID: 2012296085}
+  m_Layer: 0
+  m_Name: CavesFallingRocks (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2012296085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012296084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 198020154
+      Data2: 1306218487
+      Data3: 1496118424
+      Data4: -965228857
+    Path: event:/SFX/Caves/RocksFalling
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!4 &2012296086
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012296084}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -288.8, y: 2, z: -275.9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 53
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2015120383
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39963,7 +39872,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 5ea05a8b11e98ef469c1219f0a2886b8, type: 3}
       propertyPath: m_RootOrder
-      value: 47
+      value: 46
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5ea05a8b11e98ef469c1219f0a2886b8, type: 3}
       propertyPath: m_LocalScale.x
@@ -40369,7 +40278,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh191002
+  m_Name: pb_Mesh81272
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -40723,7 +40632,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh190532
+  m_Name: pb_Mesh80796
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -41135,6 +41044,68 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1244556375}
   m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2071510934
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2071510936}
+  - component: {fileID: 2071510935}
+  m_Layer: 0
+  m_Name: CavesFallingRocks (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2071510935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071510934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 198020154
+      Data2: 1306218487
+      Data3: 1496118424
+      Data4: -965228857
+    Path: event:/SFX/Caves/RocksFalling
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!4 &2071510936
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071510934}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -325.7, y: 2, z: -486.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 52
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2084991876
 PrefabInstance:
@@ -41704,6 +41675,61 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 855131390749405241, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+--- !u!1 &2112979847 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 263fbd2983bd86044bd965ce01353ee5, type: 3}
+  m_PrefabInstance: {fileID: 1411560679}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2112979848
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112979847}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6cc4251782e385a40bdad7994a0beb48, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &2112979852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112979847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 960942613
+      Data2: 1161994970
+      Data3: -1468944453
+      Data4: 1562949087
+    Path: event:/SFX/Caves/Cart
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!4 &2122147016 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
