@@ -42,6 +42,9 @@ public class DistanceRotatingPlatform : MonoBehaviour
     [SerializeField]
     private EventReference downSound;
 
+    [SerializeField] 
+    private bool playsSound = true;
+
     void Start()
     {
         player = Camera.main.transform;
@@ -63,7 +66,11 @@ public class DistanceRotatingPlatform : MonoBehaviour
             {
                 firstFrame = true;
                 interpolator = 0.0f;
-                RuntimeManager.PlayOneShotAttached(upSound, gameObject);
+                if (playsSound) // this prevents some FMOD warnings that annoyed me eh
+                {
+                    RuntimeManager.PlayOneShotAttached(upSound, gameObject);
+                }
+                
             }
         }
 
@@ -74,7 +81,10 @@ public class DistanceRotatingPlatform : MonoBehaviour
             {
                 firstFrame = true;
                 interpolator = 0.0f;
-                RuntimeManager.PlayOneShotAttached(downSound, gameObject);
+                if (playsSound)
+                {
+                    RuntimeManager.PlayOneShotAttached(downSound, gameObject);
+                }
             }
         }
         triggerPrevFrameValue = trigger;
