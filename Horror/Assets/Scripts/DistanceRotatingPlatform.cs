@@ -50,7 +50,6 @@ public class DistanceRotatingPlatform : MonoBehaviour
         player = Camera.main.transform;
         defaultRotation = transform.rotation;
         interpolationJump = 1 / (100 * animationTime);
-        //transform.position = defaultPosition + Vector3.down * hideOffset;
     }
 
     // Update is called once per frame
