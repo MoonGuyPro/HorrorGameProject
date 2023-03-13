@@ -18,6 +18,13 @@ public class MainMenu : MonoBehaviour
     [SerializeField] 
     private Button continueButton;
     
+    void Awake() 
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        // I tried - Kris
+    }
+    
     void Start()
     {
         print(HandleSaveFile.LoadProgress());
@@ -43,7 +50,7 @@ public class MainMenu : MonoBehaviour
 
     public void QuitGame()
     {
-        Debug.Log("Quitting game...");
+        //Debug.Log("Quitting game...");
         Application.Quit();
     }
 

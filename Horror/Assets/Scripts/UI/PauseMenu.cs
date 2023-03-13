@@ -11,6 +11,7 @@ public class PauseMenu : MonoBehaviour
     
     [SerializeField]
     private EventReference hover;
+    
     [SerializeField]
     private EventReference press;
 
@@ -18,34 +19,34 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape)) 
         {
-            if (IsPaused)
+            if (!IsPaused)
             {
-                Resume();
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
+                Pause();
             }
             else
             {
-                Pause();
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
+                Resume();
             }
         }
     }
 
     void Pause() 
     {
-        Debug.Log("Paused!");
+        //Debug.Log("Paused!");
         PauseMenuUI.SetActive(true);
         Time.timeScale = 0.0f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         IsPaused = true;
     }
 
     public void Resume()
     {
-        Debug.Log("Resumed!");
+        //Debug.Log("Resumed!");
         PauseMenuUI.SetActive(false);
         Time.timeScale = 1.0f;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         IsPaused = false;
     }
 

@@ -51,7 +51,7 @@ public class FPSController : PortalTraveller {
     private UnityEvent OnStopWalking;
 
     [HideInInspector] public bool bStuck;
-
+    
     void Start ()
     {
         cam = Camera.main;
@@ -72,7 +72,8 @@ public class FPSController : PortalTraveller {
         smoothPitch = pitch;
     }
 
-    void Update () {
+    void Update ()
+    {
         if (Input.GetKeyDown (KeyCode.P)) 
         {
             Cursor.lockState = CursorLockMode.None;
@@ -149,23 +150,23 @@ public class FPSController : PortalTraveller {
             mX = 0;
             mY = 0;
         }
-        
         // Ideally this should be placed in a separate function and called whenever player exits options menu.
         // Leaving it here for testing purposes, remind me to move it somewhere else later - Kris
-        camSensitivity = PlayerPrefs.GetFloat("sensitivity", 0.8f);
-        bool invertY = PlayerPrefs.GetInt("invertYAxis", 0) == 1;
+        //camSensitivity = PlayerPrefs.GetFloat("sensitivity", 0.8f);
+        //bool invertY = PlayerPrefs.GetInt("invertYAxis", 0) == 1;
+
+        if (PauseMenu.IsPaused) return;
         
         float rotSensitivity = mouseSensitivity * camSensitivity;
-        
+    
         yaw += mX * rotSensitivity;
-        pitch -= invertY ? -mY * rotSensitivity : mY * rotSensitivity;
+        pitch -= mY * rotSensitivity; //invertY ? -mY * rotSensitivity : mY * rotSensitivity;
         pitch = Mathf.Clamp (pitch, pitchMinMax.x, pitchMinMax.y);
         smoothPitch = Mathf.SmoothDampAngle (smoothPitch, pitch, ref pitchSmoothV, rotationSmoothTime);
         smoothYaw = Mathf.SmoothDampAngle (smoothYaw, yaw, ref yawSmoothV, rotationSmoothTime);
 
         transform.eulerAngles = Vector3.up * yaw;
         cam.transform.localEulerAngles = Vector3.right * pitch;
-
     }
 
     public override void Teleport (Transform fromPortal, Transform toPortal, Vector3 pos, Quaternion rot) {
