@@ -12,16 +12,22 @@ public class TriggerShowHide : MonoBehaviour
         {
                 if (other.gameObject.CompareTag("Player"))
                 {
-                        foreach(GameObject go in objectsToShow)
+                        if (objectsToShow != null)
                         {
-                                go.SetActive(true);
+                                foreach(GameObject go in objectsToShow)
+                                {
+                                        go.SetActive(true);
+                                }       
                         }
 
-                        foreach (GameObject go in objectsToHide)
+                        if (objectsToHide != null)
                         {
-                                go.SetActive(false);
+                                foreach (GameObject go in objectsToHide)
+                                {
+                                        go.SetActive(false);
+                                }
                         }
-                        
+
                         // Disable trigger if it's oneshot
                         if (oneShot)
                         {
