@@ -8,6 +8,7 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField] private GameObject audioOptionsMenu;
     [SerializeField] private GameObject graphicsOptionsMenu;
     [SerializeField] private GameObject controlsOptionsMenu;
+    [SerializeField] private GameObject pauseMenu;
 
     private void Awake()
     {
@@ -232,7 +233,11 @@ public class OptionsMenu : MonoBehaviour
     {
         PlayerPrefs.Save();
         Debug.Log("Preferences saved.");
-        //SetActive(false);
+        if (pauseMenu)
+        {
+            pauseMenu.SetActive(true);
+            gameObject.SetActive(false);
+        }
         return;
     }
     #endregion
