@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -32,6 +33,7 @@ public class FPSController : PortalTraveller {
     Vector3 rotationSmoothVelocity;
     Vector3 currentRotation;
 
+    private bool invertY = false;
     bool jumping;
     float lastGroundedTime;
     bool disabled;
@@ -70,6 +72,8 @@ public class FPSController : PortalTraveller {
         }
         smoothYaw = yaw;
         smoothPitch = pitch;
+        camSensitivity = PlayerPrefs.GetFloat("sensitivity", 0.8f);
+        invertY = PlayerPrefs.GetInt("invertYAxis", 0) == 1;
     }
 
     void Update ()
@@ -152,15 +156,14 @@ public class FPSController : PortalTraveller {
         }
         // Ideally this should be placed in a separate function and called whenever player exits options menu.
         // Leaving it here for testing purposes, remind me to move it somewhere else later - Kris
-        //camSensitivity = PlayerPrefs.GetFloat("sensitivity", 0.8f);
-        //bool invertY = PlayerPrefs.GetInt("invertYAxis", 0) == 1;
+        
 
         if (PauseMenu.IsPaused) return;
         
         float rotSensitivity = mouseSensitivity * camSensitivity;
     
         yaw += mX * rotSensitivity;
-        pitch -= mY * rotSensitivity; //invertY ? -mY * rotSensitivity : mY * rotSensitivity;
+        pitch -= invertY ? -mY * rotSensitivity : mY * rotSensitivity;
         pitch = Mathf.Clamp (pitch, pitchMinMax.x, pitchMinMax.y);
         smoothPitch = Mathf.SmoothDampAngle (smoothPitch, pitch, ref pitchSmoothV, rotationSmoothTime);
         smoothYaw = Mathf.SmoothDampAngle (smoothYaw, yaw, ref yawSmoothV, rotationSmoothTime);

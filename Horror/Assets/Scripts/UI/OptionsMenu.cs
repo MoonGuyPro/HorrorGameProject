@@ -231,8 +231,8 @@ public class OptionsMenu : MonoBehaviour
 
     public void OnBackPressed()
     {
+        Debug.LogWarning("Preferences saved.");
         PlayerPrefs.Save();
-        Debug.Log("Preferences saved.");
         if (pauseMenu)
         {
             pauseMenu.SetActive(true);
