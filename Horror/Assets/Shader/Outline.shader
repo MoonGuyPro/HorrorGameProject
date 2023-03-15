@@ -36,10 +36,7 @@ Shader "Hidden/Roystan/Post Process Outline"
 
 			float halfScaleFloor;
 			float halfScaleCeil;
-			float2 bottomLeftUV;
-			float2 topRightUV;
-			float2 bottomRightUV;
-			float2 topLeftUV;
+
 			float3 normal0;
 			float3 normal1;
 			float3 normal2;
@@ -72,6 +69,10 @@ Shader "Hidden/Roystan/Post Process Outline"
 			#if STEREO_INSTANCING_ENABLED
 				uint stereoTargetEyeIndex : SV_RenderTargetArrayIndex;
 			#endif
+				float2 bottomLeftUV : TEXCOORD3;
+				float2 topRightUV : TEXCOORD4;
+				float2 bottomRightUV : TEXCOORD5;
+				float2 topLeftUV : TEXCOORD6;
 			};
 
 			Varyings Vert(AttributesDefault v)
@@ -85,26 +86,25 @@ Shader "Hidden/Roystan/Post Process Outline"
 				o.texcoord = o.texcoord * float2(1.0, -1.0) + float2(0.0, 1.0);
 			#endif
 
+				// Calculate UV for comparison
+				halfScaleFloor = floor(_Scale * 0.5);
+				halfScaleCeil = ceil(_Scale * 0.5);
+
 				o.texcoordStereo = TransformStereoScreenSpaceTex(o.texcoord, 1.0);
-				
+				o.bottomLeftUV = o.texcoord - float2(_MainTex_TexelSize.x, _MainTex_TexelSize.y) * halfScaleFloor;
+				o.topRightUV = o.texcoord + float2(_MainTex_TexelSize.x, _MainTex_TexelSize.y) * halfScaleCeil;
+				o.bottomRightUV = o.texcoord + float2(_MainTex_TexelSize.x * halfScaleCeil, -_MainTex_TexelSize.y * halfScaleFloor);
+				o.topLeftUV = o.texcoord + float2(-_MainTex_TexelSize.x * halfScaleFloor, _MainTex_TexelSize.y * halfScaleCeil);
 				return o;
 			}
 
 			float4 Frag(Varyings i) : SV_Target
 			{
-				// Calculate UV for comparison
-				halfScaleFloor = floor(_Scale * 0.5);
-				halfScaleCeil = ceil(_Scale * 0.5);
-				bottomLeftUV = i.texcoord - float2(_MainTex_TexelSize.x, _MainTex_TexelSize.y) * halfScaleFloor;
-				topRightUV = i.texcoord + float2(_MainTex_TexelSize.x, _MainTex_TexelSize.y) * halfScaleCeil;
-				bottomRightUV = i.texcoord + float2(_MainTex_TexelSize.x * halfScaleCeil, -_MainTex_TexelSize.y * halfScaleFloor);
-				topLeftUV = i.texcoord + float2(-_MainTex_TexelSize.x * halfScaleFloor, _MainTex_TexelSize.y * halfScaleCeil);
-
 				// Get normals
-				normal0 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, bottomLeftUV).rgb;
-				normal1 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, topRightUV).rgb;
-				normal2 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, bottomRightUV).rgb;
-				normal3 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, topLeftUV).rgb;
+				normal0 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, i.bottomLeftUV).rgb;
+				normal1 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, i.topRightUV).rgb;
+				normal2 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, i.bottomRightUV).rgb;
+				normal3 = SAMPLE_TEXTURE2D(_CameraNormalsTexture, sampler_CameraNormalsTexture, i.topLeftUV).rgb;
 
 				// Calculate edge
 				normalFiniteDifference0 = normal1 - normal0;
