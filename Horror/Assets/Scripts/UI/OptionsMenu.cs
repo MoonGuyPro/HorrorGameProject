@@ -98,28 +98,28 @@ public class OptionsMenu : MonoBehaviour
     {
         masterVolume = volume;
         int value = (int)(masterVolume * 100.0f);
-        masterVolumeLabel.GetComponent<TMPro.TextMeshProUGUI>().text = value.ToString() + "%";
+        masterVolumeLabel.GetComponent<TextMeshProUGUI>().text = value.ToString() + "%";
     }
     
     public void SetMusicVolume(float volume)
     {
         musicVolume = volume;
         int value = (int)(musicVolume * 100.0f);
-        musicVolumeLabel.GetComponent<TMPro.TextMeshProUGUI>().text = value.ToString() + "%";
+        musicVolumeLabel.GetComponent<TextMeshProUGUI>().text = value.ToString() + "%";
     }
     
     public void SetSFXVolume(float volume)
     {
         sfxVolume = volume;
         int value = (int)(sfxVolume * 100.0f);
-        soundVolumeLabel.GetComponent<TMPro.TextMeshProUGUI>().text = value.ToString() + "%";
+        soundVolumeLabel.GetComponent<TextMeshProUGUI>().text = value.ToString() + "%";
     }
     
     public void SetAmbienceVolume(float volume)
     {
         ambienceVolume = volume;
         int value = (int)(ambienceVolume * 100.0f);
-        ambientVolumeLabel.GetComponent<TMPro.TextMeshProUGUI>().text = value.ToString() + "%";
+        ambientVolumeLabel.GetComponent<TextMeshProUGUI>().text = value.ToString() + "%";
     }
     
     public void SetUISFXVolume(float volume)
@@ -175,7 +175,7 @@ public class OptionsMenu : MonoBehaviour
     {
         sensitivity = newSens;
         int value = (int)(sensitivity * 100.0f);
-        sensitivityLabel.GetComponent<TMPro.TextMeshProUGUI>().text = value.ToString() + "%";
+        sensitivityLabel.GetComponent<TextMeshProUGUI>().text = value.ToString() + "%";
     }
     
     public float GetSensitivity()
@@ -246,7 +246,6 @@ public class OptionsMenu : MonoBehaviour
             pauseMenu.SetActive(true);
             gameObject.SetActive(false);
         }
-        return;
     }
     #endregion
 }

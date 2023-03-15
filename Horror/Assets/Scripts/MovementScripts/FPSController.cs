@@ -149,15 +149,13 @@ public class FPSController : PortalTraveller {
         float mY = Input.GetAxisRaw ("Mouse Y");
 
         // Verrrrrry gross hack to stop camera swinging down at start
-        float mMag = Mathf.Sqrt (mX * mX + mY * mY);
+        // Kris here - mMag can reach very high values at low framerate.
+        /*float mMag = Mathf.Sqrt (mX * mX + mY * mY);
         if (mMag > 5) {
             mX = 0;
             mY = 0;
-        }
-        // Ideally this should be placed in a separate function and called whenever player exits options menu.
-        // Leaving it here for testing purposes, remind me to move it somewhere else later - Kris
+        } */
         
-
         if (PauseMenu.IsPaused) return;
         
         float rotSensitivity = mouseSensitivity * camSensitivity;
