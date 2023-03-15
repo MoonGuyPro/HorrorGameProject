@@ -19,13 +19,18 @@
 
      private void Start()
      {
-         droneInstance = RuntimeManager.CreateInstance(droneSound);
-         droneInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject.transform));
-         droneInstance.start();
+         // Don't make microwave sounds if there is no cube
+         if (cubeAnim.gameObject.activeSelf)
+         {
+             droneInstance = RuntimeManager.CreateInstance(droneSound);
+             droneInstance.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject.transform));
+             droneInstance.start();
+         }
      }
 
      protected override void Behavior()
      {
+         cubeAnim.gameObject.SetActive(true);
          droneInstance.stop(STOP_MODE.ALLOWFADEOUT);
          RuntimeManager.PlayOneShotAttached(activationSound, gameObject);
          cubeAnim.SetTrigger("Activated");

@@ -7,11 +7,15 @@ public abstract class OutputLogic : MonoBehaviour
 {
     public enum ops { AND, OR, XOR };
 
-    [Header("Input condition")]
+    [Header("- Output logic -")]
+    
+    [Tooltip("Logic operation performed on connected inputs.")]
     public ops op = ops.AND;    // Logical operation
+    
+    [Tooltip("Inverts result.")]
     public bool invert = false; // Invert result
 
-    [Header("Connected inputs")]
+    [Tooltip("Connected inputs (extending InputLogic class).")]
     public List<InputLogic> inputs;
 
     // Hold info about current state (active/not-active)

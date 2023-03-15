@@ -11,7 +11,7 @@ using UnityEngine;
 
 public abstract class Interactive : MonoBehaviour
 {
-    [Header("Interactive")]
+    [Header("- Interactive -")]
     public string tip;
     public string altTip;
     public bool isActive;

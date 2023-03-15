@@ -21,7 +21,6 @@ public class SlideDoor : OutputLogic
     {
         animator = GetComponent<Animator>(); // Yes, this looks silly (compared to Lever), but I'm bad at C#
         animator.SetBool("active", active);
-        Debug.Log("changed: " + changed + " active: " + active);
         if (changed != active)
         {
             onStateChange.Invoke();
