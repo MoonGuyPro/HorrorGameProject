@@ -43,6 +43,10 @@ public class Portal : MonoBehaviour
         {
             normalCam = shaderCam.gameObject.transform.GetChild(0).GetComponent<Camera>();
             normalCam.enabled = false;
+            if(normalCam != null)
+            {
+                Debug.Log("Jest");
+            }
         }
     }
 
@@ -115,8 +119,9 @@ public class Portal : MonoBehaviour
         portalCam.projectionMatrix = playerCam.projectionMatrix;
         if (shaderCam != null)
         {
-            //shaderCam.projectionMatrix = playerCam.projectionMatrix;
-            //normalCam.projectionMatrix = playerCam.projectionMatrix;
+            shaderCam.projectionMatrix = playerCam.projectionMatrix;
+            if(normalCam != null)
+                normalCam.projectionMatrix = playerCam.projectionMatrix;
         }
         for (int i = 0; i < recursionLimit; i++)
         {
