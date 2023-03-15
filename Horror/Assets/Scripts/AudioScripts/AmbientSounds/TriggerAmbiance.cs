@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using FMOD.Studio;
 using FMODUnity;
 using UnityEngine;
+using UnityEngine.Serialization;
 using STOP_MODE = FMOD.Studio.STOP_MODE;
 
 public class TriggerAmbiance : MonoBehaviour
 {
-    [SerializeField] private EventReference windSound;
+    
+    [SerializeField, FormerlySerializedAs("windSound")] private EventReference eventReference;
     private EventInstance instance;
 
     [SerializeField] 
@@ -18,7 +20,7 @@ public class TriggerAmbiance : MonoBehaviour
     private int triggerCooldown = 0;
     private void Start()
     {
-        instance = RuntimeManager.CreateInstance(windSound);
+        instance = RuntimeManager.CreateInstance(eventReference);
         //instance.start();
         if (playAtStart)
         {
@@ -41,13 +43,11 @@ public class TriggerAmbiance : MonoBehaviour
         {
             if (isPlaying)
             {
-                Debug.Log("STOPPING");
                 instance.stop(STOP_MODE.ALLOWFADEOUT);
                 isPlaying = false;
             }
             else
             {
-                Debug.Log("STARTING");
                 instance.start();
                 isPlaying = true;
             }

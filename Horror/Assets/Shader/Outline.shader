@@ -129,7 +129,9 @@ Shader "Hidden/Roystan/Post Process Outline"
 				// Mix edge with color for output
 				color = clamp(color, 0, _BrightnessClamp);
 				color *= _BrightnessScale;
-				return edgeValue * color;
+
+				// this comment is a good thing to consider, it can be used to make the surfaces have a slight color to them so the game could be a bit more colorful and visible
+				return edgeValue * color;// + color * 0.1; 
 			}
 			ENDHLSL
 		}
