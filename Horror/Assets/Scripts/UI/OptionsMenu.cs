@@ -17,6 +17,7 @@ public class OptionsMenu : MonoBehaviour
         musicBus = FMODUnity.RuntimeManager.GetBus("bus:/Master/Music");
         sfxBus = FMODUnity.RuntimeManager.GetBus("bus:/Master/SFX");
         ambienceBus = FMODUnity.RuntimeManager.GetBus("bus:/Master/Ambience");
+        uisfxBus = FMODUnity.RuntimeManager.GetBus("bus:/Master/UISFX");
         
         // Load PlayerPrefs
         
@@ -71,27 +72,27 @@ public class OptionsMenu : MonoBehaviour
         musicBus.setVolume(musicVolume);
         sfxBus.setVolume(sfxVolume);
         ambienceBus.setVolume(ambienceVolume);
+        uisfxBus.setVolume(uisfxVolume);
     }
 
     #region AudioSettings
     [Header("Audio")]
-    public GameObject masterVolumeSlider;
     public GameObject masterVolumeLabel;
-    public GameObject musicSlider;
     public GameObject musicVolumeLabel;
-    public GameObject soundSlider;
     public GameObject soundVolumeLabel;
-    public GameObject ambientSlider;
     public GameObject ambientVolumeLabel;
+    public GameObject uisfxVolumeLabel;
     
     FMOD.Studio.Bus masterBus;
     FMOD.Studio.Bus musicBus;
     FMOD.Studio.Bus sfxBus;
     FMOD.Studio.Bus ambienceBus;
+    FMOD.Studio.Bus uisfxBus;
     float masterVolume = 0.8f;
     float musicVolume = 0.8f;
     float sfxVolume = 0.8f;
     float ambienceVolume = 0.8f;
+    float uisfxVolume = 0.8f;
     
     public void SetMasterVolume(float volume)
     {
@@ -119,6 +120,13 @@ public class OptionsMenu : MonoBehaviour
         ambienceVolume = volume;
         int value = (int)(ambienceVolume * 100.0f);
         ambientVolumeLabel.GetComponent<TMPro.TextMeshProUGUI>().text = value.ToString() + "%";
+    }
+    
+    public void SetUISFXVolume(float volume)
+    {
+        uisfxVolume = volume;
+        int value = (int)(uisfxVolume * 100.0f);
+        uisfxVolumeLabel.GetComponent<TMPro.TextMeshProUGUI>().text = value.ToString() + "%";
     }
     
     public float GetMasterVolume()
