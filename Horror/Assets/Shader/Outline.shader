@@ -31,6 +31,7 @@ Shader "Hidden/Roystan/Post Process Outline"
             float _FadeOutDistance;
             float _BrightnessClamp;
             float _BrightnessScale;
+            float _DryBlend;
 			float4x4 _ClipToView;
 
 			float halfScaleFloor;
@@ -131,7 +132,7 @@ Shader "Hidden/Roystan/Post Process Outline"
 				color *= _BrightnessScale;
 
 				// this comment is a good thing to consider, it can be used to make the surfaces have a slight color to them so the game could be a bit more colorful and visible
-				return edgeValue * color;// + color * 0.1; 
+				return edgeValue * color + color * _DryBlend; 
 			}
 			ENDHLSL
 		}

@@ -15,6 +15,8 @@ public sealed class PostProcessOutline : PostProcessEffectSettings
     public FloatParameter fadeOutDistance = new FloatParameter { value = 2000f };
     public FloatParameter brightnessClamp = new FloatParameter { value = 0.5f };
     public FloatParameter brightnessScale = new FloatParameter { value = 2f };
+    [Range(0.0f, 1.0f)]
+    public FloatParameter dryBlend = new FloatParameter { value = 0.0f };
 }
 
 public sealed class PostProcessOutlineRenderer : PostProcessEffectRenderer<PostProcessOutline>
@@ -32,5 +34,6 @@ public sealed class PostProcessOutlineRenderer : PostProcessEffectRenderer<PostP
         sheet.properties.SetFloat("_FadeOutDistance", settings.fadeOutDistance);
         sheet.properties.SetFloat("_BrightnessClamp", settings.brightnessClamp);
         sheet.properties.SetFloat("_BrightnessScale", settings.brightnessScale);
+        sheet.properties.SetFloat("_DryBlend", settings.dryBlend);
     }
 }
