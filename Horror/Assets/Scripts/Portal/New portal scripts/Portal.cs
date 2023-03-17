@@ -31,7 +31,8 @@ public class Portal : MonoBehaviour
         portalCam = GetComponentInChildren<Camera>();
 
         portalCam.enabled = false;
-        shaderCam.enabled = false;
+        if(shaderCam != null)
+            shaderCam.enabled = false;
         trackedTravellers = new List<PortalTraveller>();
         screenMeshFilter = screen.GetComponent<MeshFilter>();
         screen.material.SetInt("displayMask", 1);
@@ -39,15 +40,16 @@ public class Portal : MonoBehaviour
 
     private void Start()
     {
-        if (shaderCam.gameObject.transform.childCount > 0)
-        {
-            normalCam = shaderCam.gameObject.transform.GetChild(0).GetComponent<Camera>();
-            normalCam.enabled = false;
-            if(normalCam != null)
+        if(shaderCam != null)
+            if (shaderCam.gameObject.transform.childCount > 0)
             {
-                Debug.Log("Jest");
+                normalCam = shaderCam.gameObject.transform.GetChild(0).GetComponent<Camera>();
+                normalCam.enabled = false;
+                if(normalCam != null)
+                {
+                    Debug.Log("Jest");
+                }
             }
-        }
     }
 
     void LateUpdate()
