@@ -20,6 +20,7 @@ public class DistanceRotatingPlatform : MonoBehaviour
     [Tooltip("Range at which the platform rotates back")]
     public float deTriggerRange;
 
+    public bool isActive = true;
     private Transform player;
     private Quaternion defaultRotation;
 
@@ -57,23 +58,38 @@ public class DistanceRotatingPlatform : MonoBehaviour
     {
         float distance = (transform.position - player.position).magnitude;
         //Debug.Log(distance);
-
-        if (distance <= triggerRange)
+        if (isActive)
         {
-            trigger = true;
-            if (triggerPrevFrameValue != trigger)
+            if (distance <= triggerRange)
             {
-                firstFrame = true;
-                interpolator = 0.0f;
-                if (playsSound) // this prevents some FMOD warnings that annoyed me eh
+                trigger = true;
+                if (triggerPrevFrameValue != trigger)
                 {
-                    RuntimeManager.PlayOneShotAttached(upSound, gameObject);
-                }
-                
-            }
-        }
+                    firstFrame = true;
+                    interpolator = 0.0f;
+                    if (playsSound) // this prevents some FMOD warnings that annoyed me eh
+                    {
+                        RuntimeManager.PlayOneShotAttached(upSound, gameObject);
+                    }
 
-        if (distance >= deTriggerRange)
+                }
+            }
+            if (distance >= deTriggerRange)
+            {
+                trigger = false;
+                if (triggerPrevFrameValue != trigger)
+                {
+                    firstFrame = true;
+                    interpolator = 0.0f;
+                    if (playsSound)
+                    {
+                        RuntimeManager.PlayOneShotAttached(downSound, gameObject);
+                    }
+                }
+            }
+            
+        }
+        else
         {
             trigger = false;
             if (triggerPrevFrameValue != trigger)
@@ -87,6 +103,7 @@ public class DistanceRotatingPlatform : MonoBehaviour
             }
         }
         triggerPrevFrameValue = trigger;
+
     }
 
     private void FixedUpdate()
