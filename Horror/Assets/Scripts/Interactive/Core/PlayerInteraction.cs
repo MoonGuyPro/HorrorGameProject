@@ -53,31 +53,38 @@ public class PlayerInteraction : MonoBehaviour
                 // Show tip on screen
                 interactive = hit.transform.GetComponentInParent<Interactive>();
 
-                // disabled objects dont trigger anything, such as used key holes that are already used.
-                if (interactive.isActive)
+                if (interactive is not null)
                 {
-                    if (!alreadyLooking)
+                    // disabled objects dont trigger anything, such as used key holes that are already used.
+                    if (interactive.isActive)
                     {
-                        setTipText(interactive.tip);
-                    }
-
-                    toggleTipText(true);
-
-                    // On interact key
-                    if (Input.GetKeyDown(KeyCode.F))
-                    {
-                        // Call interaction
-                        interactive = hit.transform.GetComponentInParent<Interactive>(); //isn't it redundant?
-                        if (!interactive.Interact(inv))
+                        if (!alreadyLooking)
                         {
-                            setTipText(interactive.altTip);
+                            setTipText(interactive.tip);
                         }
-                        // we're calling inventory update here as well
-                        // because we might've just used the key on something (e.g. KeyHole)
-                        updateInventoryText();
-                    }
-                    alreadyLooking = true;
-                } 
+
+                        toggleTipText(true);
+
+                        // On interact key
+                        if (Input.GetKeyDown(KeyCode.F))
+                        {
+                            // Call interaction
+                            interactive = hit.transform.GetComponentInParent<Interactive>(); //isn't it redundant?
+                            if (!interactive.Interact(inv))
+                            {
+                                setTipText(interactive.altTip);
+                            }
+                            // we're calling inventory update here as well
+                            // because we might've just used the key on something (e.g. KeyHole)
+                            updateInventoryText();
+                        }
+                        alreadyLooking = true;
+                    } 
+                }
+                else
+                {
+                    Debug.LogWarning("PlayerInteraction.cs: interactive is null");
+                }
             }
             
             if (hit.transform.CompareTag("Pickable"))
