@@ -63,4 +63,11 @@ public class MainMenu : MonoBehaviour
     {
         RuntimeManager.PlayOneShot(press);
     }
+
+    //Go to survey
+    public void GoToSurvey()
+    {
+        Application.OpenURL("https://forms.gle/YhW9yuia6bWT5cXS9");
+    }
+
 }
