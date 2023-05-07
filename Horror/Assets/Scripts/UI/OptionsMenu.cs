@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Rendering.PostProcessing;
 
 public class OptionsMenu : MonoBehaviour
 {
@@ -21,7 +22,8 @@ public class OptionsMenu : MonoBehaviour
         
         // Load PlayerPrefs
         
-        // Audio // moved these here from Update since they were triggered when the options were enabled first time,
+        // Audio
+        // moved these here from Update since they were triggered when the options were enabled first time,
         // not instantly when the game started, so there was a volume jump when the options were opened
         masterVolume = PlayerPrefs.GetFloat("masterVolume", 0.8f);
         musicVolume = PlayerPrefs.GetFloat("musicVolume", 0.8f);
@@ -64,6 +66,9 @@ public class OptionsMenu : MonoBehaviour
         resolutionDropdown.AddOptions(resolutionOptions);
         resolutionDropdown.value = currentResIndex;
         resolutionDropdown.RefreshShownValue();
+        
+        // Brightness
+        brigthness.TryGetSettings(out exposure);
     }
 
     private void Update()
@@ -143,6 +148,12 @@ public class OptionsMenu : MonoBehaviour
 
     private Resolution[] resolutions;
 
+    public GameObject brightnessSlider;
+    public PostProcessProfile brigthness;
+    public PostProcessLayer layer;
+
+    private AutoExposure exposure;
+    
     public void SetGraphicsQuality(int qualityIndex)
     {
         // Kris here - this probably won't work as expected since I don't know what's inside QualitySettings just yet
@@ -160,6 +171,17 @@ public class OptionsMenu : MonoBehaviour
         Resolution res = resolutions[resIndex];
         Screen.SetResolution(res.width, res.height, Screen.fullScreen);
     }
+
+    public void SetBrightness(float value)
+    {
+        if (value < 0.05f)
+        {
+            exposure.keyValue.value = 0.05f;
+            return;
+        }
+        
+        exposure.keyValue.value = value;
+    }
     
     #endregion
     
@@ -168,8 +190,8 @@ public class OptionsMenu : MonoBehaviour
     public GameObject sensitivitySlider;
     public GameObject sensitivityLabel;
 
-    float sensitivity = 0.8f;
-    bool invertYAxis = false;
+    private float sensitivity = 0.8f;
+    private bool invertYAxis = false;
 
     public void SetSensitivity(float newSens)
     {
@@ -203,26 +225,20 @@ public class OptionsMenu : MonoBehaviour
     
     public void OnAudioPressed()
     {
+        HideMenus();
         audioOptionsMenu.SetActive(true);
-        graphicsOptionsMenu.SetActive(false);
-        controlsOptionsMenu.SetActive(false);
-        controlsOverviewMenu.SetActive(false);
     }
     
     public void OnGraphicsPressed()
     {
-        audioOptionsMenu.SetActive(false);
+        HideMenus();
         graphicsOptionsMenu.SetActive(true);
-        controlsOptionsMenu.SetActive(false);
-        controlsOverviewMenu.SetActive(false);
     }
     
     public void OnControlsPressed()
     {
-        audioOptionsMenu.SetActive(false);
-        graphicsOptionsMenu.SetActive(false);
+        HideMenus();
         controlsOptionsMenu.SetActive(true);
-        controlsOverviewMenu.SetActive(false);
     }
 
     public void OnControlsOverviewPressed()
@@ -239,13 +255,20 @@ public class OptionsMenu : MonoBehaviour
 
     public void OnBackPressed()
     {
-        Debug.LogWarning("Preferences saved.");
+        //Debug.LogWarning("Preferences saved.");
         PlayerPrefs.Save();
-        if (pauseMenu)
-        {
-            pauseMenu.SetActive(true);
-            gameObject.SetActive(false);
-        }
+        if (!pauseMenu) return;
+        
+        pauseMenu.SetActive(true);
+        gameObject.SetActive(false);
+    }
+
+    private void HideMenus()
+    {
+        audioOptionsMenu.SetActive(false);
+        graphicsOptionsMenu.SetActive(false);
+        controlsOptionsMenu.SetActive(false);
+        controlsOverviewMenu.SetActive(false);
     }
     #endregion
 }
