@@ -172,15 +172,11 @@ public class OptionsMenu : MonoBehaviour
         Screen.SetResolution(res.width, res.height, Screen.fullScreen);
     }
 
-    public void SetBrightness(float value)
+    public void SetBrightness(float newBright)
     {
-        if (value < 0.05f)
-        {
-            exposure.keyValue.value = 0.05f;
-            return;
-        }
-        
-        exposure.keyValue.value = value;
+        exposure.keyValue.value = newBright < 0.05f ? 0.05f : newBright;
+        int value = (int)(exposure.keyValue.value * 100.0f);
+        sensitivityLabel.GetComponent<TextMeshProUGUI>().text = value.ToString() + "%";
     }
     
     #endregion
