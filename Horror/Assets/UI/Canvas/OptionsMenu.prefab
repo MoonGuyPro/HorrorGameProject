@@ -669,18 +669,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: PlayPressSound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   m_IsOn: 1
 --- !u!1 &796094947142339741
 GameObject:
@@ -3425,7 +3413,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8663807064368178790
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3905,7 +3893,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 8559566490559027064}
   m_HandleRect: {fileID: 8250429869029372577}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.1
   m_MaxValue: 2
   m_WholeNumbers: 0
   m_Value: 1
@@ -3915,7 +3903,7 @@ MonoBehaviour:
       - m_Target: {fileID: 3554031351080500970}
         m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
         m_MethodName: SetBrightness
-        m_Mode: 4
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3923,7 +3911,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
 --- !u!1 &2966015821257227147
 GameObject:
   m_ObjectHideFlags: 0
@@ -5285,8 +5273,8 @@ MonoBehaviour:
   uisfxVolumeLabel: {fileID: 0}
   resolutionDropdown: {fileID: 6443241356407930936}
   brightnessSlider: {fileID: 2931672598127664776}
-  brigthness: {fileID: 11400000, guid: d48cb244d819dad4ab7dc141adaf36ce, type: 2}
-  layer: {fileID: 0}
+  brightnessLabel: {fileID: 5174522417586211653}
+  brightness: {fileID: 11400000, guid: d48cb244d819dad4ab7dc141adaf36ce, type: 2}
   sensitivitySlider: {fileID: 2842912672544117703}
   sensitivityLabel: {fileID: 2769372649562904679}
   controlsOverviewMenu: {fileID: 2729853622116433126}
@@ -6139,8 +6127,8 @@ RectTransform:
   m_Father: {fileID: 4532081734937336930}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -8168,7 +8156,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &311829633801729260
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8894,7 +8882,7 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

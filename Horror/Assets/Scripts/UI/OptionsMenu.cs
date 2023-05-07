@@ -68,7 +68,7 @@ public class OptionsMenu : MonoBehaviour
         resolutionDropdown.RefreshShownValue();
         
         // Brightness
-        brigthness.TryGetSettings(out exposure);
+        brightness.TryGetSettings(out exposure);
     }
 
     private void Update()
@@ -149,8 +149,9 @@ public class OptionsMenu : MonoBehaviour
     private Resolution[] resolutions;
 
     public GameObject brightnessSlider;
-    public PostProcessProfile brigthness;
-    public PostProcessLayer layer;
+    public GameObject brightnessLabel;
+    public PostProcessProfile brightness;
+    //public PostProcessLayer layer; //not sure if needed but oh well
 
     private AutoExposure exposure;
     
@@ -174,9 +175,10 @@ public class OptionsMenu : MonoBehaviour
 
     public void SetBrightness(float newBright)
     {
-        exposure.keyValue.value = newBright < 0.05f ? 0.05f : newBright;
+        exposure.keyValue.value = newBright;// < 0.05f ? 0.05f : newBright;
         int value = (int)(exposure.keyValue.value * 100.0f);
-        sensitivityLabel.GetComponent<TextMeshProUGUI>().text = value.ToString() + "%";
+        Debug.Log(value);
+        brightnessLabel.GetComponent<TextMeshProUGUI>().text = value + "%";
     }
     
     #endregion
