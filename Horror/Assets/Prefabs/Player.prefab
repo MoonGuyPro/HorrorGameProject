@@ -614,6 +614,7 @@ MonoBehaviour:
   tipLabel: {fileID: 2192962791296625439}
   invLabel: {fileID: 1672803898633854352}
   inv: {fileID: 54404533167276857}
+  uIPortal: {fileID: 3905407377787234822}
 --- !u!114 &1207243858440573845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -686,12 +687,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a127ad8ef816cc4aa77d2ca42795818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cube1: {fileID: 406784535961109171}
-  cube2: {fileID: 8129946053877814606}
-  cube3: {fileID: 5103880347975032481}
-  cube4: {fileID: 4724756890307606239}
-  cube5: {fileID: 294319374332213628}
-  cube6: {fileID: 178646456065576845}
+  levelNr: 0
+  cube:
+  - {fileID: 406784535961109171}
+  - {fileID: 8129946053877814606}
+  - {fileID: 5103880347975032481}
+  - {fileID: 4724756890307606239}
+  - {fileID: 294319374332213628}
+  - {fileID: 178646456065576845}
 --- !u!1 &4210482401518017573
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,7 +14,10 @@ public class PlayerInteraction : MonoBehaviour
 	[Header("Inventory text")]
     public GameObject invLabel;
     public Inventory inv;
-    
+
+    [Header("Supercube UI")]
+    public UIPortal uIPortal;
+
     private TextMeshProUGUI textMesh;
     private TextMeshProUGUI inventoryTextMesh;
     private Interactive interactive;
@@ -99,6 +102,8 @@ public class PlayerInteraction : MonoBehaviour
                     pickable = hit.transform.GetComponentInParent<Pickable>(); //isn't it redundant?
                     inv.addItem(pickable);
                     pickable.interact();
+                    if(hit.collider.name == "Supercube")
+                        uIPortal.getCube();
                     updateInventoryText();
                 }
                 alreadyLooking = true;
