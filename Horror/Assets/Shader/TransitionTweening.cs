@@ -7,29 +7,45 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class TransitionTweening : MonoBehaviour
 {
+    [SerializeField] private bool fadeinOnStart = false;
+    [SerializeField] private float maxIntensity = 250f;
+    public float fadeoutTime = 5f;
+    public float fadeinTime = 5f;
+    
     PostProcessVolume volume;
     Bloom bloom;
     
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         volume = GetComponent<PostProcessVolume>();
-        // I'm testing here
-        FadeOut();
+        if (fadeinOnStart)
+        {
+            FadeIn();
+        }
     }
 
-    void FadeOut()
+    // Fadeout effect after picking up Supercube
+    public void FadeOut()
     {
         bloom = volume.profile.GetSetting<Bloom>();
-        
         DOTween.Sequence()
-            .Append(DOTween.To(() => bloom.intensity, x => bloom.intensity.Override(x), 200f, 5f))
-            /*.AppendInterval(1f)
-            .Append(DOTween.To(() => volume.weight, x => volume.weight = x, 0f, 1f))*/
+            .Append(DOTween.To(() => bloom.intensity, x => bloom.intensity.Override(x), maxIntensity, fadeoutTime))
             .OnComplete(() =>
             {
-                /*RuntimeUtilities.DestroyVolume(volume, true, true);
-                Destroy(this);*/
+                
+            });    
+    }
+    
+    // Fadein effect after Supercube teleports player to next level
+    public void FadeIn()
+    {
+        bloom = volume.profile.GetSetting<Bloom>();
+        bloom.intensity.Override(maxIntensity);
+        DOTween.Sequence()
+            .Append(DOTween.To(() => bloom.intensity, x => bloom.intensity.Override(x), 0f, fadeinTime))
+            .OnComplete(() =>
+            {
+
             });    
     }
 }

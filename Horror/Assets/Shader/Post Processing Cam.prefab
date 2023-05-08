@@ -48,9 +48,17 @@ Camera:
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -90,7 +98,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 2
+    serializedVersion: 3
     m_TransformParent: {fileID: 376036903442634250}
     m_Modifications:
     - target: {fileID: 3376070113570561037, guid: 0365c51cc84e1cb479a922c7e4aad432, type: 3}
@@ -150,10 +158,36 @@ PrefabInstance:
       value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3376070113570561037, guid: 0365c51cc84e1cb479a922c7e4aad432, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8740822496474787057}
   m_SourcePrefab: {fileID: 100100000, guid: 0365c51cc84e1cb479a922c7e4aad432, type: 3}
 --- !u!4 &376036902386046029 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3376070113570561038, guid: 0365c51cc84e1cb479a922c7e4aad432, type: 3}
   m_PrefabInstance: {fileID: 3165404312835131459}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &376036902386046030 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3376070113570561037, guid: 0365c51cc84e1cb479a922c7e4aad432, type: 3}
+  m_PrefabInstance: {fileID: 3165404312835131459}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8740822496474787057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376036902386046030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98f4862c9b319804abd924d49a6fdd26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeinOnStart: 1
+  maxIntensity: 250
+  fadeoutTime: 5
+  fadeinTime: 5

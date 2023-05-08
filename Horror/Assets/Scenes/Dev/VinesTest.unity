@@ -6137,19 +6137,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2327724707748263681, guid: c44b3c334d3d6544c81eee3034ba1a39, type: 3}
   m_PrefabInstance: {fileID: 913710863}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &928439443 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2166076011228788863, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
+--- !u!114 &928439451 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7094614764294144192, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
   m_PrefabInstance: {fileID: 1248336271}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &928439451
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 928439443}
-  m_Enabled: 0
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 98f4862c9b319804abd924d49a6fdd26, type: 3}
   m_Name: 
@@ -7748,9 +7742,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3222809851561510840, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 941400023}
-    - targetCorrespondingSourceObject: {fileID: 2166076011228788863, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 928439451}
   m_SourcePrefab: {fileID: 100100000, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
 --- !u!1001 &1250668473
 PrefabInstance:
@@ -18772,6 +18763,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5618654737195637327, guid: c1d1126d8fa9fe04da128410d62e49fc, type: 3}
+      propertyPath: name
+      value: supercube
+      objectReference: {fileID: 0}
+    - target: {fileID: 5618654737195637327, guid: c1d1126d8fa9fe04da128410d62e49fc, type: 3}
+      propertyPath: nextLevel
+      value: VinesTest
+      objectReference: {fileID: 0}
+    - target: {fileID: 5618654737195637327, guid: c1d1126d8fa9fe04da128410d62e49fc, type: 3}
+      propertyPath: transitionTweening
+      value: 
+      objectReference: {fileID: 928439451}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
