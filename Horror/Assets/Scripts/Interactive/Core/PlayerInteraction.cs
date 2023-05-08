@@ -100,11 +100,12 @@ public class PlayerInteraction : MonoBehaviour
                 {
                     // Call interaction
                     pickable = hit.transform.GetComponentInParent<Pickable>(); //isn't it redundant?
-                    inv.addItem(pickable);
-                    pickable.interact();
                     if(hit.collider.name == "Supercube")
                         uIPortal.getCube();
+                    else
+                        inv.addItem(pickable);
                     updateInventoryText();
+                    pickable.interact();
                 }
                 alreadyLooking = true;
             }
