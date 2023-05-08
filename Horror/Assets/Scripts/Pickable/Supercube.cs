@@ -13,7 +13,7 @@ public class Supercube : Pickable
     {
         Debug.Log("Picked.");
         StartCoroutine(FadeAndChangeLevel());
-        GetComponentInChildren<MeshRenderer>().enabled = false;
+        GetComponentInChildren<MeshRenderer>().enabled = false; // I don't work lol
     }
 
     IEnumerator FadeAndChangeLevel()
