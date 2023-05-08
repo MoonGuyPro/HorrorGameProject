@@ -40,8 +40,8 @@ Shader "Custom/SupercubeShader"
 
         void vert (inout appdata_full v) {
             
-            float _TimeScale = 50;
-            float _DeformScale = 0.1;
+            float _TimeScale = 100;
+            float _DeformScale = 0.05;
             float3 oldVertex = v.vertex;
             float oldX = v.vertex.x;
             v.vertex.x += cos(_Time * _TimeScale * v.vertex.y * 1.1) * _DeformScale;
@@ -74,6 +74,7 @@ Shader "Custom/SupercubeShader"
             o.Metallic = 0;
             o.Smoothness = 0;
             o.Alpha = 0.1;
+            o.Emission = c.rgb;
         }
         ENDCG
     }

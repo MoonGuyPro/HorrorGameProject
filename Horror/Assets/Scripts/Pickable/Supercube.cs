@@ -8,12 +8,12 @@ public class Supercube : Pickable
     [Header("Supercube")] 
     [SerializeField] private string nextLevel;
     [SerializeField] private TransitionTweening transitionTweening;
+    [SerializeField] private MeshRenderer model;
 
     public override void interact()
     {
-        Debug.Log("Picked.");
+        model.enabled = false; // I don't work lol
         StartCoroutine(FadeAndChangeLevel());
-        GetComponentInChildren<MeshRenderer>().enabled = false; // I don't work lol
     }
 
     IEnumerator FadeAndChangeLevel()
