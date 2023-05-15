@@ -96,6 +96,7 @@ public class FPSController : PortalTraveller {
             return;
         }
 
+
         Vector2 input = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
         
         Vector3 inputDir = new Vector3 (input.x, 0, input.y).normalized;
@@ -103,7 +104,8 @@ public class FPSController : PortalTraveller {
 
         float currentSpeed = Input.GetKey(KeyCode.LeftShift) ? runSpeed : walkSpeed;
         Vector3 targetVelocity = worldInputDir * currentSpeed;
-        velocity = Vector3.SmoothDamp (velocity, targetVelocity, ref smoothV, smoothMoveTime);
+        if(!jumping)
+            velocity = Vector3.SmoothDamp (velocity, targetVelocity, ref smoothV, smoothMoveTime);
         if (velocity.magnitude > 1f && jumping == false && !bStuck) 
         {
             if (currentSpeed > runSpeed - 0.1)
