@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -10,7 +11,7 @@ public class FPSController : PortalTraveller {
     public float runSpeed = 6;
     public float smoothMoveTime = 0.1f;
     public float jumpForce = 8;
-    public float gravity = 18;
+    public float gravity = 20;
 
     public bool lockCursor;
     public float mouseSensitivity = 10;
@@ -29,6 +30,7 @@ public class FPSController : PortalTraveller {
     float verticalVelocity;
     float camSensitivity = 0.8f; //This sensitivity is retreived from PlayerPrefs (Settings)
     Vector3 velocity;
+    Vector3 lastTargetVelocity;
     Vector3 smoothV;
     Vector3 rotationSmoothVelocity;
     Vector3 currentRotation;
@@ -37,6 +39,7 @@ public class FPSController : PortalTraveller {
     bool jumping;
     float lastGroundedTime;
     bool disabled;
+    private int waitOneMove;
 
     // These events were created for audio triggering purposes.
     // Using this is much simpler then (as before) checking all parameters in Update()
@@ -74,6 +77,7 @@ public class FPSController : PortalTraveller {
         smoothPitch = pitch;
         camSensitivity = PlayerPrefs.GetFloat("sensitivity", 0.8f);
         invertY = PlayerPrefs.GetInt("invertYAxis", 0) == 1;
+        waitOneMove = 1;
     }
 
     void Update ()
@@ -96,17 +100,29 @@ public class FPSController : PortalTraveller {
             return;
         }
 
-
-        Vector2 input = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
-        
-        Vector3 inputDir = new Vector3 (input.x, 0, input.y).normalized;
-        Vector3 worldInputDir = transform.TransformDirection (inputDir);
-
         float currentSpeed = Input.GetKey(KeyCode.LeftShift) ? runSpeed : walkSpeed;
-        Vector3 targetVelocity = worldInputDir * currentSpeed;
-        if(!jumping)
+        
+        if (!jumping)
+        {
+            Vector2 input = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
+        
+            Vector3 inputDir = new Vector3 (input.x, 0, input.y).normalized;
+            Vector3 worldInputDir = transform.TransformDirection (inputDir);
+
+            Vector3 targetVelocity = worldInputDir * currentSpeed;
             velocity = Vector3.SmoothDamp (velocity, targetVelocity, ref smoothV, smoothMoveTime);
-        if (velocity.magnitude > 1f && jumping == false && !bStuck) 
+        }else 
+        {
+            if (waitOneMove == 0 && (controller.collisionFlags & CollisionFlags.Below) != 0) {
+                jumping = false;
+                waitOneMove = 2;            
+            }
+            waitOneMove--;
+        }
+
+        
+
+        if (velocity.magnitude > 1f && !jumping && !bStuck) 
         {
             if (currentSpeed > runSpeed - 0.1)
             {
@@ -124,14 +140,15 @@ public class FPSController : PortalTraveller {
         }
 
         verticalVelocity -= gravity * Time.deltaTime;
-        
         velocity = new Vector3 (velocity.x, verticalVelocity, velocity.z);
+
 
         // Stop player if he's stuck
         if (!bStuck)
         {
             var flags = controller.Move(velocity * Time.deltaTime);
-            if (flags == CollisionFlags.Below)
+
+            if ((controller.collisionFlags & CollisionFlags.Below) != 0)
             {
                 jumping = false;
                 lastGroundedTime = Time.time;
@@ -170,6 +187,7 @@ public class FPSController : PortalTraveller {
 
         transform.eulerAngles = Vector3.up * yaw;
         cam.transform.localEulerAngles = Vector3.right * pitch;
+        
     }
 
     public override void Teleport (Transform fromPortal, Transform toPortal, Vector3 pos, Quaternion rot) {
