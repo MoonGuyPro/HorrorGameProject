@@ -1,9 +1,11 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.InputSystem;
 
 public class PlayerInteraction : MonoBehaviour
 {
     public Transform PlayerCamera;
+    public InputActionAsset playerControls;
     [Header("SphereCast settings")]
     public float MaxDistance = 5;
     public float Radius = 0.45f;
@@ -28,7 +30,7 @@ public class PlayerInteraction : MonoBehaviour
 
     void Start()
     {
-        if(tipLabel == null) // If tipLabel is null show warning
+        if (tipLabel == null) // If tipLabel is null show warning
         {
             Debug.LogWarning("PlayerInteractive.cs: tipText is null - cannot show interaction tips!");
         }
@@ -63,10 +65,10 @@ public class PlayerInteraction : MonoBehaviour
                     {
                         if (!alreadyLooking)
                         {
-                            setTipText(interactive.tip);
+                            SetTipText(interactive.tip);
                         }
 
-                        toggleTipText(true);
+                        ToggleTipText(true);
 
                         // On interact key
                         if (Input.GetKeyDown(KeyCode.F))
@@ -75,11 +77,11 @@ public class PlayerInteraction : MonoBehaviour
                             interactive = hit.transform.GetComponentInParent<Interactive>(); //isn't it redundant?
                             if (!interactive.Interact(inv))
                             {
-                                setTipText(interactive.altTip);
+                                SetTipText(interactive.altTip);
                             }
                             // we're calling inventory update here as well
                             // because we might've just used the key on something (e.g. KeyHole)
-                            updateInventoryText();
+                            UpdateInventoryText();
                         }
                         alreadyLooking = true;
                     } 
@@ -93,18 +95,18 @@ public class PlayerInteraction : MonoBehaviour
             if (hit.transform.CompareTag("Pickable"))
             {
                 pickable = hit.transform.GetComponentInParent<Pickable>();
-                setTipText(pickable.tip);
-                toggleTipText(true);
+                SetTipText(pickable.tip);
+                ToggleTipText(true);
 
                 if (Input.GetKeyDown(KeyCode.F))
                 {
                     // Call interaction
                     pickable = hit.transform.GetComponentInParent<Pickable>(); //isn't it redundant?
-                    if(hit.collider.name == "Supercube")
+                    if (hit.collider.name == "Supercube")
                         uIPortal.getCube();
                     else
                         inv.addItem(pickable);
-                    updateInventoryText();
+                    UpdateInventoryText();
                     pickable.interact();
                 }
                 alreadyLooking = true;
@@ -112,13 +114,13 @@ public class PlayerInteraction : MonoBehaviour
         }
         else
         {
-            toggleTipText(false);
+            ToggleTipText(false);
             alreadyLooking = false;
         }
     }
 
     // Just in case check if tipLabel is null
-    void setTipText(string tip)
+    void SetTipText(string tip)
     {
         if (tipLabel)
         {
@@ -126,7 +128,7 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
-    void toggleTipText(bool bEnabled)
+    void ToggleTipText(bool bEnabled)
     {
         if (tipLabel)
         {
@@ -134,7 +136,7 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
-    void updateInventoryText()
+    void UpdateInventoryText()
     {
         string invContent = inv.printInGameNames();
         if (invContent == "Empty")

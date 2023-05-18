@@ -1,11 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
+﻿using System;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
-public class FPSController : PortalTraveller {
+public class FPSController : PortalTraveller
+{
+    public InputActionAsset playerControls;
 
     public float walkSpeed = 3;
     public float runSpeed = 6;
@@ -56,7 +56,17 @@ public class FPSController : PortalTraveller {
     private UnityEvent OnStopWalking;
 
     [HideInInspector] public bool bStuck;
-    
+
+    private void OnEnable()
+    {
+        playerControls.Enable();
+    }
+
+    private void OnDisable()
+    {   
+        playerControls.Disable();
+    }
+
     void Start ()
     {
         cam = Camera.main;
@@ -111,7 +121,8 @@ public class FPSController : PortalTraveller {
 
             Vector3 targetVelocity = worldInputDir * currentSpeed;
             velocity = Vector3.SmoothDamp (velocity, targetVelocity, ref smoothV, smoothMoveTime);
-        }else 
+        }
+        else 
         {
             if (waitOneMove == 0 && (controller.collisionFlags & CollisionFlags.Below) != 0) {
                 jumping = false;
@@ -119,8 +130,6 @@ public class FPSController : PortalTraveller {
             }
             waitOneMove--;
         }
-
-        
 
         if (velocity.magnitude > 1f && !jumping && !bStuck) 
         {
@@ -166,14 +175,6 @@ public class FPSController : PortalTraveller {
 
         float mX = Input.GetAxisRaw ("Mouse X");
         float mY = Input.GetAxisRaw ("Mouse Y");
-
-        // Verrrrrry gross hack to stop camera swinging down at start
-        // Kris here - mMag can reach very high values at low framerate.
-        /*float mMag = Mathf.Sqrt (mX * mX + mY * mY);
-        if (mMag > 5) {
-            mX = 0;
-            mY = 0;
-        } */
         
         if (PauseMenu.IsPaused) return;
         
