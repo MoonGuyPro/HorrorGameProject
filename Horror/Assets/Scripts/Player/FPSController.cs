@@ -28,13 +28,14 @@ public class FPSController : PortalTraveller {
     float yawSmoothV;
     float pitchSmoothV;
     float verticalVelocity;
-    float camSensitivity = 0.8f; //This sensitivity is retreived from PlayerPrefs (Settings)
+    float sensitivity = 0.8f; //This sensitivity is retreived from PlayerPrefs (Settings)
     Vector3 velocity;
     Vector3 lastTargetVelocity;
     Vector3 smoothV;
     Vector3 rotationSmoothVelocity;
     Vector3 currentRotation;
 
+    private bool invertX = false;
     private bool invertY = false;
     bool jumping;
     float lastGroundedTime;
@@ -75,13 +76,12 @@ public class FPSController : PortalTraveller {
         }
         smoothYaw = yaw;
         smoothPitch = pitch;
-        camSensitivity = PlayerPrefs.GetFloat("sensitivity", 0.8f);
-        invertY = PlayerPrefs.GetInt("invertYAxis", 0) == 1;
         waitOneMove = 1;
     }
 
     void Update ()
     {
+        UpdatePrefs(); //todo: move it somewhere else to not call it every frame
         if (Input.GetKeyDown (KeyCode.P)) 
         {
             Cursor.lockState = CursorLockMode.None;
@@ -119,9 +119,7 @@ public class FPSController : PortalTraveller {
             }
             waitOneMove--;
         }
-
         
-
         if (velocity.magnitude > 1f && !jumping && !bStuck) 
         {
             if (currentSpeed > runSpeed - 0.1)
@@ -177,9 +175,9 @@ public class FPSController : PortalTraveller {
         
         if (PauseMenu.IsPaused) return;
         
-        float rotSensitivity = mouseSensitivity * camSensitivity;
+        float rotSensitivity = mouseSensitivity * sensitivity;
     
-        yaw += mX * rotSensitivity;
+        yaw += invertX ? -mX * rotSensitivity : mX * rotSensitivity;
         pitch -= invertY ? -mY * rotSensitivity : mY * rotSensitivity;
         pitch = Mathf.Clamp (pitch, pitchMinMax.x, pitchMinMax.y);
         smoothPitch = Mathf.SmoothDampAngle (smoothPitch, pitch, ref pitchSmoothV, rotationSmoothTime);
@@ -199,5 +197,12 @@ public class FPSController : PortalTraveller {
         transform.eulerAngles = Vector3.up * smoothYaw;
         velocity = toPortal.TransformVector (fromPortal.InverseTransformVector (velocity));
         Physics.SyncTransforms ();
+    }
+
+    private void UpdatePrefs()
+    {
+        sensitivity = PlayerPrefs.GetFloat("sensitivity", 0.8f);
+        invertX = PlayerPrefs.GetInt("invertXAxis", 0) == 1;
+        invertY = PlayerPrefs.GetInt("invertYAxis", 0) == 1;
     }
 }
