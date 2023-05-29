@@ -78,6 +78,8 @@ public class OptionsMenu : MonoBehaviour
         sfxBus.setVolume(sfxVolume);
         ambienceBus.setVolume(ambienceVolume);
         uisfxBus.setVolume(uisfxVolume);
+        if (!Input.GetKeyDown(KeyCode.Escape)) return;
+        OnBackPressed();
     }
 
     #region AudioSettings
@@ -104,6 +106,7 @@ public class OptionsMenu : MonoBehaviour
         masterVolume = volume;
         int value = (int)(masterVolume * 100.0f);
         masterVolumeLabel.GetComponent<TextMeshProUGUI>().text = value.ToString() + "%";
+        PlayerPrefs.GetFloat("masterVolume", value);
     }
     
     public void SetMusicVolume(float volume)
@@ -111,6 +114,7 @@ public class OptionsMenu : MonoBehaviour
         musicVolume = volume;
         int value = (int)(musicVolume * 100.0f);
         musicVolumeLabel.GetComponent<TextMeshProUGUI>().text = value.ToString() + "%";
+        PlayerPrefs.GetFloat("musicVolume", value);
     }
     
     public void SetSFXVolume(float volume)
@@ -118,6 +122,7 @@ public class OptionsMenu : MonoBehaviour
         sfxVolume = volume;
         int value = (int)(sfxVolume * 100.0f);
         soundVolumeLabel.GetComponent<TextMeshProUGUI>().text = value.ToString() + "%";
+        PlayerPrefs.GetFloat("sfxVolume", value);
     }
     
     public void SetAmbienceVolume(float volume)
@@ -125,6 +130,7 @@ public class OptionsMenu : MonoBehaviour
         ambienceVolume = volume;
         int value = (int)(ambienceVolume * 100.0f);
         ambientVolumeLabel.GetComponent<TextMeshProUGUI>().text = value.ToString() + "%";
+        PlayerPrefs.GetFloat("ambienceVolume", value);
     }
     
     public void SetUISFXVolume(float volume)
@@ -189,6 +195,7 @@ public class OptionsMenu : MonoBehaviour
     public GameObject sensitivityLabel;
 
     private float sensitivity = 0.8f;
+    private bool invertXAxis = false;
     private bool invertYAxis = false;
 
     public void SetSensitivity(float newSens)
@@ -196,6 +203,7 @@ public class OptionsMenu : MonoBehaviour
         sensitivity = newSens;
         int value = (int)(sensitivity * 100.0f);
         sensitivityLabel.GetComponent<TextMeshProUGUI>().text = value.ToString() + "%";
+        PlayerPrefs.SetFloat("sensitivity", newSens);
     }
     
     public float GetSensitivity()
@@ -203,9 +211,21 @@ public class OptionsMenu : MonoBehaviour
         return sensitivity;
     }
     
+    public void SetInvertXAxis(bool invert)
+    {
+        invertXAxis = invert;
+        PlayerPrefs.SetInt("invertXAxis", invert ? 1 : 0);
+    }
+    
+    public bool GetInvertXAxis()
+    {
+        return invertXAxis;
+    }
+    
     public void SetInvertYAxis(bool invert)
     {
         invertYAxis = invert;
+        PlayerPrefs.SetInt("invertYAxis", invert ? 1 : 0);
     }
     
     public bool GetInvertYAxis()

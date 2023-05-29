@@ -7,33 +7,37 @@ using FMODUnity;
 public class PauseMenu : MonoBehaviour
 {
     public static bool IsPaused = false;
+    public GameObject pauseMenu;
     public GameObject PauseMenuUI;
-    
+    public GameObject options;
+    public GameObject overlay;
+
     [SerializeField]
     private EventReference hover;
     
     [SerializeField]
     private EventReference press;
 
-    void Update()
+    private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) 
+        if (!Input.GetKeyDown(KeyCode.Escape)) return;
+        if (options.activeSelf) return; // do not unpause when in options
+            
+        if (IsPaused)
         {
-            if (!IsPaused)
-            {
-                Pause();
-            }
-            else
-            {
-                Resume();
-            }
+            Resume();
+        }
+        else
+        {
+            Pause();
         }
     }
 
-    void Pause() 
+    private void Pause() 
     {
-        //Debug.Log("Paused!");
+        Debug.Log("Paused!");
         PauseMenuUI.SetActive(true);
+        overlay.SetActive(true);
         Time.timeScale = 0.0f;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -42,8 +46,9 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
-        //Debug.Log("Resumed!");
+        Debug.Log("Resumed!");
         PauseMenuUI.SetActive(false);
+        overlay.SetActive(false);
         Time.timeScale = 1.0f;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
