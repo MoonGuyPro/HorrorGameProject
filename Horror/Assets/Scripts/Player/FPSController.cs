@@ -102,8 +102,9 @@ public class FPSController : PortalTraveller {
 
         float currentSpeed = Input.GetKey(KeyCode.LeftShift) ? runSpeed : walkSpeed;
         
-        if (!jumping)
-        {
+        // Uncomment to disable velocity change mid-air
+        // if (!jumping)
+        // {
             Vector2 input = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
         
             Vector3 inputDir = new Vector3 (input.x, 0, input.y).normalized;
@@ -111,14 +112,14 @@ public class FPSController : PortalTraveller {
 
             Vector3 targetVelocity = worldInputDir * currentSpeed;
             velocity = Vector3.SmoothDamp (velocity, targetVelocity, ref smoothV, smoothMoveTime);
-        }else 
-        {
-            if (waitOneMove == 0 && (controller.collisionFlags & CollisionFlags.Below) != 0) {
-                jumping = false;
-                waitOneMove = 2;            
-            }
-            waitOneMove--;
-        }
+        // }else 
+        // {
+        //     if (waitOneMove == 0 && (controller.collisionFlags & CollisionFlags.Below) != 0) {
+        //         jumping = false;
+        //         waitOneMove = 2;            
+        //     }
+        //     waitOneMove--;
+        // }
         
         if (velocity.magnitude > 1f && !jumping && !bStuck) 
         {
