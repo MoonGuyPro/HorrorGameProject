@@ -169,24 +169,18 @@ public class FPSController : PortalTraveller {
             mX = 0;
             mY = 0;
         } */
-
         if (PauseMenu.IsPaused) return;
 
         float rotSensitivity = mouseSensitivity * sensitivity;
 
-         yaw += invertX ? -mX * rotSensitivity : mX * rotSensitivity;
-        if (jumping) // Limit rotation around y-axis to 30 degrees during jumping
-        {
-            yaw = Mathf.Clamp(yaw, staringYaw - 30f, staringYaw + 30f); // Limit the yaw rotation to 30 degrees
-        }
-
+        yaw += invertX ? -mX * rotSensitivity : mX * rotSensitivity;
         pitch -= invertY ? -mY * rotSensitivity : mY * rotSensitivity;
         pitch = Mathf.Clamp(pitch, pitchMinMax.x, pitchMinMax.y);
         smoothPitch = Mathf.SmoothDampAngle(smoothPitch, pitch, ref pitchSmoothV, rotationSmoothTime);
         smoothYaw = Mathf.SmoothDampAngle(smoothYaw, yaw, ref yawSmoothV, rotationSmoothTime);
 
-        transform.eulerAngles = Vector3.up * smoothYaw;
-        cam.transform.localEulerAngles = Vector3.right * smoothPitch;
+        transform.eulerAngles = Vector3.up * yaw;
+        cam.transform.localEulerAngles = Vector3.right * pitch;
     }
 
 
