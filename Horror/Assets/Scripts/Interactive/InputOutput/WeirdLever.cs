@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using FMOD.Studio;
 using FMODUnity;
 using UnityEngine;
 
@@ -21,7 +22,14 @@ public class WeirdLever : InputLogic
     protected override void Behavior()
     {
         // Animate on state change
-        RuntimeManager.PlayOneShotAttached(eventRef, gameObject);
+        //RuntimeManager.PlayOneShotAttached(eventRef, gameObject);
+        
+        EventInstance inst = RuntimeManager.CreateInstance(eventRef);
+        inst.set3DAttributes(RuntimeUtils.To3DAttributes(transform));
+        inst.setParameterByName("cube_toggle", active ? 0 : 1);
+        inst.start();
+        inst.release();
+        
         animator.SetBool("active", active);
         changed ^= 1;
 
