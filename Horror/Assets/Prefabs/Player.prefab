@@ -491,12 +491,14 @@ MonoBehaviour:
   smoothMoveTime: 0.1
   jumpForce: 9
   gravity: 18
+  maxYawJumping: 60
   lockCursor: 1
   mouseSensitivity: 3
   pitchMinMax: {x: -90, y: 90}
   rotationSmoothTime: 0.08
   yaw: 5.187398
   pitch: 0.5499961
+  staringYaw: 0
   OnStartWalking:
     m_PersistentCalls:
       m_Calls:
@@ -1392,7 +1394,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2390934412852062483
 RectTransform:
   m_ObjectHideFlags: 0
