@@ -45,7 +45,7 @@ public class MainMenu : MonoBehaviour
     
     public void NewGame() 
     {
-       SceneManager.LoadScene("VideoPlayer");
+       SceneManager.LoadScene("IntroCutscene");
     }
 
     public void QuitGame()
