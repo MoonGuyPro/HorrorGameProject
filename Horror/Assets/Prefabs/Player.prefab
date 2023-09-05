@@ -435,6 +435,7 @@ GameObject:
   - component: {fileID: 7728868339006154497}
   - component: {fileID: 6435092143091971558}
   - component: {fileID: 3905407377787234822}
+  - component: {fileID: 588310778280538188}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -529,12 +530,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 588310778280538188}
+        m_TargetAssemblyTypeName: HeadBobbing, Assembly-CSharp
+        m_MethodName: setRunning
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnWalking:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8807056037528276804}
         m_TargetAssemblyTypeName: Footsteps, Assembly-CSharp
         m_MethodName: SetWalkingSpeed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 588310778280538188}
+        m_TargetAssemblyTypeName: HeadBobbing, Assembly-CSharp
+        m_MethodName: setWalking
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -697,6 +722,22 @@ MonoBehaviour:
   - {fileID: 4724756890307606239}
   - {fileID: 294319374332213628}
   - {fileID: 178646456065576845}
+--- !u!114 &588310778280538188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3222809851561510840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f944b086e42ad4b937bd3329235d42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraTransform: {fileID: 2166076010137860667}
+  useHeadBobbing: 1
+  bobbingSpeed: 0.18
+  bobbingAmount: 0.2
 --- !u!1 &4210482401518017573
 GameObject:
   m_ObjectHideFlags: 0
