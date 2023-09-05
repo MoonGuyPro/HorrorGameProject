@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,6 +14,7 @@ public class Supercube : Pickable
     public override void interact()
     {
         model.enabled = false; // I don't work lol
+        RuntimeManager.PlayOneShot(pickUpSound);
         StartCoroutine(FadeAndChangeLevel());
     }
 

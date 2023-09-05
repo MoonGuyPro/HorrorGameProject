@@ -584,6 +584,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 588310778280538188}
+        m_TargetAssemblyTypeName: Footsteps, Assembly-CSharp
+        m_MethodName: StopFootstepsCoroutine
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   bStuck: 0
 --- !u!143 &8330153873525840688
 CharacterController:
@@ -736,7 +748,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraTransform: {fileID: 2166076010137860667}
   useHeadBobbing: 1
-  bobbingSpeed: 0.18
+  bobbingWalkSpeed: 2
+  bobbingRunSpeed: 3
   bobbingAmount: 0.2
 --- !u!1 &4210482401518017573
 GameObject:

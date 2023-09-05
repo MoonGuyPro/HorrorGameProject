@@ -16,6 +16,9 @@ public class HeadBobbing : MonoBehaviour
 
     bool isWalking = true;
     
+    // this is for other bobbing disabling events like jumping
+    bool otherDisable = false;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -43,14 +46,14 @@ public class HeadBobbing : MonoBehaviour
         }
         else
         {
-            waveslice = Mathf.Sin(timer);
+            waveslice = -Mathf.Pow(Mathf.Abs(Mathf.Sin(timer)), 1.5f);
             if (isWalking)
             {
-                timer += Time.deltaTime * bobbingWalkSpeed * 2f * 3.1415f; 
+                timer += Time.deltaTime * bobbingWalkSpeed * Mathf.PI; 
             }
             else
             {
-                timer += Time.deltaTime * bobbingRunSpeed * 2f * 3.1415f; 
+                timer += Time.deltaTime * bobbingRunSpeed * Mathf.PI; 
             }
             
             if (timer > Mathf.PI * 2)
@@ -59,7 +62,7 @@ public class HeadBobbing : MonoBehaviour
             }
         }
 
-        if (waveslice != 0)
+        if (waveslice != 0 && !otherDisable)
         {
             float translateChange = waveslice * bobbingAmount;
             float totalAxes = Mathf.Abs(horizontal) + Mathf.Abs(vertical);
@@ -69,20 +72,28 @@ public class HeadBobbing : MonoBehaviour
         }
         else
         {
-            //cameraTransform.localPosition = new Vector3(cameraTransform.localPosition.x, defaultY, cameraTransform.localPosition.z);
-            
             // lerp y position back to default
-            cameraTransform.localPosition = Vector3.Lerp(cameraTransform.localPosition, new Vector3(cameraTransform.localPosition.x, defaultY, cameraTransform.localPosition.z), Time.deltaTime * 2f);
+            cameraTransform.localPosition = Vector3.Lerp(cameraTransform.localPosition, new Vector3(cameraTransform.localPosition.x, defaultY, cameraTransform.localPosition.z), Time.deltaTime);
         }
     }
 
-    public void setRunning()
+    public void SetRunning()
     {
         isWalking = false;
     }
     
-    public void setWalking()
+    public void SetWalking()
     {
         isWalking = true;
+    }
+
+    public void SetStartWalking()
+    {
+        otherDisable = false;
+    }
+
+    public void SetDisable()
+    {
+        otherDisable = true;
     }
 }
