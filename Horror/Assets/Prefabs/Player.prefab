@@ -436,6 +436,7 @@ GameObject:
   - component: {fileID: 6435092143091971558}
   - component: {fileID: 3905407377787234822}
   - component: {fileID: 588310778280538188}
+  - component: {fileID: 3102742465261597829}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -751,6 +752,21 @@ MonoBehaviour:
   bobbingWalkSpeed: 2
   bobbingRunSpeed: 3
   bobbingAmount: 0.2
+--- !u!114 &3102742465261597829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3222809851561510840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf1b0968e6759cb44936e5e0747d7a0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamera: {fileID: 2166076010137860667}
+  maxDistance: 5
+  radius: 0.45
 --- !u!1 &4210482401518017573
 GameObject:
   m_ObjectHideFlags: 0
