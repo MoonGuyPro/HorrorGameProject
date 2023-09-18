@@ -436,6 +436,7 @@ GameObject:
   - component: {fileID: 6435092143091971558}
   - component: {fileID: 3905407377787234822}
   - component: {fileID: 588310778280538188}
+  - component: {fileID: 3102742465261597829}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -751,6 +752,22 @@ MonoBehaviour:
   bobbingWalkSpeed: 2
   bobbingRunSpeed: 3
   bobbingAmount: 0.2
+--- !u!114 &3102742465261597829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3222809851561510840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf1b0968e6759cb44936e5e0747d7a0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerCamera: {fileID: 2166076010137860667}
+  subtitles: {fileID: 1459206227218239430}
+  maxDistance: 5
+  radius: 0.45
 --- !u!1 &4210482401518017573
 GameObject:
   m_ObjectHideFlags: 0
@@ -1239,7 +1256,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &73230971521365772
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1257,8 +1274,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0887, y: -187.7238}
-  m_SizeDelta: {x: 450, y: 100}
+  m_AnchoredPosition: {x: -0.0887, y: -154.3}
+  m_SizeDelta: {x: 450, y: 163.95}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4847457783013782695
 CanvasRenderer:
