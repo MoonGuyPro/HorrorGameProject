@@ -55,7 +55,7 @@ public class PlayerInteraction : MonoBehaviour
             {
                 // Show tip on screen
                 interactive = hit.transform.GetComponentInParent<Interactive>();
-
+    
                 if (interactive is not null)
                 {
                     // disabled objects dont trigger anything, such as used key holes that are already used.
@@ -65,9 +65,9 @@ public class PlayerInteraction : MonoBehaviour
                         {
                             setTipText(interactive.tip);
                         }
-
+    
                         toggleTipText(true);
-
+    
                         // On interact key
                         if (Input.GetKeyDown(KeyCode.F))
                         {
@@ -95,7 +95,7 @@ public class PlayerInteraction : MonoBehaviour
                 pickable = hit.transform.GetComponentInParent<Pickable>();
                 setTipText(pickable.tip);
                 toggleTipText(true);
-
+    
                 if (Input.GetKeyDown(KeyCode.F))
                 {
                     // Call interaction
