@@ -108,7 +108,7 @@ public class FPSController : PortalTraveller {
         if (!jumping) // Allow horizontal movement during walking
         {
             input.x = Input.GetAxisRaw("Horizontal");
-            currentSpeed = Input.GetKey(KeyCode.LeftShift) ? runSpeed : walkSpeed;
+            currentSpeed = Input.GetAxis("Sprint") > 0 ? runSpeed : walkSpeed;
         }
 
         Vector3 inputDir = new Vector3(input.x, 0, input.y).normalized;
@@ -149,7 +149,7 @@ public class FPSController : PortalTraveller {
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Jump"))
         {
             float timeSinceLastTouchedGround = Time.time - lastGroundedTime;
             if (controller.isGrounded || (!jumping && timeSinceLastTouchedGround < 0.15f))

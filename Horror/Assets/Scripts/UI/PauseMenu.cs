@@ -20,7 +20,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Update()
     {
-        if (!Input.GetKeyDown(KeyCode.Escape)) return;
+        if (!Input.GetButtonDown("Pause")) return;
         if (options.activeSelf) return; // do not unpause when in options
             
         if (IsPaused)

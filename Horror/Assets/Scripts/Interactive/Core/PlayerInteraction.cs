@@ -69,7 +69,7 @@ public class PlayerInteraction : MonoBehaviour
                         toggleTipText(true);
     
                         // On interact key
-                        if (Input.GetKeyDown(KeyCode.F))
+                        if (Input.GetButtonDown("Interact"))
                         {
                             // Call interaction
                             interactive = hit.transform.GetComponentInParent<Interactive>(); //isn't it redundant?
@@ -96,7 +96,7 @@ public class PlayerInteraction : MonoBehaviour
                 setTipText(pickable.tip);
                 toggleTipText(true);
     
-                if (Input.GetKeyDown(KeyCode.F))
+                if (Input.GetButtonDown("Interact"))
                 {
                     // Call interaction
                     pickable = hit.transform.GetComponentInParent<Pickable>(); //isn't it redundant?
