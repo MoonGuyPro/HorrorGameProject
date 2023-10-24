@@ -471,7 +471,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3376070113570561032, guid: 0365c51cc84e1cb479a922c7e4aad432, type: 3}
       propertyPath: antialiasingMode
-      value: 0
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3376070113570561032, guid: 0365c51cc84e1cb479a922c7e4aad432, type: 3}
+      propertyPath: temporalAntialiasing.sharpness
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3376070113570561032, guid: 0365c51cc84e1cb479a922c7e4aad432, type: 3}
+      propertyPath: temporalAntialiasing.jitterSpread
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3376070113570561032, guid: 0365c51cc84e1cb479a922c7e4aad432, type: 3}
+      propertyPath: temporalAntialiasing.motionBlending
+      value: 0.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 3376070113570561032, guid: 0365c51cc84e1cb479a922c7e4aad432, type: 3}
+      propertyPath: temporalAntialiasing.stationaryBlending
+      value: 0.99
       objectReference: {fileID: 0}
     - target: {fileID: 3376070113570561035, guid: 0365c51cc84e1cb479a922c7e4aad432, type: 3}
       propertyPath: portal
