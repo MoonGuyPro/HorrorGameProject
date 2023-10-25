@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -860,7 +860,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_AllowMSAA
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: far clip plane
@@ -870,6 +870,10 @@ PrefabInstance:
       propertyPath: far clip plane
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 3196418830659105524, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: volumeTrigger
+      value: 
+      objectReference: {fileID: 132515286}
     - target: {fileID: 3325394280552842106, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_Name
       value: NewPortal (4)
@@ -1380,7 +1384,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_AllowMSAA
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: far clip plane
@@ -1467,6 +1471,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+--- !u!4 &132515286 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3196418830659105522, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+  m_PrefabInstance: {fileID: 132515285}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &136718481 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
@@ -6817,7 +6826,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_AllowMSAA
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: far clip plane
@@ -6843,6 +6852,10 @@ PrefabInstance:
       propertyPath: m_OcclusionCulling
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3196418830659105524, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: volumeTrigger
+      value: 
+      objectReference: {fileID: 132515286}
     - target: {fileID: 3325394280552842106, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_Name
       value: NewPortal (2)
@@ -15362,7 +15375,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_AllowMSAA
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: far clip plane
@@ -15384,6 +15397,10 @@ PrefabInstance:
       propertyPath: far clip plane
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 3196418830659105524, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: volumeTrigger
+      value: 
+      objectReference: {fileID: 132515286}
     - target: {fileID: 3325394280552842106, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_Name
       value: NewPortal (14)
@@ -22673,7 +22690,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_AllowMSAA
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: far clip plane
@@ -22683,6 +22700,10 @@ PrefabInstance:
       propertyPath: far clip plane
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 3196418830659105524, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: volumeTrigger
+      value: 
+      objectReference: {fileID: 132515286}
     - target: {fileID: 3325394280552842106, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_Name
       value: NewPortal (7)
@@ -25597,6 +25618,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1955222010}
     m_Modifications:
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: m_AllowMSAA
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: far clip plane
       value: 300
       objectReference: {fileID: 0}
@@ -25604,6 +25629,10 @@ PrefabInstance:
       propertyPath: far clip plane
       value: 300
       objectReference: {fileID: 0}
+    - target: {fileID: 3196418830659105524, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: volumeTrigger
+      value: 
+      objectReference: {fileID: 132515286}
     - target: {fileID: 3325394280552842106, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_Name
       value: NewPortal (10)
@@ -26108,7 +26137,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_AllowMSAA
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: far clip plane
@@ -26130,6 +26159,10 @@ PrefabInstance:
       propertyPath: far clip plane
       value: 280
       objectReference: {fileID: 0}
+    - target: {fileID: 3196418830659105524, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: volumeTrigger
+      value: 
+      objectReference: {fileID: 132515286}
     - target: {fileID: 3325394280552842106, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_Name
       value: NewPortal (6)
@@ -37021,7 +37054,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_AllowMSAA
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: far clip plane
@@ -37031,6 +37064,10 @@ PrefabInstance:
       propertyPath: far clip plane
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 3196418830659105524, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: volumeTrigger
+      value: 
+      objectReference: {fileID: 132515286}
     - target: {fileID: 3325394280552842106, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_Name
       value: NewPortal (13)
@@ -37126,7 +37163,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_AllowMSAA
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: far clip plane
@@ -37136,6 +37173,10 @@ PrefabInstance:
       propertyPath: far clip plane
       value: 330
       objectReference: {fileID: 0}
+    - target: {fileID: 3196418830659105524, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: volumeTrigger
+      value: 
+      objectReference: {fileID: 132515286}
     - target: {fileID: 3325394280552842106, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_Name
       value: NewPortal (11)
@@ -37867,7 +37908,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_AllowMSAA
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: far clip plane
@@ -37889,6 +37930,10 @@ PrefabInstance:
       propertyPath: far clip plane
       value: 120
       objectReference: {fileID: 0}
+    - target: {fileID: 3196418830659105524, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: volumeTrigger
+      value: 
+      objectReference: {fileID: 132515286}
     - target: {fileID: 3325394280552842106, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_Name
       value: NewPortal (3)
@@ -39058,7 +39103,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_AllowMSAA
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: far clip plane
@@ -39068,6 +39113,10 @@ PrefabInstance:
       propertyPath: far clip plane
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 3196418830659105524, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: volumeTrigger
+      value: 
+      objectReference: {fileID: 132515286}
     - target: {fileID: 3325394280552842106, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_Name
       value: NewPortal (9)
@@ -41164,7 +41213,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_AllowMSAA
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: far clip plane
@@ -41190,6 +41239,10 @@ PrefabInstance:
       propertyPath: m_OcclusionCulling
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3196418830659105524, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: volumeTrigger
+      value: 
+      objectReference: {fileID: 132515286}
     - target: {fileID: 3325394280552842106, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_Name
       value: NewPortal
@@ -47044,7 +47097,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_AllowMSAA
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: far clip plane
@@ -47058,6 +47111,10 @@ PrefabInstance:
       propertyPath: m_OcclusionCulling
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3196418830659105524, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: volumeTrigger
+      value: 
+      objectReference: {fileID: 132515286}
     - target: {fileID: 3325394280552842106, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_Name
       value: NewPortal (1)
@@ -48942,7 +48999,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_AllowMSAA
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: far clip plane
@@ -48956,6 +49013,10 @@ PrefabInstance:
       propertyPath: far clip plane
       value: 120
       objectReference: {fileID: 0}
+    - target: {fileID: 3196418830659105524, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: volumeTrigger
+      value: 
+      objectReference: {fileID: 132515286}
     - target: {fileID: 3325394280552842106, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_Name
       value: NewPortal (5)

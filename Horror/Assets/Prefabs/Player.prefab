@@ -1781,7 +1781,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 376036902386046027, guid: 700437983458030458639df620f0efb7, type: 3}
       propertyPath: antialiasingMode
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 376036902386046027, guid: 700437983458030458639df620f0efb7, type: 3}
       propertyPath: temporalAntialiasing.sharpness
@@ -1800,8 +1800,16 @@ PrefabInstance:
       value: 0.99
       objectReference: {fileID: 0}
     - target: {fileID: 376036902386046028, guid: 700437983458030458639df620f0efb7, type: 3}
+      propertyPath: m_AllowMSAA
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 376036902386046028, guid: 700437983458030458639df620f0efb7, type: 3}
       propertyPath: field of view
       value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 376036902386046028, guid: 700437983458030458639df620f0efb7, type: 3}
+      propertyPath: m_RenderingPath
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 376036902386046028, guid: 700437983458030458639df620f0efb7, type: 3}
       propertyPath: m_OcclusionCulling
