@@ -5,24 +5,38 @@ using UnityEngine;
 public class HeadBobbing : MonoBehaviour
 {
     [SerializeField] Transform cameraTransform;
+    [SerializeField] Transform scannerSlotTransform;
     [SerializeField] bool useHeadBobbing = true;
     [Tooltip("How fast the head bobs when walking in Hz")]
     [SerializeField] float bobbingWalkSpeed = 2f;
     [Tooltip("How fast the head bobs when walking in Hz")]
     [SerializeField] float bobbingRunSpeed = 3f;
     [SerializeField] float bobbingAmount = 0.2f;
+    [SerializeField] bool swayScanner = true;
+    [SerializeField] float swaySpeed = 10.0f;
+    [Tooltip("How fast scanner follows camera's rotation")]
+
+    [SerializeField] float scannerBobbingMul = 0.5f;
+    [Tooltip("How much headbobbing affects scanner")]
     float defaultY = 0.0f;
+    float defaultScannerY = 0.0f;
     float timer = 0.0f;
 
     bool isWalking = true;
     
     // this is for other bobbing disabling events like jumping
     bool otherDisable = false;
+
+    Vector3 lastCameraEulerAngles;
+    Quaternion lastScannerRotation;
     
     // Start is called before the first frame update
     void Start()
     {
         defaultY = cameraTransform.localPosition.y;
+        defaultScannerY = scannerSlotTransform.localPosition.y;
+        lastCameraEulerAngles = cameraTransform.eulerAngles;
+        lastScannerRotation = scannerSlotTransform.rotation;
     }
 
     // Update is called once per frame
@@ -32,6 +46,14 @@ public class HeadBobbing : MonoBehaviour
         {
             HandleHeadbob();
         }
+    }
+
+    void FixedUpdate() 
+    {
+        if (swayScanner)
+        {
+            HandleScannerSway();
+        }      
     }
 
     void HandleHeadbob()
@@ -69,12 +91,20 @@ public class HeadBobbing : MonoBehaviour
             totalAxes = Mathf.Clamp(totalAxes, 0.0f, 1.0f);
             translateChange *= totalAxes;
             cameraTransform.localPosition = new Vector3(cameraTransform.localPosition.x, defaultY + translateChange, cameraTransform.localPosition.z);
+            scannerSlotTransform.localPosition = new Vector3(scannerSlotTransform.localPosition.x, defaultScannerY + translateChange * scannerBobbingMul, scannerSlotTransform.localPosition.z);
         }
         else
         {
             // lerp y position back to default
             cameraTransform.localPosition = Vector3.Lerp(cameraTransform.localPosition, new Vector3(cameraTransform.localPosition.x, defaultY, cameraTransform.localPosition.z), Time.deltaTime);
+            scannerSlotTransform.localPosition = Vector3.Lerp(scannerSlotTransform.localPosition, new Vector3(scannerSlotTransform.localPosition.x, defaultScannerY, scannerSlotTransform.localPosition.z), Time.deltaTime);
         }
+    }
+
+    void HandleScannerSway()
+    {
+        scannerSlotTransform.rotation = Quaternion.Lerp(lastScannerRotation, cameraTransform.rotation, swaySpeed * 0.1f);
+        lastScannerRotation = scannerSlotTransform.rotation;
     }
 
     public void SetRunning()
