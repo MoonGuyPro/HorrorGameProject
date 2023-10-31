@@ -6,6 +6,6 @@ using UnityEngine;
 [CreateAssetMenu]
 public class ScannableData : ScriptableObject
 {
-    public string DiplayName;
+    public string DisplayName;
     [Multiline] public string Description;
 }
