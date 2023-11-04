@@ -749,9 +749,21 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 588310778280538188, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
+      propertyPath: scannerBobbingMul
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 588310778280538188, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
       propertyPath: scannerSlotTransform
       value: 
       objectReference: {fileID: 1011442144}
+    - target: {fileID: 2166076011228788861, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
+      propertyPath: m_RenderingPath
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2166076011228788863, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3102742465261597829, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
       propertyPath: lineStart
       value: 
@@ -989,27 +1001,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bd599891f1ab43642b6f578bafd78fbc, type: 3}
       propertyPath: m_LocalScale.x
-      value: 50
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bd599891f1ab43642b6f578bafd78fbc, type: 3}
       propertyPath: m_LocalScale.y
-      value: 46
+      value: 4.6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bd599891f1ab43642b6f578bafd78fbc, type: 3}
       propertyPath: m_LocalScale.z
-      value: 28.882
+      value: 4.21
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bd599891f1ab43642b6f578bafd78fbc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.04
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bd599891f1ab43642b6f578bafd78fbc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.42
+      value: -0.18
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bd599891f1ab43642b6f578bafd78fbc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.22
+      value: 0.48
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bd599891f1ab43642b6f578bafd78fbc, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1043,9 +1055,17 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: bd599891f1ab43642b6f578bafd78fbc, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2d67d60f4c8520343859bbd2b34e79a7, type: 2}
     - target: {fileID: 919132149155446097, guid: bd599891f1ab43642b6f578bafd78fbc, type: 3}
       propertyPath: m_Name
       value: Scanner
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bd599891f1ab43642b6f578bafd78fbc, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
