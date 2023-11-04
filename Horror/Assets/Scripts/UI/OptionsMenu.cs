@@ -181,10 +181,13 @@ public class OptionsMenu : MonoBehaviour
 
     public void SetBrightness(float newBright)
     {
-        exposure.keyValue.value = newBright;// < 0.05f ? 0.05f : newBright;
+        if (exposure == null) // Idk why, but this prevents NullReferenceException (it's never null anyway?)
+            return; 
+        
+        exposure.keyValue.value = newBright; //< 0.05f ? 0.05f : newBright;
         int value = (int)(exposure.keyValue.value * 100.0f);
-        Debug.Log(value);
         brightnessLabel.GetComponent<TextMeshProUGUI>().text = value + "%";
+        //Debug.Log(value);
     }
     
     #endregion
