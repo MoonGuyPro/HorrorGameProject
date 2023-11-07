@@ -21,7 +21,7 @@ public class PlayerInteractor : MonoBehaviour
     {
         if(tipLabel == null) // If tipLabel is null show warning
         {
-            Debug.LogWarning("PlayerInteractive.cs: tipText is null - cannot show interaction tips!");
+            Debug.LogWarning("PlayerInteractor.cs: tipText is null - cannot show interaction tips!");
         }
         else
         {
