@@ -45,10 +45,6 @@ public class Portal : MonoBehaviour
             {
                 normalCam = shaderCam.gameObject.transform.GetChild(0).GetComponent<Camera>();
                 normalCam.enabled = false;
-                if(normalCam != null)
-                {
-                    Debug.Log("Jest");
-                }
             }
     }
 
