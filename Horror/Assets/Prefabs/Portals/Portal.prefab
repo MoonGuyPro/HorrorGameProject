@@ -254,7 +254,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 500
   field of view: 60
   orthographic: 0
   orthographic size: 5
@@ -325,7 +325,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   linkedPortal: {fileID: 0}
   screen: {fileID: 7560450736423485574}
-  recursionLimit: 2
+  recursionLimit: 3
   shaderCam: {fileID: 3196418830659105523}
   renderReplacement: {fileID: 3196418830659105527}
   nearClipOffset: 0.005
@@ -572,6 +572,10 @@ PrefabInstance:
     - target: {fileID: 3376070113570561039, guid: 0365c51cc84e1cb479a922c7e4aad432, type: 3}
       propertyPath: field of view
       value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 3376070113570561039, guid: 0365c51cc84e1cb479a922c7e4aad432, type: 3}
+      propertyPath: far clip plane
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 3376070113570561039, guid: 0365c51cc84e1cb479a922c7e4aad432, type: 3}
       propertyPath: m_RenderingPath
