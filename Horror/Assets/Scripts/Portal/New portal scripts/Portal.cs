@@ -45,10 +45,6 @@ public class Portal : MonoBehaviour
             {
                 normalCam = shaderCam.gameObject.transform.GetChild(0).GetComponent<Camera>();
                 normalCam.enabled = false;
-                if(normalCam != null)
-                {
-                    Debug.Log("Jest");
-                }
             }
     }
 
@@ -348,9 +344,9 @@ public class Portal : MonoBehaviour
             portalCam.projectionMatrix = playerCam.CalculateObliqueMatrix(clipPlaneCameraSpace);
             if (shaderCam != null)
             {
-                shaderCam.projectionMatrix = playerCam.CalculateObliqueMatrix(clipPlaneCameraSpace);
+                shaderCam.projectionMatrix = portalCam.projectionMatrix;
                 if (normalCam != null)
-                    normalCam.projectionMatrix = playerCam.CalculateObliqueMatrix(clipPlaneCameraSpace);
+                    normalCam.projectionMatrix = portalCam.projectionMatrix;
             }
         }
         else
