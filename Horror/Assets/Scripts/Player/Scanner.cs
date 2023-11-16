@@ -31,6 +31,7 @@ public class Scanner : MonoBehaviour
         lineRenderer.material.color = Color.clear;
 
         lineRenderer.SetPosition(0, lineStart.position);
+        lineRenderer.enabled = false;
 
         if (alreadyScanned == null)
         {
@@ -65,7 +66,7 @@ public class Scanner : MonoBehaviour
                             popupDescription.DOKill();
                             StopCoroutine(displayCoroutine);
                         }
-                        displayCoroutine = StartCoroutine(DisplayPopup(scanable.Data.DisplayName, scanable.Data.Description, 3.0f, 3.0f, scanable.transform.position));
+                        displayCoroutine = StartCoroutine(DisplayPopup(scanable.Data.DisplayName, scanable.Data.Description, 3.0f, 1.0f, scanable.transform.position));
                         Debug.Log(scanable.Data.Description);
                     }
                     else
@@ -84,6 +85,7 @@ public class Scanner : MonoBehaviour
     IEnumerator DisplayPopup(string name, string description, float displayTime, float fadeTime, Vector3 endPosition)
     {
         bDisplaying = true;
+        lineRenderer.enabled = true;
         popupName.text = name;
         popupDescription.text = description;
         popupName.color = Color.white;
@@ -97,9 +99,10 @@ public class Scanner : MonoBehaviour
         popupDescription.DOColor(Color.clear, fadeTime);
         //lineRenderer.DOColor(Color.white, Color.clear, fadeTime);
         //DOTween.To<Color>(lineRenderer.startColor, x => {lineRenderer.startColor = x; lineRenderer.endColor = x;}, Color.clear, fadeTime);
+        lineRenderer.enabled = false; 
         yield return new WaitForSeconds(fadeTime);
-        lineRenderer.material.color = Color.clear;
-        bDisplaying = false;  
+        //lineRenderer.material.color = Color.clear;
+        bDisplaying = false; 
     }
 
     IEnumerator DisplaySubtitles(string text, float displayTime, float fadeTime)
