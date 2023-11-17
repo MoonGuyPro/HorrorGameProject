@@ -13,7 +13,7 @@ public class PlayerInteraction : MonoBehaviour
 
 	[Header("Inventory text")]
     public GameObject invLabel;
-    public Inventory inv;
+    public OldInventory inv;
 
     [Header("Supercube UI")]
     public UIPortal uIPortal;

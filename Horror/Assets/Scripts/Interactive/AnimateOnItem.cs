@@ -13,7 +13,7 @@ public class AnimateOnItem : Interactive
     public string boolName = "active";
 
     [SerializeField] private EventReference plantSound;
-    public override bool Interact(Inventory inv)
+    public override bool Interact(OldInventory inv)
     {
         if (inv.itemExists(itemName))
         {

@@ -13,7 +13,7 @@ public class InteractionInput : MonoBehaviour
     [Header("Interaction Properties")]
     [SerializeField] private bool singleUse = false;
     private bool canInteract = true;
-    [SerializeField] private string requiredItem;
+    [SerializeField] private PickableData requiredItem;
     
     [Tooltip("ID is used when output expects multiple inputs to be pressed to determine which one was already toggled. " +
              "ID's can repeat in a scene but should not repeat between inputs that share a single output interaction.")]
@@ -36,7 +36,7 @@ public class InteractionInput : MonoBehaviour
         // set the initial state of toggle
         if (interactionType == InteractionType.Toggle)
         {
-            Interact(); 
+            Interact(null); 
         }
     }
 
@@ -50,10 +50,19 @@ public class InteractionInput : MonoBehaviour
         return altTip;
     }
     
-    public void Interact()
+    public bool Interact(Inventory inv)
     {
         if (canInteract)
         {
+            // KB - Added checking for required item
+            if (requiredItem != null)
+            {
+                if (!inv.itemExists(requiredItem))
+                {
+                    return false;
+                }
+            }
+
             if (interactionType == InteractionType.Trigger)
             {
                 interactionEvent?.Invoke(interactionID);
@@ -82,6 +91,9 @@ public class InteractionInput : MonoBehaviour
                     canInteract = false;
                 }
             }
+
+            return true;
         }
+        return false;
     }
 }

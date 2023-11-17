@@ -38,7 +38,7 @@ public abstract class InputLogic : Interactive
     }
 
     // Interaction by default toggles state, override if needed
-    public override bool Interact(Inventory inv)
+    public override bool Interact(OldInventory inv)
     {
 	    // If item is needed, then consume it or return failure (if players doesn't have it)
 	    if (requiredItem != "")

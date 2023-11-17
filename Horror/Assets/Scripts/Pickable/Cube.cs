@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Cube : Pickable
+public class Cube : OldPickable
 {
     private CubeDrone cubeDrone;
 

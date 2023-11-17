@@ -1,7 +1,7 @@
 ﻿using FMODUnity;
 using UnityEngine;
 
-public class VineSappling : Pickable
+public class VineSappling : OldPickable
 {
     public override void interact()
     {

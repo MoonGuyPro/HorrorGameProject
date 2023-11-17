@@ -15,5 +15,5 @@ public abstract class Interactive : MonoBehaviour
     public string tip;
     public string altTip;
     public bool isActive;
-    public abstract bool Interact(Inventory inv);
+    public abstract bool Interact(OldInventory inv);
 }

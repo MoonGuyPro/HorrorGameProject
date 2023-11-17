@@ -14,7 +14,7 @@ public class DisplayTextOnClick : Interactive
         textElement.SetActive(false);
     }
 
-    public override bool Interact(Inventory inv)
+    public override bool Interact(OldInventory inv)
     {
         if (textElement != null)
         {

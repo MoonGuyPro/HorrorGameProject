@@ -53,7 +53,10 @@ public class PlayerInteractor : MonoBehaviour
                     
                     if (Input.GetKeyDown(KeyCode.F))
                     {
-                        interaction.Interact();
+                        if(!interaction.Interact(inv))
+                        {
+                            textMesh.text = interaction.GetAltTip();
+                        }
                     }
                 }
             }
@@ -72,26 +75,47 @@ public class PlayerInteractor : MonoBehaviour
                     
                     if (Input.GetKeyDown(KeyCode.F))
                     {
-                        inv.addItem(pickable.Data.name);
+                        pickable.OnPickUp();
+                        inv.addItem(pickable.Data);
                     }
                 }
-
-                setTipText(pickable.tip);
-                toggleTipText(true);
-    
-                if (Input.GetButtonDown("Interact"))
-                {
-                    // Call interaction
-                    pickable = hit.transform.GetComponentInParent<Pickable>(); //isn't it redundant?
-                    if(hit.collider.name == "Supercube")
-                        uIPortal.getCube();
-                    else
-                        inv.addItem(pickable);
-                    updateInventoryText();
-                    pickable.interact();
-                }
-                alreadyLooking = true;
             }
+
+            // if (hit.transform.CompareTag("Pickable"))
+            // {
+            //     Pickable pickable = hit.transform.GetComponentInParent<Pickable>();
+
+            //     if (pickable is not null)
+            //     {
+            //         if (alreadyLooking == false)
+            //         {
+            //             textMesh.text = pickable.Data.TipText;
+            //             alreadyLooking = true;
+            //         }
+                    
+            //         if (Input.GetKeyDown(KeyCode.F))
+            //         {
+            //             inv.addItem(pickable.Data);
+            //             updateInventoryText();
+            //         }
+            //     }
+
+            //     setTipText(pickable.tip);
+            //     toggleTipText(true);
+    
+            //     if (Input.GetButtonDown("Interact"))
+            //     {
+            //         // Call interaction
+            //         pickable = hit.transform.GetComponentInParent<Pickable>(); //isn't it redundant?
+            //         if(hit.collider.name == "Supercube")
+            //             uIPortal.getCube();
+            //         else
+            //             inv.addItem(pickable);
+            //         updateInventoryText();
+            //         pickable.interact();
+            //     }
+            //     alreadyLooking = true;
+            // }
         }
         else
         {

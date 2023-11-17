@@ -16,28 +16,34 @@ public class Inventory : MonoBehaviour
         items.Add(item);
     }
 
-    public bool removeItem(string name)
+    public bool removeItem(PickableData item)
     {
-        foreach (PickableData item in items)
+        if (items.Contains(item))
         {
-            if (item.name == name)
-            {
-                 return items.Remove(item);
-            }
+            return items.Remove(item);
         }
         return false;
+        // foreach (PickableData item in items)
+        // {
+        //     if (item.name == name)
+        //     {
+        //          return items.Remove(item);
+        //     }
+        // }
+        // return false;
     }
 
-    public bool itemExists(string name)
+    public bool itemExists(PickableData item)
     {
-        foreach (PickableData item in items)
-        {
-            if (item.name == name)
-            {
-                return true;
-            }
-        }
-        return false;
+        return items.Contains(item);
+        // foreach (PickableData item in items)
+        // {
+        //     if (item.name == name)
+        //     {
+        //         return true;
+        //     }
+        // }
+        // return false;
     }
 
     public void print()

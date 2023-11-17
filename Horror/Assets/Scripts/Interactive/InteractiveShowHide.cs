@@ -6,7 +6,7 @@ public class InteractiveShowHide : Interactive
 {
     public List<GameObject> objectsToShowHide;
 
-    public override bool Interact(Inventory inv)
+    public override bool Interact(OldInventory inv)
     {
         if (objectsToShowHide != null)
         {

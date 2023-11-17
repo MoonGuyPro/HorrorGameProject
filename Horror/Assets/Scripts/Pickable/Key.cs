@@ -1,7 +1,7 @@
 using FMODUnity;
 using UnityEngine;
 
-public class Key : Pickable
+public class Key : OldPickable
 {
     [SerializeField] private EventReference keyUseSound;
     private void Start()

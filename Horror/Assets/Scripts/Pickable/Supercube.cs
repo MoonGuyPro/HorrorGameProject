@@ -4,7 +4,7 @@ using FMODUnity;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Supercube : Pickable
+public class Supercube : OldPickable
 {
     [Header("Supercube")] 
     [SerializeField] private string nextLevel;

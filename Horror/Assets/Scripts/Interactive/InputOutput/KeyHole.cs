@@ -19,7 +19,7 @@ public class KeyHole : InputLogic
 
     }
 
-    public override bool Interact(Inventory inv)
+    public override bool Interact(OldInventory inv)
     {
         Behavior(); // Call input behavior (implemented in extended class)
 
