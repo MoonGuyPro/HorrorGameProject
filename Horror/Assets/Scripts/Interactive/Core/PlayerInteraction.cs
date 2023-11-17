@@ -21,7 +21,7 @@ public class PlayerInteraction : MonoBehaviour
     private TextMeshProUGUI textMesh;
     private TextMeshProUGUI inventoryTextMesh;
     private Interactive interactive;
-    private Pickable pickable;
+    private OldPickable pickable;
 
     private bool alreadyLooking;
     private const string interactionKey = "F"; //I will change this when we have the ability to edit keybinds.
@@ -92,14 +92,14 @@ public class PlayerInteraction : MonoBehaviour
             
             if (hit.transform.CompareTag("Pickable"))
             {
-                pickable = hit.transform.GetComponentInParent<Pickable>();
+                pickable = hit.transform.GetComponentInParent<OldPickable>();
                 setTipText(pickable.tip);
                 toggleTipText(true);
     
                 if (Input.GetButtonDown("Interact"))
                 {
                     // Call interaction
-                    pickable = hit.transform.GetComponentInParent<Pickable>(); //isn't it redundant?
+                    pickable = hit.transform.GetComponentInParent<OldPickable>(); //isn't it redundant?
                     if(hit.collider.name == "Supercube")
                         uIPortal.getCube();
                     else

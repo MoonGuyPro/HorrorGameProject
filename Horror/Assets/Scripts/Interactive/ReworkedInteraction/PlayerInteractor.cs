@@ -14,7 +14,7 @@ public class PlayerInteractor : MonoBehaviour
     public GameObject tipLabel;
     
     // Krystian - added inventory support
-    [SerializeField] Inventory inv;
+    [SerializeField] NewInventory inv;
 
     private TextMeshProUGUI textMesh;
     
