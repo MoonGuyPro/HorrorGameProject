@@ -4,21 +4,21 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    private List<Pickable> items;
+    private List<PickableData> items;
 
     private void Start()
     {
-        items = new List<Pickable>();
+        items = new List<PickableData>();
     }
 
-    public void addItem(Pickable item)
+    public void addItem(PickableData item)
     {
         items.Add(item);
     }
 
     public bool removeItem(string name)
     {
-        foreach (Pickable item in items)
+        foreach (PickableData item in items)
         {
             if (item.name == name)
             {
@@ -30,7 +30,7 @@ public class Inventory : MonoBehaviour
 
     public bool itemExists(string name)
     {
-        foreach (Pickable item in items)
+        foreach (PickableData item in items)
         {
             if (item.name == name)
             {
@@ -42,7 +42,7 @@ public class Inventory : MonoBehaviour
 
     public void print()
     {
-        foreach(Pickable item in items)
+        foreach(PickableData item in items)
         {
             print(item.name);
         }
@@ -56,9 +56,9 @@ public class Inventory : MonoBehaviour
             return "Empty";
         }
         string output = "";
-        foreach (Pickable item in items)
+        foreach (PickableData item in items)
         {
-            output += (item.ingameName + "\n");
+            output += (item.DisplayName + "\n");
         }
         return output;
     }

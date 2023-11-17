@@ -13,6 +13,9 @@ public class PlayerInteractor : MonoBehaviour
     [Header("Tip text")]
     public GameObject tipLabel;
     
+    // Krystian - added inventory support
+    [SerializeField] Inventory inv;
+
     private TextMeshProUGUI textMesh;
     
     private bool alreadyLooking;
@@ -54,7 +57,41 @@ public class PlayerInteractor : MonoBehaviour
                     }
                 }
             }
-            
+
+            if (hit.transform.CompareTag("Pickable"))
+            {
+                Pickable pickable = hit.transform.GetComponentInParent<Pickable>();
+
+                if (pickable is not null)
+                {
+                    if (alreadyLooking == false)
+                    {
+                        textMesh.text = pickable.Data.TipText;
+                        alreadyLooking = true;
+                    }
+                    
+                    if (Input.GetKeyDown(KeyCode.F))
+                    {
+                        inv.addItem(pickable.Data.name);
+                    }
+                }
+
+                setTipText(pickable.tip);
+                toggleTipText(true);
+    
+                if (Input.GetButtonDown("Interact"))
+                {
+                    // Call interaction
+                    pickable = hit.transform.GetComponentInParent<Pickable>(); //isn't it redundant?
+                    if(hit.collider.name == "Supercube")
+                        uIPortal.getCube();
+                    else
+                        inv.addItem(pickable);
+                    updateInventoryText();
+                    pickable.interact();
+                }
+                alreadyLooking = true;
+            }
         }
         else
         {

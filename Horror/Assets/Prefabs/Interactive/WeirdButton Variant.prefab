@@ -199,10 +199,13 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3bdb1822d950d8a45b144402b7e9a970, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 8457017043126606449}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3bdb1822d950d8a45b144402b7e9a970, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1912506252}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3bdb1822d950d8a45b144402b7e9a970, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8457017043126606449}
+      addedObject: {fileID: 3559563791280830544}
   m_SourcePrefab: {fileID: 100100000, guid: 3bdb1822d950d8a45b144402b7e9a970, type: 3}
 --- !u!4 &8346347004571921254 stripped
 Transform:
@@ -214,41 +217,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3bdb1822d950d8a45b144402b7e9a970, type: 3}
   m_PrefabInstance: {fileID: 8385305703884704909}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1912506252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8691945964972798428}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3053c749f6d54b8d997e4b95d4863e5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tip: Use
-  altTip: 
-  isActive: 1
-  singleUse: 1
-  active: 0
-  outputs: []
-  requiredItem: 
-  cubeAnim: {fileID: 3771678174145674780}
-  weirdCube: {fileID: 7266004054157179839}
-  activationSound:
-    Guid:
-      Data1: -1852428202
-      Data2: 1121231114
-      Data3: 870305666
-      Data4: 448749073
-    Path: event:/SFX/Interactive/CubeStatue/CubeStatueActivation
-  droneSound:
-    Guid:
-      Data1: -176720937
-      Data2: 1148227913
-      Data3: 1928011186
-      Data4: 207328883
-    Path: event:/SFX/Cubes/CubeDrone
 --- !u!65 &8457017043126606449
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -270,3 +238,67 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.021912124, y: 0.026720753, z: 0.06}
   m_Center: {x: 0.0004406278, y: -0.00050413975, z: 0.03}
+--- !u!114 &1912506252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8691945964972798428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3053c749f6d54b8d997e4b95d4863e5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cubeAnim: {fileID: 3771678174145674780}
+  activationSound:
+    Guid:
+      Data1: -1852428202
+      Data2: 1121231114
+      Data3: 870305666
+      Data4: 448749073
+    Path: event:/SFX/Interactive/CubeStatue/CubeStatueActivation
+  droneSound:
+    Guid:
+      Data1: -176720937
+      Data2: 1148227913
+      Data3: 1928011186
+      Data4: 207328883
+    Path: event:/SFX/Cubes/CubeDrone
+--- !u!114 &3559563791280830544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8691945964972798428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 378022a015f29c64394e8a2d036654a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tip: Use
+  altTip: Fuel missing
+  singleUse: 1
+  requiredItem: 
+  interactionID: 0
+  interactionType: 0
+  toggleState: 1
+  interactionEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1912506252}
+        m_TargetAssemblyTypeName: WeirdButton, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  interactionOffEvent:
+    m_PersistentCalls:
+      m_Calls: []

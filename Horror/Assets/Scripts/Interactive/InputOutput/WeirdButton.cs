@@ -5,7 +5,7 @@
  using UnityEngine.Serialization;
  using STOP_MODE = FMOD.Studio.STOP_MODE;
 
- public class WeirdButton : InputLogic
+ public class WeirdButton : MonoBehaviour
  {
      public Animator cubeAnim;
 
@@ -28,11 +28,12 @@
          }
      }
 
-     protected override void Behavior()
-     {
+    public void OnClick()
+    {
          cubeAnim.gameObject.SetActive(true);
          droneInstance.stop(STOP_MODE.ALLOWFADEOUT);
          RuntimeManager.PlayOneShotAttached(activationSound, gameObject);
          cubeAnim.SetTrigger("Activated");
-     }
+    }
+
  }
