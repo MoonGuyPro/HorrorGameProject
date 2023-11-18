@@ -7,6 +7,6 @@ using UnityEngine;
 public class PickableData : ScriptableObject
 {
     public string DisplayName;
-    public string TipText = "[F] Pick up";
+    public string TipText = "Pick up";
     public EventReference pickUpSound;
 }

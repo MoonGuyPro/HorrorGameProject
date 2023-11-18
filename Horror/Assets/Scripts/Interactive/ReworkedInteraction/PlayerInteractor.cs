@@ -54,7 +54,11 @@ public class PlayerInteractor : MonoBehaviour
                     
                     if (Input.GetKeyDown(KeyCode.F))
                     {
-                        if(!interaction.Interact(inv))
+                        if(interaction.Interact(inv))
+                        {
+                            updateInventoryText();
+                        }
+                        else
                         {
                             textMesh.text = interaction.GetAltTip();
                         }
@@ -77,7 +81,8 @@ public class PlayerInteractor : MonoBehaviour
                     if (Input.GetKeyDown(KeyCode.F))
                     {
                         inv.addItem(pickable.Data);
-                        pickable.OnPickUp();
+                        pickable.PickUp();
+                        updateInventoryText();
                     }
                 }
             }

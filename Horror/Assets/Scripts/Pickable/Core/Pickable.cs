@@ -4,7 +4,7 @@ using UnityEngine;
 public abstract class Pickable : MonoBehaviour
 {
     public PickableData Data;
-    public void OnPickUp()
+    public virtual void PickUp()
     {
         if (!Data.pickUpSound.IsNull)
         {

@@ -61,6 +61,8 @@ public class InteractionInput : MonoBehaviour
                 {
                     return false;
                 }
+                
+                inv.removeItem(requiredItem);
             }
 
             if (interactionType == InteractionType.Trigger)

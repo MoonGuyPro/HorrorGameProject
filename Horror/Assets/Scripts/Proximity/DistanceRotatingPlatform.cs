@@ -159,4 +159,10 @@ public class DistanceRotatingPlatform : MonoBehaviour
             x = max;
         }
     }
+
+    public void OnEvent()
+    {
+        isActive = false;
+        Debug.Log("wtf");
+    }
 }

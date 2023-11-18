@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Cube : OldPickable
+public class Cube : Pickable
 {
     private CubeDrone cubeDrone;
 
@@ -13,13 +13,12 @@ public class Cube : OldPickable
         cubeDrone = GetComponent<CubeDrone>();
     }
 
-    public override void interact()
+    public override void PickUp()
     {
-        FMODUnity.RuntimeManager.PlayOneShot(pickUpSound, transform.position);
+        base.PickUp();
         if (cubeDrone is not null)
         {
             cubeDrone.StopDrone();
         }
-        gameObject.SetActive(false);
     }
 }
