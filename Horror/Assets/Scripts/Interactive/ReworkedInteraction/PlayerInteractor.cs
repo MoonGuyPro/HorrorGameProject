@@ -15,6 +15,7 @@ public class PlayerInteractor : MonoBehaviour
     
     // Krystian - added inventory support
     [SerializeField] NewInventory inv;
+    [SerializeField] TextMeshProUGUI inventoryTextMesh;
 
     private TextMeshProUGUI textMesh;
     
@@ -75,8 +76,8 @@ public class PlayerInteractor : MonoBehaviour
                     
                     if (Input.GetKeyDown(KeyCode.F))
                     {
-                        pickable.OnPickUp();
                         inv.addItem(pickable.Data);
+                        pickable.OnPickUp();
                     }
                 }
             }
@@ -122,6 +123,17 @@ public class PlayerInteractor : MonoBehaviour
             alreadyLooking = false;
             textMesh.text = "";
         }
+    }
+
+    void updateInventoryText()
+    {
+        string invContent = inv.printInGameNames();
+        if (invContent == "Empty")
+        {
+            inventoryTextMesh.text = "";
+            return;
+        }
+        inventoryTextMesh.text = "Inventory:\n" + invContent;
     }
 }
 
