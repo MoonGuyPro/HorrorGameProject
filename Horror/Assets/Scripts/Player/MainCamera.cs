@@ -2,7 +2,7 @@
 
 public class MainCamera : MonoBehaviour {
 
-    //public RenderReplacementShaderToTexture renderReplacement;
+    public RenderReplacementShaderToTexture renderReplacement;
     Portal[] portals;
 
     public void FindPortals() {
@@ -28,7 +28,7 @@ public class MainCamera : MonoBehaviour {
             portals[i].PostPortalRender ();
         }
 
-        //renderReplacement.RenderNormals();
+        renderReplacement.RenderNormals();
     }
 
 }
