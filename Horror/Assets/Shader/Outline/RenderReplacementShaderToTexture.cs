@@ -27,7 +27,7 @@ public class RenderReplacementShaderToTexture : MonoBehaviour
     RenderTexture renderTexture;
     private new Camera camera;
 
-    private void Start()
+    private void Awake()
     {
         Camera thisCamera = GetComponent<Camera>();
 
