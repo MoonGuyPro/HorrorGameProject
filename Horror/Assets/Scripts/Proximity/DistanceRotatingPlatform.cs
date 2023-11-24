@@ -20,7 +20,7 @@ public class DistanceRotatingPlatform : MonoBehaviour
     [Tooltip("Range at which the platform rotates back")]
     public float deTriggerRange;
 
-    public bool isActive = true;
+    private bool isActive = true;
     private Transform player;
     private Quaternion defaultRotation;
 
