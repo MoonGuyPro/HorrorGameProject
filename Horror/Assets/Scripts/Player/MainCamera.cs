@@ -10,6 +10,7 @@ public class MainCamera : MonoBehaviour {
     }
 
     void Awake () {
+        GetComponent<Camera>().renderingPath = RenderingPath.Forward;
         FindPortals();
     }
 
