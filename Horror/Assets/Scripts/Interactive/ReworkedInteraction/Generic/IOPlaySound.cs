@@ -7,7 +7,7 @@ public class IOPlaySound : MonoBehaviour
 {
     [SerializeField] EventReference eventReference;
 
-    public void OnEvent()
+    public void OnInteraction()
     {
         RuntimeManager.PlayOneShotAttached(eventReference, gameObject);
     }
