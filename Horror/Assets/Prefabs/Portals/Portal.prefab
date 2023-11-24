@@ -305,7 +305,6 @@ GameObject:
   - component: {fileID: 1835777681424304822}
   - component: {fileID: 2413259568779565955}
   - component: {fileID: 8619010892490253278}
-  - component: {fileID: 8004979814397988860}
   m_Layer: 8
   m_Name: Portla Camera
   m_TagString: Untagged
@@ -478,19 +477,6 @@ MonoBehaviour:
   cameraClearFlags: 2
   background: {r: 0, g: 0, b: 0, a: 1}
   targetTexture: _CameraNormalsTexture
---- !u!114 &8004979814397988860
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5452616133106376246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attenuationObject: {fileID: 0}
 --- !u!1 &6755299075761675307
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,7 +487,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6846598723789308435}
   - component: {fileID: 1414221383907092800}
-  - component: {fileID: 7708540417596547517}
   m_Layer: 9
   m_Name: No Shader Camera
   m_TagString: Untagged
@@ -575,11 +560,3 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &7708540417596547517
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6755299075761675307}
-  m_Enabled: 1
