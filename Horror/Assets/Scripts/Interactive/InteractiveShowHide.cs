@@ -12,7 +12,7 @@ public class InteractiveShowHide : Interactive
         {
                 foreach(GameObject go in objectsToShowHide)
                 {
-                        go.SetActive(!go.active);
+                        go.SetActive(!go.activeSelf);
                 }       
         }
 
