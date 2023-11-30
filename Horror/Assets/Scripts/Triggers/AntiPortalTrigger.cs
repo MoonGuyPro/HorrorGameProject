@@ -10,8 +10,13 @@ public class AntiPortalTrigger : MonoBehaviour
     [SerializeField]
     private List<GameObject> portals = new();
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
+        if (!other.gameObject.CompareTag("Player")) 
+        {
+            return;
+        }
+        
         print("entered!");
         foreach (GameObject portal in portals) 
         {
