@@ -28,15 +28,23 @@ public class InteractionInput : MonoBehaviour
     
     [Header("Events\nNOTE: Use 'Dynamic' methods from top of the list.")]
     [SerializeField] private InteractionEvent interactionEvent;
+    
+    // with 'toggle' sounds are being triggered first frame of game, causing them to be played unnecessarily
+    [Header("Events\nNOTE: Use 'Dynamic' methods from top of the list.")]
+    [SerializeField] private InteractionEvent interactionSoundEvent;
+    
     [Header("Off Event only used with InteractionType 'Toggle'")]
     [SerializeField] private InteractionEvent interactionOffEvent;
+    
+    [Header("Off Event only used with InteractionType 'Toggle'")]
+    [SerializeField] private InteractionEvent interactionOffSoundEvent;
 
     private void Start()
     {
         // set the initial state of toggle
         if (interactionType == InteractionType.Toggle)
         {
-            Interact(null); 
+            FirstToggleInteraction();
         }
     }
 
@@ -68,6 +76,7 @@ public class InteractionInput : MonoBehaviour
             if (interactionType == InteractionType.Trigger)
             {
                 interactionEvent?.Invoke(interactionID);
+                interactionSoundEvent?.Invoke(interactionID);
                 if (singleUse)
                 {
                     canInteract = false;
@@ -81,11 +90,13 @@ public class InteractionInput : MonoBehaviour
                     case ToggleState.Off:
                         toggleState = ToggleState.On;
                         interactionOffEvent?.Invoke(interactionID);
+                        interactionOffSoundEvent?.Invoke(interactionID);
                         break;
                         
                     case ToggleState.On:
                         toggleState = ToggleState.Off;
                         interactionEvent?.Invoke(interactionID);
+                        interactionSoundEvent?.Invoke(interactionID);
                         break;
                 }
                 if (singleUse)
@@ -97,5 +108,29 @@ public class InteractionInput : MonoBehaviour
             return true;
         }
         return false;
+    }
+    
+    public void FirstToggleInteraction()
+    {
+        if (canInteract)
+        {
+            
+            switch (toggleState)
+            {
+                case ToggleState.Off:
+                    toggleState = ToggleState.On;
+                    interactionOffEvent?.Invoke(interactionID);
+                    break;
+                    
+                case ToggleState.On:
+                    toggleState = ToggleState.Off;
+                    interactionEvent?.Invoke(interactionID);
+                    break;
+            }
+            if (singleUse)
+            {
+                canInteract = false;
+            }
+        }
     }
 }
