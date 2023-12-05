@@ -9,7 +9,6 @@ using System.Security.Cryptography;
 public class Scanner : MonoBehaviour
 {
     [SerializeField] private Transform playerCamera;
-
     [SerializeField] private TextMeshProUGUI subtitles;
     [SerializeField] private TextMeshProUGUI popupName;
     [SerializeField] private TextMeshProUGUI popupDescription;
@@ -17,6 +16,8 @@ public class Scanner : MonoBehaviour
     [SerializeField] private float radius = 0.45f;
     [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] private Transform lineStart;
+    [SerializeField] private Animator scannerAnimator;
+    private bool bDrawn = false;
     private Transform lineEnd;
     public List<ScannableData> alreadyScanned;
     bool bDisplaying = false;
@@ -44,7 +45,13 @@ public class Scanner : MonoBehaviour
         if (bDisplaying)
             lineRenderer.SetPosition(0, lineStart.position);
 
-        if (!Input.GetButtonDown("Scan")) return;
+        if (Input.GetButtonDown("DrawScanner"))
+        {
+            bDrawn =! bDrawn;
+            scannerAnimator.SetBool("draw", bDrawn);
+        }
+
+        if (!Input.GetButtonDown("Scan") || !bDrawn) return;
 
         RaycastHit hit;
         if (Physics.SphereCast(playerCamera.position, radius, playerCamera.forward, out hit, maxDistance))
