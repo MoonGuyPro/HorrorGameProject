@@ -93,6 +93,7 @@ public class Scanner : MonoBehaviour
     {
         bDisplaying = true;
         lineRenderer.enabled = true;
+        lineRenderer.SetPosition(0, lineStart.position);
         popupName.text = name;
         popupDescription.text = description;
         popupName.color = Color.white;
