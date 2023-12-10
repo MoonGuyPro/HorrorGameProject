@@ -13,7 +13,7 @@ public class PlayerInstance : MonoBehaviour
 		else instance = this;
         DontDestroyOnLoad(gameObject);*/
         instance = this;
-		playerCamera = GetComponent<PlayerInteraction>().PlayerCamera;	
+		playerCamera = GetComponent<PlayerInteractor>().PlayerCamera;	
     }
 
     public static Vector3 GetCameraPosition()
