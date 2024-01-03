@@ -19,7 +19,7 @@ public class ProximityDisplacementShader : MonoBehaviour
     private Material material;
     
     [SerializeField] private Color shader_color;
-    [SerializeField] private float displacement_strength;
+    [SerializeField] private float displacement_strength = 8f;
     [SerializeField] private Axis axis;
     
     // Start is called before the first frame update
