@@ -25,13 +25,14 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - _DISPLACEMENTAXIS_X
+  - _DISPLACEMENTAXIS_Y
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap: {}
+  stringTagMap:
+    RenderType: Opaque
   disabledShaderPasses: []
   m_LockedProperties: 
   m_SavedProperties:
@@ -39,11 +40,21 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
+    - _BUILTIN_AlphaClip: 0
+    - _BUILTIN_Blend: 0
+    - _BUILTIN_CullMode: 2
+    - _BUILTIN_DstBlend: 0
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
-    - _DISPLACEMENTAXIS: 0
+    - _BUILTIN_SrcBlend: 1
+    - _BUILTIN_Surface: 0
+    - _BUILTIN_ZTest: 4
+    - _BUILTIN_ZWrite: 1
+    - _BUILTIN_ZWriteControl: 0
+    - _DISPLACEMENTAXIS: 1
+    - _strength: 1
     m_Colors:
-    - _Color: {r: 0, g: 0, b: 0, a: 0}
+    - _Color: {r: 0.53479993, g: 1, b: 0, a: 0}
     - _displacementAxis: {r: 0, g: 0, b: 0, a: 0}
-    - _playerPosition: {r: 0.79, g: 0, b: 0, a: 0}
+    - _playerPosition: {r: -0.03, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
