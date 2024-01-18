@@ -129,6 +129,7 @@ public class Portal : MonoBehaviour
         int startIndex = 0;
         portalCam.projectionMatrix = playerCam.projectionMatrix;
         normalCam.projectionMatrix = playerCam.projectionMatrix;
+        normalCam.nearClipPlane = 0.01f;
         noShaderCam.projectionMatrix = playerCam.projectionMatrix;
         for (int i = 0; i < recursionLimit; i++)
         {
@@ -347,12 +348,14 @@ public class Portal : MonoBehaviour
             // Calculate matrix with player cam so that player camera settings (fov, etc) are used
             portalCam.projectionMatrix = playerCam.CalculateObliqueMatrix(clipPlaneCameraSpace);
             normalCam.projectionMatrix = portalCam.projectionMatrix;
+            normalCam.nearClipPlane = 0.01f;
             noShaderCam.projectionMatrix = portalCam.projectionMatrix;
         }
         else
         {
             portalCam.projectionMatrix = playerCam.projectionMatrix;
             normalCam.projectionMatrix = portalCam.projectionMatrix;
+            normalCam.nearClipPlane = 0.01f;
             noShaderCam.projectionMatrix = portalCam.projectionMatrix;
         }
     }
