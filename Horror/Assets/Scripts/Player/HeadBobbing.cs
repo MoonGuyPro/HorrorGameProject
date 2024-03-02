@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class HeadBobbing : MonoBehaviour
 {
@@ -29,6 +31,9 @@ public class HeadBobbing : MonoBehaviour
 
     Vector3 lastCameraEulerAngles;
     Quaternion lastScannerRotation;
+
+    Action readLook;
+    Vector2 lookInput;
     
     // Start is called before the first frame update
     void Start()
@@ -37,6 +42,23 @@ public class HeadBobbing : MonoBehaviour
         defaultScannerY = scannerSlotTransform.localPosition.y;
         lastCameraEulerAngles = cameraTransform.eulerAngles;
         lastScannerRotation = scannerSlotTransform.rotation;
+    }
+
+    void OnEnable () 
+    {
+		InputActionAsset inputActionAsset = Resources.Load<InputActionAsset>("NyctoInputActions");
+		InputActionMap inputActionMap = inputActionAsset.FindActionMap("Player");
+        readLook = () =>
+        {
+            lookInput = inputActionMap["Look"].ReadValue<Vector2>();
+        };
+    }
+    
+    void OnDisable ()
+    {
+		InputActionAsset inputActionAsset = Resources.Load<InputActionAsset>("NyctoInputActions");
+		InputActionMap inputActionMap = inputActionAsset.FindActionMap("Player");
+        readLook = null;
     }
 
     // Update is called once per frame
@@ -59,8 +81,8 @@ public class HeadBobbing : MonoBehaviour
     void HandleHeadbob()
     {
         float waveslice = 0.0f;
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        float horizontal = lookInput.x;
+        float vertical = lookInput.y;
 
         if (Mathf.Abs(horizontal) == 0 && Mathf.Abs(vertical) == 0)
         {

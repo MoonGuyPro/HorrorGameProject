@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.InputSystem;
+using System;
 
 public class OptionsMenu : MonoBehaviour
 {
@@ -71,6 +73,25 @@ public class OptionsMenu : MonoBehaviour
         brightness.TryGetSettings(out exposure);
     }
 
+    void OnEnable ()
+    {
+		InputActionAsset inputActionAsset = Resources.Load<InputActionAsset>("NyctoInputActions");
+		InputActionMap inputActionMap = inputActionAsset.FindActionMap("UI");
+        inputActionMap.FindAction("Back").performed += OnBack;
+    }
+
+    void OnDisable ()
+    {
+		InputActionAsset inputActionAsset = Resources.Load<InputActionAsset>("NyctoInputActions");
+		InputActionMap inputActionMap = inputActionAsset.FindActionMap("UI");
+        inputActionMap.FindAction("Back").performed -= OnBack;
+    }
+
+    void OnBack(InputAction.CallbackContext context)
+    {
+        OnBackPressed();
+    }
+
     private void Update()
     {
         masterBus.setVolume(masterVolume);
@@ -78,8 +99,8 @@ public class OptionsMenu : MonoBehaviour
         sfxBus.setVolume(sfxVolume);
         ambienceBus.setVolume(ambienceVolume);
         uisfxBus.setVolume(uisfxVolume);
-        if (!Input.GetKeyDown(KeyCode.Escape)) return;
-        OnBackPressed();
+        // if (!Input.GetKeyDown(KeyCode.Escape)) return;
+        // OnBackPressed();
     }
 
     #region AudioSettings

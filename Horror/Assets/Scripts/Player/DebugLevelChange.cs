@@ -1,27 +1,50 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 namespace Utils
 {
     public class DebugLevelChange : MonoBehaviour
     {
-        private void Update()
+
+        void OnEnable ()
         {
-            if (Input.GetKeyDown(KeyCode.I))
-                DebugChange("TreeLevel");
-            if (Input.GetKeyDown(KeyCode.O))
-                DebugChange("TreeLevel2");
-            if (Input.GetKeyDown(KeyCode.P))
-                DebugChange("Caves");
-            if (Input.GetKeyDown(KeyCode.LeftBracket))
-                DebugChange("Labyrinth");
-            if (Input.GetKeyDown(KeyCode.RightBracket))
-                DebugChange("Lights");
-            if (Input.GetKeyDown(KeyCode.L))
-                DebugChange("Walls");
-            if (Input.GetKeyDown(KeyCode.Semicolon))
-                DebugChange("EasyMechanics");
+            Keyboard.current.onTextInput += OnTextInput;
+        }
+
+        void OnDisable ()
+        {
+            Keyboard.current.onTextInput -= OnTextInput;
+        }
+
+        void OnTextInput(char ch)
+        {
+            switch (ch)
+            {
+                case 'i':
+                    DebugChange("TreeLevel");
+                    break;
+                case 'o':
+                    DebugChange("TreeLevel2");
+                    break;
+                case '\\':
+                    DebugChange("Caves");
+                    break;
+                case '[':
+                    DebugChange("Labyrinth");
+                    break;
+                case ']':
+                    DebugChange("Lights");
+                    break;
+                case 'l':
+                    DebugChange("Walls");
+                    break;
+                case ';':
+                    DebugChange("EasyMechanics");
+                    break;
+                
+            }
         }
 
         private void DebugChange(string level)

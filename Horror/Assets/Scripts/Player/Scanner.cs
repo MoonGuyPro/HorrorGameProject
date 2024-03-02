@@ -5,6 +5,8 @@ using UnityEngine;
 using DG.Tweening;
 using System.Data.Common;
 using System.Security.Cryptography;
+using UnityEngine.InputSystem;
+using System;
 
 public class Scanner : MonoBehaviour
 {
@@ -17,7 +19,7 @@ public class Scanner : MonoBehaviour
     [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] private Transform lineStart;
     [SerializeField] private Animator scannerAnimator;
-    private bool bDrawn = false;
+    private bool isScannerEquipped = false;
     private Transform lineEnd;
     public List<ScannableData> alreadyScanned;
     bool bDisplaying = false;
@@ -40,18 +42,32 @@ public class Scanner : MonoBehaviour
         }
     }
 
-    void Update()
+    void OnEnable ()
     {
-        if (bDisplaying)
-            lineRenderer.SetPosition(0, lineStart.position);
+		InputActionAsset inputActionAsset = Resources.Load<InputActionAsset>("NyctoInputActions");
+		InputActionMap inputActionMap = inputActionAsset.FindActionMap("Player");
+        inputActionMap.FindAction("Scan").performed += Scan;
+        inputActionMap.FindAction("Equip").performed += EquipScanner;
+    }
 
-        if (Input.GetButtonDown("DrawScanner"))
-        {
-            bDrawn =! bDrawn;
-            scannerAnimator.SetBool("draw", bDrawn);
-        }
+    void OnDisable ()
+    {
+        InputActionAsset inputActionAsset = Resources.Load<InputActionAsset>("NyctoInputActions");
+		InputActionMap inputActionMap = inputActionAsset.FindActionMap("Player");
+        inputActionMap.FindAction("Scan").performed -= Scan;
+        inputActionMap.FindAction("Equip").performed -= EquipScanner;
+    }
 
-        if (!Input.GetButtonDown("Scan") || !bDrawn) return;
+    void EquipScanner(InputAction.CallbackContext context)
+    {
+        isScannerEquipped =! isScannerEquipped;
+        scannerAnimator.SetBool("draw", isScannerEquipped);
+    }
+
+    void Scan(InputAction.CallbackContext context)
+    {
+        if (!isScannerEquipped)
+            return;
 
         RaycastHit hit;
         if (Physics.SphereCast(playerCamera.position, radius, playerCamera.forward, out hit, maxDistance))
@@ -87,6 +103,55 @@ public class Scanner : MonoBehaviour
                 }
             }
         } 
+    }
+
+    void Update()
+    {
+        if (bDisplaying)
+            lineRenderer.SetPosition(0, lineStart.position);
+
+        // if (Input.GetButtonDown("DrawScanner"))
+        // {
+        //     bDrawn =! bDrawn;
+        //     scannerAnimator.SetBool("draw", bDrawn);
+        // }
+
+        // if (!Input.GetButtonDown("Scan") || !bDrawn) return;
+
+        // RaycastHit hit;
+        // if (Physics.SphereCast(playerCamera.position, radius, playerCamera.forward, out hit, maxDistance))
+        // {
+        //     if (hit.transform.CompareTag("Scannable"))
+        //     {
+        //         Scannable scanable = hit.transform.GetComponentInParent<Scannable>();
+
+        //         if (scanable is not null)
+        //         {
+        //             if (scanable.Data is not null)
+        //             {
+        //                 if (bDisplaying)
+        //                 {
+        //                     //displayTween.Kill();
+        //                     //DOTween.Kill(subtitles);
+        //                     Debug.Log(subtitles.DOKill());
+        //                     popupName.DOKill();
+        //                     popupDescription.DOKill();
+        //                     StopCoroutine(displayCoroutine);
+        //                 }
+        //                 displayCoroutine = StartCoroutine(DisplayPopup(scanable.Data.DisplayName, scanable.Data.Description, 3.0f, 1.0f, scanable.transform.position));
+        //                 Debug.Log(scanable.Data.Description);
+        //             }
+        //             else
+        //             {
+        //                 Debug.LogWarning("Scanable has no data!");
+        //             }
+        //         }
+        //         else
+        //         {
+        //             Debug.LogWarning("Scanable component is missing!");
+        //         }
+        //     }
+        // } 
     }
 
     IEnumerator DisplayPopup(string name, string description, float displayTime, float fadeTime, Vector3 endPosition)
