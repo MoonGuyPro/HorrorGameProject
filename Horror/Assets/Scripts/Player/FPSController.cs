@@ -44,12 +44,12 @@ public class FPSController : PortalTraveller {
     Vector3 currentRotation;
 
     Action readLookAndMove;
+    InputAction sprintAction;
     Vector2 lookInput;
     Vector2 moveInput;
 
     private bool invertX = false;
     private bool invertY = false;
-    bool isSprinting;
     bool isJumping;
     float lastGroundedTime;
     bool disabled;
@@ -99,8 +99,7 @@ public class FPSController : PortalTraveller {
             lookInput = inputActionMap["Look"].ReadValue<Vector2>();
         };
 		inputActionMap.FindAction("LockCursor").performed += LockCursor;
-        inputActionMap.FindAction("Sprint").performed += OnSprintPerformed;
-        inputActionMap.FindAction("Sprint").canceled += OnSprintReleased;
+        sprintAction = inputActionMap.FindAction("Sprint");
         inputActionMap.FindAction("Jump").performed += Jump;
     }
 
@@ -110,8 +109,6 @@ public class FPSController : PortalTraveller {
 		InputActionMap inputActionMap = inputActionAsset.FindActionMap("Player");
         readLookAndMove = null;
 		inputActionMap.FindAction("LockCursor").performed -= LockCursor;
-        inputActionMap.FindAction("Sprint").performed -= OnSprintPerformed;
-        inputActionMap.FindAction("Sprint").canceled -= OnSprintReleased;
         inputActionMap.FindAction("Jump").performed -= Jump;
     }
 
@@ -125,7 +122,7 @@ public class FPSController : PortalTraveller {
 
         if (!isJumping) // Allow horizontal movement during walking
         {
-            currentSpeed = isSprinting ? runSpeed : walkSpeed;
+            currentSpeed = sprintAction.IsPressed() ? runSpeed : walkSpeed;
         }
 
         Vector3 inputDir = new Vector3(moveInput.x, 0, moveInput.y).normalized;
@@ -213,16 +210,6 @@ public class FPSController : PortalTraveller {
     {
         lockCursor =! lockCursor;
         LockCursor(!lockCursor);
-    }
-
-    void OnSprintPerformed (InputAction.CallbackContext context)
-    {
-        isSprinting = true;
-    }
-
-    private void OnSprintReleased(InputAction.CallbackContext context)
-    {
-        isSprinting = false;
     }
 
     void Jump (InputAction.CallbackContext context)
