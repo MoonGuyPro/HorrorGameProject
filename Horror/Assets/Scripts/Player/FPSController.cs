@@ -99,17 +99,19 @@ public class FPSController : PortalTraveller {
             lookInput = inputActionMap["Look"].ReadValue<Vector2>();
         };
 		inputActionMap.FindAction("LockCursor").performed += LockCursor;
-        inputActionMap.FindAction("Sprint").performed += Sprint;
+        inputActionMap.FindAction("Sprint").performed += OnSprintPerformed;
+        inputActionMap.FindAction("Sprint").canceled += OnSprintReleased;
         inputActionMap.FindAction("Jump").performed += Jump;
     }
-    
+
     void OnDisable ()
     {
 		InputActionAsset inputActionAsset = Resources.Load<InputActionAsset>("NyctoInputActions");
 		InputActionMap inputActionMap = inputActionAsset.FindActionMap("Player");
         readLookAndMove = null;
 		inputActionMap.FindAction("LockCursor").performed -= LockCursor;
-        inputActionMap.FindAction("Sprint").performed -= Sprint;
+        inputActionMap.FindAction("Sprint").performed -= OnSprintPerformed;
+        inputActionMap.FindAction("Sprint").canceled -= OnSprintReleased;
         inputActionMap.FindAction("Jump").performed -= Jump;
     }
 
@@ -119,30 +121,14 @@ public class FPSController : PortalTraveller {
             return;
 
         UpdatePrefs(); //todo: move it somewhere else to not call it every frame
-        // if (Input.GetKeyDown(KeyCode.P))
-        // {
-        //     Cursor.lockState = CursorLockMode.None;
-        //     Cursor.visible = true;
-        //     Debug.Break();
-        // }
-        // if (Input.GetKeyDown(KeyCode.O))
-        // {
-        //     Cursor.lockState = CursorLockMode.None;
-        //     Cursor.visible = true;
-        //     disabled = !disabled;
-        // }
-
         readLookAndMove.Invoke();
 
-        // Vector2 input = new Vector2(0, Input.GetAxisRaw("Vertical")); // Set horizontal input to 0 during jumping
-        Vector2 input = moveInput;
         if (!isJumping) // Allow horizontal movement during walking
         {
-            //input.x = Input.GetAxisRaw("Horizontal");
             currentSpeed = isSprinting ? runSpeed : walkSpeed;
         }
 
-        Vector3 inputDir = new Vector3(input.x, 0, input.y).normalized;
+        Vector3 inputDir = new Vector3(moveInput.x, 0, moveInput.y).normalized;
         Vector3 worldInputDir = transform.TransformDirection(inputDir);
 
         Vector3 targetVelocity = worldInputDir * currentSpeed;
@@ -180,18 +166,8 @@ public class FPSController : PortalTraveller {
             }
         }
 
-        // if (Input.GetButtonDown("Jump"))
-        // {
-        //     float timeSinceLastTouchedGround = Time.time - lastGroundedTime;
-        //     if (controller.isGrounded || (!isJumping && timeSinceLastTouchedGround < 0.15f))
-        //     {
-        //         staringYaw = yaw;
-        //         isJumping = true;
-        //         verticalVelocity = jumpForce;
-        //     }
-        // }
-        float mX = lookInput.x; //Input.GetAxisRaw("Mouse X");
-        float mY = lookInput.y; //Input.GetAxisRaw("Mouse Y");
+        float mX = lookInput.x;
+        float mY = lookInput.y;
 
         // Verrrrrry gross hack to stop camera swinging down at start
         // Kris here - mMag can reach very high values at low framerate.
@@ -230,7 +206,7 @@ public class FPSController : PortalTraveller {
         lockCursor = value;
         Cursor.lockState = lockCursor ? CursorLockMode.Locked : CursorLockMode.None;
         Cursor.visible = !lockCursor;
-        Debug.Break();
+        // Debug.Break(); // Was it important? -KB
     }
 
     void LockCursor (InputAction.CallbackContext context)
@@ -239,13 +215,14 @@ public class FPSController : PortalTraveller {
         LockCursor(!lockCursor);
     }
 
-    void Sprint (InputAction.CallbackContext context)
+    void OnSprintPerformed (InputAction.CallbackContext context)
     {
-        if (context.started)
-            isSprinting = true;
+        isSprinting = true;
+    }
 
-        if (context.canceled)
-            isSprinting = false;
+    private void OnSprintReleased(InputAction.CallbackContext context)
+    {
+        isSprinting = false;
     }
 
     void Jump (InputAction.CallbackContext context)
