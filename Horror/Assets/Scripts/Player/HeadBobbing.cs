@@ -11,7 +11,7 @@ public class HeadBobbing : MonoBehaviour
     [SerializeField] bool useHeadBobbing = true;
     [Tooltip("How fast the head bobs when walking in Hz")]
     [SerializeField] float bobbingWalkSpeed = 2f;
-    [Tooltip("How fast the head bobs when walking in Hz")]
+    [Tooltip("How fast the head bobs when running in Hz")]
     [SerializeField] float bobbingRunSpeed = 3f;
     [SerializeField] float bobbingAmount = 0.2f;
     [SerializeField] bool swayScanner = true;
@@ -32,8 +32,8 @@ public class HeadBobbing : MonoBehaviour
     Vector3 lastCameraEulerAngles;
     Quaternion lastScannerRotation;
 
-    Action readLook;
-    Vector2 lookInput;
+    Action readMove;
+    Vector2 moveInput;
     
     // Start is called before the first frame update
     void Start()
@@ -48,9 +48,9 @@ public class HeadBobbing : MonoBehaviour
     {
 		InputActionAsset inputActionAsset = Resources.Load<InputActionAsset>("NyctoInputActions");
 		InputActionMap inputActionMap = inputActionAsset.FindActionMap("Player");
-        readLook = () =>
+        readMove = () =>
         {
-            lookInput = inputActionMap["Look"].ReadValue<Vector2>();
+            moveInput = inputActionMap["Move"].ReadValue<Vector2>();
         };
     }
     
@@ -58,7 +58,7 @@ public class HeadBobbing : MonoBehaviour
     {
 		InputActionAsset inputActionAsset = Resources.Load<InputActionAsset>("NyctoInputActions");
 		InputActionMap inputActionMap = inputActionAsset.FindActionMap("Player");
-        readLook = null;
+        readMove = null;
     }
 
     // Update is called once per frame
@@ -66,6 +66,7 @@ public class HeadBobbing : MonoBehaviour
     {
         if (useHeadBobbing)
         {
+            readMove.Invoke();
             HandleHeadbob();
         }
     }
@@ -81,8 +82,8 @@ public class HeadBobbing : MonoBehaviour
     void HandleHeadbob()
     {
         float waveslice = 0.0f;
-        float horizontal = lookInput.x;
-        float vertical = lookInput.y;
+        float horizontal = moveInput.x;
+        float vertical = moveInput.y;
 
         if (Mathf.Abs(horizontal) == 0 && Mathf.Abs(vertical) == 0)
         {
