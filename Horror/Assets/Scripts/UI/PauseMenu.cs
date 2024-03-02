@@ -64,7 +64,6 @@ public class PauseMenu : MonoBehaviour
 
     private void Pause() 
     {
-        Debug.Log("Paused!");
         PauseMenuUI.SetActive(true);
         overlay.SetActive(true);
         Time.timeScale = 0.0f;
@@ -75,7 +74,6 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
-        Debug.Log("Resumed!");
         PauseMenuUI.SetActive(false);
         overlay.SetActive(false);
         Time.timeScale = 1.0f;
