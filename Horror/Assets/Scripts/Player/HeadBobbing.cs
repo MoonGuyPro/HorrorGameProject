@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class HeadBobbing : MonoBehaviour
 {
@@ -9,7 +11,7 @@ public class HeadBobbing : MonoBehaviour
     [SerializeField] bool useHeadBobbing = true;
     [Tooltip("How fast the head bobs when walking in Hz")]
     [SerializeField] float bobbingWalkSpeed = 2f;
-    [Tooltip("How fast the head bobs when walking in Hz")]
+    [Tooltip("How fast the head bobs when running in Hz")]
     [SerializeField] float bobbingRunSpeed = 3f;
     [SerializeField] float bobbingAmount = 0.2f;
     [SerializeField] bool swayScanner = true;
@@ -29,6 +31,9 @@ public class HeadBobbing : MonoBehaviour
 
     Vector3 lastCameraEulerAngles;
     Quaternion lastScannerRotation;
+
+    Action readMove;
+    Vector2 moveInput;
     
     // Start is called before the first frame update
     void Start()
@@ -39,11 +44,29 @@ public class HeadBobbing : MonoBehaviour
         lastScannerRotation = scannerSlotTransform.rotation;
     }
 
+    void OnEnable () 
+    {
+		InputActionAsset inputActionAsset = Resources.Load<InputActionAsset>("NyctoInputActions");
+		InputActionMap inputActionMap = inputActionAsset.FindActionMap("Player");
+        readMove = () =>
+        {
+            moveInput = inputActionMap["Move"].ReadValue<Vector2>();
+        };
+    }
+    
+    void OnDisable ()
+    {
+		InputActionAsset inputActionAsset = Resources.Load<InputActionAsset>("NyctoInputActions");
+		InputActionMap inputActionMap = inputActionAsset.FindActionMap("Player");
+        readMove = null;
+    }
+
     // Update is called once per frame
     void Update()
     {
         if (useHeadBobbing)
         {
+            readMove.Invoke();
             HandleHeadbob();
         }
     }
@@ -59,8 +82,8 @@ public class HeadBobbing : MonoBehaviour
     void HandleHeadbob()
     {
         float waveslice = 0.0f;
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        float horizontal = moveInput.x;
+        float vertical = moveInput.y;
 
         if (Mathf.Abs(horizontal) == 0 && Mathf.Abs(vertical) == 0)
         {

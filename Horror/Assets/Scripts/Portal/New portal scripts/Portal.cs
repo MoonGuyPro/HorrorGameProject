@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.Serialization;
 
 public class Portal : MonoBehaviour
@@ -16,7 +17,10 @@ public class Portal : MonoBehaviour
     public float nearClipLimit = 0.2f;
 
     // Private variables
-    RenderTexture viewTexture;
+    RenderTexture viewTexture1;
+    RenderTexture viewTexture2;
+    RenderTexture depthTexture1;
+    RenderTexture depthTexture2;
     Camera playerCam;
     Camera portalCam;
     Camera noShaderCam;
@@ -29,6 +33,7 @@ public class Portal : MonoBehaviour
         playerCam = Camera.main;
         portalCam = GetComponentInChildren<Camera>();
         portalCam.enabled = false;
+        portalCam.depthTextureMode = DepthTextureMode.Depth;
         trackedTravellers = new List<PortalTraveller>();
         screenMeshFilter = screen.GetComponent<MeshFilter>();
         screen.material.SetInt("displayMask", 1);
@@ -47,16 +52,17 @@ public class Portal : MonoBehaviour
             {
                 noShaderCam = portalCam.gameObject.transform.GetChild(i).GetComponent<Camera>();
                 noShaderCam.enabled = false;
+                noShaderCam.depthTextureMode = DepthTextureMode.Depth;
             }
         }
         if (noShaderCam == null || normalCam == null || portalCam == null)
         {
-            Debug.LogError("Camera not set correctly in camera "+ gameObject.name);
+            Debug.LogError("Camera not set correctly in camera " + gameObject.name);
             gameObject.SetActive(false);
         }
         if (renderReplacement == null)
         {
-            Debug.LogError("Render replacment not set correctly in camera "+ gameObject.name);
+            Debug.LogError("Render replacment not set correctly in camera " + gameObject.name);
             gameObject.SetActive(false);
         }
     }
@@ -89,7 +95,6 @@ public class Portal : MonoBehaviour
                 linkedPortal.OnTravellerEnterPortal(traveller);
                 trackedTravellers.RemoveAt(i);
                 i--;
-
             }
             else
             {
@@ -150,7 +155,7 @@ public class Portal : MonoBehaviour
         }
 
         // Hide screen so that camera can see through portal
-        //screen.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
+        screen.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
         linkedPortal.screen.material.SetInt("displayMask", 0);
 
         for (int i = startIndex; i < recursionLimit; i++)
@@ -160,8 +165,15 @@ public class Portal : MonoBehaviour
             HandleClipping();
 
             renderReplacement.RenderNormals();
-            noShaderCam.Render();
+
+            RenderDepth();
             portalCam.Render();
+            noShaderCam.Render();
+
+            RenderColor();
+            portalCam.Render();
+            noShaderCam.Render();
+
 
             if (i == startIndex)
             {
@@ -170,7 +182,7 @@ public class Portal : MonoBehaviour
         }
 
         // Unhide objects hidden at start of render
-        //screen.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+        screen.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
     }
 
     void HandleClipping()
@@ -251,22 +263,61 @@ public class Portal : MonoBehaviour
         }
         ProtectScreenFromClipping(playerCam.transform.position);
     }
+
     void CreateViewTexture()
     {
-        if (viewTexture == null || viewTexture.width != Screen.width || viewTexture.height != Screen.height)
+        if (viewTexture1 == null || viewTexture1.width != Screen.width || viewTexture1.height != Screen.height ||
+            viewTexture2 == null || viewTexture2.width != Screen.width || viewTexture2.height != Screen.height ||
+            depthTexture1 == null || depthTexture1.width != Screen.width || depthTexture1.height != Screen.height ||
+            depthTexture2 == null || depthTexture2.width != Screen.width || depthTexture2.height != Screen.height)
         {
-            if (viewTexture != null)
+            if (viewTexture1 != null)
             {
-                viewTexture.Release();
+                viewTexture1.Release();
             }
-            viewTexture = new RenderTexture(Screen.width, Screen.height, 0);
-            // Render the view from the portal camera to the view texture
-            portalCam.targetTexture = viewTexture;
-            noShaderCam.targetTexture = viewTexture;
-            // Display the view texture on the screen of the linked portal
-            linkedPortal.screen.material.SetTexture("_MainTex", viewTexture);
+            if (viewTexture2 != null)
+            {
+                viewTexture2.Release();
+            }
+            if (depthTexture1 != null)
+            {
+                depthTexture1.Release();
+            }
+            if (depthTexture2 != null)
+            {
+                depthTexture2.Release();
+            }
+
+
+            viewTexture1 = new RenderTexture(Screen.width, Screen.height, 16);
+            viewTexture2 = new RenderTexture(Screen.width, Screen.height, 16);
+
+            depthTexture1 = new RenderTexture(Screen.width, Screen.height, 16, RenderTextureFormat.Depth);
+            depthTexture2 = new RenderTexture(Screen.width, Screen.height, 16, RenderTextureFormat.Depth);
         }
     }
+
+    private void RenderDepth()
+    {
+        portalCam.targetTexture = depthTexture1;
+        noShaderCam.targetTexture = depthTexture2;
+
+        portalCam.SetTargetBuffers(depthTexture1.colorBuffer, depthTexture1.depthBuffer);
+        noShaderCam.SetTargetBuffers(depthTexture2.colorBuffer, depthTexture2.depthBuffer);
+
+        linkedPortal.screen.material.SetTexture("_DepthTex1", depthTexture1);
+        linkedPortal.screen.material.SetTexture("_DepthTex2", depthTexture2);
+    }
+
+    private void RenderColor()
+    {
+        portalCam.targetTexture = viewTexture1;
+        noShaderCam.targetTexture = viewTexture2;
+
+        linkedPortal.screen.material.SetTexture("_MainTex1", viewTexture1);
+        linkedPortal.screen.material.SetTexture("_MainTex2", viewTexture2);
+    }
+
 
     // Sets the thickness of the portal screen so as not to clip with camera near plane when player goes through
     float ProtectScreenFromClipping(Vector3 viewPoint)
@@ -320,7 +371,6 @@ public class Portal : MonoBehaviour
             traveller.cloneMaterials[i].SetVector("sliceCentre", cloneSlicePos);
             traveller.cloneMaterials[i].SetVector("sliceNormal", cloneSliceNormal);
             traveller.cloneMaterials[i].SetFloat("sliceOffsetDst", cloneSliceOffsetDst);
-
         }
 
     }
@@ -415,4 +465,5 @@ public class Portal : MonoBehaviour
             linkedPortal.linkedPortal = this;
         }
     }
+
 }

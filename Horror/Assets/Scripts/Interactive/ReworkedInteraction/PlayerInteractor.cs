@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerInteractor : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class PlayerInteractor : MonoBehaviour
     private TextMeshProUGUI textMesh;
     
     private bool alreadyLooking;
+    private bool isInteracting;
+    private InputAction interactAction;
 
     void Start()
     {
@@ -33,6 +36,13 @@ public class PlayerInteractor : MonoBehaviour
         }
         
         alreadyLooking = false;
+    }
+
+    void OnEnable ()
+    {
+		InputActionAsset inputActionAsset = Resources.Load<InputActionAsset>("NyctoInputActions");
+		InputActionMap inputActionMap = inputActionAsset.FindActionMap("Player");
+        interactAction = inputActionMap.FindAction("Interact");
     }
 
     private void Update()
@@ -52,7 +62,7 @@ public class PlayerInteractor : MonoBehaviour
                         alreadyLooking = true;
                     }
                     
-                    if (Input.GetKeyDown(KeyCode.F))
+                    if (interactAction.IsPressed())
                     {
                         if(interaction.Interact(inv))
                         {
@@ -78,7 +88,7 @@ public class PlayerInteractor : MonoBehaviour
                         alreadyLooking = true;
                     }
                     
-                    if (Input.GetKeyDown(KeyCode.F))
+                    if (interactAction.IsPressed())
                     {
                         inv.addItem(pickable.Data);
                         pickable.PickUp();
@@ -86,42 +96,6 @@ public class PlayerInteractor : MonoBehaviour
                     }
                 }
             }
-
-            // if (hit.transform.CompareTag("Pickable"))
-            // {
-            //     Pickable pickable = hit.transform.GetComponentInParent<Pickable>();
-
-            //     if (pickable is not null)
-            //     {
-            //         if (alreadyLooking == false)
-            //         {
-            //             textMesh.text = pickable.Data.TipText;
-            //             alreadyLooking = true;
-            //         }
-                    
-            //         if (Input.GetKeyDown(KeyCode.F))
-            //         {
-            //             inv.addItem(pickable.Data);
-            //             updateInventoryText();
-            //         }
-            //     }
-
-            //     setTipText(pickable.tip);
-            //     toggleTipText(true);
-    
-            //     if (Input.GetButtonDown("Interact"))
-            //     {
-            //         // Call interaction
-            //         pickable = hit.transform.GetComponentInParent<Pickable>(); //isn't it redundant?
-            //         if(hit.collider.name == "Supercube")
-            //             uIPortal.getCube();
-            //         else
-            //             inv.addItem(pickable);
-            //         updateInventoryText();
-            //         pickable.interact();
-            //     }
-            //     alreadyLooking = true;
-            // }
         }
         else
         {

@@ -1,9 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.iOS;
 
 public class FPSController : PortalTraveller {
 
@@ -39,9 +43,14 @@ public class FPSController : PortalTraveller {
     Vector3 rotationSmoothVelocity;
     Vector3 currentRotation;
 
+    Action readLookAndMove;
+    InputAction sprintAction;
+    Vector2 lookInput;
+    Vector2 moveInput;
+
     private bool invertX = false;
     private bool invertY = false;
-    bool jumping;
+    bool isJumping;
     float lastGroundedTime;
     bool disabled;
 
@@ -64,11 +73,7 @@ public class FPSController : PortalTraveller {
     void Start ()
     {
         cam = Camera.main;
-        if (lockCursor) 
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
+        LockCursor(lockCursor);
 
         controller = GetComponent<CharacterController> ();
 
@@ -83,41 +88,50 @@ public class FPSController : PortalTraveller {
         currentSpeed = walkSpeed;
     }
 
+    void OnEnable () 
+    {
+		InputActionAsset inputActionAsset = Resources.Load<InputActionAsset>("NyctoInputActions");
+		InputActionMap inputActionMap = inputActionAsset.FindActionMap("Player");
+        inputActionAsset.Enable();
+        readLookAndMove = () =>
+        {
+            moveInput = inputActionMap["Move"].ReadValue<Vector2>();
+            lookInput = inputActionMap["Look"].ReadValue<Vector2>();
+        };
+		inputActionMap.FindAction("LockCursor").performed += LockCursor;
+        sprintAction = inputActionMap.FindAction("Sprint");
+        inputActionMap.FindAction("Jump").performed += Jump;
+    }
+
+    void OnDisable ()
+    {
+		InputActionAsset inputActionAsset = Resources.Load<InputActionAsset>("NyctoInputActions");
+		InputActionMap inputActionMap = inputActionAsset.FindActionMap("Player");
+        readLookAndMove = null;
+		inputActionMap.FindAction("LockCursor").performed -= LockCursor;
+        inputActionMap.FindAction("Jump").performed -= Jump;
+    }
+
     void Update()
     {
-        UpdatePrefs(); //todo: move it somewhere else to not call it every frame
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-            Debug.Break();
-        }
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-            disabled = !disabled;
-        }
-
         if (disabled)
-        {
             return;
-        }
 
-        Vector2 input = new Vector2(0, Input.GetAxisRaw("Vertical")); // Set horizontal input to 0 during jumping
-        if (!jumping) // Allow horizontal movement during walking
+        UpdatePrefs(); //todo: move it somewhere else to not call it every frame
+        readLookAndMove.Invoke();
+
+        if (!isJumping) // Allow horizontal movement during walking
         {
-            input.x = Input.GetAxisRaw("Horizontal");
-            currentSpeed = Input.GetAxis("Sprint") > 0 ? runSpeed : walkSpeed;
+            currentSpeed = sprintAction.IsPressed() ? runSpeed : walkSpeed;
         }
 
-        Vector3 inputDir = new Vector3(input.x, 0, input.y).normalized;
+        Vector3 inputDir = new Vector3(moveInput.x, 0, moveInput.y).normalized;
         Vector3 worldInputDir = transform.TransformDirection(inputDir);
 
         Vector3 targetVelocity = worldInputDir * currentSpeed;
         velocity = Vector3.SmoothDamp(velocity, targetVelocity, ref smoothV, smoothMoveTime);
 
-        if (velocity.magnitude > 1f && !jumping && !bStuck)
+        if (velocity.magnitude > 1f && !isJumping && !bStuck)
         {
             if (currentSpeed > runSpeed - 0.1)
             {
@@ -129,7 +143,7 @@ public class FPSController : PortalTraveller {
             }
             OnStartWalking.Invoke();
         }
-        else if (velocity.magnitude < 1f || jumping || bStuck)
+        else if (velocity.magnitude < 1f || isJumping || bStuck)
         {
             OnStopWalking.Invoke();
         }
@@ -143,24 +157,14 @@ public class FPSController : PortalTraveller {
 
             if ((controller.collisionFlags & CollisionFlags.Below) != 0)
             {
-                jumping = false;
+                isJumping = false;
                 lastGroundedTime = Time.time;
                 verticalVelocity = 0;
             }
         }
 
-        if (Input.GetButtonDown("Jump"))
-        {
-            float timeSinceLastTouchedGround = Time.time - lastGroundedTime;
-            if (controller.isGrounded || (!jumping && timeSinceLastTouchedGround < 0.15f))
-            {
-                staringYaw = yaw;
-                jumping = true;
-                verticalVelocity = jumpForce;
-            }
-        }
-        float mX = Input.GetAxisRaw("Mouse X");
-        float mY = Input.GetAxisRaw("Mouse Y");
+        float mX = lookInput.x;
+        float mY = lookInput.y;
 
         // Verrrrrry gross hack to stop camera swinging down at start
         // Kris here - mMag can reach very high values at low framerate.
@@ -183,7 +187,6 @@ public class FPSController : PortalTraveller {
         cam.transform.localEulerAngles = Vector3.right * pitch;
     }
 
-
     public override void Teleport (Transform fromPortal, Transform toPortal, Vector3 pos, Quaternion rot) {
         transform.position = pos;
         Vector3 eulerRot = rot.eulerAngles;
@@ -193,6 +196,31 @@ public class FPSController : PortalTraveller {
         transform.eulerAngles = Vector3.up * smoothYaw;
         velocity = toPortal.TransformVector (fromPortal.InverseTransformVector (velocity));
         Physics.SyncTransforms ();
+    }
+
+    void LockCursor (bool value)
+    {
+        lockCursor = value;
+        Cursor.lockState = lockCursor ? CursorLockMode.Locked : CursorLockMode.None;
+        Cursor.visible = !lockCursor;
+        // Debug.Break(); // Was it important? -KB
+    }
+
+    void LockCursor (InputAction.CallbackContext context)
+    {
+        lockCursor =! lockCursor;
+        LockCursor(!lockCursor);
+    }
+
+    void Jump (InputAction.CallbackContext context)
+    {
+        float timeSinceLastTouchedGround = Time.time - lastGroundedTime;
+        if (controller.isGrounded || (!isJumping && timeSinceLastTouchedGround < 0.15f))
+        {
+            staringYaw = yaw;
+            isJumping = true;
+            verticalVelocity = jumpForce;
+        }
     }
 
     private void UpdatePrefs()

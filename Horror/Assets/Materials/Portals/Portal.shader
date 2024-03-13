@@ -27,8 +27,12 @@
                 float4 vertex : SV_POSITION;
                 float4 screenPos : TEXCOORD0;
             };
+            
+            sampler2D _MainTex1;
+            sampler2D _MainTex2;
+            sampler2D _DepthTex1;
+            sampler2D _DepthTex2;
 
-            sampler2D _MainTex;
             float4 _InactiveColour;
             int displayMask; // set to 1 to display texture, otherwise will draw test colour
             
@@ -44,8 +48,17 @@
             fixed4 frag (v2f i) : SV_Target
             {
                 float2 uv = i.screenPos.xy / i.screenPos.w;
-                fixed4 portalCol = tex2D(_MainTex, uv);
-                return portalCol * displayMask + _InactiveColour * (1-displayMask);
+                fixed4 portalCol1 = tex2D(_MainTex1, uv);
+                fixed4 portalCol2 = tex2D(_MainTex2, uv);
+ 
+                // Sample depth values from the depth textures
+                float depth1 = tex2D(_DepthTex1, uv).r;
+                float depth2 = tex2D(_DepthTex2, uv).r;
+
+                if(depth1 < depth2)
+                    return portalCol2 * displayMask + _InactiveColour * (1-displayMask);
+                else
+                    return portalCol1 * displayMask + _InactiveColour * (1-displayMask);
             }
             ENDCG
         }

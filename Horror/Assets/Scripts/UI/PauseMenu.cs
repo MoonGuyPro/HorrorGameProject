@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using FMODUnity;
+using UnityEngine.InputSystem;
+using System;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -17,25 +19,51 @@ public class PauseMenu : MonoBehaviour
     
     [SerializeField]
     private EventReference press;
+    
+    void OnEnable ()
+    {
+		InputActionAsset inputActionAsset = Resources.Load<InputActionAsset>("NyctoInputActions");
+		InputActionMap inputActionMap = inputActionAsset.FindActionMap("Player");
+        inputActionMap.FindAction("Pause").performed += Pause;
+    }
+
+    void OnDisable ()
+    {
+		InputActionAsset inputActionAsset = Resources.Load<InputActionAsset>("NyctoInputActions");
+		InputActionMap inputActionMap = inputActionAsset.FindActionMap("Player");
+        inputActionMap.FindAction("Pause").performed -= Pause;
+    }
 
     private void Update()
     {
-        if (!Input.GetButtonDown("Pause")) return;
-        if (options.activeSelf) return; // do not unpause when in options
+        // if (!Input.GetButtonDown("Pause")) return;
+        // if (options.activeSelf) return; // do not unpause when in options
             
+        // if (IsPaused)
+        // {
+        //     Resume();
+        // }
+        // else
+        // {
+        //     Pause();
+        // }
+    }
+
+    void Pause(InputAction.CallbackContext context)
+    {
+        // Do not unpause when in options
+        if (options.activeSelf)
+            return;
+
+        IsPaused =! IsPaused;
         if (IsPaused)
-        {
-            Resume();
-        }
-        else
-        {
             Pause();
-        }
+        else
+            Resume();
     }
 
     private void Pause() 
     {
-        Debug.Log("Paused!");
         PauseMenuUI.SetActive(true);
         overlay.SetActive(true);
         Time.timeScale = 0.0f;
@@ -46,7 +74,6 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
-        Debug.Log("Resumed!");
         PauseMenuUI.SetActive(false);
         overlay.SetActive(false);
         Time.timeScale = 1.0f;
