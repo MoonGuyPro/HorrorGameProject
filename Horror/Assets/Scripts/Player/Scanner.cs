@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using DG.Tweening;
-using System.Data.Common;
-using System.Security.Cryptography;
 using UnityEngine.InputSystem;
 using System;
+using System.ComponentModel;
 
 public class Scanner : MonoBehaviour
 {
@@ -82,15 +81,10 @@ public class Scanner : MonoBehaviour
                     {
                         if (bDisplaying)
                         {
-                            //displayTween.Kill();
-                            //DOTween.Kill(subtitles);
-                            Debug.Log(subtitles.DOKill());
-                            popupName.DOKill();
-                            popupDescription.DOKill();
+                            DOTween.KillAll();
                             StopCoroutine(displayCoroutine);
                         }
                         displayCoroutine = StartCoroutine(DisplayPopup(scanable.Data.DisplayName, scanable.Data.Description, 3.0f, 1.0f, scanable.transform.position));
-                        Debug.Log(scanable.Data.Description);
                     }
                     else
                     {
@@ -109,49 +103,6 @@ public class Scanner : MonoBehaviour
     {
         if (bDisplaying)
             lineRenderer.SetPosition(0, lineStart.position);
-
-        // if (Input.GetButtonDown("DrawScanner"))
-        // {
-        //     bDrawn =! bDrawn;
-        //     scannerAnimator.SetBool("draw", bDrawn);
-        // }
-
-        // if (!Input.GetButtonDown("Scan") || !bDrawn) return;
-
-        // RaycastHit hit;
-        // if (Physics.SphereCast(playerCamera.position, radius, playerCamera.forward, out hit, maxDistance))
-        // {
-        //     if (hit.transform.CompareTag("Scannable"))
-        //     {
-        //         Scannable scanable = hit.transform.GetComponentInParent<Scannable>();
-
-        //         if (scanable is not null)
-        //         {
-        //             if (scanable.Data is not null)
-        //             {
-        //                 if (bDisplaying)
-        //                 {
-        //                     //displayTween.Kill();
-        //                     //DOTween.Kill(subtitles);
-        //                     Debug.Log(subtitles.DOKill());
-        //                     popupName.DOKill();
-        //                     popupDescription.DOKill();
-        //                     StopCoroutine(displayCoroutine);
-        //                 }
-        //                 displayCoroutine = StartCoroutine(DisplayPopup(scanable.Data.DisplayName, scanable.Data.Description, 3.0f, 1.0f, scanable.transform.position));
-        //                 Debug.Log(scanable.Data.Description);
-        //             }
-        //             else
-        //             {
-        //                 Debug.LogWarning("Scanable has no data!");
-        //             }
-        //         }
-        //         else
-        //         {
-        //             Debug.LogWarning("Scanable component is missing!");
-        //         }
-        //     }
-        // } 
     }
 
     IEnumerator DisplayPopup(string name, string description, float displayTime, float fadeTime, Vector3 endPosition)
@@ -159,22 +110,27 @@ public class Scanner : MonoBehaviour
         bDisplaying = true;
         lineRenderer.enabled = true;
         lineRenderer.SetPosition(0, lineStart.position);
-        popupName.text = name;
-        popupDescription.text = description;
-        popupName.color = Color.white;
-        popupDescription.color = Color.white;
         lineRenderer.material.color = Color.clear;
         lineRenderer.SetPosition(1, endPosition);
+
+        popupName.text = "";
+        popupDescription.text = "";
+
+        DOTween.To(() => 0, x => popupName.text = name.Substring(0, x), name.Length, fadeTime);
+        popupName.color = Color.white;
+        yield return new WaitForSeconds(fadeTime);
+
+        lineRenderer.enabled = false;
+        DOTween.To(() => 0, x => popupDescription.text = description.Substring(0, x), description.Length, fadeTime);
+        popupDescription.color = Color.white;
+        yield return new WaitForSeconds(fadeTime);
+
         yield return new WaitForSeconds(displayTime);
-        //displayTween = subtitles.DOColor(Color.clear, fadeTime);
-        //displayTween = DOTween.To(popupName.color, x => {popupName.color = x; popupDescription.color = x;}, Color.clear, fadeTime);
+
         popupName.DOColor(Color.clear, fadeTime);
         popupDescription.DOColor(Color.clear, fadeTime);
-        //lineRenderer.DOColor(Color.white, Color.clear, fadeTime);
-        //DOTween.To<Color>(lineRenderer.startColor, x => {lineRenderer.startColor = x; lineRenderer.endColor = x;}, Color.clear, fadeTime);
-        lineRenderer.enabled = false; 
         yield return new WaitForSeconds(fadeTime);
-        //lineRenderer.material.color = Color.clear;
+
         bDisplaying = false; 
     }
 
