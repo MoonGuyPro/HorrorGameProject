@@ -20,6 +20,8 @@ public class Scanner : MonoBehaviour
     [SerializeField] private Transform lineStart;
     [SerializeField] private Animator scannerAnimator; 
     [SerializeField] private EventReference scanLetterSound;
+    [SerializeField] private EventReference scannerDrawSound;
+    [SerializeField] private EventReference scannerHideSound;
     private bool isScannerEquipped = false;
     private Transform lineEnd;
     public List<ScannableData> alreadyScanned;
@@ -64,6 +66,7 @@ public class Scanner : MonoBehaviour
     {
         isScannerEquipped =! isScannerEquipped;
         scannerAnimator.SetBool("draw", isScannerEquipped);
+        StartCoroutine(ScannerSoundWithDelay(isScannerEquipped));
     }
 
     void Scan(InputAction.CallbackContext context)
@@ -172,7 +175,7 @@ public class Scanner : MonoBehaviour
         var speed = 0.0f;
         
         var timeBetweenLetters = fadeTime / name.Length;
-        Debug.Log("name time: " + timeBetweenLetters);
+
         if (timeBetweenLetters < soundLen)
         {
             // adjusting the timing to fit the sound
@@ -230,5 +233,19 @@ public class Scanner : MonoBehaviour
         yield return new WaitForSeconds(displayTime);
         displayTween = subtitles.DOColor(Color.clear, fadeTime);
         bDisplaying = false;
+    }
+    
+    IEnumerator ScannerSoundWithDelay(bool equipped)
+    {
+        if (equipped)
+        {
+            yield return new WaitForSeconds(0.1f);
+            RuntimeManager.PlayOneShot(scannerDrawSound);
+        }
+        else
+        {
+            yield return new WaitForSeconds(0.35f);
+            RuntimeManager.PlayOneShot(scannerHideSound);
+        }
     }
 }
