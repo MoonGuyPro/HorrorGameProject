@@ -6,6 +6,7 @@ using DG.Tweening;
 using UnityEngine.InputSystem;
 using System;
 using System.ComponentModel;
+using FMODUnity;
 
 public class Scanner : MonoBehaviour
 {
@@ -17,12 +18,14 @@ public class Scanner : MonoBehaviour
     [SerializeField] private float radius = 0.45f;
     [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] private Transform lineStart;
-    [SerializeField] private Animator scannerAnimator;
+    [SerializeField] private Animator scannerAnimator; 
+    [SerializeField] private EventReference scanLetterSound;
     private bool isScannerEquipped = false;
     private Transform lineEnd;
     public List<ScannableData> alreadyScanned;
     bool bDisplaying = false;
     Coroutine displayCoroutine;
+    Coroutine displayLettersSoundsCoroutine;
     Tweener displayTween;
 
     void Start() 
@@ -84,7 +87,7 @@ public class Scanner : MonoBehaviour
                             DOTween.KillAll();
                             StopCoroutine(displayCoroutine);
                         }
-                        displayCoroutine = StartCoroutine(DisplayPopup(scanable.Data.DisplayName, scanable.Data.Description, 3.0f, 1.0f, scanable.transform.position));
+                        displayCoroutine = StartCoroutine(DisplayPopupNoTweening(scanable.Data.DisplayName, scanable.Data.Description, 3.0f, 1.0f, scanable.transform.position));
                     }
                     else
                     {
@@ -115,13 +118,27 @@ public class Scanner : MonoBehaviour
 
         popupName.text = "";
         popupDescription.text = "";
-
-        DOTween.To(() => 0, x => popupName.text = name.Substring(0, x), name.Length, fadeTime);
+        
+        var timeBetweenLetters = fadeTime / name.Length;
+        if (displayLettersSoundsCoroutine != null)
+            StopCoroutine(displayLettersSoundsCoroutine);
+        displayLettersSoundsCoroutine = StartCoroutine(LettersSounds(name.Length, timeBetweenLetters));
+        
+        DOTween.To(() => 0, x => popupName.text = name.Substring(0, x), name.Length, fadeTime).SetEase(Ease.Linear);
+        
         popupName.color = Color.white;
         yield return new WaitForSeconds(fadeTime);
 
         lineRenderer.enabled = false;
-        DOTween.To(() => 0, x => popupDescription.text = description.Substring(0, x), description.Length, fadeTime);
+        
+        timeBetweenLetters = fadeTime / description.Length;
+        if (displayLettersSoundsCoroutine != null)
+            StopCoroutine(displayLettersSoundsCoroutine);
+        Debug.Log("Fade time: " + fadeTime + " Description length: " + description.Length + " Time between letters: " + timeBetweenLetters);
+        displayLettersSoundsCoroutine = StartCoroutine(LettersSounds(description.Length, timeBetweenLetters));
+        
+        DOTween.To(() => 0, x => popupDescription.text = description.Substring(0, x), description.Length, fadeTime).SetEase(Ease.Linear);
+        
         popupDescription.color = Color.white;
         yield return new WaitForSeconds(fadeTime);
 
@@ -132,6 +149,77 @@ public class Scanner : MonoBehaviour
         yield return new WaitForSeconds(fadeTime);
 
         bDisplaying = false; 
+    }
+    
+    IEnumerator DisplayPopupNoTweening(string name, string description, float displayTime, float fadeTime, Vector3 endPosition)
+    {
+        bDisplaying = true;
+        lineRenderer.enabled = true;
+        lineRenderer.SetPosition(0, lineStart.position);
+        lineRenderer.material.color = Color.clear;
+        lineRenderer.SetPosition(1, endPosition);
+
+        popupName.text = "";
+        popupDescription.text = "";
+        popupName.color = Color.white;
+        popupDescription.color = Color.white;
+        
+        var nameCount = name.Length;
+        var descriptionCount = description.Length;
+
+        var instance = RuntimeManager.CreateInstance(scanLetterSound);
+        var soundLen = 0.07f;
+        var speed = 0.0f;
+        
+        var timeBetweenLetters = fadeTime / name.Length;
+        Debug.Log("name time: " + timeBetweenLetters);
+        if (timeBetweenLetters < soundLen)
+        {
+            // adjusting the timing to fit the sound
+            speed = soundLen / timeBetweenLetters - 1f;
+            speed = Mathf.Clamp01(speed);
+        }
+        
+        instance.setParameterByName("ScanLetterSpeed", speed);
+        
+        for (int i = 0; i < nameCount; i++)
+        {
+            popupName.text += name[i];
+            instance.start();
+            yield return new WaitForSeconds(timeBetweenLetters);
+        }
+        
+        timeBetweenLetters = fadeTime / description.Length;
+        if (timeBetweenLetters < soundLen)
+        {
+            // adjusting the timing to fit the sound
+            speed = soundLen / timeBetweenLetters - 1f;
+            speed = Mathf.Clamp01(speed);
+        }
+        
+        instance.setParameterByName("ScanLetterSpeed", speed);
+        
+        for (int i = 0; i < descriptionCount; i++)
+        {
+            popupDescription.text += description[i];
+            instance.start();
+            yield return new WaitForSeconds(timeBetweenLetters);
+        }
+        
+        yield return new WaitForSeconds(displayTime);
+        popupName.color = Color.clear;
+        popupDescription.color = Color.clear;
+        lineRenderer.enabled = false;
+        bDisplaying = false;
+    }
+        
+    IEnumerator LettersSounds(int lettersCount, float timeBetweenLetters)
+    {
+        for (int i = 0; i < lettersCount; i++)
+        {
+            RuntimeManager.PlayOneShot(scanLetterSound);
+            yield return new WaitForSeconds(timeBetweenLetters);
+        }
     }
 
     IEnumerator DisplaySubtitles(string text, float displayTime, float fadeTime)
