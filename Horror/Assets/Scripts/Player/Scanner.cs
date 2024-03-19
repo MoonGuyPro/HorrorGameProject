@@ -6,16 +6,25 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.InputSystem;
 using FMODUnity;
-
 [Serializable]
 class Anim
 {
     public Animator scannerAnimator; 
     public Animator cubeAnimator;
     public MeshRenderer cubeRenderer;
+    public MeshRenderer screenRenderer;
     public float cubeAcceleration = 3.0f;
     public float minCubeSpeed = 1.0f, maxCubeSpeed = 4.0f;
-    public Color slowCubeColor = Color.cyan, fastCubeColor = Color.red;
+    [Serializable] public class AnimColors
+    {
+        public Color normal = Color.cyan, invalid = Color.red, hover = Color.yellow, scanning = Color.green;
+    } 
+    public AnimColors color;
+    [Serializable] public class AnimTimes
+    {
+        public float wrong = 0.3f, scanning = 3.0f;
+    } 
+    public AnimTimes time;
 }
 
 public class Scanner : MonoBehaviour
@@ -25,7 +34,7 @@ public class Scanner : MonoBehaviour
     [SerializeField] private TextMeshProUGUI popupName;
     [SerializeField] private TextMeshProUGUI popupDescription;
     [SerializeField] private float maxDistance = 5;
-    [SerializeField] private float radius = 0.45f;
+    [SerializeField] private float radius = 0.05f;
     [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] private Transform lineStart;
     [SerializeField] private EventReference scanLetterSound;
@@ -37,9 +46,9 @@ public class Scanner : MonoBehaviour
     public List<ScannableData> alreadyScanned;
     bool bDisplaying = false;
     Coroutine displayCoroutine;
-    Coroutine displayLettersSoundsCoroutine;
-    Tweener displayTween;
-    InputAction scanAction;
+    Tween displayTween;
+    Scannable scanable;
+    Color defaultCubeColor; // Normal or hover
 
     void Start() 
     {
@@ -50,6 +59,8 @@ public class Scanner : MonoBehaviour
 
         lineRenderer.SetPosition(0, lineStart.position);
         lineRenderer.enabled = false;
+
+        defaultCubeColor = anim.color.normal;
 
         if (alreadyScanned == null)
         {
@@ -63,7 +74,6 @@ public class Scanner : MonoBehaviour
 		InputActionMap inputActionMap = inputActionAsset.FindActionMap("Player");
         inputActionMap.FindAction("Scan").performed += Scan;
         inputActionMap.FindAction("Equip").performed += EquipScanner;
-        scanAction = inputActionMap.FindAction("Scan");
     }
 
     void OnDisable ()
@@ -86,101 +96,53 @@ public class Scanner : MonoBehaviour
         if (!isScannerEquipped)
             return;
 
+        if (scanable == null)
+        {
+            animOnInvalid();
+        }
+        else
+        {
+            if (!DOTween.IsTweening(anim.cubeAnimator))
+            {
+                animOnScan();
+
+                if (bDisplaying)
+                    StopCoroutine(displayCoroutine);
+
+                displayCoroutine = StartCoroutine(
+                    DisplayPopupNoTweening(scanable.Data.DisplayName, scanable.Data.Description, 3.0f, 1.0f, scanable.transform.position));
+            }
+        }
+    }
+
+    void Update()
+    {
+        if (!isScannerEquipped)
+            return;
+
         RaycastHit hit;
         if (Physics.SphereCast(playerCamera.position, radius, playerCamera.forward, out hit, maxDistance))
         {
             if (hit.transform.CompareTag("Scannable"))
             {
-                Scannable scanable = hit.transform.GetComponentInParent<Scannable>();
-
-                if (scanable is not null)
-                {
-                    if (scanable.Data is not null)
-                    {
-                        if (bDisplaying)
-                        {
-                            DOTween.KillAll();
-                            StopCoroutine(displayCoroutine);
-                        }
-                        displayCoroutine = StartCoroutine(DisplayPopupNoTweening(scanable.Data.DisplayName, scanable.Data.Description, 3.0f, 1.0f, scanable.transform.position));
-                    }
-                    else
-                    {
-                        Debug.LogWarning("Scanable has no data!");
-                    }
-                }
-                else
-                {
-                    Debug.LogWarning("Scanable component is missing!");
-                }
+                scanable = hit.transform.GetComponentInParent<Scannable>();
+                defaultCubeColor = anim.color.hover;
             }
-        } 
-    }
-
-    void Update()
-    {
-        if (bDisplaying)
-            lineRenderer.SetPosition(0, lineStart.position);
-
-        float cubeSpeed = anim.cubeAnimator.speed;
-        Color cubeColor = anim.cubeRenderer.material.GetColor("_EmissionColor");
-
-        if (scanAction.IsPressed())
-        {
-            cubeSpeed = cubeSpeed + (anim.maxCubeSpeed - cubeSpeed) * Time.deltaTime * 3.0f;
-            cubeColor = cubeColor + (anim.fastCubeColor - cubeColor) * Time.deltaTime * 3.0f;
         }
         else
         {
-            cubeSpeed = cubeSpeed + (anim.minCubeSpeed - cubeSpeed) * Time.deltaTime * 3.0f;
-            cubeColor = cubeColor + (anim.slowCubeColor - cubeColor) * Time.deltaTime * 3.0f;
+            scanable = null;
+            defaultCubeColor = anim.color.normal;
         }
 
-        anim.cubeAnimator.speed = cubeSpeed;
-        anim.cubeRenderer.material.SetColor("_EmissionColor", cubeColor);
-    }
+        if (!DOTween.IsTweening(anim.cubeAnimator))
+        {
+            anim.cubeRenderer.material.SetColor("_EmissionColor", defaultCubeColor);
+            anim.screenRenderer.material.SetColor("_EmissionColor", defaultCubeColor);
+        }
 
-    IEnumerator DisplayPopup(string name, string description, float displayTime, float fadeTime, Vector3 endPosition)
-    {
-        bDisplaying = true;
-        lineRenderer.enabled = true;
-        lineRenderer.SetPosition(0, lineStart.position);
-        lineRenderer.material.color = Color.clear;
-        lineRenderer.SetPosition(1, endPosition);
-
-        popupName.text = "";
-        popupDescription.text = "";
-        
-        var timeBetweenLetters = fadeTime / name.Length;
-        if (displayLettersSoundsCoroutine != null)
-            StopCoroutine(displayLettersSoundsCoroutine);
-        displayLettersSoundsCoroutine = StartCoroutine(LettersSounds(name.Length, timeBetweenLetters));
-        
-        DOTween.To(() => 0, x => popupName.text = name.Substring(0, x), name.Length, fadeTime).SetEase(Ease.Linear);
-        
-        popupName.color = Color.white;
-        yield return new WaitForSeconds(fadeTime);
-
-        lineRenderer.enabled = false;
-        
-        timeBetweenLetters = fadeTime / description.Length;
-        if (displayLettersSoundsCoroutine != null)
-            StopCoroutine(displayLettersSoundsCoroutine);
-        Debug.Log("Fade time: " + fadeTime + " Description length: " + description.Length + " Time between letters: " + timeBetweenLetters);
-        displayLettersSoundsCoroutine = StartCoroutine(LettersSounds(description.Length, timeBetweenLetters));
-        
-        DOTween.To(() => 0, x => popupDescription.text = description.Substring(0, x), description.Length, fadeTime).SetEase(Ease.Linear);
-        
-        popupDescription.color = Color.white;
-        yield return new WaitForSeconds(fadeTime);
-
-        yield return new WaitForSeconds(displayTime);
-
-        popupName.DOColor(Color.clear, fadeTime);
-        popupDescription.DOColor(Color.clear, fadeTime);
-        yield return new WaitForSeconds(fadeTime);
-
-        bDisplaying = false; 
+        if (bDisplaying)
+            lineRenderer.SetPosition(0, lineStart.position);
     }
     
     IEnumerator DisplayPopupNoTweening(string name, string description, float displayTime, float fadeTime, Vector3 endPosition)
@@ -276,5 +238,59 @@ public class Scanner : MonoBehaviour
             yield return new WaitForSeconds(0.35f);
             RuntimeManager.PlayOneShot(scannerHideSound);
         }
+    }
+
+    void animOnInvalid()
+    {
+        if (DOTween.IsTweening(anim.cubeAnimator))
+            return;
+
+        DOTween.To(() => 0.0f, 
+        x => anim.cubeRenderer.material.SetColor("_EmissionColor", Color.Lerp(defaultCubeColor, anim.color.invalid, (float)Math.Sin(x))), 
+        Math.PI, 
+        anim.time.wrong)
+        .SetEase(Ease.Linear)
+        .SetId(anim.cubeAnimator);
+
+        DOTween.To(() => 0.0f,
+        x => anim.cubeAnimator.speed = 1.0f + (float)Math.Sin(x) * 3.0f, 
+        Math.PI, 
+        anim.time.wrong)
+        .SetEase(Ease.Linear)
+        .SetId(anim.cubeAnimator);
+
+        DOTween.To(() => 0.0f, 
+        x => anim.screenRenderer.material.SetColor("_EmissionColor", Color.Lerp(defaultCubeColor, anim.color.invalid, (float)Math.Sin(x))), 
+        Math.PI, 
+        anim.time.wrong)
+        .SetEase(Ease.Linear)
+        .SetId(anim.cubeAnimator);
+    }
+
+    void animOnScan()
+    {
+        if (DOTween.IsTweening(anim.cubeAnimator))
+            return;
+
+        DOTween.To(() => 0.0f, 
+        x => anim.cubeRenderer.material.SetColor("_EmissionColor", Color.Lerp(defaultCubeColor, anim.color.scanning, (float)Math.Sin(x))), 
+        Math.PI, 
+        anim.time.scanning)
+        .SetEase(Ease.Linear)
+        .SetId(anim.cubeAnimator);
+
+        DOTween.To(() => 0.0f,
+        x => anim.cubeAnimator.speed = 1.0f + (float)Math.Sin(x) * 6.0f, 
+        Math.PI, 
+        anim.time.scanning)
+        .SetEase(Ease.Linear)
+        .SetId(anim.cubeAnimator);
+        
+        DOTween.To(() => 0.0f, 
+        x => anim.screenRenderer.material.SetColor("_EmissionColor", Color.Lerp(defaultCubeColor, anim.color.scanning, (float)Math.Sin(x))), 
+        Math.PI, 
+        anim.time.scanning)
+        .SetEase(Ease.Linear)
+        .SetId(anim.cubeAnimator);
     }
 }

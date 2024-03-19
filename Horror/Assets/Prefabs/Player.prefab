@@ -1829,11 +1829,18 @@ MonoBehaviour:
     scannerAnimator: {fileID: 870596934}
     cubeAnimator: {fileID: 1371078248}
     cubeRenderer: {fileID: 1371078250}
+    screenRenderer: {fileID: 432693425645959124}
     cubeAcceleration: 3
     minCubeSpeed: 1
     maxCubeSpeed: 4
-    slowCubeColor: {r: 0.15471691, g: 0.6776156, b: 1, a: 1}
-    fastCubeColor: {r: 1, g: 0.2628515, b: 0, a: 1}
+    color:
+      normal: {r: 0, g: 1, b: 1, a: 1}
+      invalid: {r: 1, g: 0, b: 0, a: 1}
+      hover: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+      scanning: {r: 0, g: 1, b: 0, a: 1}
+    time:
+      wrong: 0.3
+      scanning: 3
   alreadyScanned: []
 --- !u!114 &4183167781591339860
 MonoBehaviour:
