@@ -1,12 +1,22 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.InputSystem;
-using System;
-using System.ComponentModel;
 using FMODUnity;
+
+[Serializable]
+class Anim
+{
+    public Animator scannerAnimator; 
+    public Animator cubeAnimator;
+    public MeshRenderer cubeRenderer;
+    public float cubeAcceleration = 3.0f;
+    public float minCubeSpeed = 1.0f, maxCubeSpeed = 4.0f;
+    public Color slowCubeColor = Color.cyan, fastCubeColor = Color.red;
+}
 
 public class Scanner : MonoBehaviour
 {
@@ -18,10 +28,10 @@ public class Scanner : MonoBehaviour
     [SerializeField] private float radius = 0.45f;
     [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] private Transform lineStart;
-    [SerializeField] private Animator scannerAnimator; 
     [SerializeField] private EventReference scanLetterSound;
     [SerializeField] private EventReference scannerDrawSound;
     [SerializeField] private EventReference scannerHideSound;
+    [SerializeField] private Anim anim;
     private bool isScannerEquipped = false;
     private Transform lineEnd;
     public List<ScannableData> alreadyScanned;
@@ -29,6 +39,7 @@ public class Scanner : MonoBehaviour
     Coroutine displayCoroutine;
     Coroutine displayLettersSoundsCoroutine;
     Tweener displayTween;
+    InputAction scanAction;
 
     void Start() 
     {
@@ -52,6 +63,7 @@ public class Scanner : MonoBehaviour
 		InputActionMap inputActionMap = inputActionAsset.FindActionMap("Player");
         inputActionMap.FindAction("Scan").performed += Scan;
         inputActionMap.FindAction("Equip").performed += EquipScanner;
+        scanAction = inputActionMap.FindAction("Scan");
     }
 
     void OnDisable ()
@@ -65,7 +77,7 @@ public class Scanner : MonoBehaviour
     void EquipScanner(InputAction.CallbackContext context)
     {
         isScannerEquipped =! isScannerEquipped;
-        scannerAnimator.SetBool("draw", isScannerEquipped);
+        anim.scannerAnimator.SetBool("draw", isScannerEquipped);
         StartCoroutine(ScannerSoundWithDelay(isScannerEquipped));
     }
 
@@ -109,6 +121,23 @@ public class Scanner : MonoBehaviour
     {
         if (bDisplaying)
             lineRenderer.SetPosition(0, lineStart.position);
+
+        float cubeSpeed = anim.cubeAnimator.speed;
+        Color cubeColor = anim.cubeRenderer.material.GetColor("_EmissionColor");
+
+        if (scanAction.IsPressed())
+        {
+            cubeSpeed = cubeSpeed + (anim.maxCubeSpeed - cubeSpeed) * Time.deltaTime * 3.0f;
+            cubeColor = cubeColor + (anim.fastCubeColor - cubeColor) * Time.deltaTime * 3.0f;
+        }
+        else
+        {
+            cubeSpeed = cubeSpeed + (anim.minCubeSpeed - cubeSpeed) * Time.deltaTime * 3.0f;
+            cubeColor = cubeColor + (anim.slowCubeColor - cubeColor) * Time.deltaTime * 3.0f;
+        }
+
+        anim.cubeAnimator.speed = cubeSpeed;
+        anim.cubeRenderer.material.SetColor("_EmissionColor", cubeColor);
     }
 
     IEnumerator DisplayPopup(string name, string description, float displayTime, float fadeTime, Vector3 endPosition)
