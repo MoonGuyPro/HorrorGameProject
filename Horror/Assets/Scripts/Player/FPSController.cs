@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.iOS;
 
 public class FPSController : PortalTraveller {
 
@@ -92,7 +88,6 @@ public class FPSController : PortalTraveller {
     {
 		InputActionAsset inputActionAsset = Resources.Load<InputActionAsset>("NyctoInputActions");
 		InputActionMap inputActionMap = inputActionAsset.FindActionMap("Player");
-        inputActionAsset.Enable();
         readLookAndMove = () =>
         {
             moveInput = inputActionMap["Move"].ReadValue<Vector2>();
