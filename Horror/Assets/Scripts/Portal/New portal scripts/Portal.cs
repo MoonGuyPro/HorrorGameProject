@@ -118,6 +118,11 @@ public class Portal : MonoBehaviour
     // Called after PrePortalRender, and before PostPortalRender
     public void Render()
     {
+        if(linkedPortal == null)
+        {
+            Debug.LogWarning($"Missing reference in {transform.name}");
+            return;
+        }
 
         // Skip rendering the view from this portal if player is not looking at the linked portal
         if (!CameraUtility.VisibleFromCamera(linkedPortal.screen, playerCam))
