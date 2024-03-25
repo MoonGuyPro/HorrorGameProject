@@ -35,13 +35,17 @@ public class Scanner : MonoBehaviour
     [SerializeField] private TextMeshProUGUI popupDescription;
     [SerializeField] private float maxDistance = 5;
     [SerializeField] private float radius = 0.05f;
+    [SerializeField] private float scanCooldown = 0.33f;
     [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] private Transform lineStart;
     [SerializeField] private EventReference scanLetterSound;
     [SerializeField] private EventReference scannerDrawSound;
     [SerializeField] private EventReference scannerHideSound;
+    [SerializeField] private EventReference noScanTargetSound;
     [SerializeField] private Anim anim;
+    
     private bool isScannerEquipped = false;
+    private bool canScan = true;
     private Transform lineEnd;
     public List<ScannableData> alreadyScanned;
     bool bDisplaying = false;
@@ -49,6 +53,7 @@ public class Scanner : MonoBehaviour
     Tween displayTween;
     Scannable scanable;
     Color defaultCubeColor; // Normal or hover
+    Coroutine scanCooldownCoroutine;
 
     void Start() 
     {
@@ -93,12 +98,13 @@ public class Scanner : MonoBehaviour
 
     void Scan(InputAction.CallbackContext context)
     {
-        if (!isScannerEquipped)
+        if (!isScannerEquipped || !canScan)
             return;
 
         if (scanable == null)
         {
             animOnInvalid();
+            RuntimeManager.PlayOneShot(noScanTargetSound);
         }
         else
         {
@@ -113,6 +119,8 @@ public class Scanner : MonoBehaviour
                     DisplayPopupNoTweening(scanable.Data.DisplayName, scanable.Data.Description, 3.0f, 1.0f, scanable.transform.position));
             }
         }
+
+        scanCooldownCoroutine = StartCoroutine(ScanCooldown(scanCooldown));
     }
 
     void Update()
@@ -292,5 +300,12 @@ public class Scanner : MonoBehaviour
         anim.time.scanning)
         .SetEase(Ease.Linear)
         .SetId(anim.cubeAnimator);
+    }
+    
+    IEnumerator ScanCooldown(float time)
+    {
+        canScan = false;
+        yield return new WaitForSeconds(time);
+        canScan = true;
     }
 }
