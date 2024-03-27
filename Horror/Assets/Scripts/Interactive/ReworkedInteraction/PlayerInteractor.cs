@@ -62,7 +62,7 @@ public class PlayerInteractor : MonoBehaviour
                         alreadyLooking = true;
                     }
                     
-                    if (interactAction.IsPressed())
+                    if (interactAction.WasPressedThisFrame()) // Who tf at Unity called it like this?!
                     {
                         if(interaction.Interact(inv))
                         {
@@ -88,7 +88,7 @@ public class PlayerInteractor : MonoBehaviour
                         alreadyLooking = true;
                     }
                     
-                    if (interactAction.IsPressed())
+                    if (interactAction.WasPressedThisFrame())
                     {
                         inv.addItem(pickable.Data);
                         pickable.PickUp();
