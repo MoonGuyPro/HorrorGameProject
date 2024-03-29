@@ -6,6 +6,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.InputSystem;
 using FMODUnity;
+using System.Threading;
 [Serializable]
 class Anim
 {
@@ -15,16 +16,23 @@ class Anim
     public MeshRenderer screenRenderer;
     public float cubeAcceleration = 3.0f;
     public float minCubeSpeed = 1.0f, maxCubeSpeed = 4.0f;
+    public AnimColors color;
     [Serializable] public class AnimColors
     {
         public Color normal = Color.cyan, invalid = Color.red, hover = Color.yellow, scanning = Color.green;
     } 
-    public AnimColors color;
+    public AnimTimes time;
     [Serializable] public class AnimTimes
     {
-        public float wrong = 0.3f, scanning = 3.0f;
+        public float wrong = 0.3f, scanning = 2.0f, nameLetterScale = 1.0f, descriptionLetterScale = 0.25f;
     } 
-    public AnimTimes time;
+    public AnimTextures textures;
+    [Serializable] public class AnimTextures
+    {
+        public Texture2D normal, invalid, hover;
+        public Texture2D[] scanning;
+    }
+
 }
 
 public class Scanner : MonoBehaviour
@@ -53,6 +61,7 @@ public class Scanner : MonoBehaviour
     Tween displayTween;
     Scannable scanable;
     Color defaultCubeColor; // Normal or hover
+    Texture2D defaultScreenTexture;
     Coroutine scanCooldownCoroutine;
 
     void Start() 
@@ -103,8 +112,11 @@ public class Scanner : MonoBehaviour
 
         if (scanable == null)
         {
-            animOnInvalid();
-            RuntimeManager.PlayOneShot(noScanTargetSound);
+            if (!DOTween.IsTweening(anim.cubeAnimator))
+            {
+                animOnInvalid();
+                RuntimeManager.PlayOneShot(noScanTargetSound);
+            }
         }
         else
         {
@@ -116,7 +128,7 @@ public class Scanner : MonoBehaviour
                     StopCoroutine(displayCoroutine);
 
                 displayCoroutine = StartCoroutine(
-                    DisplayPopupNoTweening(scanable.Data.DisplayName, scanable.Data.Description, 3.0f, 1.0f, scanable.transform.position));
+                    DisplayPopupNoTweening(scanable.Data.DisplayName, scanable.Data.Description, 1.0f, scanable.transform.position));
             }
         }
 
@@ -135,25 +147,29 @@ public class Scanner : MonoBehaviour
             {
                 scanable = hit.transform.GetComponentInParent<Scannable>();
                 defaultCubeColor = anim.color.hover;
+                defaultScreenTexture = anim.textures.hover;
             }
         }
         else
         {
             scanable = null;
             defaultCubeColor = anim.color.normal;
+            defaultScreenTexture = anim.textures.normal;
         }
 
         if (!DOTween.IsTweening(anim.cubeAnimator))
         {
             anim.cubeRenderer.material.SetColor("_EmissionColor", defaultCubeColor);
             anim.screenRenderer.material.SetColor("_EmissionColor", defaultCubeColor);
+            anim.screenRenderer.material.SetTexture("_EmissionMap", defaultScreenTexture);
+            
         }
 
         if (bDisplaying)
             lineRenderer.SetPosition(0, lineStart.position);
     }
     
-    IEnumerator DisplayPopupNoTweening(string name, string description, float displayTime, float fadeTime, Vector3 endPosition)
+    IEnumerator DisplayPopupNoTweening(string name, string description, float fadeTime, Vector3 endPosition)
     {
         bDisplaying = true;
         lineRenderer.enabled = true;
@@ -173,42 +189,44 @@ public class Scanner : MonoBehaviour
         var soundLen = 0.07f;
         var speed = 0.0f;
         
-        var timeBetweenLetters = fadeTime / name.Length;
+        // var timeBetweenLetters = fadeTime / name.Length;
 
-        if (timeBetweenLetters < soundLen)
-        {
-            // adjusting the timing to fit the sound
-            speed = soundLen / timeBetweenLetters - 1f;
-            speed = Mathf.Clamp01(speed);
-        }
+        // if (timeBetweenLetters < soundLen)
+        // {
+        //     // adjusting the timing to fit the sound
+        //     speed = soundLen / timeBetweenLetters - 1f;
+        //     speed = Mathf.Clamp01(speed);
+        // }
         
+        speed = soundLen * anim.time.nameLetterScale;
         instance.setParameterByName("ScanLetterSpeed", speed);
         
         for (int i = 0; i < nameCount; i++)
         {
             popupName.text += name[i];
             instance.start();
-            yield return new WaitForSeconds(timeBetweenLetters);
+            yield return new WaitForSeconds(speed);
         }
         
-        timeBetweenLetters = fadeTime / description.Length;
-        if (timeBetweenLetters < soundLen)
-        {
-            // adjusting the timing to fit the sound
-            speed = soundLen / timeBetweenLetters - 1f;
-            speed = Mathf.Clamp01(speed);
-        }
+        // timeBetweenLetters = fadeTime / description.Length;
+        // if (timeBetweenLetters < soundLen)
+        // {
+        //     // adjusting the timing to fit the sound
+        //     speed = soundLen / timeBetweenLetters - 1f;
+        //     speed = Mathf.Clamp01(speed);
+        // }
         
+        speed = soundLen * anim.time.descriptionLetterScale;
         instance.setParameterByName("ScanLetterSpeed", speed);
         
         for (int i = 0; i < descriptionCount; i++)
         {
             popupDescription.text += description[i];
             instance.start();
-            yield return new WaitForSeconds(timeBetweenLetters);
+            yield return new WaitForSeconds(speed);
         }
         
-        yield return new WaitForSeconds(displayTime);
+        yield return new WaitForSeconds(fadeTime);
         popupName.color = Color.clear;
         popupDescription.color = Color.clear;
         lineRenderer.enabled = false;
@@ -250,8 +268,8 @@ public class Scanner : MonoBehaviour
 
     void animOnInvalid()
     {
-        if (DOTween.IsTweening(anim.cubeAnimator))
-            return;
+        // if (DOTween.IsTweening(anim.cubeAnimator))
+        //     return;
 
         DOTween.To(() => 0.0f, 
         x => anim.cubeRenderer.material.SetColor("_EmissionColor", Color.Lerp(defaultCubeColor, anim.color.invalid, (float)Math.Sin(x))), 
@@ -267,12 +285,16 @@ public class Scanner : MonoBehaviour
         .SetEase(Ease.Linear)
         .SetId(anim.cubeAnimator);
 
-        DOTween.To(() => 0.0f, 
-        x => anim.screenRenderer.material.SetColor("_EmissionColor", Color.Lerp(defaultCubeColor, anim.color.invalid, (float)Math.Sin(x))), 
-        Math.PI, 
-        anim.time.wrong)
-        .SetEase(Ease.Linear)
-        .SetId(anim.cubeAnimator);
+        // DOTween.To(() => 0.0f, 
+        // x => anim.screenRenderer.material.SetColor("_EmissionColor", Color.Lerp(defaultCubeColor, anim.color.invalid, (float)Math.Sin(x))), 
+        // Math.PI, 
+        // anim.time.wrong)
+        // .SetEase(Ease.Linear)
+        // .SetId(anim.cubeAnimator);
+        
+        // Won't be changed in update before tweens above end
+        anim.screenRenderer.material.SetColor("_EmissionColor", anim.color.invalid);
+        anim.screenRenderer.material.SetTexture("_EmissionMap", anim.textures.invalid);
     }
 
     void animOnScan()
@@ -281,7 +303,7 @@ public class Scanner : MonoBehaviour
             return;
 
         DOTween.To(() => 0.0f, 
-        x => anim.cubeRenderer.material.SetColor("_EmissionColor", Color.Lerp(defaultCubeColor, anim.color.scanning, (float)Math.Sin(x))), 
+        x => anim.cubeRenderer.material.SetColor("_EmissionColor", Color.Lerp(defaultCubeColor, anim.color.scanning, (float)(Math.Sin(x) * Math.Min(x * 3.0f, 1.0f)))), 
         Math.PI, 
         anim.time.scanning)
         .SetEase(Ease.Linear)
@@ -295,8 +317,15 @@ public class Scanner : MonoBehaviour
         .SetId(anim.cubeAnimator);
         
         DOTween.To(() => 0.0f, 
-        x => anim.screenRenderer.material.SetColor("_EmissionColor", Color.Lerp(defaultCubeColor, anim.color.scanning, (float)Math.Sin(x))), 
+        x => anim.screenRenderer.material.SetColor("_EmissionColor", Color.Lerp(defaultCubeColor, anim.color.scanning, (float)(Math.Sin(x) * Math.Min(x * 3.0f, 1.0f)))), 
         Math.PI, 
+        anim.time.scanning)
+        .SetEase(Ease.Linear)
+        .SetId(anim.cubeAnimator);
+
+        DOTween.To(() => 0.0f, 
+        x => anim.screenRenderer.material.SetTexture("_EmissionMap", anim.textures.scanning[(int)x % 3]),
+        anim.time.scanning * 5.99f,
         anim.time.scanning)
         .SetEase(Ease.Linear)
         .SetId(anim.cubeAnimator);
