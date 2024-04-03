@@ -1797,42 +1797,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 3630390128024485379}
-  subtitles: {fileID: 1459206227218239430}
-  popupName: {fileID: 1961874711}
-  popupDescription: {fileID: 2060260665}
-  maxDistance: 5
-  radius: 0.45
-  scanCooldown: 0.33
-  lineRenderer: {fileID: 126489535}
-  lineStart: {fileID: 1880326304}
-  scanLetterSound:
-    Guid:
-      Data1: -804148494
-      Data2: 1170938804
-      Data3: 2123513741
-      Data4: -2025828710
-    Path: event:/SFX/UI/Scanner/SingleLetter
-  scannerDrawSound:
-    Guid:
-      Data1: -1525737048
-      Data2: 1209208762
-      Data3: -851777664
-      Data4: -1260394416
-    Path: event:/SFX/UI/Scanner/ScannerDraw
-  scannerHideSound:
-    Guid:
-      Data1: 875478467
-      Data2: 1215505853
-      Data3: -91714161
-      Data4: -1363270282
-    Path: event:/SFX/UI/Scanner/ScannerHide
-  noScanTargetSound:
-    Guid:
-      Data1: 200965058
-      Data2: 1320394999
-      Data3: 1530470814
-      Data4: 1068743853
-    Path: event:/SFX/UI/Scanner/NoScanTarget
   animParams:
     scannerAnimator: {fileID: 870596934}
     cubeAnimator: {fileID: 1371078248}
@@ -1840,9 +1804,9 @@ MonoBehaviour:
     screenRenderer: {fileID: 432693425645959124}
     cubeAcceleration: 3
     minCubeSpeed: 1
-    maxCubeSpeed: 8
+    maxCubeSpeed: 20
     color:
-      normal: {r: 0.34509805, g: 0.61960787, b: 1, a: 1}
+      normal: {r: 0.34509805, g: 0.6156863, b: 1, a: 1}
       invalid: {r: 1, g: 0, b: 0, a: 1}
       hover: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
       scanning: {r: 0, g: 1, b: 0, a: 1}
@@ -1862,6 +1826,43 @@ MonoBehaviour:
       - {fileID: 2800000, guid: 3d87c0b18dabdfb4fb0cf074b9d9c3cd, type: 3}
   inputParams:
     scanTime: 2
+    maxDistance: 5
+    radius: 0.45
+  soundParams:
+    scanLetterSound:
+      Guid:
+        Data1: -804148494
+        Data2: 1170938804
+        Data3: 2123513741
+        Data4: -2025828710
+      Path: event:/SFX/UI/Scanner/SingleLetter
+    scannerDrawSound:
+      Guid:
+        Data1: -1525737048
+        Data2: 1209208762
+        Data3: -851777664
+        Data4: -1260394416
+      Path: event:/SFX/UI/Scanner/ScannerDraw
+    scannerHideSound:
+      Guid:
+        Data1: 875478467
+        Data2: 1215505853
+        Data3: -91714161
+        Data4: -1363270282
+      Path: event:/SFX/UI/Scanner/ScannerHide
+    noScanTargetSound:
+      Guid:
+        Data1: 200965058
+        Data2: 1320394999
+        Data3: 1530470814
+        Data4: 1068743853
+      Path: event:/SFX/UI/Scanner/NoScanTarget
+  uiParams:
+    subtitles: {fileID: 1459206227218239430}
+    popupName: {fileID: 1961874711}
+    popupDescription: {fileID: 2060260665}
+    lineRenderer: {fileID: 126489535}
+    lineStart: {fileID: 1880326304}
   alreadyScanned: []
 --- !u!114 &4183167781591339860
 MonoBehaviour:
