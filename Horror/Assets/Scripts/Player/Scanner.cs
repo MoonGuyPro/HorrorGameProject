@@ -6,44 +6,60 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.InputSystem;
 using FMODUnity;
-[Serializable]
-class Anim
-{
-    public Animator scannerAnimator; 
-    public Animator cubeAnimator;
-    public MeshRenderer cubeRenderer;
-    public MeshRenderer screenRenderer;
-    public float cubeAcceleration = 3.0f;
-    public float minCubeSpeed = 1.0f, maxCubeSpeed = 4.0f;
-    [Serializable] public class AnimColors
-    {
-        public Color normal = Color.cyan, invalid = Color.red, hover = Color.yellow, scanning = Color.green;
-    } 
-    public AnimColors color;
-    [Serializable] public class AnimTimes
-    {
-        public float wrong = 0.3f, scanning = 3.0f;
-    } 
-    public AnimTimes time;
-}
 
 public class Scanner : MonoBehaviour
 {
-    [SerializeField] private Transform playerCamera;
-    [SerializeField] private TextMeshProUGUI subtitles;
-    [SerializeField] private TextMeshProUGUI popupName;
-    [SerializeField] private TextMeshProUGUI popupDescription;
-    [SerializeField] private float maxDistance = 5;
-    [SerializeField] private float radius = 0.05f;
-    [SerializeField] private float scanCooldown = 0.33f;
-    [SerializeField] private LineRenderer lineRenderer;
-    [SerializeField] private Transform lineStart;
-    [SerializeField] private EventReference scanLetterSound;
-    [SerializeField] private EventReference scannerDrawSound;
-    [SerializeField] private EventReference scannerHideSound;
-    [SerializeField] private EventReference noScanTargetSound;
-    [SerializeField] private Anim anim;
+    [Serializable]
+    class InputParams
+    {
+        public float scanTime = 2.0f, maxDistance = 5.0f, radius = 0.45f;
+    }
+
+    [Serializable]
+    class UIParams
+    {
+        public TextMeshProUGUI subtitles, popupName, popupDescription;
+        public LineRenderer lineRenderer;
+        public Transform lineStart;
+    }
+
+    [Serializable]
+    class AnimParams
+    {
+        public Animator scannerAnimator, cubeAnimator;
+        public MeshRenderer cubeRenderer, screenRenderer;
+        public float cubeAcceleration = 3.0f;
+        public float minCubeSpeed = 1.0f, maxCubeSpeed = 20.0f;
+        public AnimColors color;
+        [Serializable] public class AnimColors
+        {
+            public Color normal = Color.cyan, invalid = Color.red, hover = Color.yellow, scanning = Color.green;
+        } 
+        public AnimTimes time;
+        [Serializable] public class AnimTimes
+        {
+            public float wrong = 0.3f, scanning = 2.0f, nameLetterScale = 1.0f, descriptionLetterScale = 0.25f;
+        } 
+        public AnimTextures textures;
+        [Serializable] public class AnimTextures
+        {
+            public Texture2D normal, invalid, hover;
+            public Texture2D[] scanning;
+        }
+
+    }
+
+    [Serializable]
+    class SoundParams
+    {
+        public EventReference scanLetterSound, scannerDrawSound, scannerHideSound, noScanTargetSound;
+    }
     
+    [SerializeField] Transform playerCamera;
+    [SerializeField] InputParams inputParams;
+    [SerializeField] UIParams uiParams;
+    [SerializeField] AnimParams animParams;
+    [SerializeField] SoundParams soundParams;
     private bool isScannerEquipped = false;
     private bool canScan = true;
     private Transform lineEnd;
@@ -51,21 +67,24 @@ public class Scanner : MonoBehaviour
     bool bDisplaying = false;
     Coroutine displayCoroutine;
     Tween displayTween;
-    Scannable scanable;
-    Color defaultCubeColor; // Normal or hover
+    Scannable scannable;
+    Color currentScannerColor; // Normal or hover
+    Texture2D currentScreenTexture;
     Coroutine scanCooldownCoroutine;
+    bool isScanning = false;
+    float scanningProgress = 0.0f;
 
     void Start() 
     {
-        subtitles.color = Color.clear;
-        popupName.color = Color.clear;
-        popupDescription.color = Color.clear;
-        lineRenderer.material.color = Color.clear;
+        uiParams.subtitles.color = Color.clear;
+        uiParams.popupName.color = Color.clear;
+        uiParams.popupDescription.color = Color.clear;
+        uiParams.lineRenderer.material.color = Color.clear;
 
-        lineRenderer.SetPosition(0, lineStart.position);
-        lineRenderer.enabled = false;
+        uiParams.lineRenderer.SetPosition(0, uiParams.lineStart.position);
+        uiParams.lineRenderer.enabled = false;
 
-        defaultCubeColor = anim.color.normal;
+        currentScannerColor = animParams.color.normal;
 
         if (alreadyScanned == null)
         {
@@ -77,7 +96,8 @@ public class Scanner : MonoBehaviour
     {
 		InputActionAsset inputActionAsset = Resources.Load<InputActionAsset>("NyctoInputActions");
 		InputActionMap inputActionMap = inputActionAsset.FindActionMap("Player");
-        inputActionMap.FindAction("Scan").performed += Scan;
+        inputActionMap.FindAction("Scan").performed += OnScanPressed;
+        inputActionMap.FindAction("Scan").canceled += OnScanReleased;
         inputActionMap.FindAction("Equip").performed += EquipScanner;
     }
 
@@ -85,42 +105,57 @@ public class Scanner : MonoBehaviour
     {
         InputActionAsset inputActionAsset = Resources.Load<InputActionAsset>("NyctoInputActions");
 		InputActionMap inputActionMap = inputActionAsset.FindActionMap("Player");
-        inputActionMap.FindAction("Scan").performed -= Scan;
+        inputActionMap.FindAction("Scan").performed -= OnScanPressed;
+        inputActionMap.FindAction("Scan").canceled -= OnScanReleased;
         inputActionMap.FindAction("Equip").performed -= EquipScanner;
     }
 
     void EquipScanner(InputAction.CallbackContext context)
     {
         isScannerEquipped =! isScannerEquipped;
-        anim.scannerAnimator.SetBool("draw", isScannerEquipped);
+        animParams.scannerAnimator.SetBool("draw", isScannerEquipped);
         StartCoroutine(ScannerSoundWithDelay(isScannerEquipped));
     }
 
-    void Scan(InputAction.CallbackContext context)
+    void OnScanPressed(InputAction.CallbackContext context)
     {
         if (!isScannerEquipped || !canScan)
             return;
 
-        if (scanable == null)
+        if (scannable == null)
         {
-            animOnInvalid();
-            RuntimeManager.PlayOneShot(noScanTargetSound);
+            if (!DOTween.IsTweening(animParams.cubeAnimator))
+            {
+                animOnInvalid();
+                RuntimeManager.PlayOneShot(soundParams.noScanTargetSound);
+                scanCooldownCoroutine = StartCoroutine(ScanCooldown(animParams.time.wrong));
+            }
         }
         else
         {
-            if (!DOTween.IsTweening(anim.cubeAnimator))
-            {
-                animOnScan();
-
-                if (bDisplaying)
-                    StopCoroutine(displayCoroutine);
-
-                displayCoroutine = StartCoroutine(
-                    DisplayPopupNoTweening(scanable.Data.DisplayName, scanable.Data.Description, 3.0f, 1.0f, scanable.transform.position));
-            }
+            isScanning = true;
         }
+    }
 
-        scanCooldownCoroutine = StartCoroutine(ScanCooldown(scanCooldown));
+    void OnScanReleased(InputAction.CallbackContext context)
+    {
+        isScanning = false;
+    }
+
+    void OnScanned()
+    {
+        if (!DOTween.IsTweening(animParams.cubeAnimator))
+        {
+            animOnScan();
+
+            if (bDisplaying)
+                StopCoroutine(displayCoroutine);
+
+            displayCoroutine = StartCoroutine(
+                DisplayPopupNoTweening(scannable.Data.DisplayName, scannable.Data.Description, 1.0f, scannable.transform.position));
+
+            scanCooldownCoroutine = StartCoroutine(ScanCooldown(animParams.time.scanning));
+        }
     }
 
     void Update()
@@ -129,89 +164,124 @@ public class Scanner : MonoBehaviour
             return;
 
         RaycastHit hit;
-        if (Physics.SphereCast(playerCamera.position, radius, playerCamera.forward, out hit, maxDistance))
+        if (Physics.SphereCast(playerCamera.position, inputParams.radius, playerCamera.forward, out hit, inputParams.maxDistance))
         {
             if (hit.transform.CompareTag("Scannable"))
             {
-                scanable = hit.transform.GetComponentInParent<Scannable>();
-                defaultCubeColor = anim.color.hover;
+                scannable = hit.transform.GetComponentInParent<Scannable>();
             }
         }
         else
         {
-            scanable = null;
-            defaultCubeColor = anim.color.normal;
+            scannable = null;
+            currentScannerColor = animParams.color.normal;
+            currentScreenTexture = animParams.textures.normal;
+            scanningProgress = 0.0f;
         }
 
-        if (!DOTween.IsTweening(anim.cubeAnimator))
+        if (canScan && isScanning)
         {
-            anim.cubeRenderer.material.SetColor("_EmissionColor", defaultCubeColor);
-            anim.screenRenderer.material.SetColor("_EmissionColor", defaultCubeColor);
+            scanningProgress += Time.deltaTime / inputParams.scanTime;
+        }
+        else
+        {
+            scanningProgress = 0.0f;
+        }
+
+        if (isScanning)
+        {
+            int frames = animParams.textures.scanning.Length;
+            currentScreenTexture = animParams.textures.scanning[(int)Math.Min(Math.Floor(scanningProgress * (frames + 1)), frames - 1)];
+        } 
+        else if (scannable != null)
+        {
+            currentScannerColor = animParams.color.hover;
+            currentScreenTexture = animParams.textures.hover;
+        }
+        else
+        {
+            currentScannerColor = animParams.color.normal;
+            currentScreenTexture = animParams.textures.normal;
+        }
+        
+        if (scanningProgress >= 1.0f)
+        {
+            OnScanned();
+        }
+
+        if (!DOTween.IsTweening(animParams.cubeAnimator))
+        {
+            animParams.cubeRenderer.material.SetColor("_EmissionColor", currentScannerColor);
+            animParams.screenRenderer.material.SetColor("_EmissionColor", currentScannerColor);
+            animParams.screenRenderer.material.SetTexture("_EmissionMap", currentScreenTexture);
+            animParams.cubeAnimator.speed = Mathf.Lerp(animParams.minCubeSpeed, animParams.maxCubeSpeed, scanningProgress);
         }
 
         if (bDisplaying)
-            lineRenderer.SetPosition(0, lineStart.position);
+            uiParams.lineRenderer.SetPosition(0, uiParams.lineStart.position);
     }
     
-    IEnumerator DisplayPopupNoTweening(string name, string description, float displayTime, float fadeTime, Vector3 endPosition)
+    IEnumerator DisplayPopupNoTweening(string name, string description, float fadeTime, Vector3 endPosition)
     {
         bDisplaying = true;
-        lineRenderer.enabled = true;
-        lineRenderer.SetPosition(0, lineStart.position);
-        lineRenderer.material.color = Color.clear;
-        lineRenderer.SetPosition(1, endPosition);
+        uiParams.lineRenderer.enabled = true;
+        uiParams.lineRenderer.SetPosition(0, uiParams.lineStart.position);
+        uiParams.lineRenderer.material.color = Color.clear;
+        uiParams.lineRenderer.SetPosition(1, endPosition);
 
-        popupName.text = "";
-        popupDescription.text = "";
-        popupName.color = Color.white;
-        popupDescription.color = Color.white;
+        uiParams.popupName.text = "";
+        uiParams.popupDescription.text = "";
+        uiParams.popupName.color = Color.white;
+        uiParams.popupDescription.color = Color.white;
         
         var nameCount = name.Length;
         var descriptionCount = description.Length;
 
-        var instance = RuntimeManager.CreateInstance(scanLetterSound);
+        var instance = RuntimeManager.CreateInstance(soundParams.scanLetterSound);
         var soundLen = 0.07f;
         var speed = 0.0f;
         
-        var timeBetweenLetters = fadeTime / name.Length;
+        // var timeBetweenLetters = fadeTime / name.Length;
 
-        if (timeBetweenLetters < soundLen)
-        {
-            // adjusting the timing to fit the sound
-            speed = soundLen / timeBetweenLetters - 1f;
-            speed = Mathf.Clamp01(speed);
-        }
+        // if (timeBetweenLetters < soundLen)
+        // {
+        //     // adjusting the timing to fit the sound
+        //     speed = soundLen / timeBetweenLetters - 1f;
+        //     speed = Mathf.Clamp01(speed);
+        // }
         
+        speed = soundLen * animParams.time.nameLetterScale;
         instance.setParameterByName("ScanLetterSpeed", speed);
         
         for (int i = 0; i < nameCount; i++)
         {
-            popupName.text += name[i];
+            uiParams.popupName.text += name[i];
             instance.start();
-            yield return new WaitForSeconds(timeBetweenLetters);
+            yield return new WaitForSeconds(speed);
         }
         
-        timeBetweenLetters = fadeTime / description.Length;
-        if (timeBetweenLetters < soundLen)
-        {
-            // adjusting the timing to fit the sound
-            speed = soundLen / timeBetweenLetters - 1f;
-            speed = Mathf.Clamp01(speed);
-        }
+        // timeBetweenLetters = fadeTime / description.Length;
+        // if (timeBetweenLetters < soundLen)
+        // {
+        //     // adjusting the timing to fit the sound
+        //     speed = soundLen / timeBetweenLetters - 1f;
+        //     speed = Mathf.Clamp01(speed);
+        // }
         
+        speed = soundLen * animParams.time.descriptionLetterScale;
         instance.setParameterByName("ScanLetterSpeed", speed);
         
         for (int i = 0; i < descriptionCount; i++)
         {
-            popupDescription.text += description[i];
+            uiParams.popupDescription.text += description[i];
             instance.start();
-            yield return new WaitForSeconds(timeBetweenLetters);
+            yield return new WaitForSeconds(speed);
         }
         
-        yield return new WaitForSeconds(displayTime);
-        popupName.color = Color.clear;
-        popupDescription.color = Color.clear;
-        lineRenderer.enabled = false;
+        yield return new WaitForSeconds(fadeTime);
+        uiParams.popupName.color = Color.clear;
+        uiParams.popupDescription.color = Color.clear;
+        uiParams.lineRenderer.enabled = false;
         bDisplaying = false;
     }
         
@@ -219,7 +289,7 @@ public class Scanner : MonoBehaviour
     {
         for (int i = 0; i < lettersCount; i++)
         {
-            RuntimeManager.PlayOneShot(scanLetterSound);
+            RuntimeManager.PlayOneShot(soundParams.scanLetterSound);
             yield return new WaitForSeconds(timeBetweenLetters);
         }
     }
@@ -227,10 +297,10 @@ public class Scanner : MonoBehaviour
     IEnumerator DisplaySubtitles(string text, float displayTime, float fadeTime)
     {
         bDisplaying = true;
-        subtitles.text = text;
-        subtitles.color = Color.white;
+        uiParams.subtitles.text = text;
+        uiParams.subtitles.color = Color.white;
         yield return new WaitForSeconds(displayTime);
-        displayTween = subtitles.DOColor(Color.clear, fadeTime);
+        displayTween = uiParams.subtitles.DOColor(Color.clear, fadeTime);
         bDisplaying = false;
     }
     
@@ -239,72 +309,98 @@ public class Scanner : MonoBehaviour
         if (equipped)
         {
             yield return new WaitForSeconds(0.1f);
-            RuntimeManager.PlayOneShot(scannerDrawSound);
+            RuntimeManager.PlayOneShot(soundParams.scannerDrawSound);
         }
         else
         {
             yield return new WaitForSeconds(0.35f);
-            RuntimeManager.PlayOneShot(scannerHideSound);
+            RuntimeManager.PlayOneShot(soundParams.scannerHideSound);
         }
     }
 
     void animOnInvalid()
     {
-        if (DOTween.IsTweening(anim.cubeAnimator))
-            return;
+        // if (DOTween.IsTweening(anim.cubeAnimator))
+        //     return;
 
         DOTween.To(() => 0.0f, 
-        x => anim.cubeRenderer.material.SetColor("_EmissionColor", Color.Lerp(defaultCubeColor, anim.color.invalid, (float)Math.Sin(x))), 
+        x => animParams.cubeRenderer.material.SetColor("_EmissionColor", Color.Lerp(currentScannerColor, animParams.color.invalid, (float)Math.Sin(x))), 
         Math.PI, 
-        anim.time.wrong)
+        animParams.time.wrong)
         .SetEase(Ease.Linear)
-        .SetId(anim.cubeAnimator);
+        .SetId(animParams.cubeAnimator);
 
         DOTween.To(() => 0.0f,
-        x => anim.cubeAnimator.speed = 1.0f + (float)Math.Sin(x) * 3.0f, 
+        x => animParams.cubeAnimator.speed = 1.0f + (float)Math.Sin(x) * 3.0f, 
         Math.PI, 
-        anim.time.wrong)
+        animParams.time.wrong)
         .SetEase(Ease.Linear)
-        .SetId(anim.cubeAnimator);
+        .SetId(animParams.cubeAnimator);
 
-        DOTween.To(() => 0.0f, 
-        x => anim.screenRenderer.material.SetColor("_EmissionColor", Color.Lerp(defaultCubeColor, anim.color.invalid, (float)Math.Sin(x))), 
-        Math.PI, 
-        anim.time.wrong)
-        .SetEase(Ease.Linear)
-        .SetId(anim.cubeAnimator);
+        // DOTween.To(() => 0.0f, 
+        // x => anim.screenRenderer.material.SetColor("_EmissionColor", Color.Lerp(defaultCubeColor, anim.color.invalid, (float)Math.Sin(x))), 
+        // Math.PI, 
+        // anim.time.wrong)
+        // .SetEase(Ease.Linear)
+        // .SetId(anim.cubeAnimator);
+        
+        // Won't be changed in update before tweens above end
+        animParams.screenRenderer.material.SetColor("_EmissionColor", animParams.color.invalid);
+        animParams.screenRenderer.material.SetTexture("_EmissionMap", animParams.textures.invalid);
     }
 
     void animOnScan()
     {
-        if (DOTween.IsTweening(anim.cubeAnimator))
+        if (DOTween.IsTweening(animParams.cubeAnimator))
             return;
 
-        DOTween.To(() => 0.0f, 
-        x => anim.cubeRenderer.material.SetColor("_EmissionColor", Color.Lerp(defaultCubeColor, anim.color.scanning, (float)Math.Sin(x))), 
-        Math.PI, 
-        anim.time.scanning)
-        .SetEase(Ease.Linear)
-        .SetId(anim.cubeAnimator);
+        // DOTween.To(() => 0.0f, 
+        // x => animParams.cubeRenderer.material.SetColor("_EmissionColor", Color.Lerp(currentScannerColor, animParams.color.scanning, (float)(Math.Sin(x) * Math.Min(x * 3.0f, 1.0f)))), 
+        // Math.PI, 
+        // animParams.time.scanning)
+        // .SetEase(Ease.Linear)
+        // .SetId(animParams.cubeAnimator);
 
-        DOTween.To(() => 0.0f,
-        x => anim.cubeAnimator.speed = 1.0f + (float)Math.Sin(x) * 6.0f, 
-        Math.PI, 
-        anim.time.scanning)
+        // DOTween.To(() => 0.0f,
+        // x => animParams.cubeAnimator.speed = 1.0f + (float)Math.Sin(x) * 6.0f, 
+        // Math.PI, 
+        // animParams.time.scanning)
+        // .SetEase(Ease.Linear)
+        // .SetId(animParams.cubeAnimator);
+
+         animParams.cubeRenderer.material.SetColor("_EmissionColor", animParams.color.scanning);
+
+        DOTween.To(() => 1.0f,
+        x => animParams.cubeAnimator.speed = Mathf.Lerp(animParams.minCubeSpeed, animParams.maxCubeSpeed, x), 
+        0.0f, 
+        animParams.time.scanning)
         .SetEase(Ease.Linear)
-        .SetId(anim.cubeAnimator);
+        .SetId(animParams.cubeAnimator);
+
         
+        // DOTween.To(() => 0.0f, 
+        // x => animParams.screenRenderer.material.SetColor("_EmissionColor", Color.Lerp(currentScannerColor, animParams.color.scanning, (float)(Math.Sin(x) * Math.Min(x * 3.0f, 1.0f)))), 
+        // Math.PI, 
+        // animParams.time.scanning)
+        // .SetEase(Ease.Linear)
+        // .SetId(animParams.cubeAnimator);
+        
+        animParams.screenRenderer.material.SetColor("_EmissionColor", animParams.color.scanning);
+
+        int frames = animParams.textures.scanning.Length;
         DOTween.To(() => 0.0f, 
-        x => anim.screenRenderer.material.SetColor("_EmissionColor", Color.Lerp(defaultCubeColor, anim.color.scanning, (float)Math.Sin(x))), 
-        Math.PI, 
-        anim.time.scanning)
+        x => animParams.screenRenderer.material.SetTexture("_EmissionMap", animParams.textures.scanning[(int)x % frames]),
+        animParams.time.scanning * 11.99f,
+        animParams.time.scanning)
         .SetEase(Ease.Linear)
-        .SetId(anim.cubeAnimator);
+        .SetId(animParams.cubeAnimator);
     }
     
     IEnumerator ScanCooldown(float time)
     {
         canScan = false;
+        isScanning = false;
+        scanningProgress = 0.0f;
         yield return new WaitForSeconds(time);
         canScan = true;
     }
