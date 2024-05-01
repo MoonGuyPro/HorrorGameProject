@@ -44,7 +44,7 @@ public class Oclusion : MonoBehaviour
                 if (hit.transform.gameObject.name != playerName)
                 {
                     var result = instance.setParameterByName("Occlusion", maxOcclusionFilterAmount);
-                    Debug.Log(result + "occluded");
+                    /Debug.Log(result + "occluded");
                 }
                 else
                 {
