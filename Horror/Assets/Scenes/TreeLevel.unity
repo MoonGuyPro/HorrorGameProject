@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -155,6 +155,22 @@ PrefabInstance:
       propertyPath: linkedPortal
       value: 
       objectReference: {fileID: 2132434906}
+    - target: {fileID: 6582303084592896096, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: portals.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6582303084592896096, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: portals.Array.data[0]
+      value: 
+      objectReference: {fileID: 246542477}
+    - target: {fileID: 6582303084592896096, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: isSeenByPortals.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6582303084592896096, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: isSeenByPortals.Array.data[0]
+      value: 
+      objectReference: {fileID: 246542477}
     - target: {fileID: 8236899894383661827, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -620,6 +636,22 @@ PrefabInstance:
       propertyPath: linkedPortal
       value: 
       objectReference: {fileID: 1478338624}
+    - target: {fileID: 6582303084592896096, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: portals.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6582303084592896096, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: portals.Array.data[0]
+      value: 
+      objectReference: {fileID: 6480154}
+    - target: {fileID: 6582303084592896096, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: isSeenByPortals.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6582303084592896096, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: isSeenByPortals.Array.data[0]
+      value: 
+      objectReference: {fileID: 6480154}
     - target: {fileID: 8236899894383661827, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_RootOrder
       value: -1

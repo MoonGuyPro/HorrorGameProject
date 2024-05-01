@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Serialization;
@@ -15,6 +16,8 @@ public class Portal : MonoBehaviour
     [Header("Advanced Settings")]
     public float nearClipOffset = 0.05f;
     public float nearClipLimit = 0.2f;
+    public List<Portal> isSeenByPortals;
+    [SerializeField] bool linkedPortalIsSeen;
 
     // Private variables
     RenderTexture viewTexture1;
@@ -22,6 +25,7 @@ public class Portal : MonoBehaviour
     RenderTexture depthTexture1;
     RenderTexture depthTexture2;
     Camera playerCam;
+    Camera renderCam;
     Camera portalCam;
     Camera noShaderCam;
     Camera normalCam;
@@ -37,6 +41,9 @@ public class Portal : MonoBehaviour
         trackedTravellers = new List<PortalTraveller>();
         screenMeshFilter = screen.GetComponent<MeshFilter>();
         screen.material.SetInt("displayMask", 1);
+        if(isSeenByPortals.Count == 0) {
+            isSeenByPortals = new List<Portal>();
+        } 
     }
 
     private void Start()
@@ -65,6 +72,7 @@ public class Portal : MonoBehaviour
             Debug.LogError("Render replacment not set correctly in camera " + gameObject.name);
             gameObject.SetActive(false);
         }
+        renderCam = Camera.main;
     }
 
     void LateUpdate()
@@ -122,19 +130,37 @@ public class Portal : MonoBehaviour
         // Skip rendering the view from this portal if player is not looking at the linked portal
         if (!CameraUtility.VisibleFromCamera(linkedPortal.screen, playerCam))
         {
-            return;
+            bool isSeenByPortal = false;
+            foreach(var p in linkedPortal.isSeenByPortals)
+            {
+                if(p.linkedPortalIsSeen && CameraUtility.VisibleFromCamera(linkedPortal.screen, p.noShaderCam)) {
+                    isSeenByPortal = true;
+                    renderCam = p.portalCam;
+                    break;
+                }
+            }
+            if (!isSeenByPortal)
+            {
+                linkedPortalIsSeen = false;
+                return;
+            }
         }
+        else {
+            renderCam = Camera.main; 
+        }
+
+        linkedPortalIsSeen = true;
 
         CreateViewTexture();
 
-        var localToWorldMatrix = playerCam.transform.localToWorldMatrix;
+        var localToWorldMatrix = renderCam.transform.localToWorldMatrix;
         var renderPositions = new Vector3[recursionLimit];
         var renderRotations = new Quaternion[recursionLimit];
 
         int startIndex = 0;
-        portalCam.projectionMatrix = playerCam.projectionMatrix;
-        normalCam.projectionMatrix = playerCam.projectionMatrix;
-        noShaderCam.projectionMatrix = playerCam.projectionMatrix;
+        portalCam.projectionMatrix = renderCam.projectionMatrix;
+        normalCam.projectionMatrix = renderCam.projectionMatrix;
+        noShaderCam.projectionMatrix = renderCam.projectionMatrix;
         for (int i = 0; i < recursionLimit; i++)
         {
             if (i > 0)
@@ -174,6 +200,7 @@ public class Portal : MonoBehaviour
             portalCam.Render();
             noShaderCam.Render();
 
+            //Debug.Log("Rendering view from this portal : "+this.name+" when looking at linked portal: "+linkedPortal.gameObject.name);
 
             if (i == startIndex)
             {
@@ -261,7 +288,7 @@ public class Portal : MonoBehaviour
         {
             UpdateSliceParams(traveller);
         }
-        ProtectScreenFromClipping(playerCam.transform.position);
+        ProtectScreenFromClipping(renderCam.transform.position);
     }
 
     void CreateViewTexture()
@@ -322,9 +349,9 @@ public class Portal : MonoBehaviour
     // Sets the thickness of the portal screen so as not to clip with camera near plane when player goes through
     float ProtectScreenFromClipping(Vector3 viewPoint)
     {
-        float halfHeight = playerCam.nearClipPlane * Mathf.Tan(playerCam.fieldOfView * 0.5f * Mathf.Deg2Rad);
-        float halfWidth = halfHeight * playerCam.aspect;
-        float dstToNearClipPlaneCorner = new Vector3(halfWidth, halfHeight, playerCam.nearClipPlane).magnitude;
+        float halfHeight = renderCam.nearClipPlane * Mathf.Tan(renderCam.fieldOfView * 0.5f * Mathf.Deg2Rad);
+        float halfWidth = halfHeight * renderCam.aspect;
+        float dstToNearClipPlaneCorner = new Vector3(halfWidth, halfHeight, renderCam.nearClipPlane).magnitude;
         float screenThickness = dstToNearClipPlaneCorner;
 
         Transform screenT = screen.transform;
@@ -350,12 +377,12 @@ public class Portal : MonoBehaviour
         float cloneSliceOffsetDst = 0;
         float screenThickness = screen.transform.localScale.z;
 
-        bool playerSameSideAsTraveller = SameSideOfPortal(playerCam.transform.position, traveller.transform.position);
+        bool playerSameSideAsTraveller = SameSideOfPortal(renderCam.transform.position, traveller.transform.position);
         if (!playerSameSideAsTraveller)
         {
             sliceOffsetDst = -screenThickness;
         }
-        bool playerSameSideAsCloneAppearing = side != linkedPortal.SideOfPortal(playerCam.transform.position);
+        bool playerSameSideAsCloneAppearing = side != linkedPortal.SideOfPortal(renderCam.transform.position);
         if (!playerSameSideAsCloneAppearing)
         {
             cloneSliceOffsetDst = -screenThickness;
@@ -395,13 +422,13 @@ public class Portal : MonoBehaviour
 
             // Update projection based on new clip plane
             // Calculate matrix with player cam so that player camera settings (fov, etc) are used
-            portalCam.projectionMatrix = playerCam.CalculateObliqueMatrix(clipPlaneCameraSpace);
+            portalCam.projectionMatrix = renderCam.CalculateObliqueMatrix(clipPlaneCameraSpace);
             normalCam.projectionMatrix = portalCam.projectionMatrix;
             noShaderCam.projectionMatrix = portalCam.projectionMatrix;
         }
         else
         {
-            portalCam.projectionMatrix = playerCam.projectionMatrix;
+            portalCam.projectionMatrix = renderCam.projectionMatrix;
             normalCam.projectionMatrix = portalCam.projectionMatrix;
             noShaderCam.projectionMatrix = portalCam.projectionMatrix;
         }
