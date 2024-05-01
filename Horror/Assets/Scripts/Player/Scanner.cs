@@ -6,6 +6,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.InputSystem;
 using FMODUnity;
+using UnityEngine.UI;
 
 public class Scanner : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class Scanner : MonoBehaviour
     class UIParams
     {
         public TextMeshProUGUI subtitles, popupName, popupDescription;
+        public Image popupPanel;
         public LineRenderer lineRenderer;
         public Transform lineStart;
     }
@@ -60,6 +62,7 @@ public class Scanner : MonoBehaviour
     [SerializeField] UIParams uiParams;
     [SerializeField] AnimParams animParams;
     [SerializeField] SoundParams soundParams;
+    private Color popupPanelColor;
     private bool isScannerEquipped = false;
     private bool canScan = true;
     private Transform lineEnd;
@@ -76,8 +79,11 @@ public class Scanner : MonoBehaviour
 
     void Start() 
     {
+        popupPanelColor = uiParams.popupPanel.color;
+
         uiParams.subtitles.color = Color.clear;
         uiParams.popupName.color = Color.clear;
+        uiParams.popupPanel.color = Color.clear;
         uiParams.popupDescription.color = Color.clear;
         uiParams.lineRenderer.material.color = Color.clear;
 
@@ -233,6 +239,7 @@ public class Scanner : MonoBehaviour
         uiParams.popupDescription.text = "";
         uiParams.popupName.color = Color.white;
         uiParams.popupDescription.color = Color.white;
+        uiParams.popupPanel.color = popupPanelColor;
         
         var nameCount = name.Length;
         var descriptionCount = description.Length;
@@ -281,6 +288,7 @@ public class Scanner : MonoBehaviour
         yield return new WaitForSeconds(fadeTime);
         uiParams.popupName.color = Color.clear;
         uiParams.popupDescription.color = Color.clear;
+        uiParams.popupPanel.color = Color.clear;
         uiParams.lineRenderer.enabled = false;
         bDisplaying = false;
     }
