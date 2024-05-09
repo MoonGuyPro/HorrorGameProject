@@ -1,10 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.Serialization;
-
 public class Portal : MonoBehaviour
 {
     [Header("Main Settings")]
@@ -17,6 +14,7 @@ public class Portal : MonoBehaviour
     public float nearClipOffset = 0.05f;
     public float nearClipLimit = 0.2f;
     public List<Portal> isSeenByPortals;
+    [SerializeField] List<JustCondition> otherConditions;
     [SerializeField] bool linkedPortalIsSeen;
 
     // Private variables
@@ -44,6 +42,10 @@ public class Portal : MonoBehaviour
         if(isSeenByPortals.Count == 0) {
             isSeenByPortals = new List<Portal>();
         } 
+        if(otherConditions.Count == 0) {
+            otherConditions = new List<JustCondition>();
+        }
+        renderCam = null;
     }
 
     private void Start()
@@ -126,29 +128,28 @@ public class Portal : MonoBehaviour
     // Called after PrePortalRender, and before PostPortalRender
     public void Render()
     {
-
         // Skip rendering the view from this portal if player is not looking at the linked portal
-        if (!CameraUtility.VisibleFromCamera(linkedPortal.screen, playerCam))
+        if (!CameraUtility.VisibleFromCamera(linkedPortal.screen, playerCam) 
+            || (linkedPortal.otherConditions.All(c => c.value) &&
+                linkedPortal.isSeenByPortals.Any(p => p.linkedPortalIsSeen &&
+                 CameraUtility.VisibleFromCamera(linkedPortal.screen, p.noShaderCam)))
+                 )
         {
-            bool isSeenByPortal = false;
-            foreach(var p in linkedPortal.isSeenByPortals)
-            {
-                if(p.linkedPortalIsSeen && CameraUtility.VisibleFromCamera(linkedPortal.screen, p.noShaderCam)) {
-                    isSeenByPortal = true;
-                    renderCam = p.portalCam;
-                    break;
-                }
-            }
-            if (!isSeenByPortal)
+            var portalLooking = linkedPortal.isSeenByPortals.FirstOrDefault(p => p.linkedPortalIsSeen &&
+                        CameraUtility.VisibleFromCamera(linkedPortal.screen, p.noShaderCam));
+
+            if (portalLooking == null)
             {
                 linkedPortalIsSeen = false;
                 return;
             }
+            renderCam = portalLooking.portalCam;
         }
-        else {
-            renderCam = Camera.main; 
+        else
+        {
+            renderCam = Camera.main;
+            Debug.Log("Hello from "+gameObject.name);
         }
-
         linkedPortalIsSeen = true;
 
         CreateViewTexture();
@@ -199,8 +200,6 @@ public class Portal : MonoBehaviour
             RenderColor();
             portalCam.Render();
             noShaderCam.Render();
-
-            //Debug.Log("Rendering view from this portal : "+this.name+" when looking at linked portal: "+linkedPortal.gameObject.name);
 
             if (i == startIndex)
             {
@@ -349,7 +348,8 @@ public class Portal : MonoBehaviour
     // Sets the thickness of the portal screen so as not to clip with camera near plane when player goes through
     float ProtectScreenFromClipping(Vector3 viewPoint)
     {
-        float halfHeight = renderCam.nearClipPlane * Mathf.Tan(renderCam.fieldOfView * 0.5f * Mathf.Deg2Rad);
+        float halfHeight = renderCam.nearClipPlane;
+        halfHeight *= Mathf.Tan(renderCam.fieldOfView * 0.5f * Mathf.Deg2Rad);
         float halfWidth = halfHeight * renderCam.aspect;
         float dstToNearClipPlaneCorner = new Vector3(halfWidth, halfHeight, renderCam.nearClipPlane).magnitude;
         float screenThickness = dstToNearClipPlaneCorner;
