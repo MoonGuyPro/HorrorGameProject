@@ -683,16 +683,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7146521406498821007, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -3856571041627856340, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -3856571041627856340, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3856571041627856340, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_DynamicOccludee
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -3856571041627856340, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
+    - target: {fileID: -2874765826992384646, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -1461304994638716399, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -1461304994638716399, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1461304994638716399, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_DynamicOccludee
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1461304994638716399, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
@@ -700,16 +724,32 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: -804731622281664130, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -804731622281664130, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -804731622281664130, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_DynamicOccludee
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -804731622281664130, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
+    - target: {fileID: -516098083770646512, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_Name
       value: cave_connection2 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -822,12 +862,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Name
       value: cave_with_tracks_floor_rocks2 (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -858,6 +906,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1955222010}
     m_Modifications:
+    - target: {fileID: 1414221383907092800, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: far clip plane
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414221383907092800, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_AllowMSAA
       value: 1
@@ -874,6 +930,14 @@ PrefabInstance:
       propertyPath: volumeTrigger
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3282411857537199256, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: far clip plane
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282411857537199256, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3325394280552842106, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_Name
       value: NewPortal (4)
@@ -882,6 +946,18 @@ PrefabInstance:
       propertyPath: linkedPortal
       value: 
       objectReference: {fileID: 2041550136}
+    - target: {fileID: 6582303084592896096, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: negativeConditions.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6582303084592896096, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: negativeConditions.Array.data[0]
+      value: 
+      objectReference: {fileID: 1435352276}
+    - target: {fileID: 6582303084592896096, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: negativeConditions.Array.data[1]
+      value: 
+      objectReference: {fileID: 442638034}
     - target: {fileID: 7560450736423485574, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_ReceiveShadows
       value: 0
@@ -1193,16 +1269,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7146521406498821007, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -3856571041627856340, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -3856571041627856340, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3856571041627856340, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_DynamicOccludee
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -3856571041627856340, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
+    - target: {fileID: -2874765826992384646, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -1461304994638716399, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -1461304994638716399, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1461304994638716399, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_DynamicOccludee
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1461304994638716399, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
@@ -1210,16 +1310,32 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: -804731622281664130, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -804731622281664130, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -804731622281664130, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_DynamicOccludee
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -804731622281664130, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
+    - target: {fileID: -516098083770646512, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_Name
       value: cave_connection2 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1365,6 +1481,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
       propertyPath: m_Name
       value: PP_Crate_Wooden_03 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
       propertyPath: m_RootOrder
@@ -1592,6 +1712,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1955222010}
     m_Modifications:
+    - target: {fileID: 1414221383907092800, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: far clip plane
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414221383907092800, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_AllowMSAA
       value: 1
@@ -1603,6 +1731,14 @@ PrefabInstance:
     - target: {fileID: 3196418830659105523, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: far clip plane
       value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282411857537199256, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: far clip plane
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282411857537199256, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3325394280552842106, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_Name
@@ -1698,6 +1834,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PP_Barrel_03
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: a589f20d43e64cb4f9c5af4d1626b382, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a589f20d43e64cb4f9c5af4d1626b382, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -1785,6 +1925,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
       propertyPath: m_Name
       value: PP_Crate_Wooden_03 (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
       propertyPath: m_RootOrder
@@ -2128,6 +2272,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1435352275}
+  - {fileID: 442638033}
   m_Father: {fileID: 0}
   m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2200,12 +2345,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
       propertyPath: m_Name
       value: pile_of_stones (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 126
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2513,12 +2666,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Name
       value: cave_with_tracks_floor_rocks2 (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2715,11 +2876,55 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 44981431839219779, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
       propertyPath: far clip plane
-      value: 300
+      value: 320
+      objectReference: {fileID: 0}
+    - target: {fileID: 44981431839219779, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 178646456065576845, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
+      propertyPath: m_Maskable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 178646456065576845, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 294319374332213628, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
+      propertyPath: m_Maskable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 294319374332213628, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 406784535961109171, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
+      propertyPath: m_Maskable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 406784535961109171, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3222809851561510840, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
       propertyPath: m_Name
       value: NewPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 4724756890307606239, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
+      propertyPath: m_Maskable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4724756890307606239, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5103880347975032481, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
+      propertyPath: m_Maskable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5103880347975032481, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6110616150076437359, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
       propertyPath: m_RootOrder
@@ -2765,9 +2970,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7159626431305171803, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
+      propertyPath: m_Maskable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7159626431305171803, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129946053877814606, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
+      propertyPath: m_Maskable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8129946053877814606, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9004606848948363009, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
+      propertyPath: m_Maskable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9004606848948363009, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9170975909963035205, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
       propertyPath: far clip plane
-      value: 300
+      value: 320
+      objectReference: {fileID: 0}
+    - target: {fileID: 9170975909963035205, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174892030405844448, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
+      propertyPath: m_Maskable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9174892030405844448, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2847,6 +3088,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 01374c5d3cd74cd45a1ab6b8306479b7, type: 3}
       propertyPath: m_Name
       value: cave_floor_no_tracks (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 01374c5d3cd74cd45a1ab6b8306479b7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2934,12 +3179,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Name
       value: cave_with_tracks_floor_rocks2 (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3024,6 +3277,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
       propertyPath: m_Name
       value: PP_Crate_Wooden_03 (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
       propertyPath: m_RootOrder
@@ -3409,16 +3666,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7146521406498821007, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -3856571041627856340, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -3856571041627856340, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3856571041627856340, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_DynamicOccludee
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -3856571041627856340, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
+    - target: {fileID: -2874765826992384646, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -1461304994638716399, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -1461304994638716399, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1461304994638716399, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_DynamicOccludee
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1461304994638716399, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
@@ -3426,16 +3707,32 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: -804731622281664130, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -804731622281664130, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -804731622281664130, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_DynamicOccludee
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -804731622281664130, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
+    - target: {fileID: -516098083770646512, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_Name
       value: cave_connection2 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4104,6 +4401,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 816c3e37a32a7f34fbefe884f50f54eb, type: 3}
       propertyPath: m_Name
       value: PP_Gemstone_13_Blue (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 816c3e37a32a7f34fbefe884f50f54eb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 816c3e37a32a7f34fbefe884f50f54eb, type: 3}
       propertyPath: m_RootOrder
@@ -5459,12 +5760,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Name
       value: cave_with_tracks_floor_rocks2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5627,16 +5936,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7146521406498821007, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -3856571041627856340, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -3856571041627856340, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3856571041627856340, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_DynamicOccludee
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -3856571041627856340, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
+    - target: {fileID: -2874765826992384646, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -1461304994638716399, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -1461304994638716399, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1461304994638716399, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_DynamicOccludee
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1461304994638716399, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
@@ -5644,16 +5977,32 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: -804731622281664130, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -804731622281664130, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -804731622281664130, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_DynamicOccludee
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -804731622281664130, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
+    - target: {fileID: -516098083770646512, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_Name
       value: cave_connection2 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5771,12 +6120,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Name
       value: cave_with_tracks_floor_rocks2 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6057,6 +6414,10 @@ PrefabInstance:
     - target: {fileID: 8307322894754887973, guid: 53168ceb81c92934d9d8edab7fef6d9e, type: 3}
       propertyPath: m_Name
       value: PP_Gemstone_07_Gold
+      objectReference: {fileID: 0}
+    - target: {fileID: 8307322894754887973, guid: 53168ceb81c92934d9d8edab7fef6d9e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 8307322894757079013, guid: 53168ceb81c92934d9d8edab7fef6d9e, type: 3}
       propertyPath: m_CastShadows
@@ -6438,6 +6799,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PP_Crate_Wooden_03 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -6654,6 +7019,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cave_floor_no_tracks
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 01374c5d3cd74cd45a1ab6b8306479b7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6679,7 +7048,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!65 &436403507
 BoxCollider:
@@ -6767,6 +7136,125 @@ Transform:
   m_Father: {fileID: 787848812}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 49.316, z: 0}
+--- !u!1 &442638032
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 442638033}
+  - component: {fileID: 442638037}
+  - component: {fileID: 442638036}
+  - component: {fileID: 442638035}
+  - component: {fileID: 442638034}
+  m_Layer: 0
+  m_Name: Cube (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &442638033
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442638032}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 29.2, y: 10.5, z: 35.5}
+  m_LocalScale: {x: 48.14, y: 8.36, z: 11.8}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 147699452}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &442638034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442638032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7cc11a2b63055c4bb3c2c1434891252, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: 0
+--- !u!65 &442638035
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442638032}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &442638036
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442638032}
+  m_Enabled: 0
+  m_CastShadows: 0
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &442638037
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442638032}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &445686933 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 816c3e37a32a7f34fbefe884f50f54eb, type: 3}
@@ -6961,6 +7449,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1955222010}
     m_Modifications:
+    - target: {fileID: 1414221383907092800, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: far clip plane
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414221383907092800, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_AllowMSAA
       value: 1
@@ -6993,6 +7489,14 @@ PrefabInstance:
       propertyPath: volumeTrigger
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3282411857537199256, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: far clip plane
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282411857537199256, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3325394280552842106, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_Name
       value: NewPortal (2)
@@ -7013,6 +7517,18 @@ PrefabInstance:
       propertyPath: linkedPortal
       value: 
       objectReference: {fileID: 1706280150}
+    - target: {fileID: 6582303084592896096, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: negativeConditions.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6582303084592896096, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: negativeConditions.Array.data[0]
+      value: 
+      objectReference: {fileID: 1435352276}
+    - target: {fileID: 6582303084592896096, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: negativeConditions.Array.data[1]
+      value: 
+      objectReference: {fileID: 442638034}
     - target: {fileID: 7560450736423485574, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_ReceiveShadows
       value: 0
@@ -7329,12 +7845,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
       propertyPath: m_Name
       value: pile_of_stones (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 126
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7976,12 +8500,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
       propertyPath: m_Name
       value: pile_of_stones (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 126
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9556,16 +10088,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7146521406498821007, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -3856571041627856340, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -3856571041627856340, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3856571041627856340, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_DynamicOccludee
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -3856571041627856340, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
+    - target: {fileID: -2874765826992384646, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -1461304994638716399, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -1461304994638716399, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1461304994638716399, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_DynamicOccludee
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1461304994638716399, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
@@ -9573,16 +10129,32 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: -804731622281664130, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -804731622281664130, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -804731622281664130, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_DynamicOccludee
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -804731622281664130, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
+    - target: {fileID: -516098083770646512, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_Name
       value: cave_connection2 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9706,6 +10278,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 01374c5d3cd74cd45a1ab6b8306479b7, type: 3}
       propertyPath: m_Name
       value: cave_floor_no_tracks (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 01374c5d3cd74cd45a1ab6b8306479b7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10992,6 +11568,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 3fb396fa24c454046b58bdf27a17e3b0, type: 3}
       propertyPath: m_Name
       value: PP_Gemstone_11_Red (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3fb396fa24c454046b58bdf27a17e3b0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3fb396fa24c454046b58bdf27a17e3b0, type: 3}
       propertyPath: m_RootOrder
@@ -12422,12 +13002,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
       propertyPath: m_Name
       value: pile_of_stones (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 126
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12507,6 +13095,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
       propertyPath: m_Name
       value: PP_Crate_Wooden_03 (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
       propertyPath: m_RootOrder
@@ -12733,12 +13325,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Name
       value: cave_with_tracks_floor_rocks2 (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12854,6 +13454,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
       propertyPath: m_Name
       value: PP_Crate_Wooden_03 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
       propertyPath: m_RootOrder
@@ -12995,6 +13599,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cave_floor_no_tracks (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 01374c5d3cd74cd45a1ab6b8306479b7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13058,6 +13666,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
       propertyPath: m_Name
       value: PP_Crate_Wooden_03 (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
       propertyPath: m_RootOrder
@@ -13199,16 +13811,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7146521406498821007, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -3856571041627856340, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -3856571041627856340, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3856571041627856340, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_DynamicOccludee
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -3856571041627856340, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
+    - target: {fileID: -2874765826992384646, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -1461304994638716399, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -1461304994638716399, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1461304994638716399, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_DynamicOccludee
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1461304994638716399, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
@@ -13216,16 +13852,32 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: -804731622281664130, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -804731622281664130, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -804731622281664130, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_DynamicOccludee
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -804731622281664130, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
+    - target: {fileID: -516098083770646512, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_Name
       value: cave_connection2 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14988,12 +15640,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Name
       value: cave_with_tracks_floor_rocks2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15275,12 +15935,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
       propertyPath: m_Name
       value: pile_of_stones (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 126
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15420,6 +16088,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1955222010}
     m_Modifications:
+    - target: {fileID: 1414221383907092800, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: far clip plane
+      value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414221383907092800, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_AllowMSAA
       value: 1
@@ -15447,6 +16123,14 @@ PrefabInstance:
     - target: {fileID: 3196418830659105524, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: volumeTrigger
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282411857537199256, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: far clip plane
+      value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282411857537199256, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3325394280552842106, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_Name
@@ -15614,12 +16298,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
       propertyPath: m_Name
       value: pile_of_stones (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 126
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15753,12 +16445,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
       propertyPath: m_Name
       value: pile_of_stones (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 126
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15896,12 +16596,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
       propertyPath: m_Name
       value: pile_of_stones (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 126
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15977,6 +16685,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 01374c5d3cd74cd45a1ab6b8306479b7, type: 3}
       propertyPath: m_Name
       value: cave_floor_no_tracks (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 01374c5d3cd74cd45a1ab6b8306479b7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16088,12 +16800,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Name
       value: cave_with_tracks_floor_rocks2 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16633,12 +17353,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Name
       value: cave_with_tracks_floor_rocks2 (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16786,6 +17514,10 @@ PrefabInstance:
     - target: {fileID: 373167418759784369, guid: 65364203934264348b2aa18aac81b750, type: 3}
       propertyPath: m_Name
       value: PP_Saw_Used_05_Iron
+      objectReference: {fileID: 0}
+    - target: {fileID: 373167418759784369, guid: 65364203934264348b2aa18aac81b750, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16995,12 +17727,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
       propertyPath: m_Name
       value: pile_of_stones (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 126
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17142,12 +17882,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Name
       value: cave_with_tracks_floor_rocks2 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17401,6 +18149,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PP_Lantern_02_Yellow_Light_Iron
       objectReference: {fileID: 0}
+    - target: {fileID: 7413659883413514334, guid: 9380f34c10f5fe34e863c769353585c0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17449,6 +18201,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 30396a8d74e0ac3468241d49ef28b3a5, type: 3}
       propertyPath: m_Name
       value: PP_Gemstone_07_Gold (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 30396a8d74e0ac3468241d49ef28b3a5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 30396a8d74e0ac3468241d49ef28b3a5, type: 3}
       propertyPath: m_RootOrder
@@ -17599,6 +18355,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 01374c5d3cd74cd45a1ab6b8306479b7, type: 3}
       propertyPath: m_Name
       value: cave_floor_no_tracks (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 01374c5d3cd74cd45a1ab6b8306479b7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17851,12 +18611,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
       propertyPath: m_Name
       value: pile_of_stones (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 126
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19204,6 +19972,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PP_Crate_Wooden_03 (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -19405,12 +20177,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
       propertyPath: m_Name
       value: pile_of_stones (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 126
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19514,7 +20294,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -19547,7 +20327,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -22038,12 +22818,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Name
       value: cave_with_tracks_floor_rocks2 (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22318,12 +23106,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
       propertyPath: m_Name
       value: pile_of_stones (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 126
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22475,12 +23271,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Name
       value: cave_with_tracks_floor_rocks2 (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22609,6 +23413,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
       propertyPath: m_Name
       value: PP_Crate_Wooden_03 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
       propertyPath: m_RootOrder
@@ -22818,6 +23626,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PP_Barrel_03 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: a589f20d43e64cb4f9c5af4d1626b382, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a589f20d43e64cb4f9c5af4d1626b382, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -22902,6 +23714,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1955222010}
     m_Modifications:
+    - target: {fileID: 1414221383907092800, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: far clip plane
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414221383907092800, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_AllowMSAA
       value: 1
@@ -22917,6 +23737,14 @@ PrefabInstance:
     - target: {fileID: 3196418830659105524, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: volumeTrigger
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282411857537199256, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: far clip plane
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282411857537199256, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3325394280552842106, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_Name
@@ -23527,12 +24355,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Name
       value: cave_with_tracks_floor_rocks2 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24994,12 +25830,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Name
       value: cave_with_tracks_floor_rocks2 (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25141,12 +25985,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Name
       value: cave_with_tracks_floor_rocks2 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25362,6 +26214,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PP_Gemstone_07_Copper (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 43f971c57f729de4d9f1dc7ea39d9253, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 43f971c57f729de4d9f1dc7ea39d9253, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -25497,12 +26353,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Name
       value: cave_with_tracks_floor_rocks2 (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25588,7 +26452,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!65 &1190341953
 BoxCollider:
@@ -25754,12 +26618,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Name
       value: cave_with_tracks_floor_rocks2 (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25836,6 +26708,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1955222010}
     m_Modifications:
+    - target: {fileID: 1414221383907092800, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: far clip plane
+      value: 330
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414221383907092800, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_AllowMSAA
       value: 1
@@ -25851,6 +26731,14 @@ PrefabInstance:
     - target: {fileID: 3196418830659105524, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: volumeTrigger
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282411857537199256, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: far clip plane
+      value: 330
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282411857537199256, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3325394280552842106, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_Name
@@ -25960,6 +26848,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
       propertyPath: m_Name
       value: PP_Crate_Wooden_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
       propertyPath: m_RootOrder
@@ -26110,12 +27002,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Name
       value: cave_with_tracks_floor_rocks2 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -26289,6 +27189,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PP_Gemstone_13_Blue
       objectReference: {fileID: 0}
+    - target: {fileID: 3761745242275073796, guid: 305a388b6539d3041a283b76508de030, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 3761745242275304228, guid: 305a388b6539d3041a283b76508de030, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -26354,6 +27258,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1955222010}
     m_Modifications:
+    - target: {fileID: 1414221383907092800, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: far clip plane
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414221383907092800, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_AllowMSAA
       value: 1
@@ -26381,6 +27293,14 @@ PrefabInstance:
     - target: {fileID: 3196418830659105524, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: volumeTrigger
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282411857537199256, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: far clip plane
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282411857537199256, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3325394280552842106, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_Name
@@ -26573,12 +27493,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
       propertyPath: m_Name
       value: pile_of_stones (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 126
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -26658,6 +27586,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
       propertyPath: m_Name
       value: PP_Crate_Wooden_03 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
       propertyPath: m_RootOrder
@@ -26796,7 +27728,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!65 &1248893587
 BoxCollider:
@@ -26895,6 +27827,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: a589f20d43e64cb4f9c5af4d1626b382, type: 3}
       propertyPath: m_Name
       value: PP_Barrel_03 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: a589f20d43e64cb4f9c5af4d1626b382, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: a589f20d43e64cb4f9c5af4d1626b382, type: 3}
       propertyPath: m_RootOrder
@@ -27036,16 +27972,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7146521406498821007, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -3856571041627856340, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -3856571041627856340, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3856571041627856340, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_DynamicOccludee
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -3856571041627856340, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
+    - target: {fileID: -2874765826992384646, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -1461304994638716399, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -1461304994638716399, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1461304994638716399, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_DynamicOccludee
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1461304994638716399, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
@@ -27053,16 +28013,32 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: -804731622281664130, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -804731622281664130, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -804731622281664130, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_DynamicOccludee
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -804731622281664130, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
+    - target: {fileID: -516098083770646512, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_Name
       value: cave_connection2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -27461,6 +28437,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cave_floor_no_tracks (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 01374c5d3cd74cd45a1ab6b8306479b7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27650,6 +28630,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PP_Paper_Roll_01
       objectReference: {fileID: 0}
+    - target: {fileID: 5156838890994186592, guid: 5e435f285f3d011488dbec2c20cb435d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 5156838890994607424, guid: 5e435f285f3d011488dbec2c20cb435d, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -27726,6 +28710,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
       propertyPath: m_Name
       value: PP_Crate_Wooden_03 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
       propertyPath: m_RootOrder
@@ -27899,6 +28887,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
       propertyPath: m_Name
       value: PP_Crate_Wooden_03 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
       propertyPath: m_RootOrder
@@ -29844,12 +30836,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
       propertyPath: m_Name
       value: pile_of_stones (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 126
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -31527,12 +32527,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Name
       value: cave_with_tracks_floor_rocks2 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -31754,16 +32762,40 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7146521406498821007, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -3856571041627856340, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -3856571041627856340, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3856571041627856340, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_DynamicOccludee
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -3856571041627856340, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
+    - target: {fileID: -2874765826992384646, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -1461304994638716399, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -1461304994638716399, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1461304994638716399, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_DynamicOccludee
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1461304994638716399, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
@@ -31771,16 +32803,32 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: -804731622281664130, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -804731622281664130, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -804731622281664130, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_DynamicOccludee
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -804731622281664130, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
+    - target: {fileID: -516098083770646512, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
       propertyPath: m_Name
       value: cave_connection2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fccaf8dd90ef7fe488477329ba7dc35d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -35511,12 +36559,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Name
       value: cave_with_tracks_floor_rocks2 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -35723,12 +36779,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
       propertyPath: m_Name
       value: pile_of_stones (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 126
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -37651,6 +38715,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1955222010}
     m_Modifications:
+    - target: {fileID: 1414221383907092800, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: far clip plane
+      value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414221383907092800, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_AllowMSAA
       value: 1
@@ -37667,6 +38739,14 @@ PrefabInstance:
       propertyPath: volumeTrigger
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3282411857537199256, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: far clip plane
+      value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282411857537199256, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3325394280552842106, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_Name
       value: NewPortal (13)
@@ -37675,6 +38755,18 @@ PrefabInstance:
       propertyPath: linkedPortal
       value: 
       objectReference: {fileID: 727709672}
+    - target: {fileID: 6582303084592896096, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: negativeConditions.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6582303084592896096, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: negativeConditions.Array.data[0]
+      value: 
+      objectReference: {fileID: 1435352276}
+    - target: {fileID: 6582303084592896096, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: negativeConditions.Array.data[1]
+      value: 
+      objectReference: {fileID: 442638034}
     - target: {fileID: 7560450736423485574, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_ReceiveShadows
       value: 0
@@ -37760,6 +38852,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1955222010}
     m_Modifications:
+    - target: {fileID: 1414221383907092800, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: far clip plane
+      value: 330
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414221383907092800, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_AllowMSAA
       value: 1
@@ -37776,6 +38876,14 @@ PrefabInstance:
       propertyPath: volumeTrigger
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3282411857537199256, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: far clip plane
+      value: 330
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282411857537199256, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3325394280552842106, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_Name
       value: NewPortal (11)
@@ -37784,6 +38892,18 @@ PrefabInstance:
       propertyPath: linkedPortal
       value: 
       objectReference: {fileID: 1205533882}
+    - target: {fileID: 6582303084592896096, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: negativeConditions.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6582303084592896096, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: negativeConditions.Array.data[0]
+      value: 
+      objectReference: {fileID: 1435352276}
+    - target: {fileID: 6582303084592896096, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: negativeConditions.Array.data[1]
+      value: 
+      objectReference: {fileID: 442638034}
     - target: {fileID: 7560450736423485574, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_ReceiveShadows
       value: 0
@@ -38116,6 +39236,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: simpleDesk (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 85635766d6d56ae4fa17fa42eb31c7d8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -38396,6 +39520,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PP_Hammer_Used_02_Iron
       objectReference: {fileID: 0}
+    - target: {fileID: 6202400697622085367, guid: a62552e7592e08b4e953f410ae86a1ca, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -38521,6 +39649,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1955222010}
     m_Modifications:
+    - target: {fileID: 1414221383907092800, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: far clip plane
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414221383907092800, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_AllowMSAA
       value: 1
@@ -38549,6 +39685,14 @@ PrefabInstance:
       propertyPath: volumeTrigger
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3282411857537199256, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: far clip plane
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282411857537199256, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3325394280552842106, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_Name
       value: NewPortal (3)
@@ -38569,6 +39713,18 @@ PrefabInstance:
       propertyPath: linkedPortal
       value: 
       objectReference: {fileID: 459459980}
+    - target: {fileID: 6582303084592896096, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: negativeConditions.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6582303084592896096, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: negativeConditions.Array.data[0]
+      value: 
+      objectReference: {fileID: 1435352276}
+    - target: {fileID: 6582303084592896096, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: negativeConditions.Array.data[1]
+      value: 
+      objectReference: {fileID: 442638034}
     - target: {fileID: 7560450736423485574, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_ReceiveShadows
       value: 0
@@ -38865,6 +40021,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PP_Gemstone_07_Copper
       objectReference: {fileID: 0}
+    - target: {fileID: 1068553519891591867, guid: 4bb5291a21fb70a42ba663daf3777d33, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1068553519891885723, guid: 4bb5291a21fb70a42ba663daf3777d33, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -38975,12 +40135,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
       propertyPath: m_Name
       value: pile_of_stones (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 126
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -39113,6 +40281,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cave_floor_no_tracks (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 01374c5d3cd74cd45a1ab6b8306479b7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -39190,6 +40362,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cave_floor_no_tracks (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 01374c5d3cd74cd45a1ab6b8306479b7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -39209,6 +40385,14 @@ PrefabInstance:
     - target: {fileID: 100000, guid: bbe5a9d802a37f740b65d9ab3b3956a2, type: 3}
       propertyPath: m_Name
       value: PP_Horse_Cart_Used_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: bbe5a9d802a37f740b65d9ab3b3956a2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: bbe5a9d802a37f740b65d9ab3b3956a2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bbe5a9d802a37f740b65d9ab3b3956a2, type: 3}
       propertyPath: m_RootOrder
@@ -39309,6 +40493,10 @@ PrefabInstance:
     - target: {fileID: 5662333279100532861, guid: d9449dcf4f9e2a64e84d9337dcb438eb, type: 3}
       propertyPath: m_Name
       value: PP_Gemstone_05_Green
+      objectReference: {fileID: 0}
+    - target: {fileID: 5662333279100532861, guid: d9449dcf4f9e2a64e84d9337dcb438eb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5662333279100953693, guid: d9449dcf4f9e2a64e84d9337dcb438eb, type: 3}
       propertyPath: m_RootOrder
@@ -39551,6 +40739,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1955222010}
     m_Modifications:
+    - target: {fileID: 1414221383907092800, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: far clip plane
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414221383907092800, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_AllowMSAA
       value: 1
@@ -39566,6 +40762,14 @@ PrefabInstance:
     - target: {fileID: 3196418830659105524, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: volumeTrigger
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282411857537199256, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: far clip plane
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282411857537199256, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3325394280552842106, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_Name
@@ -41645,6 +42849,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cave_floor_no_tracks (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 01374c5d3cd74cd45a1ab6b8306479b7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -41661,6 +42869,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1955222010}
     m_Modifications:
+    - target: {fileID: 1414221383907092800, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: far clip plane
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414221383907092800, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_AllowMSAA
       value: 1
@@ -41692,6 +42908,14 @@ PrefabInstance:
     - target: {fileID: 3196418830659105524, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: volumeTrigger
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282411857537199256, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: far clip plane
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282411857537199256, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3325394280552842106, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_Name
@@ -43146,12 +44370,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Name
       value: cave_with_tracks_floor_rocks2 (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -43348,12 +44580,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
       propertyPath: m_Name
       value: pile_of_stones (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 126
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -43491,12 +44731,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
       propertyPath: m_Name
       value: pile_of_stones
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 126
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -43781,12 +45029,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Name
       value: cave_with_tracks_floor_rocks2 (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -43957,12 +45213,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Name
       value: cave_with_tracks_floor_rocks2 (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -44138,12 +45402,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Name
       value: cave_with_tracks_floor_rocks2 (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -44174,7 +45446,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!114 &1889286768
 MonoBehaviour:
@@ -47223,6 +48495,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1955222010}
     m_Modifications:
+    - target: {fileID: 1414221383907092800, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: far clip plane
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414221383907092800, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_AllowMSAA
       value: 1
@@ -47242,6 +48522,14 @@ PrefabInstance:
     - target: {fileID: 3196418830659105524, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: volumeTrigger
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282411857537199256, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: far clip plane
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282411857537199256, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3325394280552842106, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_Name
@@ -47680,12 +48968,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
       propertyPath: m_Name
       value: pile_of_stones (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 126
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -47827,12 +49123,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Name
       value: cave_with_tracks_floor_rocks2 (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -48050,12 +49354,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Name
       value: cave_with_tracks_floor_rocks2 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -48273,12 +49585,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Name
       value: cave_with_tracks_floor_rocks2 (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -48411,6 +49731,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cave_floor_no_tracks (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 01374c5d3cd74cd45a1ab6b8306479b7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -48430,6 +49754,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 35682e219136f6b409228d552450a2b2, type: 3}
       propertyPath: m_Name
       value: PP_Pickaxe_Used_04_Iron
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 35682e219136f6b409228d552450a2b2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 35682e219136f6b409228d552450a2b2, type: 3}
       propertyPath: m_RootOrder
@@ -48519,6 +49847,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
       propertyPath: m_Name
       value: PP_Crate_Wooden_03 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
       propertyPath: m_RootOrder
@@ -48778,6 +50110,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PP_Crate_Wooden_03 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -48956,6 +50292,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1955222010}
     m_Modifications:
+    - target: {fileID: 1414221383907092800, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: far clip plane
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 1414221383907092800, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2454023014683240409, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_Depth
       value: 100
@@ -48979,6 +50323,14 @@ PrefabInstance:
     - target: {fileID: 3196418830659105524, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: volumeTrigger
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282411857537199256, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: far clip plane
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 3282411857537199256, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3325394280552842106, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_Name
@@ -49159,12 +50511,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
       propertyPath: m_Name
       value: pile_of_stones (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0c2bc6381aea58a4682b98c93340cba8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 126
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -49239,7 +50599,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh51186
+  m_Name: pb_Mesh31544
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -49294,9 +50654,9 @@ Mesh:
       format: 0
       dimension: 2
     - stream: 0
-      offset: 0
+      offset: 48
       format: 0
-      dimension: 0
+      dimension: 2
     - stream: 0
       offset: 0
       format: 0
@@ -49329,8 +50689,8 @@ Mesh:
       offset: 0
       format: 0
       dimension: 0
-    m_DataSize: 6576
-    _typelessdata: 000000bf000080be000000bf000080bf00000000000000000000000000000000000080bf000080bf0000803f0000803e000000bf000000bf0000003f000080bf00000000000000000000000000000000000080bf000080bf0000000000000000000000bf000080be0000003f000080bf00000000000000000000000000000000000080bf000080bf000000000000803e000000bf000000bf000000bf000080bf00000000000000000000000000000000000080bf000080bf0000803f00000000000000bf00000000000000bf000080bf00000000000000000000000000000000000080bf000080bf0000803f0000003f000000bf000000000000003f000080bf00000000000000000000000000000000000080bf000080bf000000000000003f0000003f000000bf0000003f0000803f000000000000000000000000000000000000803f000080bf0000803f000000000000003f000000bf000000bf0000803f000000000000000000000000000000000000803f000080bf00000000000000000000003f000080be000000bf0000803f000000000000000000000000000000000000803f000080bf000000000000803e0000003f000080be0000003f0000803f000000000000000000000000000000000000803f000080bf0000803f0000803e0000003f00000000000000bf0000803f53c651b553c651b455c651344430ee320000803f000080bf000000000000003f0600003ff2186433ee9dd43e0000803f53c6d1b553c6d1b456c6d134c83679330000803f000080bf0000803f0000003f000000bf0000803e000000bf000080bf1b9b6cb41b9b6cb3e56e4133bdca393d8cbc7fbf000080bf0000803f0000403f000000bf000000000000003f000080bf1b9b6cb41b9b6cb3e56e4133bdca393d8cbc7fbf000080bf000000000000003f010000bf0673283ed015c43e000080bf1b9becb41b9becb3fb4990336562c53de9ce7ebf000080bf000000000000403f000000bf0000003f000000bf000080bfc3c2be33bdf610b3c51e2233bdca393d8cbc7fbf000080bf0000803f0000803f010000bf0673283ed015c43e000080bfc3c2be33bdf610b3c51e2233bdca393d8cbc7fbf000080bf000000000000403f000000bf0000003f0000003f000080bfc3c23e34000000000000000000000000000080bf000080bf000000000000803f000000bf0000803e000000bf000080bf00000000bdf690b3fa4990336562c53de9ce7ebf000080bf0000803f0000403f0000003f0000803e000000bf0000803f0500403556c651b455c651348edfa4320000803f000080bf000000000000403f0000003fffff7f3e5a48133f0000803f0500c035158db2280000001d6c116eb20000803f000080bf0000803f0000403f0000003f0000003f000000bf0000803f00000000000000000000000069b5f6b10000803f000080bf000000000000803f0000003f0000003f0000003f0000803f000000000000000000000000000000000000803f000080bf0000803f0000803f000000000000003f000000bf000000000000803f00000000000080bf0000000000000000000080bf0000003f0000803f000080be0000003f000000bf000000000000803f00000000000080bf0000000000000000000080bf0000403f0000803f000080be0000003f0000003f000000000000803f00000000000080bf0000000000000000000080bf0000403f00000000000000000000003f0000003f000000000000803f00000000000080bf0000000000000000000080bf0000003f00000000000000bf0000003f000000bf000000000000803f00000000000080bf0000000000000000000080bf0000803f0000803f000000bf0000003f0000003f000000000000803f00000000000080bf0000000000000000000080bf0000803f00000000020080bea72a1ebffeffff3ede426fb4ac3d7ebfbaacefbd000080bffeff7f34000000b4000080bf0000403f0000803f00000000000000bf000000bfde426fb4ac3d7ebfbaacefbd000080bffeff7f34000000b4000080bf0000003f000000008009c9b2a92a1ebf0000003fde42efb4ac3d7ebfc1acefbd000080bffeffff34feff7fb4000080bf0000003f0000803f000080be000000bf000000bf00000000ad3d7ebfb3acefbd000080bf0000000000000000000080bf0000403f00000000000000bf000000bf0000003f8c1159be662173bf8c1159bd97d979bfc11a5f3ec3aa28ba000080bf0000803f0000803f000080be000000bf000000bf8c1159be662173bf8c1159bd97d979bfc11a5f3ec3aa28ba000080bf0000403f00000000020080bea72a1ebffeffff3e8c11d9becb4266bf8c11d9bdb69067bf554cda3e0b5b6834000080bf0000403f0000803f000000bf000000bf000000bf00000000000080bf00000000000080bf0000000000000000000080bf0000803f00000000000000bf000000bf0000003f84955e3d5076d53c6e557f3f5af877bfd6fb793e900a3e3d000080bf0000803f00000000020080bea72a1ebffeffff3ef23bc93c5076553d24937f3fb69067bf554cda3ed2636434000080bf0000403f00000000a54990bef8ff7fbec891f63e84955e3d5076d53c6e557f3f5af877bfd6fb793e900a3e3d000080bf0000403f0000803e000000bf000080be0000003f8746ac3d00000000b9177f3fb9177fbf822412b58746ac3d000080bf0000803f0000803e020080bea72a1ebffeffff3e76a53f3d1309d73da7bb7d3f978c79bf2143633ee65eb83c000080bf0000403f000000008009c9b2a92a1ebf0000003fc3202fb4cbc81b3e2a057d3f000080bffeffff34feff7fb4000080bf0000003f0000000057f4a2b45f6bbebe659eec3e76a53f3d1309d73da7bb7d3f978c79bf2143633ee65eb83c000080bf0000003f0000803ea54990bef8ff7fbec891f63e8ca5bf3d21016d3d24727e3fc57c6abf78e1ca3ee15e813d000080bf0000403f0000803e000000bf000080be0000003f60df853dc13d86bca1567f3fb6737fbf7cac9033a0ee853d000080bf0000803f0000803ea54990bef8ff7fbec891f63ed82eac3dc13d06bda4f47e3fb9177fbf822412b58746ac3d000080bf0000403f0000803eaf4990bedb1864331dc8fa3e60df853dc13d86bca1567f3fb6737fbf7cac9033a0ee853d000080bf0000403f0000003f000000bf000000000000003fcf1f3f3d000000009eb87f3f9eb87fbfe18882b4cf1f3f3d000080bf0000803f0000003fa54990bef8ff7fbec891f63ea5ac14beaf3a36bee4a6753f80696abffb13cb3eb31885bd000080bf0000403f0000803e57f4a2b45f6bbebe659eec3ec1aa99bdcdc8a5be0b72713fc57c6abf78e1ca3ede5e813d000080bf0000003f0000803e1d1f2eb583adf9bd17480c3fa5ac14beaf3a36bee4a6753f80696abffb13cb3eb31885bd000080bf0000003f0000003faf4990bedb1864331dc8fa3ee9835cbe108f03bdbedb793fd7d966bf07bcc73e1c983ebe000080bf0000403f0000003f000080be000080be000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000403f0000403f000000bf000000bf000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000803f0000803f000000bf000080be000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000803f0000403f000080be000000bf000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000403f0000803f00000000000080be000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000003f0000403f00000000000000bf000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000003f0000803f000080be00000000000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000403f0000003f000000bf00000000000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000803f0000003f0000000000000000000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000003f0000003f010000bf0673283ed015c43e1b87f9bdc849133f8e0c4f3fc9247dbf00000000278a18be000080bf0000803f0000403f000000bf000000000000003fbc2321bd589af43e66c95d3f0db27fbf312ab73bcd6646bd000080bf0000803f0000003f060080be0673283e285ed73ebc2321bd589af43e66c95d3f0db27fbf312ab73bcd6646bd000080bf0000403f0000403faf4990bedb1864331dc8fa3ebdc6303d1fa1c23e3e866c3f9eb87fbf824b83b4ce1f3f3d000080bf0000403f0000003f060080be0673283e285ed73ea3620bbe82ffcf3e4250673fc9247dbf83ffcfb12f8a18be000080bf0000403f0000403faf4990bedb1864331dc8fa3efe91d0bd6050b43ed1876d3fd56775bf28085c3efe413fbe000080bf0000403f0000003f00f293b40673283e81a6ea3efe91d0bd6050b43ed1876d3fd56775bf28085c3efe413fbe000080bf0000003f0000403f1d1f2eb583adf9bd17480c3fb65e8abd3fa1983e60bf733fd7d966bf07bcc73e1d983ebe000080bf0000003f0000003f010000bf0673283ed015c43e113410bee6f0a6be384f6f3fc9247dbf00000000278a18be000080bf0000803f0000403f060080be0673283e285ed73e113490bd36668ebea537743fa54d7fbfa895d3b982fd96bd000080bf0000403f0000403f000000bf0000003f0000003f113490bd36668ebea537743fa54d7fbfa895d3b982fd96bd000080bf0000803f0000803f000080be0000003f0000003f000000000eb76bbe1220793f000080bf0000000000000000000080bf0000403f0000803f060080be0673283e285ed73edf8714bedf3869be9a7d763fc9247dbfe03869312f8a18be000080bf0000403f0000403f00f293b40673283e81a6ea3edf8794bdb6c233be9a447a3f3b4c7fbf58b04db9889697bd000080bf0000003f0000403f000080be0000003f0000003fdf8794bdb6c233be9a447a3f3b4c7fbf58b04db9889697bd000080bf0000403f0000803f000000000000003f0000003f000000001a99fcbd9b0b7e3f000080bf0000000000000000000080bf0000003f0000803f000080be0000803e000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000403f0000803e000000bf0000803e000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000803f0000803e000000000000803e000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000003f0000803e000080be0000003f000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000403f00000000000000bf0000003f000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000803f00000000000000000000003f000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000003f000000000000003f0000003f000000bf000000000000803f00000000000080bf0000000000000000000080bf000000000000803f0000803e0000003f000000bf000000000000803f00000000000080bf0000000000000000000080bf0000803e0000803f0000803e0000003f0000003f000000000000803f00000000000080bf0000000000000000000080bf0000803e000000000000003f0000003f0000003f000000000000803f00000000000080bf0000000000000000000080bf00000000000000000000803e000000bf0000003f00000000000080bf00000000000080bf0000000000000000000080bf0000803e0000803f0000003f000000bf000000bf00000000000080bf00000000000080bf0000000000000000000080bf00000000000000000000003f000000bf0000003f00000000000080bf00000000000080bf0000000000000000000080bf000000000000803f0000803e000000bf000000bf00000000000080bf00000000000080bf0000000000000000000080bf0000803e000000008009c9b2a92a1ebf0000003f5d4c5a3e30e772bfc1ac6fbd70c579bfa58260be0e31243a000080bf0000003f0000803f0000803e000000bf000000bf5d4c5a3e30e772bfc1ac6fbd70c579bfa58260be0e31243a000080bf0000803e000000000000803e000000bf0000003f5d4cda3eb59067bf00000000b59067bf5d4cdabe00000000000080bf0000803e0000803f57f4a2b45f6bbebe659eec3e64b5fe3b97c71b3e35037d3f4e7665bf87cbdfbe5d3a983d000080bf0000003f0000803e8009c9b2a92a1ebf0000003fd9114bbdee09423e616a7a3f92ae66bf4727ddbe77a91b3d000080bf0000003f000000000000803efcff7fbe0e01e23ed9114bbdee09423e616a7a3f92ae66bf4727ddbe77a91b3d000080bf0000803e0000803e0000803e000000bf0000003f2ffddabd464c683e8dd1773fb59067bf5d4cdabe00000000000080bf0000803e000000000000803e000000bf0000003fa2c8e3bda2c8e33d5a80793f17597ebf89d1b0398e49e8bd000080bf0000803e000000000000003f000000bf0000003f00000000000000000000803f000080bf0000000000000000000080bf00000000000000000000003f000080be0000003fa2c8e3bda2c8e33d5a80793f17597ebf89d1b0398e49e8bd000080bf000000000000803e0000803efcff7fbe0e01e23ea2c863bea2c8633eb300733f613f79bf84ce7c3433a369be000080bf0000803e0000803e57f4a2b45f6bbebe659eec3e41f06b3e97c7a1be059d6b3f4e7665bf87cbdfbe5b3a983d000080bf0000003f0000803e0000803efcff7fbe0e01e23edcb8873efc1f82bee2696d3fe0f563bf486adebe4fbb0a3e000080bf0000803e0000803e1d1f2eb583adf9bd17480c3fdcb8873efc1f82bee2696d3fe0f563bf486adebe4fbb0a3e000080bf0000003f0000003f0800803eeb1864335f59fc3e9779993ec3f044bebf366f3f2bb661bffe22dcbece01473e000080bf0000803e0000003f0000003f000080be0000003f4cedee3c244e643dca7f6e3fdbdf7fbfcbd2d1b9c743003d000080bf000000000000803e0800803eeb1864335f59fc3e4cedee3c244e643dca7f6e3fdbdf7fbfcbd2d1b9c743003d000080bf0000803e0000003f0000803efcff7fbe0e01e23e4d1565be543349be9163743f613f79bf613f793434a369be000080bf0000803e0000803e0600003ff2186433ee9dd43e5068903e33ad9d3e049c683ff97d74bf00000000cfc8973e000080bf000000000000003f0000803e000080be000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000803e0000403f0000803e000000bf000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000803e0000803f0000003f000080be000000bf0000000000000000000080bf000080bf0000000000000000000080bf000000000000403f0000003f000000bf000000bf0000000000000000000080bf000080bf0000000000000000000080bf000000000000803f0000803e00000000000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000803e0000003f0000003f00000000000000bf0000000000000000000080bf000080bf0000000000000000000080bf000000000000003f1d1f2eb583adf9bd17480c3f0920843d22a9983e00cc733f2bb661bffe22dcbed001473e000080bf0000003f0000003f0800803eeb1864335f59fc3e162493bd2661be3d2144763fd2a472bf8de9a1bee8c824bd000080bf0000803e0000003f00f293b40673283e81a6ea3e162493bd2661be3d2144763fd2a472bf8de9a1bee8c824bd000080bf0000003f0000403ff7ff7f3e8239543ecd4d043f1b3455be3be2e5bd42bc783f21e175bfca2d28be432f66be000080bf0000803e0000403f0800803eeb1864335f59fc3e70de963ee698e0bd7504733ff97d74bf3a976031cec8973e000080bf0000803e0000003f0600003ff2186433ee9dd43e00e6c23d5c5aa5be62b8643f5b267ebfac9dc6bdeac5903d000080bf000000000000003ff7ff7f3e8239543ecd4d043f00e6c23d5c5aa5be62b8643f5b267ebfac9dc6bdeac5903d000080bf0000803e0000403f0000003fffff7f3e5a48133fc0add5bd3f4709bf4f6c563f21e175bfce2d28be492f66be000080bf000000000000403ff7ff7f3e8239543ecd4d043f2991d3bd42ba01bd4a127c3f0f9c7dbfa5e6adbd9f73dabd000080bf0000803e0000403f000000000000003f0000003f2991d3bd42ba01bd4a127c3f0f9c7dbfa5e6adbd9f73dabd000080bf0000003f0000803f00f293b40673283e81a6ea3e299153bec925f7bd6290783f21e175bfc82d28be412f66be000080bf0000003f0000403f0000803e0000003f0000003f000000000dd76a3d32947f3f000080bf0000000000000000000080bf0000803e0000803f0000803e0000003f0000003f943af2bd7d39303e84b8763fe4a57dbfeffda9bdceacdabd000080bf0000803e0000803ff7ff7f3e8239543ecd4d043f943a72beeb2c643d4653783f21e175bfd12d28be492f66be000080bf0000803e0000403f0000003fffff7f3e5a48133f943af2bd7d39303e84b8763fe4a57dbfeffda9bdceacdabd000080bf000000000000403f0000003f0000003f0000003f00000000e0b3933ec31d753f000080bf0000000000000000000080bf000000000000803f0000803e0000803e000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000803e0000803e0000003f0000803e000000bf0000000000000000000080bf000080bf0000000000000000000080bf000000000000803e0000803e0000003f000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000803e000000000000003f0000003f000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000000000000000
+    m_DataSize: 7672
+    _typelessdata: 000000bf000080be000000bf000080bf00000000000000000000000000000000000080bf000080bf0000803f0000803e305fb83e9b61dd3e000000bf000000bf0000003f000080bf00000000000000000000000000000000000080bf000080bf00000000000000005c102a3f3971b63e000000bf000080be0000003f000080bf00000000000000000000000000000000000080bf000080bf000000000000803e58102a3f9b61dd3e000000bf000000bf000000bf000080bf00000000000000000000000000000000000080bf000080bf0000803f00000000395fb83e3971b63e000000bf00000000000000bf000080bf00000000000000000000000000000000000080bf000080bf0000803f0000003f285fb83eff28023f000000bf000000000000003f000080bf00000000000000000000000000000000000080bf000080bf000000000000003f54102a3fff28023f0000003f000000bf0000003f0000803f000000000000000000000000000000000000803f000080bf0000803f000000004c71d53e0ed7a33c0000003f000000bf000000bf0000803f000000000000000000000000000000000000803f000080bf00000000000000006999383f0bd7a33c0000003f000080be000000bf0000803f000000000000000000000000000000000000803f000080bf000000000000803e6999383f41b7c43d0000003f000080be0000003f0000803f000000000000000000000000000000000000803f000080bf0000803f0000803e4d71d53e41b7c43d0000003f00000000000000bf0000803f53c651b553c651b455c651344430ee320000803f000080bf000000000000003f6a99383f5f3c303e0600003ff2186433ee9dd43e0000803f53c6d1b553c6d1b456c6d134c83679330000803f000080bf0000803f0000003fe5a3e23e653c303e000000bf0000803e000000bf000080bf1b9b6cb41b9b6cb3e56e4133bdca393d8cbc7fbf000080bf0000803f0000403f205fb83e30a1153f000000bf000000000000003f000080bf1b9b6cb41b9b6cb3e56e4133bdca393d8cbc7fbf000080bf000000000000003f54102a3fff28023f010000bf0673283ed015c43e000080bf1b9becb41b9becb3fb4990336562c53de9ce7ebf000080bf000000000000403f4cf3203f9ef80e3f000000bf0000003f000000bf000080bfc3c2be33bdf610b3c51e2233bdca393d8cbc7fbf000080bf0000803f0000803f205fb83e6019293f010000bf0673283ed015c43e000080bfc3c2be33bdf610b3c51e2233bdca393d8cbc7fbf000080bf000000000000403f4cf3203f9ef80e3f000000bf0000003f0000003f000080bfc3c23e34000000000000000000000000000080bf000080bf000000000000803f52102a3f5f19293f000000bf0000803e000000bf000080bf00000000bdf690b3fa4990336562c53de9ce7ebf000080bf0000803f0000403f205fb83e30a1153f0000003f0000803e000000bf0000803f0500403556c651b455c651348edfa4320000803f000080bf000000000000403f6a99383f1e1d7e3e0000003fffff7f3e5a48133f0000803f0500c035158db2280000001d6c116eb20000803f000080bf0000803f0000403fecb5c93e271d7e3e0000003f0000003f000000bf0000803f00000000000000000000000069b5f6b10000803f000080bf000000000000803f6b99383ff0fea53e0000003f0000003f0000003f0000803f000000000000000000000000000000000000803f000080bf0000803f0000803f4f71d53ef5fea53e000000000000003f000000bf000000000000803f00000000000080bf0000000000000000000080bf0000003f0000803f12d8a33c0535563f000080be0000003f000000bf000000000000803f00000000000080bf0000000000000000000080bf0000403f0000803f95d8a33cd4bc423f000080be0000003f0000003f000000000000803f00000000000080bf0000000000000000000080bf0000403f0000000009ffa53ed4bc423f000000000000003f0000003f000000000000803f00000000000080bf0000000000000000000080bf0000003f0000000001ffa53e0535563f000000bf0000003f000000bf000000000000803f00000000000080bf0000000000000000000080bf0000803f0000803f18d9a33ca3442f3f000000bf0000003f0000003f000000000000803f00000000000080bf0000000000000000000080bf0000803f0000000011ffa53ea3442f3f020080bea72a1ebffeffff3ede426fb4ac3d7ebfbaacefbd000080bffeff7f34000000b4000080bf0000403f0000803fb6efd43db6252a3f00000000000000bf000000bfde426fb4ac3d7ebfbaacefbd000080bffeff7f34000000b4000080bf0000003f00000000e75b383e6b76b73e8009c9b2a92a1ebf0000003fde42efb4ac3d7ebfc1acefbd000080bffeffff34feff7fb4000080bf0000003f0000803f9b58383eea252a3f000080be000000bf000000bf00000000ad3d7ebfb3acefbd000080bf0000000000000000000080bf0000403f0000000046f6d43d0376b73e000000bf000000bf0000003f8c1159be662173bf8c1159bd97d979bfc11a5f3ec3aa28ba000080bf0000803f0000803f0bd7a33c8d12293f000080be000000bf000000bf8c1159be662173bf8c1159bd97d979bfc11a5f3ec3aa28ba000080bf0000403f0000000046f6d43d0376b73e020080bea72a1ebffeffff3e8c11d9becb4266bf8c11d9bdb69067bf554cda3e0b5b6834000080bf0000403f0000803fb6efd43db6252a3f000000bf000000bf000000bf00000000000080bf00000000000080bf0000000000000000000080bf0000803f00000000b709e53c3971b63e000000bf000000bf0000003f84955e3d5076d53c6e557f3f5af877bfd6fb793e900a3e3d000080bf0000803f00000000db06ad3e1472d03c020080bea72a1ebffeffff3ef23bc93c5076553d24937f3fb69067bf554cda3ed2636434000080bf0000403f00000000a501bf3e086fcd3da54990bef8ff7fbec891f63e84955e3d5076d53c6e557f3f5af877bfd6fb793e900a3e3d000080bf0000403f0000803eb516863eb0feb93d000000bf000080be0000003f8746ac3d00000000b9177f3fb9177fbf822412b58746ac3d000080bf0000803f0000803e0cac863ef63eca3c020080bea72a1ebffeffff3e76a53f3d1309d73da7bb7d3f978c79bf2143633ee65eb83c000080bf0000403f00000000a501bf3e086fcd3d8009c9b2a92a1ebf0000003fc3202fb4cbc81b3e2a057d3f000080bffeffff34feff7fb4000080bf0000003f000000007c78bf3e5958333e57f4a2b45f6bbebe659eec3e76a53f3d1309d73da7bb7d3f978c79bf2143633ee65eb83c000080bf0000003f0000803eea1c993edc7d343ea54990bef8ff7fbec891f63e8ca5bf3d21016d3d24727e3fc57c6abf78e1ca3ee15e813d000080bf0000403f0000803eb516863eb0feb93d000000bf000080be0000003f60df853dc13d86bca1567f3fb6737fbf7cac9033a0ee853d000080bf0000803f0000803e0cac863ef63eca3ca54990bef8ff7fbec891f63ed82eac3dc13d06bda4f47e3fb9177fbf822412b58746ac3d000080bf0000403f0000803eb516863eb0feb93daf4990bedb1864331dc8fa3e60df853dc13d86bca1567f3fb6737fbf7cac9033a0ee853d000080bf0000403f0000003f08493d3ee5dbb63d000000bf000000000000003fcf1f3f3d000000009eb87f3f9eb87fbfe18882b4cf1f3f3d000080bf0000803f0000003fe840403ec9dcb83ca54990bef8ff7fbec891f63ea5ac14beaf3a36bee4a6753f80696abffb13cb3eb31885bd000080bf0000403f0000803eb516863eb0feb93d57f4a2b45f6bbebe659eec3ec1aa99bdcdc8a5be0b72713fc57c6abf78e1ca3ede5e813d000080bf0000003f0000803eea1c993edc7d343e1d1f2eb583adf9bd17480c3fa5ac14beaf3a36bee4a6753f80696abffb13cb3eb31885bd000080bf0000003f0000003fb659623ee7a0333eaf4990bedb1864331dc8fa3ee9835cbe108f03bdbedb793fd7d966bf07bcc73e1c983ebe000080bf0000403f0000003f08493d3ee5dbb63d000080be000080be000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000403f0000403f814fdf3e4ab0413f000000bf000000bf000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000803f0000803f205fb83e19382e3f000000bf000080be000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000803f0000403f804fdf3e18382e3f000080be000000bf000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000403f0000803f215fb83e4bb0413f00000000000080be000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000003f0000403f824fdf3e7b28553f00000000000000bf000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000003f0000803f225fb83e7a28553f000080be00000000000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000403f0000003ff11f033f4ab0413f000000bf00000000000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000803f0000003ff01f033f19382e3f0000000000000000000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000003f0000003ff11f033f7b28553f010000bf0673283ed015c43e1b87f9bdc849133f8e0c4f3fc9247dbf00000000278a18be000080bf0000803f0000403f28c8013e0bd7a33c000000bf000000000000003fbc2321bd589af43e66c95d3f0db27fbf312ab73bcd6646bd000080bf0000803f0000003fe840403ec9dcb83c060080be0673283e285ed73ebc2321bd589af43e66c95d3f0db27fbf312ab73bcd6646bd000080bf0000403f0000403f679d043e7d57c73daf4990bedb1864331dc8fa3ebdc6303d1fa1c23e3e866c3f9eb87fbf824b83b4ce1f3f3d000080bf0000403f0000003f08493d3ee5dbb63d060080be0673283e285ed73ea3620bbe82ffcf3e4250673fc9247dbf83ffcfb12f8a18be000080bf0000403f0000403f679d043e7d57c73daf4990bedb1864331dc8fa3efe91d0bd6050b43ed1876d3fd56775bf28085c3efe413fbe000080bf0000403f0000003f08493d3ee5dbb63d00f293b40673283e81a6ea3efe91d0bd6050b43ed1876d3fd56775bf28085c3efe413fbe000080bf0000003f0000403fc42a063e94bf333e1d1f2eb583adf9bd17480c3fb65e8abd3fa1983e60bf733fd7d966bf07bcc73e1d983ebe000080bf0000003f0000003fb659623ee7a0333e010000bf0673283ed015c43e113410bee6f0a6be384f6f3fc9247dbf00000000278a18be000080bf0000803f0000403f28c8013e0bd7a33c060080be0673283e285ed73e113490bd36668ebea537743fa54d7fbfa895d3b982fd96bd000080bf0000403f0000403f679d043e7d57c73d000000bf0000003f0000003f113490bd36668ebea537743fa54d7fbfa895d3b982fd96bd000080bf0000803f0000803f0bd7a33cda28e43c000080be0000003f0000003f000000000eb76bbe1220793f000080bf0000000000000000000080bf0000403f0000803f5ed8c93ca1f3d23d060080be0673283e285ed73edf8714bedf3869be9a7d763fc9247dbfe03869312f8a18be000080bf0000403f0000403f679d043e7d57c73d00f293b40673283e81a6ea3edf8794bdb6c233be9a447a3f3b4c7fbf58b04db9889697bd000080bf0000003f0000403fc42a063e94bf333e000080be0000003f0000003fdf8794bdb6c233be9a447a3f3b4c7fbf58b04db9889697bd000080bf0000403f0000803f5ed8c93ca1f3d23d000000000000003f0000003f000000001a99fcbd9b0b7e3f000080bf0000000000000000000080bf0000003f0000803f8f69e03cac8a363e000080be0000803e000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000403f0000803e2198163f4ab0413f000000bf0000803e000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000803f0000803e2198163f19382e3f000000000000803e000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000003f0000803e2198163f7b28553f000080be0000003f000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000403f0000000050102a3f49b0413f000000bf0000003f000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000803f000000004f102a3f19382e3f000000000000003f000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000003f0000000050102a3f7b28553f0000003f0000003f000000bf000000000000803f00000000000080bf0000000000000000000080bf000000000000803f0bd7a33c67257d3f0000803e0000003f000000bf000000000000803f00000000000080bf0000000000000000000080bf0000803e0000803f8ed7a33c36ad693f0000803e0000003f0000003f000000000000803f00000000000080bf0000000000000000000080bf0000803e00000000f9fea53e36ad693f0000003f0000003f0000003f000000000000803f00000000000080bf0000000000000000000080bf0000000000000000f0fea53e67257d3f0000803e000000bf0000003f00000000000080bf00000000000080bf0000000000000000000080bf0000803e0000803fbf34873e4f95293f0000003f000000bf000000bf00000000000080bf00000000000080bf0000000000000000000080bf0000000000000000460baa3e3971b63e0000003f000000bf0000003f00000000000080bf00000000000080bf0000000000000000000080bf000000000000803faf21ae3e8212293f0000803e000000bf000000bf00000000000080bf00000000000080bf0000000000000000000080bf0000803e00000000551e833ed476b73e8009c9b2a92a1ebf0000003f5d4c5a3e30e772bfc1ac6fbd70c579bfa58260be0e31243a000080bf0000003f0000803f9b58383eea252a3f0000803e000000bf000000bf5d4c5a3e30e772bfc1ac6fbd70c579bfa58260be0e31243a000080bf0000803e00000000551e833ed476b73e0000803e000000bf0000003f5d4cda3eb59067bf00000000b59067bf5d4cdabe00000000000080bf0000803e0000803fbf34873e4f95293f57f4a2b45f6bbebe659eec3e64b5fe3b97c71b3e35037d3f4e7665bf87cbdfbe5d3a983d000080bf0000003f0000803eea1c993edc7d343e8009c9b2a92a1ebf0000003fd9114bbdee09423e616a7a3f92ae66bf4727ddbe77a91b3d000080bf0000003f000000007c78bf3e5958333e0000803efcff7fbe0e01e23ed9114bbdee09423e616a7a3f92ae66bf4727ddbe77a91b3d000080bf0000803e0000803ec350873ee1aa803e0000803e000000bf0000003f2ffddabd464c683e8dd1773fb59067bf5d4cdabe00000000000080bf0000803e000000000330ae3ea2a7803e0000803e000000bf0000003fa2c8e3bda2c8e33d5a80793f17597ebf89d1b0398e49e8bd000080bf0000803e000000000330ae3ea2a7803e0000003f000000bf0000003f00000000000000000000803f000080bf0000000000000000000080bf00000000000000002bedae3eddb5a63e0000003f000080be0000003fa2c8e3bda2c8e33d5a80793f17597ebf89d1b0398e49e8bd000080bf000000000000803eebde883e0673a73e0000803efcff7fbe0e01e23ea2c863bea2c8633eb300733f613f79bf84ce7c3433a369be000080bf0000803e0000803ec350873ee1aa803e57f4a2b45f6bbebe659eec3e41f06b3e97c7a1be059d6b3f4e7665bf87cbdfbe5b3a983d000080bf0000003f0000803eea1c993edc7d343e0000803efcff7fbe0e01e23edcb8873efc1f82bee2696d3fe0f563bf486adebe4fbb0a3e000080bf0000803e0000803ec350873ee1aa803e1d1f2eb583adf9bd17480c3fdcb8873efc1f82bee2696d3fe0f563bf486adebe4fbb0a3e000080bf0000003f0000003fb659623ee7a0333e0800803eeb1864335f59fc3e9779993ec3f044bebf366f3f2bb661bffe22dcbece01473e000080bf0000803e0000003f14ce3d3e0c62823e0000003f000080be0000003f4cedee3c244e643dca7f6e3fdbdf7fbfcbd2d1b9c743003d000080bf000000000000803eebde883e0673a73e0800803eeb1864335f59fc3e4cedee3c244e643dca7f6e3fdbdf7fbfcbd2d1b9c743003d000080bf0000803e0000003f14ce3d3e0c62823e0000803efcff7fbe0e01e23e4d1565be543349be9163743f613f79bf613f793434a369be000080bf0000803e0000803ec350873ee1aa803e0600003ff2186433ee9dd43e5068903e33ad9d3e049c683ff97d74bf00000000cfc8973e000080bf000000000000003fb90f423e5d08ac3e0000803e000080be000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000803e0000403f824fdf3eaca0683f0000803e000000bf000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000803e0000803f225fb83eaca0683f0000003f000080be000000bf0000000000000000000080bf000080bf0000000000000000000080bf000000000000403f824fdf3edc187c3f0000003f000000bf000000bf0000000000000000000080bf000080bf0000000000000000000080bf000000000000803f225fb83edc187c3f0000803e00000000000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000803e0000003ff11f033faca0683f0000003f00000000000000bf0000000000000000000080bf000080bf0000000000000000000080bf000000000000003ff11f033fdc187c3f1d1f2eb583adf9bd17480c3f0920843d22a9983e00cc733f2bb661bffe22dcbed001473e000080bf0000003f0000003fb659623ee7a0333e0800803eeb1864335f59fc3e162493bd2661be3d2144763fd2a472bf8de9a1bee8c824bd000080bf0000803e0000003f14ce3d3e0c62823e00f293b40673283e81a6ea3e162493bd2661be3d2144763fd2a472bf8de9a1bee8c824bd000080bf0000003f0000403fc42a063e94bf333ef7ff7f3e8239543ecd4d043f1b3455be3be2e5bd42bc783f21e175bfca2d28be432f66be000080bf0000803e0000403fb308f23d3776833e0800803eeb1864335f59fc3e70de963ee698e0bd7504733ff97d74bf3a976031cec8973e000080bf0000803e0000003f14ce3d3e0c62823e0600003ff2186433ee9dd43e00e6c23d5c5aa5be62b8643f5b267ebfac9dc6bdeac5903d000080bf000000000000003fb90f423e5d08ac3ef7ff7f3e8239543ecd4d043f00e6c23d5c5aa5be62b8643f5b267ebfac9dc6bdeac5903d000080bf0000803e0000403fb308f23d3776833e0000003fffff7f3e5a48133fc0add5bd3f4709bf4f6c563f21e175bfce2d28be492f66be000080bf000000000000403faff2cb3dc833ac3ef7ff7f3e8239543ecd4d043f2991d3bd42ba01bd4a127c3f0f9c7dbfa5e6adbd9f73dabd000080bf0000803e0000403fb308f23d3776833e000000000000003f0000003f2991d3bd42ba01bd4a127c3f0f9c7dbfa5e6adbd9f73dabd000080bf0000003f0000803f8f69e03cac8a363e00f293b40673283e81a6ea3e299153bec925f7bd6290783f21e175bfc82d28be412f66be000080bf0000003f0000403fc42a063e94bf333e0000803e0000003f0000003f000000000dd76a3d32947f3f000080bf0000000000000000000080bf0000803e0000803fd886d73c53d0813e0000803e0000003f0000003f943af2bd7d39303e84b8763fe4a57dbfeffda9bdceacdabd000080bf0000803e0000803fd886d73c53d0813ef7ff7f3e8239543ecd4d043f943a72beeb2c643d4653783f21e175bfd12d28be492f66be000080bf0000803e0000403fb308f23d3776833e0000003fffff7f3e5a48133f943af2bd7d39303e84b8763fe4a57dbfeffda9bdceacdabd000080bf000000000000403faff2cb3dc833ac3e0000003f0000003f0000003f00000000e0b3933ec31d753f000080bf0000000000000000000080bf000000000000803f0bd7a33c13d4a83e0000803e0000803e000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000803e0000803e2298163faca0683f0000003f0000803e000000bf0000000000000000000080bf000080bf0000000000000000000080bf000000000000803e2298163fde187c3f0000803e0000003f000000bf0000000000000000000080bf000080bf0000000000000000000080bf0000803e0000000051102a3faca0683f0000003f0000003f000000bf0000000000000000000080bf000080bf0000000000000000000080bf000000000000000052102a3fdd187c3f
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -49438,6 +50798,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
       propertyPath: m_Name
       value: PP_Crate_Wooden_03 (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
       propertyPath: m_RootOrder
@@ -49588,12 +50952,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Name
       value: cave_with_tracks_floor_rocks2 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -49668,7 +51040,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh50502
+  m_Name: pb_Mesh30852
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -49919,6 +51291,10 @@ PrefabInstance:
     - target: {fileID: 439726086457075563, guid: 9de82d5e406d9d544ac387c521e08a2f, type: 3}
       propertyPath: m_Name
       value: PP_Gemstone_11_Red
+      objectReference: {fileID: 0}
+    - target: {fileID: 439726086457075563, guid: 9de82d5e406d9d544ac387c521e08a2f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -50407,6 +51783,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: cave_floor_no_tracks (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 01374c5d3cd74cd45a1ab6b8306479b7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -50532,6 +51912,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PP_Gemstone_11_Red (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3fb396fa24c454046b58bdf27a17e3b0, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3fb396fa24c454046b58bdf27a17e3b0, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -50616,6 +52000,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
       propertyPath: m_Name
       value: PP_Crate_Wooden_03 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
       propertyPath: m_RootOrder
@@ -50880,12 +52268,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Name
       value: cave_with_tracks_floor_rocks2 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -51027,12 +52423,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b6a338df136e319448d2f1c0796ffb76, type: 2}
     - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
       propertyPath: m_Name
       value: cave_with_tracks_floor_rocks2 (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3947d02285cd19045863a161cee170c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -51254,6 +52658,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
       propertyPath: m_Name
       value: PP_Crate_Wooden_03 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3aff48fd78e9680478afdfd2f03682c4, type: 3}
       propertyPath: m_RootOrder

@@ -15,6 +15,7 @@ public class Portal : MonoBehaviour
     public float nearClipLimit = 0.2f;
     public List<Portal> isSeenByPortals;
     [SerializeField] List<JustCondition> otherConditions;
+    [SerializeField] List<JustCondition> negativeConditions;
     [SerializeField] bool linkedPortalIsSeen;
 
     // Private variables
@@ -128,6 +129,7 @@ public class Portal : MonoBehaviour
     // Called after PrePortalRender, and before PostPortalRender
     public void Render()
     {
+        if (linkedPortal.negativeConditions.Any(c => c.value)) return;
         // Skip rendering the view from this portal if player is not looking at the linked portal
         if (!CameraUtility.VisibleFromCamera(linkedPortal.screen, playerCam) 
             || (linkedPortal.otherConditions.All(c => c.value) &&
@@ -148,7 +150,7 @@ public class Portal : MonoBehaviour
         else
         {
             renderCam = Camera.main;
-            Debug.Log("Hello from "+gameObject.name);
+            //Debug.Log("Hello from "+gameObject.name);
         }
         linkedPortalIsSeen = true;
 
@@ -208,7 +210,7 @@ public class Portal : MonoBehaviour
         }
 
         // Unhide objects hidden at start of render
-        screen.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+        screen.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
     }
 
     void HandleClipping()
@@ -348,8 +350,7 @@ public class Portal : MonoBehaviour
     // Sets the thickness of the portal screen so as not to clip with camera near plane when player goes through
     float ProtectScreenFromClipping(Vector3 viewPoint)
     {
-        float halfHeight = renderCam.nearClipPlane;
-        halfHeight *= Mathf.Tan(renderCam.fieldOfView * 0.5f * Mathf.Deg2Rad);
+        float halfHeight = renderCam.nearClipPlane * Mathf.Tan(renderCam.fieldOfView * 0.5f * Mathf.Deg2Rad);
         float halfWidth = halfHeight * renderCam.aspect;
         float dstToNearClipPlaneCorner = new Vector3(halfWidth, halfHeight, renderCam.nearClipPlane).magnitude;
         float screenThickness = dstToNearClipPlaneCorner;
