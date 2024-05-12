@@ -10,6 +10,8 @@ using UnityEngine.UI;
 
 public class Scanner : MonoBehaviour
 {
+    [SerializeField] bool playerHasScanner;
+
     [Serializable]
     class InputParams
     {
@@ -96,6 +98,13 @@ public class Scanner : MonoBehaviour
         {
             alreadyScanned = new List<ScannableData>();
         }
+
+        if (playerHasScanner)
+        {
+            isScannerEquipped = true;
+            animParams.scannerAnimator.SetBool("draw", isScannerEquipped);
+            StartCoroutine(ScannerSoundWithDelay(isScannerEquipped));
+        }
     }
 
     void OnEnable ()
@@ -104,7 +113,7 @@ public class Scanner : MonoBehaviour
 		InputActionMap inputActionMap = inputActionAsset.FindActionMap("Player");
         inputActionMap.FindAction("Scan").performed += OnScanPressed;
         inputActionMap.FindAction("Scan").canceled += OnScanReleased;
-        inputActionMap.FindAction("Equip").performed += EquipScanner;
+        // inputActionMap.FindAction("Equip").performed += EquipScanner;
     }
 
     void OnDisable ()
@@ -113,11 +122,23 @@ public class Scanner : MonoBehaviour
 		InputActionMap inputActionMap = inputActionAsset.FindActionMap("Player");
         inputActionMap.FindAction("Scan").performed -= OnScanPressed;
         inputActionMap.FindAction("Scan").canceled -= OnScanReleased;
-        inputActionMap.FindAction("Equip").performed -= EquipScanner;
+        // inputActionMap.FindAction("Equip").performed -= EquipScanner;
+    }
+
+    // Call this when player finds scanner
+    public void OnScannerPickedUp()
+    {
+        playerHasScanner = true;
+        isScannerEquipped = true;
+        animParams.scannerAnimator.SetBool("draw", isScannerEquipped);
+        StartCoroutine(ScannerSoundWithDelay(isScannerEquipped));
     }
 
     void EquipScanner(InputAction.CallbackContext context)
     {
+        if (!playerHasScanner)
+            return;
+
         isScannerEquipped =! isScannerEquipped;
         animParams.scannerAnimator.SetBool("draw", isScannerEquipped);
         StartCoroutine(ScannerSoundWithDelay(isScannerEquipped));
