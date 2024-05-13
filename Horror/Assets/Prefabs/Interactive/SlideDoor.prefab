@@ -117,6 +117,7 @@ GameObject:
   - component: {fileID: 5504288337807531046}
   - component: {fileID: 5504288337807531041}
   - component: {fileID: 5504288337807531040}
+  - component: {fileID: 170249361}
   m_Layer: 0
   m_Name: Door2
   m_TagString: Untagged
@@ -167,7 +168,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d423b15f3da84984c92498d4d21d3c31, type: 2}
+  - {fileID: 2100000, guid: 1dc4c0d299fc55648a8374b8e4f7aa30, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -210,6 +211,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &170249361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5504288337807531042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1efb40f54dfebd1429f00c0a3719bc5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  changed: 0
 --- !u!1 &5504288338158790115
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,7 +392,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d423b15f3da84984c92498d4d21d3c31, type: 2}
+  - {fileID: 2100000, guid: 1dc4c0d299fc55648a8374b8e4f7aa30, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -535,8 +550,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5504288339428913330}
   - component: {fileID: 5504288339428913328}
-  - component: {fileID: 5504288339428913331}
-  - component: {fileID: 6659870175279939953}
+  - component: {fileID: 871635417}
+  - component: {fileID: 871635421}
   m_Layer: 0
   m_Name: SlideDoor
   m_TagString: Untagged
@@ -551,9 +566,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5504288339428913341}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.4223987, z: 0.95354}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5504288337722861017}
@@ -562,7 +577,7 @@ Transform:
   - {fileID: 5504288338378725385}
   - {fileID: 5504288337807531043}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &5504288339428913328
 Animator:
@@ -584,7 +599,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &5504288339428913331
+--- !u!114 &871635417
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -593,20 +608,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5504288339428913341}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e39251c84fced0478fa5e72b0466fa5, type: 3}
+  m_Script: {fileID: 11500000, guid: 1efb40f54dfebd1429f00c0a3719bc5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  op: 0
-  invert: 0
-  inputs:
-  - {fileID: 0}
-  - {fileID: 0}
   animator: {fileID: 0}
   changed: 0
-  onStateChange:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &6659870175279939953
+--- !u!114 &871635421
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -615,14 +622,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 5504288339428913341}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 198ecad863667c447b652b5e2a235fed, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventRef:
+  CollisionTag: 
+  EventReference:
     Guid:
       Data1: -1116566940
       Data2: 1257689666
       Data3: 49036452
       Data4: -229920891
     Path: event:/SFX/Interactive/Doors/DoorsOpenClose
-  doorSoundParamName: ClosedOpen
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20

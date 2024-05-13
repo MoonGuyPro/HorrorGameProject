@@ -5,6 +5,7 @@ public class NewSlideDoor : MonoBehaviour
 {
     [HideInInspector] public Animator animator;
     [HideInInspector] public bool changed = false;
+    [HideInInspector] public bool singleUse = true;
 
     void Awake()
     {
@@ -13,6 +14,9 @@ public class NewSlideDoor : MonoBehaviour
     
     public void OnInteraction()
     {
+        if(singleUse && changed)
+            return;
+
         animator.SetBool("active", true);
         changed = true;
     }

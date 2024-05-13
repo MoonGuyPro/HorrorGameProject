@@ -181,6 +181,8 @@ public class Scanner : MonoBehaviour
             displayCoroutine = StartCoroutine(
                 DisplayPopupNoTweening(scannable.Data.DisplayName, scannable.Data.Description, 1.0f, scannable.transform.position));
 
+            scannable.OnScanned?.Invoke();
+
             scanCooldownCoroutine = StartCoroutine(ScanCooldown(animParams.time.scanning));
         }
     }
