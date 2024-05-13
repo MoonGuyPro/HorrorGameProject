@@ -1695,6 +1695,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5504288339428913341, guid: 7e716b3c5715e3e419590f4bc4c2c358, type: 3}
       insertIndex: -1
       addedObject: {fileID: 871635417}
+    - targetCorrespondingSourceObject: {fileID: 5504288339428913341, guid: 7e716b3c5715e3e419590f4bc4c2c358, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 871635421}
     - targetCorrespondingSourceObject: {fileID: 5504288337807531042, guid: 7e716b3c5715e3e419590f4bc4c2c358, type: 3}
       insertIndex: -1
       addedObject: {fileID: 170249361}
@@ -1718,6 +1721,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   changed: 0
+--- !u!114 &871635421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871635416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1116566940
+      Data2: 1257689666
+      Data3: 49036452
+      Data4: -229920891
+    Path: event:/SFX/Interactive/Doors/DoorsOpenClose
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &934377891
 GameObject:
   m_ObjectHideFlags: 0
@@ -3245,7 +3278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 378022a015f29c64394e8a2d036654a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tip: Use
+  tip: Press [F]
   altTip: 
   singleUse: 1
   requiredItem: {fileID: 0}
@@ -3270,6 +3303,18 @@ MonoBehaviour:
       - m_Target: {fileID: 27693002}
         m_TargetAssemblyTypeName: ButtonPress, Assembly-CSharp
         m_MethodName: OnInteraction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 871635421}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
