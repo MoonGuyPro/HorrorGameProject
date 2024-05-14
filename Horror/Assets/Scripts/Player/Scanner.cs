@@ -4,9 +4,11 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using DG.Tweening;
+using FMOD.Studio;
 using UnityEngine.InputSystem;
 using FMODUnity;
 using UnityEngine.UI;
+using STOP_MODE = FMOD.Studio.STOP_MODE;
 
 public class Scanner : MonoBehaviour
 {
@@ -56,7 +58,7 @@ public class Scanner : MonoBehaviour
     [Serializable]
     class SoundParams
     {
-        public EventReference scanLetterSound, scannerDrawSound, scannerHideSound, noScanTargetSound;
+        public EventReference scanLetterSound, scannerDrawSound, scannerHideSound, noScanTargetSound, ScanningSound;
     }
     
     [SerializeField] Transform playerCamera;
@@ -78,6 +80,8 @@ public class Scanner : MonoBehaviour
     Coroutine scanCooldownCoroutine;
     bool isScanning = false;
     float scanningProgress = 0.0f;
+    
+    private EventInstance scanningInstance; // this is just so i can stop the scanning sound when player stops scanning
 
     void Start() 
     {
@@ -93,6 +97,8 @@ public class Scanner : MonoBehaviour
         uiParams.lineRenderer.enabled = false;
 
         currentScannerColor = animParams.color.normal;
+        
+        scanningInstance = RuntimeManager.CreateInstance(soundParams.ScanningSound);
 
         if (alreadyScanned == null)
         {
@@ -161,12 +167,14 @@ public class Scanner : MonoBehaviour
         else
         {
             isScanning = true;
+            scanningInstance.start();
         }
     }
 
     void OnScanReleased(InputAction.CallbackContext context)
     {
         isScanning = false;
+        scanningInstance.stop(STOP_MODE.ALLOWFADEOUT);
     }
 
     void OnScanned()
