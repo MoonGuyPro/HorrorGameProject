@@ -52,6 +52,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -178.466
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8f2b16519029fd9499b722e7043be664, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 8f2b16519029fd9499b722e7043be664, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8f2b16519029fd9499b722e7043be664, type: 3}
       propertyPath: m_Name
       value: panel_przyportalowy Variant
@@ -59,6 +67,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8f2b16519029fd9499b722e7043be664, type: 3}
       propertyPath: m_TagString
       value: Scannable
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8f2b16519029fd9499b722e7043be664, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -110,3 +122,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Data: {fileID: 11400000, guid: ba44778844bcf874b8e63080e7dbc5e8, type: 2}
+  OnScanned:
+    m_PersistentCalls:
+      m_Calls: []
