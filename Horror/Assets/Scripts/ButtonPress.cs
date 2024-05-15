@@ -1,17 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class ButtonPress : MonoBehaviour
 {
-    [SerializeField]
-    private Animator animator;
-
     public void OnInteraction()
     {
-        if (animator != null)
-        {
-            animator.Play("ButtonPress");
-        }
+        DOTween.To(
+            () => 0.0f, 
+            x => transform.localPosition = new Vector3(0, -Mathf.Sin(x) * 0.03f, 0), 
+            Mathf.PI, 
+            1.0f
+        );
     }
 }
