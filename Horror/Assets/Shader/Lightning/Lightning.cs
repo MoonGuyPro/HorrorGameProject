@@ -28,6 +28,11 @@ public class Lightning : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        lightningParticleSystem.Stop();
+        flashParticleSystem.Stop();
+        flashOnImpactParticleSystem.Stop();
+        glowParticleSystem.Stop();
+        sparksParticleSystem.Stop();
         if (lightningParticleSystem != null)
         {
             var rend = lightningParticleSystem.GetComponent<ParticleSystemRenderer>();
@@ -67,6 +72,11 @@ public class Lightning : MonoBehaviour
             main.startDelay = lightningLifespawn - flashLifespawn;
             main.duration = space + lightningLifespawn;
         }
+        lightningParticleSystem.Play();
+        flashParticleSystem.Play();
+        flashOnImpactParticleSystem.Play();
+        glowParticleSystem.Play();
+        sparksParticleSystem.Play();
     }
 
     // Update is called once per frame
@@ -85,10 +95,15 @@ public class Lightning : MonoBehaviour
 
     private void OnValidate()
     {
+        lightningParticleSystem.Stop();
+        flashParticleSystem.Stop();
+        flashOnImpactParticleSystem.Stop();
+        glowParticleSystem.Stop();
+        sparksParticleSystem.Stop();
         if (lightningParticleSystem != null)
         {
             var rend = lightningParticleSystem.GetComponent<ParticleSystemRenderer>();
-            material = rend.material;
+            material = rend.sharedMaterial;
             material.SetColor("_Color", lightningColor);
             var main = lightningParticleSystem.main;
             main.startLifetime = lightningLifespawn;
@@ -124,5 +139,10 @@ public class Lightning : MonoBehaviour
             main.startDelay = lightningLifespawn - flashLifespawn;
             main.duration = space + lightningLifespawn;
         }
+        lightningParticleSystem.Play();
+        flashParticleSystem.Play();
+        flashOnImpactParticleSystem.Play();
+        glowParticleSystem.Play();
+        sparksParticleSystem.Play();
     }
 }
