@@ -17,12 +17,11 @@ public class NewSlideDoor : MonoBehaviour
     void Awake()
     {
         animator = GetComponent<Animator>();
-        Assert.IsNotNull(animator);
     }
 
     void Start()
     {
-        if (!isBroken)
+        if (animator == null || !isBroken)
             return;
 
         animator.SetBool("active", false);
@@ -31,7 +30,7 @@ public class NewSlideDoor : MonoBehaviour
     
     public void OnInteraction()
     {
-        if (isBroken || (oneShot && toggledOnce))
+        if (animator == null || isBroken || (oneShot && toggledOnce))
             return;
 
         changed = !changed;
