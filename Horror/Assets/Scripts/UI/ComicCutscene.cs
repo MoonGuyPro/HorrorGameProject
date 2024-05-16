@@ -5,40 +5,55 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class ComicCutscene : MonoBehaviour
 {
     [SerializeField] Animator animator;
     [SerializeField] TextMeshProUGUI bottomText;
 
-    // Start is called before the first frame update
+    private bool paused = false;
+    private bool finished = false;
+
     void Start()
     {
-        bottomText.enabled = false;
-
         InputActionAsset inputActionAsset = Resources.Load<InputActionAsset>("NyctoInputActions");
 		InputActionMap inputActionMap = inputActionAsset.FindActionMap("UI");
-        inputActionMap.FindAction("Any").performed += OnContinue;
+        inputActionMap.FindAction("Any").performed += OnAnyKey;
     }
 
-    private void OnContinue(InputAction.CallbackContext context)
+    void OnDestroy() 
     {
-        if (animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
+        InputActionAsset inputActionAsset = Resources.Load<InputActionAsset>("NyctoInputActions");
+		InputActionMap inputActionMap = inputActionAsset.FindActionMap("UI");
+        inputActionMap.FindAction("Any").performed -= OnAnyKey;
+    }
+
+    private void OnAnyKey(InputAction.CallbackContext context)
+    {
+        if (finished)
+        {
+            SceneManager.LoadScene("Labs");
+        } 
+        else if (paused)
         {
             animator.speed = 1.0f;
-            bottomText.enabled = false;
+            paused = false;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        else
+        {
+            animator.speed = 10.0f;
+        }
     }
 
     void OnBreak()
     {
         animator.speed = 0.0f;
-        bottomText.enabled = true;
+        paused = true;
+    }
+
+    void OnFinish()
+    {
+        finished = true;
     }
 }
