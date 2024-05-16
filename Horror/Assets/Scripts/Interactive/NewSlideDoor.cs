@@ -1,23 +1,44 @@
 using UnityEngine;
-using UnityEngine.Events;
+using UnityEngine.Assertions;
 
 public class NewSlideDoor : MonoBehaviour
 {
-    [HideInInspector] public Animator animator;
-    [HideInInspector] public bool changed = false;
-    [HideInInspector] public bool singleUse = true;
+    [Tooltip("When set to true, this door can only be activated once.")]
+    public bool oneShot = true;
+
+    [Tooltip("Enable to play broken animation and stop regular behavior.")]
+    public bool isBroken = false;
+
+    [HideInInspector] 
+    public Animator animator;
+    
+    [HideInInspector] 
+    public bool changed = false;
+
+    private bool toggledOnce = false;
 
     void Awake()
     {
         animator = GetComponent<Animator>();
+        Assert.IsNotNull(animator);
+    }
+
+    void Start()
+    {
+        if (!isBroken)
+            return;
+
+        animator.SetBool("active", false);
+        animator.SetBool("broken", true);
     }
     
     public void OnInteraction()
     {
-        if(singleUse && changed)
+        if (oneShot && toggledOnce)
             return;
 
-        animator.SetBool("active", true);
-        changed = true;
+        changed = !changed;
+        animator.SetBool("active", changed);
+        toggledOnce = true;
     }
 }
