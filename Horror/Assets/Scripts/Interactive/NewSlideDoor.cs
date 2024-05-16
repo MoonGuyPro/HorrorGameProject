@@ -9,11 +9,8 @@ public class NewSlideDoor : MonoBehaviour
     [Tooltip("Enable to play broken animation and stop regular behavior.")]
     public bool isBroken = false;
 
-    [HideInInspector] 
-    public Animator animator;
-    
-    [HideInInspector] 
-    public bool changed = false;
+    [HideInInspector] public Animator animator;
+    [HideInInspector] public bool changed = false;
 
     private bool toggledOnce = false;
 
@@ -34,7 +31,7 @@ public class NewSlideDoor : MonoBehaviour
     
     public void OnInteraction()
     {
-        if (oneShot && toggledOnce)
+        if (isBroken || (oneShot && toggledOnce))
             return;
 
         changed = !changed;
