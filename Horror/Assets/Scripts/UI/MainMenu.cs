@@ -1,15 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using FMODUnity;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 using Utils;
 using Button = UnityEngine.UI.Button;
 using Cursor = UnityEngine.Cursor;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField]
+    private string initSceneName;
     [SerializeField]
     private EventReference hover;
     [SerializeField]
@@ -45,12 +44,11 @@ public class MainMenu : MonoBehaviour
     
     public void NewGame() 
     {
-       SceneManager.LoadScene("IntroCutscene");
+       SceneManager.LoadScene(initSceneName);
     }
 
     public void QuitGame()
     {
-        //Debug.Log("Quitting game...");
         Application.Quit();
     }
 
