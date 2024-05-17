@@ -1166,6 +1166,7 @@ GameObject:
   - component: {fileID: 269080293}
   - component: {fileID: 269080292}
   - component: {fileID: 269080291}
+  - component: {fileID: 269080295}
   m_Layer: 0
   m_Name: SecurityGate
   m_TagString: Scannable
@@ -1181,7 +1182,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 269080289}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -234.5, y: -6.1, z: -233.57}
+  m_LocalPosition: {x: -236.06, y: -6.1, z: -233.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1207,8 +1208,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.925705, y: 1.1548977, z: 2.7070618}
-  m_Center: {x: -0.07862091, y: 5.624484, z: -0.24848938}
+  m_Size: {x: 3.8529968, y: 1.1548977, z: 2.7070618}
+  m_Center: {x: 1.7414246, y: 5.624484, z: -0.24848938}
 --- !u!65 &269080292
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1228,8 +1229,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.6557465, y: 6.4590864, z: 2.1042633}
-  m_Center: {x: 2.39608, y: 2.7295437, z: -0.29738617}
+  m_Size: {x: 1.311142, y: 6.4590864, z: 2.1042633}
+  m_Center: {x: 3.8266373, y: 2.7295437, z: -0.29738617}
 --- !u!65 &269080293
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1249,8 +1250,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.9571533, y: 6.3109136, z: 2.7750397}
-  m_Center: {x: -2.430954, y: 2.6554563, z: -0.19255829}
+  m_Size: {x: 1.7167664, y: 2.7633684, z: 2.7750397}
+  m_Center: {x: -0.88249207, y: 0.88168395, z: -0.19255829}
 --- !u!114 &269080294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1267,6 +1268,27 @@ MonoBehaviour:
   OnScanned:
     m_PersistentCalls:
       m_Calls: []
+--- !u!65 &269080295
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269080289}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.2670135, y: 1.3079042, z: 0.9702606}
+  m_Center: {x: -0.81087494, y: 2.7177277, z: -0.422081}
 --- !u!1001 &277071660
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2407,7 +2429,7 @@ GameObject:
   - component: {fileID: 618725579}
   m_Layer: 0
   m_Name: PortalEntrance
-  m_TagString: Untagged
+  m_TagString: Scannable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
