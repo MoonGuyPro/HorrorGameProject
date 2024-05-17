@@ -40,10 +40,12 @@ public class Portal : MonoBehaviour
         trackedTravellers = new List<PortalTraveller>();
         screenMeshFilter = screen.GetComponent<MeshFilter>();
         screen.material.SetInt("displayMask", 1);
-        if(isSeenByPortals.Count == 0) {
+        if (isSeenByPortals.Count == 0)
+        {
             isSeenByPortals = new List<Portal>();
-        } 
-        if(otherConditions.Count == 0) {
+        }
+        if (otherConditions.Count == 0)
+        {
             otherConditions = new List<JustCondition>();
         }
         renderCam = null;
@@ -101,6 +103,11 @@ public class Portal : MonoBehaviour
                 var positionOld = travellerT.position;
                 var rotOld = travellerT.rotation;
                 traveller.Teleport(transform, linkedPortal.transform, m.GetColumn(3), m.rotation);
+                linkedPortal.linkedPortalIsSeen = false;
+                foreach(var col in linkedPortal.otherConditions)
+                {
+                    col.ReCheckTrigger();
+                }
                 traveller.graphicsClone.transform.SetPositionAndRotation(positionOld, rotOld);
                 // Can't rely on OnTriggerEnter/Exit to be called next frame since it depends on when FixedUpdate runs
                 linkedPortal.OnTravellerEnterPortal(traveller);
@@ -131,7 +138,7 @@ public class Portal : MonoBehaviour
     {
         if (linkedPortal.negativeConditions.Any(c => c.value)) return;
         // Skip rendering the view from this portal if player is not looking at the linked portal
-        if (!CameraUtility.VisibleFromCamera(linkedPortal.screen, playerCam) 
+        if (!CameraUtility.VisibleFromCamera(linkedPortal.screen, playerCam)
             || (linkedPortal.otherConditions.All(c => c.value) &&
                 linkedPortal.isSeenByPortals.Any(p => p.linkedPortalIsSeen &&
                  CameraUtility.VisibleFromCamera(linkedPortal.screen, p.noShaderCam)))
@@ -150,10 +157,8 @@ public class Portal : MonoBehaviour
         else
         {
             renderCam = Camera.main;
-            //Debug.Log("Hello from "+gameObject.name);
         }
         linkedPortalIsSeen = true;
-
         CreateViewTexture();
 
         var localToWorldMatrix = renderCam.transform.localToWorldMatrix;

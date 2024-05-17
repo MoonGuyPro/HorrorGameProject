@@ -4,21 +4,32 @@ using UnityEngine;
 
 public class AreaCondition : JustCondition
 {
-    private BoxCollider _area;
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
             value = true;
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
             value = false;
+        }
+    }
+
+    public override void ReCheckTrigger()
+    {
+        if (player != null)
+        {
+            if (collider.bounds.Contains(player.transform.position))
+            {
+                value = true;
+            }
+            else { value = false; }
         }
     }
 }
