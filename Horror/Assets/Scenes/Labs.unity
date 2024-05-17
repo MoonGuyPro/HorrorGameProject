@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1180,7 +1180,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &224108705
 Transform:
   m_ObjectHideFlags: 0
@@ -3011,6 +3011,10 @@ PrefabInstance:
       propertyPath: m_ReceiveShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 24fc6119090d26d44b299047dbaff847, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ed03fe0311683514bb5ec60bc9a3d548, type: 2}
     - target: {fileID: 919132149155446097, guid: 24fc6119090d26d44b299047dbaff847, type: 3}
       propertyPath: m_Name
       value: dead_guy3
@@ -4586,6 +4590,10 @@ PrefabInstance:
       propertyPath: m_ReceiveShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: db18b141fe7f7a14b9471c6cb518af16, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ed03fe0311683514bb5ec60bc9a3d548, type: 2}
     - target: {fileID: 919132149155446097, guid: db18b141fe7f7a14b9471c6cb518af16, type: 3}
       propertyPath: m_Name
       value: dead_guy1
@@ -4687,6 +4695,10 @@ PrefabInstance:
       propertyPath: m_ReceiveShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: c4c92104c88935743844b839316a59a8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ed03fe0311683514bb5ec60bc9a3d548, type: 2}
     - target: {fileID: 919132149155446097, guid: c4c92104c88935743844b839316a59a8, type: 3}
       propertyPath: m_Name
       value: dead_guy5
