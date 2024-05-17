@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 using FMODUnity;
 using UnityEngine;
 
@@ -8,7 +7,7 @@ using UnityEngine;
 // where there wasnt a single output logic but a multitude of them.
 
 // this also destroys
-public class PlayOnInteractive : OutputLogic
+public class PlayOnInteractive : MonoBehaviour
 {
     [SerializeField] private EventReference eventRef;
     [SerializeField] private List<GameObject> soundsToBeDestroyed = new List<GameObject>();
@@ -17,23 +16,20 @@ public class PlayOnInteractive : OutputLogic
     [SerializeField, Tooltip("Is the event reference to be spatialized? (if one doesnt work try the other ;) )")]
     private bool isSpatial = false;
 
-    protected override void Behavior()
+    public void OnSolved()
     {
-        if (active || play_on_disabled)
+        if (isSpatial)
         {
-            if (isSpatial)
-            {
-                Debug.Log("playing");
-                RuntimeManager.PlayOneShotAttached(eventRef, gameObject);
-            }
-            else
-            {
-                RuntimeManager.PlayOneShot(eventRef);
-            }
-            foreach (var go in soundsToBeDestroyed)
-            {
-                Destroy(go);
-            }
+            Debug.Log("playing");
+            RuntimeManager.PlayOneShotAttached(eventRef, gameObject);
+        }
+        else
+        {
+            RuntimeManager.PlayOneShot(eventRef);
+        }
+        foreach (var go in soundsToBeDestroyed)
+        {
+            Destroy(go);
         }
     }
 }
