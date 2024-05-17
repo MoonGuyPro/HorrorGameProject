@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LabyPlatform : OutputLogic
+public class LabyPlatform : MonoBehaviour
 {
     [Tooltip("Maximum range at which block reacts to player position")] 
     public float maxRange = 25;
@@ -21,9 +21,8 @@ public class LabyPlatform : OutputLogic
     private bool bScaling = true;
 
     // Start is called before the first frame update
-    new void Start()
+    void Start()
     {
-        base.Start();
         defaultScale = transform.localScale;
         player = Camera.main.transform;
     }
@@ -70,8 +69,8 @@ public class LabyPlatform : OutputLogic
         return (to - from) * ((value - from2) / (to2 - from2)) + from;
     }
 
-    protected override void Behavior()
+    public void DisableScaling()
     {
-        bScaling = active;
+        bScaling = false;
     }
 }
