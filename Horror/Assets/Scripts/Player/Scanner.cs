@@ -9,6 +9,7 @@ using UnityEngine.InputSystem;
 using FMODUnity;
 using UnityEngine.UI;
 using STOP_MODE = FMOD.Studio.STOP_MODE;
+using System.Threading;
 
 public class Scanner : MonoBehaviour
 {
@@ -138,6 +139,10 @@ public class Scanner : MonoBehaviour
         isScannerEquipped = true;
         animParams.scannerAnimator.SetBool("draw", isScannerEquipped);
         StartCoroutine(ScannerSoundWithDelay(isScannerEquipped));
+
+        uiParams.subtitles.text = "Press V/RMB to scan objects";
+        DOTween.To(() => 0.0f, x => uiParams.subtitles.color = new Color(1.0f, 1.0f, 1.0f, x), 10.0f, 10.0f)
+            .OnComplete(() => uiParams.subtitles.color = Color.clear);
     }
 
     void EquipScanner(InputAction.CallbackContext context)
@@ -254,8 +259,20 @@ public class Scanner : MonoBehaviour
             animParams.cubeAnimator.speed = Mathf.Lerp(animParams.minCubeSpeed, animParams.maxCubeSpeed, scanningProgress);
         }
 
-        if (bDisplaying)
+        // if (bDisplaying)
+            // uiParams.lineRenderer.SetPosition(0, uiParams.lineStart.position);
+        
+        if (!bDisplaying && scannable == null)
+        {
+            uiParams.popupName.color = Color.clear;
+            uiParams.popupDescription.color = Color.clear;
+            uiParams.popupPanel.color = Color.clear;
+            uiParams.lineRenderer.enabled = false;
+        }
+        else
+        {
             uiParams.lineRenderer.SetPosition(0, uiParams.lineStart.position);
+        }
     }
     
     IEnumerator DisplayPopupNoTweening(string name, string description, float fadeTime, Vector3 endPosition)
@@ -317,11 +334,11 @@ public class Scanner : MonoBehaviour
         }
         
         yield return new WaitForSeconds(fadeTime);
-        uiParams.popupName.color = Color.clear;
-        uiParams.popupDescription.color = Color.clear;
-        uiParams.popupPanel.color = Color.clear;
-        uiParams.lineRenderer.enabled = false;
         bDisplaying = false;
+        // uiParams.popupName.color = Color.clear;
+        // uiParams.popupDescription.color = Color.clear;
+        // uiParams.popupPanel.color = Color.clear;
+        // uiParams.lineRenderer.enabled = false;
     }
         
     IEnumerator LettersSounds(int lettersCount, float timeBetweenLetters)
