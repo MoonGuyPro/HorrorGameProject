@@ -254,8 +254,20 @@ public class Scanner : MonoBehaviour
             animParams.cubeAnimator.speed = Mathf.Lerp(animParams.minCubeSpeed, animParams.maxCubeSpeed, scanningProgress);
         }
 
-        if (bDisplaying)
+        // if (bDisplaying)
+            // uiParams.lineRenderer.SetPosition(0, uiParams.lineStart.position);
+        
+        if (!bDisplaying && scannable == null)
+        {
+            uiParams.popupName.color = Color.clear;
+            uiParams.popupDescription.color = Color.clear;
+            uiParams.popupPanel.color = Color.clear;
+            uiParams.lineRenderer.enabled = false;
+        }
+        else
+        {
             uiParams.lineRenderer.SetPosition(0, uiParams.lineStart.position);
+        }
     }
     
     IEnumerator DisplayPopupNoTweening(string name, string description, float fadeTime, Vector3 endPosition)
@@ -317,11 +329,11 @@ public class Scanner : MonoBehaviour
         }
         
         yield return new WaitForSeconds(fadeTime);
-        uiParams.popupName.color = Color.clear;
-        uiParams.popupDescription.color = Color.clear;
-        uiParams.popupPanel.color = Color.clear;
-        uiParams.lineRenderer.enabled = false;
         bDisplaying = false;
+        // uiParams.popupName.color = Color.clear;
+        // uiParams.popupDescription.color = Color.clear;
+        // uiParams.popupPanel.color = Color.clear;
+        // uiParams.lineRenderer.enabled = false;
     }
         
     IEnumerator LettersSounds(int lettersCount, float timeBetweenLetters)
