@@ -84,7 +84,7 @@ public class InteractionInput : MonoBehaviour
             }
             else
             {
-                Debug.Log("Toggle state changed!");
+                //Debug.Log("Toggle state changed!");
                 switch (toggleState)
                 {
                     case ToggleState.Off:
