@@ -9,41 +9,49 @@ using UnityEngine.SceneManagement;
 
 public class ComicCutscene : MonoBehaviour
 {
+    [SerializeField] float animationSpeed = 0.5f;
+    [SerializeField] float fastForwardSpeed = 10.0f;
     [SerializeField] Animator animator;
     [SerializeField] TextMeshProUGUI bottomText;
 
+    private InputAction anyKeyAction;
     private bool paused = false;
     private bool finished = false;
 
     void Start()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = false;
+        animator.speed = animationSpeed;
+
         InputActionAsset inputActionAsset = Resources.Load<InputActionAsset>("NyctoInputActions");
 		InputActionMap inputActionMap = inputActionAsset.FindActionMap("UI");
-        inputActionMap.FindAction("Any").performed += OnAnyKey;
+        anyKeyAction = inputActionMap.FindAction("Any");
+        anyKeyAction.performed += OnAnyKeyPerformed;
+        anyKeyAction.canceled += OnAnyKeyCanceled;
     }
 
     void OnDestroy() 
     {
-        InputActionAsset inputActionAsset = Resources.Load<InputActionAsset>("NyctoInputActions");
-		InputActionMap inputActionMap = inputActionAsset.FindActionMap("UI");
-        inputActionMap.FindAction("Any").performed -= OnAnyKey;
+        anyKeyAction.performed -= OnAnyKeyPerformed;
+        anyKeyAction.canceled -= OnAnyKeyCanceled;
     }
 
-    private void OnAnyKey(InputAction.CallbackContext context)
+    private void OnAnyKeyPerformed(InputAction.CallbackContext context)
     {
         if (finished)
         {
             SceneManager.LoadScene("Labs");
         } 
-        else if (paused)
-        {
-            animator.speed = 1.0f;
-            paused = false;
-        }
         else
         {
-            animator.speed = 10.0f;
+            animator.speed = fastForwardSpeed;
         }
+    }
+
+    private void OnAnyKeyCanceled(InputAction.CallbackContext context)
+    {
+        animator.speed = animationSpeed;
     }
 
     void OnBreak()
