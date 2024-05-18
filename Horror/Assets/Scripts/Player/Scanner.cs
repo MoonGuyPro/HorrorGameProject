@@ -9,6 +9,7 @@ using UnityEngine.InputSystem;
 using FMODUnity;
 using UnityEngine.UI;
 using STOP_MODE = FMOD.Studio.STOP_MODE;
+using System.Threading;
 
 public class Scanner : MonoBehaviour
 {
@@ -138,6 +139,10 @@ public class Scanner : MonoBehaviour
         isScannerEquipped = true;
         animParams.scannerAnimator.SetBool("draw", isScannerEquipped);
         StartCoroutine(ScannerSoundWithDelay(isScannerEquipped));
+
+        uiParams.subtitles.text = "Press V/RMB to scan objects";
+        DOTween.To(() => 0.0f, x => uiParams.subtitles.color = new Color(1.0f, 1.0f, 1.0f, x), 10.0f, 10.0f)
+            .OnComplete(() => uiParams.subtitles.color = Color.clear);
     }
 
     void EquipScanner(InputAction.CallbackContext context)
