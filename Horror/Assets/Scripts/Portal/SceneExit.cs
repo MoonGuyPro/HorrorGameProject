@@ -10,18 +10,13 @@ public class SceneExit : MonoBehaviour
 
 	public float transitionTime = 1.0f;
 	
-	[ColorUsage(false)] public Color transitionColor = Color.white;
-
 	public GameObject playerTransition;
 
 	private Animator transitionAnim;
-	private RawImage rawImage;
 
 	void Awake()
 	{
 		transitionAnim = playerTransition.GetComponent<Animator>();
-		rawImage = playerTransition.GetComponent<RawImage>();
-		rawImage.color = transitionColor;
 	}
 	
 	private void OnTriggerEnter(Collider other)
