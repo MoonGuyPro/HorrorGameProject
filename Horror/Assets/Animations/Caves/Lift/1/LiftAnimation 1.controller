@@ -198,7 +198,7 @@ AnimatorStateMachine:
     m_Position: {x: 320, y: -420, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8498067572318603466}
-    m_Position: {x: 567.78973, y: -303.93823, z: 0}
+    m_Position: {x: 570, y: -310, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -233965997097090799}
     m_Position: {x: 140, y: -340, z: 0}
@@ -229,6 +229,9 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 7931352087020509924}
     m_Position: {x: 610, y: 330, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -1020679601625043099}
+    m_Position: {x: 645, y: 395, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -239,6 +242,32 @@ AnimatorStateMachine:
   m_ExitPosition: {x: 370, y: 740, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: -8496021162638073412}
+--- !u!1102 &-1020679601625043099
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: LiftUp 1
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 42ab229e63fbe59458bb2f5846797827, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1102 &-233965997097090799
 AnimatorState:
   serializedVersion: 6
