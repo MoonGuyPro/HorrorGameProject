@@ -4,25 +4,26 @@ using UnityEngine;
 
 public class LiftTrigger : MonoBehaviour
 {
-    private float _offsetY;
-    private Transform _playerTransform;
+    private Transform _lift;
+
+    private void Awake()
+    {
+        _lift = transform.parent;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player")
         {
-            Debug.Log("Heloo");
-            _playerTransform = other.gameObject.transform;
-            _offsetY = other.gameObject.transform.position.y - transform.position.y;
+            other.gameObject.transform.parent = _lift;
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("A"+_playerTransform.position);
-            _playerTransform.position = new Vector3(_playerTransform.position.x, _offsetY + transform.position.y, _playerTransform.position.z);
-            Debug.Log("B"+_playerTransform.position);
+            other.gameObject.transform.parent = null;
         }
     }
 }

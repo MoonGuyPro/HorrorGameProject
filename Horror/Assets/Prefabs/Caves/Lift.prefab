@@ -286,7 +286,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 80ce2f702b80a4041873be986194311d, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
@@ -474,6 +474,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 556472450723091938}
     m_Modifications:
+    - target: {fileID: 4194680452576321435, guid: e4141e7a2a468474e855b35eec250531, type: 3}
+      propertyPath: m_UpdateMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5330265238356835665, guid: e4141e7a2a468474e855b35eec250531, type: 3}
       propertyPath: m_Enabled
       value: 1
