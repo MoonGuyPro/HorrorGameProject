@@ -1975,7 +1975,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh34650
+  m_Name: pb_Mesh38478
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -3366,6 +3366,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1459206227218239430, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
+      propertyPath: m_fontSize
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 1459206227218239430, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 24
+      objectReference: {fileID: 0}
     - target: {fileID: 2045166409433378223, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -3625,17 +3633,36 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3222809851561510840, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 544577421}
   m_SourcePrefab: {fileID: 100100000, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
+--- !u!1 &544577416 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3222809851561510840, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
+  m_PrefabInstance: {fileID: 544577415}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &544577417 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 588310778280538188, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
   m_PrefabInstance: {fileID: 544577415}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 544577416}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31f944b086e42ad4b937bd3329235d42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &544577418 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6346963106452169670, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
+  m_PrefabInstance: {fileID: 544577415}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544577416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4abe53fee3523f84391999ff21d120e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &544577420 stripped
@@ -3643,12 +3670,39 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3102742465261597829, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
   m_PrefabInstance: {fileID: 544577415}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 544577416}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf1b0968e6759cb44936e5e0747d7a0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &544577421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 544577416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ecac822cf4d1be4a8d377c551ec0204, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 544577418}
+        m_TargetAssemblyTypeName: DisplaySubtitles, Assembly-CSharp
+        m_MethodName: Display
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Go find your daughter
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &546658076
 GameObject:
   m_ObjectHideFlags: 0
