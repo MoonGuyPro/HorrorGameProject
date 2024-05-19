@@ -22,28 +22,21 @@ namespace Utils
         {
             switch (ch)
             {
-                case 'i':
+                case 'O':
+                    DebugChange("Labs");
+                    break;
+                case 'P':
                     DebugChange("TreeLevel");
                     break;
-                case 'o':
-                    DebugChange("TreeLevel2");
+                case '{':
+                    DebugChange("Labs 1");
                     break;
-                case '\\':
+                case '}':
+                    DebugChange("Labyrinth_New");
+                    break;
+                case '|':
                     DebugChange("Caves");
                     break;
-                case '[':
-                    DebugChange("Labyrinth");
-                    break;
-                case ']':
-                    DebugChange("Lights");
-                    break;
-                case 'l':
-                    DebugChange("Walls");
-                    break;
-                case ';':
-                    DebugChange("EasyMechanics");
-                    break;
-                
             }
         }
 
