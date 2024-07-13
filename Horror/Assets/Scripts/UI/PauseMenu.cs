@@ -9,6 +9,7 @@ using System;
 public class PauseMenu : MonoBehaviour
 {
     public static bool IsPaused = false;
+    public Canvas gameplayCanvas;
     public GameObject pauseMenu;
     public GameObject PauseMenuUI;
     public GameObject options;
@@ -34,21 +35,6 @@ public class PauseMenu : MonoBehaviour
         inputActionMap.FindAction("Pause").performed -= Pause;
     }
 
-    private void Update()
-    {
-        // if (!Input.GetButtonDown("Pause")) return;
-        // if (options.activeSelf) return; // do not unpause when in options
-            
-        // if (IsPaused)
-        // {
-        //     Resume();
-        // }
-        // else
-        // {
-        //     Pause();
-        // }
-    }
-
     void Pause(InputAction.CallbackContext context)
     {
         // Do not unpause when in options
@@ -64,6 +50,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Pause() 
     {
+        gameplayCanvas.enabled = false;
         PauseMenuUI.SetActive(true);
         overlay.SetActive(true);
         Time.timeScale = 0.0f;
@@ -74,6 +61,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        gameplayCanvas.enabled = true;
         PauseMenuUI.SetActive(false);
         overlay.SetActive(false);
         Time.timeScale = 1.0f;
