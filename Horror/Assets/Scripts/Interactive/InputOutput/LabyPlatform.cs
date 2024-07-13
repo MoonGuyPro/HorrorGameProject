@@ -10,6 +10,9 @@ public class LabyPlatform : MonoBehaviour
     public float minRange = 5;
     [Tooltip("How much will platform spin when scaling")] 
     public float spinAngle = 180;
+    [Tooltip("Affects how fast platform spins (0-1)")]
+    [Range(0f, 1f)]
+    public float spinSpeed = 0.1f;
     [Tooltip("Enable spin when scaling platform")] 
     public bool bEnableSpin = true;
     [Tooltip("Platform appears only when activated")] 
@@ -34,7 +37,8 @@ public class LabyPlatform : MonoBehaviour
         {
             float distance = (transform.position - player.position).magnitude;
         
-            currentScaleMul = 1 - SuperLerp(distance, 0, 1, minRange, maxRange);
+            float targetScaleMul = 1 - SuperLerp(distance, 0, 1, minRange, maxRange); 
+            currentScaleMul = Mathf.Lerp(currentScaleMul, targetScaleMul, spinSpeed);
             transform.localScale = defaultScale * currentScaleMul;
         
             if(bEnableSpin)
