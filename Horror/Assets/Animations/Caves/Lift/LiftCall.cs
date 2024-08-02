@@ -1,7 +1,10 @@
+using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public enum LiftPos
 {
@@ -11,17 +14,29 @@ public enum LiftPos
 
 public class LiftCall : MonoBehaviour
 {
+    [Tooltip("Position where the lift goes")]
     [SerializeField] private LiftPos _callTo;
 
+    [Tooltip("Lift position when on the top")]
     [SerializeField] private float _liftUp;
+
+    [Tooltip("Lift position when on the bottom")]
     [SerializeField] private float _liftDown;
 
+    [Tooltip("Lift's animator")]
     [SerializeField] private Animator _liftAnimator;
+
+    /** Lift's clip with position on the top */
     private AnimationClip _clipUp;
+    /** Lift's clip with position on the bottom */
     private AnimationClip _clipDown;
 
-    /* How long does the lift drive takes (Change also tranistion duration in animator)*/
+    [Tooltip("How long does the lift drive takes (Read-Only)")]
     [SerializeField] private float _liftDuration;
+
+    [Tooltip("Lift's speed")]
+    [Range(0,10)]
+    [SerializeField] private float _liftSpeed;
 
 
     private void Start()
@@ -29,8 +44,12 @@ public class LiftCall : MonoBehaviour
         _liftAnimator = GetComponent<Animator>();
         CreateAnimationClips();
     }
+
     private void CreateAnimationClips()
     {
+        // Count lift drive duration
+        _liftDuration = Math.Abs(_liftDown - _liftUp) / _liftSpeed;
+
         // Up Animation Clip
         _clipUp = new AnimationClip();
         Keyframe[] keysUp = new Keyframe[2];
@@ -96,6 +115,10 @@ public class LiftCall : MonoBehaviour
     {
         if (_liftAnimator.IsInTransition(0))
             return;
-        _liftAnimator.SetTrigger("PlayAnimation");
+
+        if (_liftAnimator.GetCurrentAnimatorStateInfo(0).IsName("FirstLiftPos"))
+            _liftAnimator.CrossFadeInFixedTime("SecondLiftPos", _liftDuration);
+        else
+            _liftAnimator.CrossFadeInFixedTime("FirstLiftPos", _liftDuration);
     }
 }
