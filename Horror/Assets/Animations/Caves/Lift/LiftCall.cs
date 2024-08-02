@@ -23,14 +23,6 @@ public class LiftCall : MonoBehaviour
     [Tooltip("Lift position when on the bottom")]
     [SerializeField] private float _liftDown;
 
-    [Tooltip("Lift's animator")]
-    [SerializeField] private Animator _liftAnimator;
-
-    /** Lift's clip with position on the top */
-    private AnimationClip _clipUp;
-    /** Lift's clip with position on the bottom */
-    private AnimationClip _clipDown;
-
     [Tooltip("How long does the lift drive takes (Read-Only)")]
     [SerializeField] private float _liftDuration;
 
@@ -38,48 +30,19 @@ public class LiftCall : MonoBehaviour
     [Range(0,10)]
     [SerializeField] private float _liftSpeed;
 
+    [SerializeField] private AnimationCurve _liftCurve;
+
+    private Vector3 _targetPosition;
 
     private void Start()
     {
-        _liftAnimator = GetComponent<Animator>();
-        CreateAnimationClips();
+        CreateAnimationParams();
     }
 
-    private void CreateAnimationClips()
+    private void CreateAnimationParams()
     {
         // Count lift drive duration
         _liftDuration = Math.Abs(_liftDown - _liftUp) / _liftSpeed;
-
-        // Up Animation Clip
-        _clipUp = new AnimationClip();
-        Keyframe[] keysUp = new Keyframe[2];
-        keysUp[0] = new Keyframe(0.0f, transform.localPosition.z);
-        keysUp[1] = new Keyframe(_liftDuration, _liftUp);
-        AnimationCurve curveUp = new AnimationCurve(keysUp);
-        _clipUp.SetCurve("", typeof(Transform), "localPosition.z", curveUp);
-
-        // Down Animation Clip
-        _clipDown = new AnimationClip();
-        Keyframe[] keysDown = new Keyframe[2];
-        keysDown[0] = new Keyframe(0.0f, transform.localPosition.z);
-        keysDown[1] = new Keyframe(_liftDuration, _liftDown);
-        AnimationCurve curveDown = new AnimationCurve(keysDown);
-        _clipDown.SetCurve("", typeof(Transform), "localPosition.z", curveDown);
-
-        var overrideController = new AnimatorOverrideController(_liftAnimator.runtimeAnimatorController);
-        
-        if (_callTo == LiftPos.Down)
-        {
-            overrideController["DefaultState"] = _clipDown;
-            overrideController["DefaultAnimation"] = _clipUp;
-        }
-        if (_callTo == LiftPos.Up)
-        {
-            overrideController["DefaultState"] = _clipUp;
-            overrideController["DefaultAnimation"] = _clipDown;
-        }
-
-        _liftAnimator.runtimeAnimatorController = overrideController;
     }
 
     public void LiftUp()
@@ -87,6 +50,7 @@ public class LiftCall : MonoBehaviour
         if (_callTo.Equals(LiftPos.Up))
             return;
         _callTo = LiftPos.Up;
+        _targetPosition.z = _liftUp;
         PlayAnimation();
     }
 
@@ -95,6 +59,7 @@ public class LiftCall : MonoBehaviour
         if (_callTo.Equals(LiftPos.Down))
             return;
         _callTo = LiftPos.Down;
+        _targetPosition.z = _liftDown;
         PlayAnimation();
     }
 
@@ -113,12 +78,7 @@ public class LiftCall : MonoBehaviour
 
     private void PlayAnimation()
     {
-        if (_liftAnimator.IsInTransition(0))
-            return;
-
-        if (_liftAnimator.GetCurrentAnimatorStateInfo(0).IsName("FirstLiftPos"))
-            _liftAnimator.CrossFadeInFixedTime("SecondLiftPos", _liftDuration);
-        else
-            _liftAnimator.CrossFadeInFixedTime("FirstLiftPos", _liftDuration);
+        DOTween.Kill(transform);
+        transform.DOLocalMoveZ(_targetPosition.z, _liftDuration).SetEase(_liftCurve).SetUpdate(UpdateType.Fixed);
     }
 }
