@@ -64,6 +64,30 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -4228975004908436097, guid: 1b9363c1c8f60f545a3ea1d0aef0fab7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -4228975004908436097, guid: 1b9363c1c8f60f545a3ea1d0aef0fab7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -4228975004908436097, guid: 1b9363c1c8f60f545a3ea1d0aef0fab7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4228975004908436097, guid: 1b9363c1c8f60f545a3ea1d0aef0fab7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4228975004908436097, guid: 1b9363c1c8f60f545a3ea1d0aef0fab7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: -4228975004908436097, guid: 1b9363c1c8f60f545a3ea1d0aef0fab7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -3022877005621632464, guid: 1b9363c1c8f60f545a3ea1d0aef0fab7, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.7071068
@@ -92,6 +116,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Drzwi windy
       objectReference: {fileID: 0}
+    - target: {fileID: 2229462594030679566, guid: 1b9363c1c8f60f545a3ea1d0aef0fab7, type: 3}
+      propertyPath: m_Name
+      value: winda_drzwi_left
+      objectReference: {fileID: 0}
+    - target: {fileID: 7334912049228889658, guid: 1b9363c1c8f60f545a3ea1d0aef0fab7, type: 3}
+      propertyPath: m_Name
+      value: winda_drzwi_right
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -117,9 +149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2ca97525833c884c8da98cabd0e6c33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bTestOpen: 0
-  _startRotationRight: 90
-  _startRotationLeft: 90
-  _endRotationRight: 0
-  _endRotationLeft: 180
+  _startRotationRight: 0
+  _startRotationLeft: 0
+  _endRotationRight: 90
+  _endRotationLeft: -90
   _rotationDuration: 1

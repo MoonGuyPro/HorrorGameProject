@@ -3,10 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorControll : MonoBehaviour
+public class GateControll : MonoBehaviour
 {
-    [SerializeField] private bool _bTestOpen;
-
     private Transform _rightDoor;
     private Transform _leftDoor;
 
@@ -18,31 +16,28 @@ public class DoorControll : MonoBehaviour
 
     [SerializeField] private float _rotationDuration;
 
+    public float RotationDuration { get => _rotationDuration;}
+
     private void Start()
     {
         _rightDoor = transform.GetChild(0);
         _leftDoor = transform.GetChild(1);
     }
 
-
-
     private void PlayAnimation(float rotationLeft, float rotationRight)
     {
         DOTween.Kill(transform);
-
-        _rightDoor.DORotate(new Vector3(_rightDoor.eulerAngles.x, rotationRight,_rightDoor.eulerAngles.z), _rotationDuration);
-        _leftDoor.DORotate(new Vector3(_rightDoor.eulerAngles.x, rotationLeft, _rightDoor.eulerAngles.z), _rotationDuration);
+        _rightDoor.DOLocalRotate(new Vector3(_rightDoor.localEulerAngles.x, rotationRight, _rightDoor.localEulerAngles.z), _rotationDuration);
+        _leftDoor.DOLocalRotate(new Vector3(_leftDoor.localEulerAngles.x, rotationLeft, _leftDoor.localEulerAngles.z), _rotationDuration);
     }
 
-    private void OnValidate()
+    public void OpenGate()
     {
-        if (_bTestOpen) {
-            PlayAnimation(_endRotationLeft, _endRotationRight);
-        }
-        else
-        {
-            PlayAnimation(_startRotationLeft, _startRotationRight);
-        }
-        
+        PlayAnimation(_endRotationLeft, _endRotationRight);
+    }
+
+    public void CloseGate()
+    {
+        PlayAnimation(_startRotationLeft, _startRotationRight);
     }
 }

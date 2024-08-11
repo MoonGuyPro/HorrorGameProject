@@ -14,6 +14,7 @@ public enum LiftPos
 
 public class LiftCall : MonoBehaviour
 {
+    [Header("Lift parameters")]
     [Tooltip("Position where the lift goes")]
     [SerializeField] private LiftPos _callTo;
 
@@ -34,9 +35,18 @@ public class LiftCall : MonoBehaviour
 
     private Vector3 _targetPosition;
 
+    [Header("Lift's gates")]
+    [SerializeField] List<GateControll> _gatesOpenUp;
+    [SerializeField] List<GateControll> _gatesOpenDown;
+
+
+    [Tooltip("Lift's deley after gates close")]
+    [SerializeField] float _delay = 0.5f;
+
     private void Start()
     {
         CreateAnimationParams();
+        OpenGates();
     }
 
     private void CreateAnimationParams()
@@ -78,7 +88,46 @@ public class LiftCall : MonoBehaviour
 
     private void PlayAnimation()
     {
+        CloseGates();
+        float delay = _delay;
+        if (_gatesOpenDown.Count > 0)
+            delay += _gatesOpenDown[0].RotationDuration;
+
         DOTween.Kill(transform);
-        transform.DOLocalMoveZ(_targetPosition.z, _liftDuration).SetEase(_liftCurve).SetUpdate(UpdateType.Fixed);
+        transform.DOLocalMoveZ(_targetPosition.z, _liftDuration).SetDelay(delay).SetEase(_liftCurve).SetUpdate(UpdateType.Fixed).OnComplete(OpenGates);
+    }
+
+    private void OpenGates()
+    {
+        if (_callTo.Equals(LiftPos.Down))
+        {
+            foreach(GateControll gate in _gatesOpenDown)
+            {
+                if (gate)
+                    gate.OpenGate();
+            }
+        }
+        else if (_callTo.Equals(LiftPos.Up))
+        {
+            foreach (GateControll gate in _gatesOpenUp)
+            {
+                if (gate)
+                    gate.OpenGate();
+            }
+        }
+    }
+
+    private void CloseGates()
+    {
+        foreach (GateControll gate in _gatesOpenUp)
+        {
+            if(gate)
+                gate.CloseGate();
+        }
+        foreach (GateControll gate in _gatesOpenDown)
+        {
+            if (gate)
+                gate.CloseGate();
+        }
     }
 }
