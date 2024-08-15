@@ -118,6 +118,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abb7cd72c59a26f478c29c5cd69d53db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2935846045524051740
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6538332342757792299}
+  - component: {fileID: 2503853913456438165}
+  m_Layer: 0
+  m_Name: ElevatorSound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6538332342757792299
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2935846045524051740}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0.01278}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4812118272245974183}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2503853913456438165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2935846045524051740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -469146754
+      Data2: 1226775502
+      Data3: -1519254106
+      Data4: -1675347393
+    Path: event:/SFX/Caves/Elevator
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &5930257968471383889
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,7 +209,7 @@ Transform:
   m_GameObject: {fileID: 5930257968471383889}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.0514}
+  m_LocalPosition: {x: -0, y: 0, z: 0.0144}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -155,6 +217,7 @@ Transform:
   - {fileID: 6115598913522036678}
   - {fileID: 1004602292113682221}
   - {fileID: 6648703723321528976}
+  - {fileID: 6538332342757792299}
   m_Father: {fileID: 4095447725814621175}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2019889455847555589
@@ -281,6 +344,8 @@ MonoBehaviour:
     m_RotationOrder: 4
   _gatesOpenUp: []
   _gatesOpenDown: []
+  _delay: 0.5
+  elevatorSoundEmitter: {fileID: 2503853913456438165}
 --- !u!1 &7221362574361042653
 GameObject:
   m_ObjectHideFlags: 0

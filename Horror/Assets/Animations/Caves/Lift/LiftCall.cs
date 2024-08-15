@@ -1,4 +1,6 @@
 using DG.Tweening;
+using FMOD.Studio;
+using FMODUnity;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -28,7 +30,7 @@ public class LiftCall : MonoBehaviour
     [SerializeField] private float _liftDuration;
 
     [Tooltip("Lift's speed")]
-    [Range(0,10)]
+    [Range(0, 10)]
     [SerializeField] private float _liftSpeed;
 
     [SerializeField] private AnimationCurve _liftCurve;
@@ -42,6 +44,9 @@ public class LiftCall : MonoBehaviour
 
     [Tooltip("Lift's deley after gates close")]
     [SerializeField] float _delay = 0.5f;
+
+    [SerializeField] StudioEventEmitter elevatorSoundEmitter;
+    private bool isPastStoppingPoint = false;
 
     private void Start()
     {
@@ -94,14 +99,34 @@ public class LiftCall : MonoBehaviour
             delay += _gatesOpenDown[0].RotationDuration;
 
         DOTween.Kill(transform);
-        transform.DOLocalMoveZ(_targetPosition.z, _liftDuration).SetDelay(delay).SetEase(_liftCurve).SetUpdate(UpdateType.Fixed).OnComplete(OpenGates);
+        isPastStoppingPoint = false;
+        var tween = transform.DOLocalMoveZ(_targetPosition.z, _liftDuration)
+            .SetDelay(delay)
+            .SetEase(_liftCurve)
+            .SetUpdate(UpdateType.Fixed)
+            .OnStart(() =>
+            {
+                elevatorSoundEmitter.Play();
+            })
+            .OnComplete(() =>
+            {
+                OpenGates();
+            });
+        tween.OnUpdate(() =>
+        {
+            if (tween.position / _liftDuration > 0.85f && !isPastStoppingPoint)
+            {
+                isPastStoppingPoint = true;
+                elevatorSoundEmitter.Stop();
+            }
+        });
     }
 
     private void OpenGates()
     {
         if (_callTo.Equals(LiftPos.Down))
         {
-            foreach(GateControll gate in _gatesOpenDown)
+            foreach (GateControll gate in _gatesOpenDown)
             {
                 if (gate)
                     gate.OpenGate();
@@ -121,7 +146,7 @@ public class LiftCall : MonoBehaviour
     {
         foreach (GateControll gate in _gatesOpenUp)
         {
-            if(gate)
+            if (gate)
                 gate.CloseGate();
         }
         foreach (GateControll gate in _gatesOpenDown)
