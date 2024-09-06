@@ -27,8 +27,11 @@ public class GateControll : MonoBehaviour
     private void PlayAnimation(float rotationLeft, float rotationRight)
     {
         DOTween.Kill(transform);
-        _rightDoor.DOLocalRotate(new Vector3(_rightDoor.localEulerAngles.x, rotationRight, _rightDoor.localEulerAngles.z), _rotationDuration);
-        _leftDoor.DOLocalRotate(new Vector3(_leftDoor.localEulerAngles.x, rotationLeft, _leftDoor.localEulerAngles.z), _rotationDuration);
+
+        if(_rightDoor)
+            _rightDoor.DOLocalRotate(new Vector3(_rightDoor.localEulerAngles.x, rotationRight, _rightDoor.localEulerAngles.z), _rotationDuration);
+        if (_leftDoor)
+            _leftDoor.DOLocalRotate(new Vector3(_leftDoor.localEulerAngles.x, rotationLeft, _leftDoor.localEulerAngles.z), _rotationDuration);
     }
 
     public void OpenGate()
