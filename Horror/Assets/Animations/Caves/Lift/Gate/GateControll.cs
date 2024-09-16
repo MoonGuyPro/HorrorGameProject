@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class GateControll : MonoBehaviour
 {
-    private Transform _rightDoor;
-    private Transform _leftDoor;
+    [SerializeField] private Transform _rightDoor;
+    [SerializeField] private Transform _leftDoor;
 
     [SerializeField] private float _startRotationRight;
     [SerializeField] private float _startRotationLeft;
@@ -18,7 +18,7 @@ public class GateControll : MonoBehaviour
 
     public float RotationDuration { get => _rotationDuration;}
 
-    private void Start()
+    private void Awake()
     {
         _rightDoor = transform.GetChild(0);
         _leftDoor = transform.GetChild(1);
@@ -28,10 +28,14 @@ public class GateControll : MonoBehaviour
     {
         DOTween.Kill(transform);
 
-        if(_rightDoor)
+        if (_rightDoor) {
+
             _rightDoor.DOLocalRotate(new Vector3(_rightDoor.localEulerAngles.x, rotationRight, _rightDoor.localEulerAngles.z), _rotationDuration);
+        }
         if (_leftDoor)
+        {
             _leftDoor.DOLocalRotate(new Vector3(_leftDoor.localEulerAngles.x, rotationLeft, _leftDoor.localEulerAngles.z), _rotationDuration);
+        }
     }
 
     public void OpenGate()
