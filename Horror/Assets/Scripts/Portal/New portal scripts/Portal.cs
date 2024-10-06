@@ -14,7 +14,10 @@ public class Portal : MonoBehaviour
     public float nearClipOffset = 0.05f;
     public float nearClipLimit = 0.2f;
     public List<Portal> isSeenByPortals;
+    
+    //All need to be true for the portal to render
     [SerializeField] List<JustCondition> otherConditions;
+    //When at least on is true the portal will not render
     [SerializeField] List<JustCondition> negativeConditions;
     [SerializeField] bool linkedPortalIsSeen;
 
