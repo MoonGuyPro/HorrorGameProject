@@ -58,7 +58,7 @@ public class InteractionInput : MonoBehaviour
         return altTip;
     }
     
-    public bool Interact(NewInventory inv)
+    public bool Interact(Inventory inv)
     {
         if (canInteract)
         {

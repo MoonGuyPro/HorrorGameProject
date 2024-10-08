@@ -28,13 +28,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 125783702340508343}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 15, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7562276271291730951}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &125783702340508360
 MeshFilter:
@@ -127,6 +127,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &4356640877850869520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,7 +156,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7562276271291730951}
   - component: {fileID: 3819465397598430704}
-  - component: {fileID: 5466125875505249920}
   m_Layer: 0
   m_Name: LabyPath
   m_TagString: Untagged
@@ -170,6 +170,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7562276271291730948}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -177,7 +178,6 @@ Transform:
   m_Children:
   - {fileID: 125783702340508340}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3819465397598430704
 MonoBehaviour:
@@ -194,20 +194,3 @@ MonoBehaviour:
   maxRange: 12
   minRange: 6
   animator: {fileID: 125783702340508341}
---- !u!114 &5466125875505249920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7562276271291730948}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3eac5f70ecbee74493958f9f729d1e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  op: 0
-  invert: 0
-  inputs: []
-  animator: {fileID: 125783702340508341}
-  boolName: active

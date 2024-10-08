@@ -1,11 +1,11 @@
-﻿using FMODUnity;
-using UnityEngine;
+﻿// using FMODUnity;
+// using UnityEngine;
 
-public class VineSappling : OldPickable
-{
-    public override void interact()
-    {
-        FMODUnity.RuntimeManager.PlayOneShot(pickUpSound, transform.position);
-        gameObject.SetActive(false);
-    }
-}
+// public class VineSappling : OldPickable
+// {
+//     public override void interact()
+//     {
+//         FMODUnity.RuntimeManager.PlayOneShot(pickUpSound, transform.position);
+//         gameObject.SetActive(false);
+//     }
+// }
