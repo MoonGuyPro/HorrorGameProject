@@ -37,6 +37,10 @@ public class LiftCall : MonoBehaviour
 
     private Vector3 _targetPosition;
 
+    [Space(8)]
+    [SerializeField] private bool _autoStart = false;
+
+
     [Header("Lift's gates")]
     [SerializeField] List<GateControll> _gatesOpenUp;
     [SerializeField] List<GateControll> _gatesOpenDown;
@@ -52,6 +56,9 @@ public class LiftCall : MonoBehaviour
     {
         CreateAnimationParams();
         OpenGates();
+        
+        if (_autoStart) 
+            LiftToOther();
     }
 
     private void CreateAnimationParams()

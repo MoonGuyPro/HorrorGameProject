@@ -106,6 +106,9 @@ public class PlayerInteractor : MonoBehaviour
 
     void updateInventoryText()
     {
+        if (!inv)
+            return;
+        
         string invContent = inv.printInGameNames();
         if (invContent == "Empty")
         {
