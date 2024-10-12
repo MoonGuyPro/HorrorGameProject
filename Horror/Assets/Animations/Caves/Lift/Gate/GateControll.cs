@@ -1,4 +1,5 @@
 using DG.Tweening;
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,7 +17,12 @@ public class GateControll : MonoBehaviour
 
     [SerializeField] private float _rotationDuration;
 
-    public float RotationDuration { get => _rotationDuration;}
+    public float RotationDuration { get => _rotationDuration; }
+
+    [SerializeField]
+    private EventReference _gateOpenSound;
+    [SerializeField]
+    private EventReference _gateCloseSound;
 
     private void Awake()
     {
@@ -28,7 +34,8 @@ public class GateControll : MonoBehaviour
     {
         DOTween.Kill(transform);
 
-        if (_rightDoor) {
+        if (_rightDoor)
+        {
 
             _rightDoor.DOLocalRotate(new Vector3(_rightDoor.localEulerAngles.x, rotationRight, _rightDoor.localEulerAngles.z), _rotationDuration);
         }
@@ -41,10 +48,12 @@ public class GateControll : MonoBehaviour
     public void OpenGate()
     {
         PlayAnimation(_endRotationLeft, _endRotationRight);
+        RuntimeManager.PlayOneShot(_gateOpenSound, transform.position);
     }
 
     public void CloseGate()
     {
         PlayAnimation(_startRotationLeft, _startRotationRight);
+        RuntimeManager.PlayOneShot(_gateCloseSound, transform.position);
     }
 }
