@@ -28,13 +28,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7266004054157179839}
+  serializedVersion: 2
   m_LocalRotation: {x: 0.7633124, y: -0.042839594, z: 0.09958006, w: 0.6368695}
   m_LocalPosition: {x: 0.0001814213, y: 0.0007019588, z: 0.05344544}
   m_LocalScale: {x: 0.005632903, y: 0.005632905, z: 0.0056329044}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8346347004571921254}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 9.727, y: 5.674, z: 12.099}
 --- !u!33 &2856033623619467164
 MeshFilter:
@@ -127,6 +127,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &358153719405668001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,8 +298,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 378022a015f29c64394e8a2d036654a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tip: Use [F]
-  altTip: Fuel missing
+  tip: '[LMB]'
+  altTip: 
   singleUse: 1
   requiredItem: {fileID: 0}
   interactionID: 0
