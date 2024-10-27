@@ -7,17 +7,14 @@ public class TriggerSound : MonoBehaviour
 {
     public bool oneShot = true; // Should it trigger only once?
     [SerializeField] private EventReference eventReference;
-
-    void Start()
-    {
-
-    }
+    [SerializeField] private GameObject soundSourceGameObject;
 
     void OnTriggerEnter(Collider player)
     {
+        GameObject source = soundSourceGameObject == null ? gameObject : soundSourceGameObject;
         if (player.gameObject.tag == "Player")
         {
-            RuntimeManager.PlayOneShotAttached(eventReference, gameObject);
+            RuntimeManager.PlayOneShotAttached(eventReference, source);
             if (oneShot)
             {
                 gameObject.SetActive(false);
