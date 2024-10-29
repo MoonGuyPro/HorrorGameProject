@@ -10,9 +10,9 @@ public class FPSController : PortalTraveller {
     public float walkSpeed = 3;
     public float runSpeed = 6;
     public float smoothMoveTime = 0.1f;
-    public float jumpForce = 8;
+    //public float jumpForce = 8;
     public float gravity = 20;
-    public float maxYawJumping = 60;
+    //public float maxYawJumping = 60;
 
     public bool lockCursor;
     public float mouseSensitivity = 10;
@@ -95,7 +95,7 @@ public class FPSController : PortalTraveller {
         };
 		inputActionMap.FindAction("LockCursor").performed += LockCursor;
         sprintAction = inputActionMap.FindAction("Sprint");
-        inputActionMap.FindAction("Jump").performed += Jump;
+        //inputActionMap.FindAction("Jump").performed += Jump;
     }
 
     void OnDisable ()
@@ -104,7 +104,7 @@ public class FPSController : PortalTraveller {
 		InputActionMap inputActionMap = inputActionAsset.FindActionMap("Player");
         readLookAndMove = null;
 		inputActionMap.FindAction("LockCursor").performed -= LockCursor;
-        inputActionMap.FindAction("Jump").performed -= Jump;
+        //inputActionMap.FindAction("Jump").performed -= Jump;
     }
 
     void Update()
@@ -207,7 +207,7 @@ public class FPSController : PortalTraveller {
         LockCursor(!lockCursor);
     }
 
-    void Jump (InputAction.CallbackContext context)
+    /*void Jump (InputAction.CallbackContext context)
     {
         float timeSinceLastTouchedGround = Time.time - lastGroundedTime;
         if (controller.isGrounded || (!isJumping && timeSinceLastTouchedGround < 0.15f))
@@ -216,7 +216,7 @@ public class FPSController : PortalTraveller {
             isJumping = true;
             verticalVelocity = jumpForce;
         }
-    }
+    }*/
 
     private void UpdatePrefs()
     {
