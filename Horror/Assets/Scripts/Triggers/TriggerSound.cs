@@ -17,7 +17,7 @@ public class TriggerSound : MonoBehaviour
             RuntimeManager.PlayOneShotAttached(eventReference, source);
             if (oneShot)
             {
-                gameObject.SetActive(false);
+                enabled = false;
             }
         }
     }
