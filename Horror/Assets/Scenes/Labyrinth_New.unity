@@ -23333,6 +23333,7 @@ GameObject:
   - component: {fileID: 369758803}
   - component: {fileID: 369758805}
   - component: {fileID: 369758804}
+  - component: {fileID: 369758806}
   m_Layer: 0
   m_Name: AnimatorTrigger
   m_TagString: Untagged
@@ -23390,6 +23391,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 18.6, y: 11.59, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &369758806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369758802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b66ca189d5e44adb9a2e99d8bb621675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oneShot: 1
+  eventReference:
+    Guid:
+      Data1: -1723977809
+      Data2: 1138574684
+      Data3: -296814680
+      Data4: -1598949218
+    Path: event:/SFX/Labirynth/AlienWalkSound
+  soundSourceGameObject: {fileID: 968820103}
 --- !u!1001 &372331004
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39250,6 +39272,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2509275446578779483, guid: e79aae31889c76b4e88783c2f523dd3e, type: 3}
   m_PrefabInstance: {fileID: 967205163}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &968820103 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -8831027697205619401, guid: 6380262dd92eb084c95507da0da0aae0, type: 3}
+  m_PrefabInstance: {fileID: 1617687946}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &970143749
 PrefabInstance:
