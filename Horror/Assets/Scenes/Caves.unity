@@ -11427,11 +11427,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1660991998}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d91b8f0eb1f06d841974bb380348ee78, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d4f3742ad1a73340a51f3b8652a152a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 439516499}
-  triggerName: activate
+  oneshot: 1
+  OnTrigger:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 439516500}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: activate
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1664259618
 PrefabInstance:
   m_ObjectHideFlags: 0
