@@ -39,17 +39,20 @@ public class Scanner : MonoBehaviour
         public float cubeAcceleration = 3.0f;
         public float minCubeSpeed = 1.0f, maxCubeSpeed = 20.0f;
         public AnimColors color;
-        [Serializable] public class AnimColors
+        [Serializable]
+        public class AnimColors
         {
             public Color normal = Color.cyan, invalid = Color.red, hover = Color.yellow, scanning = Color.green;
-        } 
+        }
         public AnimTimes time;
-        [Serializable] public class AnimTimes
+        [Serializable]
+        public class AnimTimes
         {
             public float wrong = 0.3f, scanning = 2.0f, nameLetterScale = 1.0f, descriptionLetterScale = 0.25f;
-        } 
+        }
         public AnimTextures textures;
-        [Serializable] public class AnimTextures
+        [Serializable]
+        public class AnimTextures
         {
             public Texture2D normal, invalid, hover;
             public Texture2D[] scanning;
@@ -62,12 +65,13 @@ public class Scanner : MonoBehaviour
     {
         public EventReference scanLetterSound, scannerDrawSound, scannerHideSound, noScanTargetSound, ScanningSound;
     }
-    
+
     [SerializeField] Transform playerCamera;
     [SerializeField] InputParams inputParams;
     [SerializeField] UIParams uiParams;
     [SerializeField] AnimParams animParams;
     [SerializeField] SoundParams soundParams;
+    [SerializeField] LayerMask raycastMask;
     private Color popupPanelColor;
     private bool isScannerEquipped = false;
     private bool canScan = true;
@@ -82,10 +86,10 @@ public class Scanner : MonoBehaviour
     Coroutine scanCooldownCoroutine;
     bool isScanning = false;
     float scanningProgress = 0.0f;
-    
+
     private EventInstance scanningInstance; // this is just so i can stop the scanning sound when player stops scanning
 
-    void Start() 
+    void Start()
     {
         popupPanelColor = uiParams.popupPanel.color;
 
@@ -99,7 +103,7 @@ public class Scanner : MonoBehaviour
         uiParams.lineRenderer.enabled = false;
 
         currentScannerColor = animParams.color.normal;
-        
+
         scanningInstance = RuntimeManager.CreateInstance(soundParams.ScanningSound);
 
         if (alreadyScanned == null)
@@ -115,19 +119,19 @@ public class Scanner : MonoBehaviour
         }
     }
 
-    void OnEnable ()
+    void OnEnable()
     {
-		InputActionAsset inputActionAsset = Resources.Load<InputActionAsset>("NyctoInputActions");
-		InputActionMap inputActionMap = inputActionAsset.FindActionMap("Player");
+        InputActionAsset inputActionAsset = Resources.Load<InputActionAsset>("NyctoInputActions");
+        InputActionMap inputActionMap = inputActionAsset.FindActionMap("Player");
         inputActionMap.FindAction("Scan").performed += OnScanPressed;
         inputActionMap.FindAction("Scan").canceled += OnScanReleased;
         // inputActionMap.FindAction("Equip").performed += EquipScanner;
     }
 
-    void OnDisable ()
+    void OnDisable()
     {
         InputActionAsset inputActionAsset = Resources.Load<InputActionAsset>("NyctoInputActions");
-		InputActionMap inputActionMap = inputActionAsset.FindActionMap("Player");
+        InputActionMap inputActionMap = inputActionAsset.FindActionMap("Player");
         inputActionMap.FindAction("Scan").performed -= OnScanPressed;
         inputActionMap.FindAction("Scan").canceled -= OnScanReleased;
         // inputActionMap.FindAction("Equip").performed -= EquipScanner;
@@ -152,7 +156,7 @@ public class Scanner : MonoBehaviour
         if (!playerHasScanner)
             return;
 
-        isScannerEquipped =! isScannerEquipped;
+        isScannerEquipped = !isScannerEquipped;
         animParams.scannerAnimator.SetBool("draw", isScannerEquipped);
         StartCoroutine(ScannerSoundWithDelay(isScannerEquipped));
     }
@@ -208,7 +212,7 @@ public class Scanner : MonoBehaviour
             return;
 
         RaycastHit hit;
-        if (Physics.SphereCast(playerCamera.position, inputParams.radius, playerCamera.forward, out hit, inputParams.maxDistance))
+        if (Physics.SphereCast(playerCamera.position, inputParams.radius, playerCamera.forward, out hit, inputParams.maxDistance, raycastMask))
         {
             if (hit.transform.CompareTag("Scannable"))
             {
@@ -236,7 +240,7 @@ public class Scanner : MonoBehaviour
         {
             int frames = animParams.textures.scanning.Length;
             currentScreenTexture = animParams.textures.scanning[(int)Math.Min(Math.Floor(scanningProgress * (frames + 1)), frames - 1)];
-        } 
+        }
         else if (scannable != null)
         {
             currentScannerColor = animParams.color.hover;
@@ -247,7 +251,7 @@ public class Scanner : MonoBehaviour
             currentScannerColor = animParams.color.normal;
             currentScreenTexture = animParams.textures.normal;
         }
-        
+
         if (scanningProgress >= 1.0f)
         {
             OnScanned();
@@ -262,8 +266,8 @@ public class Scanner : MonoBehaviour
         }
 
         // if (bDisplaying)
-            // uiParams.lineRenderer.SetPosition(0, uiParams.lineStart.position);
-        
+        // uiParams.lineRenderer.SetPosition(0, uiParams.lineStart.position);
+
         if (!bDisplaying && scannable == null)
         {
             uiParams.popupName.color = Color.clear;
@@ -276,7 +280,7 @@ public class Scanner : MonoBehaviour
             uiParams.lineRenderer.SetPosition(0, uiParams.lineStart.position);
         }
     }
-    
+
     IEnumerator DisplayPopupNoTweening(string name, string description, float fadeTime, Vector3 endPosition)
     {
         bDisplaying = true;
@@ -290,14 +294,14 @@ public class Scanner : MonoBehaviour
         uiParams.popupName.color = Color.white;
         uiParams.popupDescription.color = Color.white;
         uiParams.popupPanel.color = popupPanelColor;
-        
+
         var nameCount = name.Length;
         var descriptionCount = description.Length;
 
         var instance = RuntimeManager.CreateInstance(soundParams.scanLetterSound);
         var soundLen = 0.07f;
         var speed = 0.0f;
-        
+
         // var timeBetweenLetters = fadeTime / name.Length;
 
         // if (timeBetweenLetters < soundLen)
@@ -306,17 +310,17 @@ public class Scanner : MonoBehaviour
         //     speed = soundLen / timeBetweenLetters - 1f;
         //     speed = Mathf.Clamp01(speed);
         // }
-        
+
         speed = soundLen * animParams.time.nameLetterScale;
         instance.setParameterByName("ScanLetterSpeed", speed);
-        
+
         for (int i = 0; i < nameCount; i++)
         {
             uiParams.popupName.text += name[i];
             instance.start();
             yield return new WaitForSeconds(speed);
         }
-        
+
         // timeBetweenLetters = fadeTime / description.Length;
         // if (timeBetweenLetters < soundLen)
         // {
@@ -324,17 +328,17 @@ public class Scanner : MonoBehaviour
         //     speed = soundLen / timeBetweenLetters - 1f;
         //     speed = Mathf.Clamp01(speed);
         // }
-        
+
         speed = soundLen * animParams.time.descriptionLetterScale;
         instance.setParameterByName("ScanLetterSpeed", speed);
-        
+
         for (int i = 0; i < descriptionCount; i++)
         {
             uiParams.popupDescription.text += description[i];
             instance.start();
             yield return new WaitForSeconds(speed);
         }
-        
+
         yield return new WaitForSeconds(fadeTime);
         bDisplaying = false;
         // uiParams.popupName.color = Color.clear;
@@ -342,7 +346,7 @@ public class Scanner : MonoBehaviour
         // uiParams.popupPanel.color = Color.clear;
         // uiParams.lineRenderer.enabled = false;
     }
-        
+
     IEnumerator LettersSounds(int lettersCount, float timeBetweenLetters)
     {
         for (int i = 0; i < lettersCount; i++)
@@ -361,7 +365,7 @@ public class Scanner : MonoBehaviour
         displayTween = uiParams.subtitles.DOColor(Color.clear, fadeTime);
         bDisplaying = false;
     }
-    
+
     IEnumerator ScannerSoundWithDelay(bool equipped)
     {
         if (equipped)
@@ -381,16 +385,16 @@ public class Scanner : MonoBehaviour
         // if (DOTween.IsTweening(anim.cubeAnimator))
         //     return;
 
-        DOTween.To(() => 0.0f, 
-        x => animParams.cubeRenderer.material.SetColor("_EmissionColor", Color.Lerp(currentScannerColor, animParams.color.invalid, (float)Math.Sin(x))), 
-        Math.PI, 
+        DOTween.To(() => 0.0f,
+        x => animParams.cubeRenderer.material.SetColor("_EmissionColor", Color.Lerp(currentScannerColor, animParams.color.invalid, (float)Math.Sin(x))),
+        Math.PI,
         animParams.time.wrong)
         .SetEase(Ease.Linear)
         .SetId(animParams.cubeAnimator);
 
         DOTween.To(() => 0.0f,
-        x => animParams.cubeAnimator.speed = 1.0f + (float)Math.Sin(x) * 3.0f, 
-        Math.PI, 
+        x => animParams.cubeAnimator.speed = 1.0f + (float)Math.Sin(x) * 3.0f,
+        Math.PI,
         animParams.time.wrong)
         .SetEase(Ease.Linear)
         .SetId(animParams.cubeAnimator);
@@ -401,7 +405,7 @@ public class Scanner : MonoBehaviour
         // anim.time.wrong)
         // .SetEase(Ease.Linear)
         // .SetId(anim.cubeAnimator);
-        
+
         // Won't be changed in update before tweens above end
         animParams.screenRenderer.material.SetColor("_EmissionColor", animParams.color.invalid);
         animParams.screenRenderer.material.SetTexture("_EmissionMap", animParams.textures.invalid);
@@ -426,34 +430,34 @@ public class Scanner : MonoBehaviour
         // .SetEase(Ease.Linear)
         // .SetId(animParams.cubeAnimator);
 
-         animParams.cubeRenderer.material.SetColor("_EmissionColor", animParams.color.scanning);
+        animParams.cubeRenderer.material.SetColor("_EmissionColor", animParams.color.scanning);
 
         DOTween.To(() => 1.0f,
-        x => animParams.cubeAnimator.speed = Mathf.Lerp(animParams.minCubeSpeed, animParams.maxCubeSpeed, x), 
-        0.0f, 
+        x => animParams.cubeAnimator.speed = Mathf.Lerp(animParams.minCubeSpeed, animParams.maxCubeSpeed, x),
+        0.0f,
         animParams.time.scanning)
         .SetEase(Ease.Linear)
         .SetId(animParams.cubeAnimator);
 
-        
+
         // DOTween.To(() => 0.0f, 
         // x => animParams.screenRenderer.material.SetColor("_EmissionColor", Color.Lerp(currentScannerColor, animParams.color.scanning, (float)(Math.Sin(x) * Math.Min(x * 3.0f, 1.0f)))), 
         // Math.PI, 
         // animParams.time.scanning)
         // .SetEase(Ease.Linear)
         // .SetId(animParams.cubeAnimator);
-        
+
         animParams.screenRenderer.material.SetColor("_EmissionColor", animParams.color.scanning);
 
         int frames = animParams.textures.scanning.Length;
-        DOTween.To(() => 0.0f, 
+        DOTween.To(() => 0.0f,
         x => animParams.screenRenderer.material.SetTexture("_EmissionMap", animParams.textures.scanning[(int)x % frames]),
         animParams.time.scanning * 11.99f,
         animParams.time.scanning)
         .SetEase(Ease.Linear)
         .SetId(animParams.cubeAnimator);
     }
-    
+
     IEnumerator ScanCooldown(float time)
     {
         canScan = false;

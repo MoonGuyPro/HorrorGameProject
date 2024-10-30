@@ -5,9 +5,9 @@ using UnityEngine.Events;
 
 public class TriggerAsUnityEvent : MonoBehaviour
 {
-    [SerializeField] 
+    [SerializeField]
     private bool oneshot = true;
-    public bool Oneshot {get => oneshot;}
+    public bool Oneshot { get => oneshot; }
 
     public UnityEvent OnTrigger;
 
@@ -24,10 +24,15 @@ public class TriggerAsUnityEvent : MonoBehaviour
         }
     }
 
-    void OnDrawGizmos() {
+    void OnDrawGizmos()
+    {
         // Draw a semitransparent red cube at the transforms position
-        BoxCollider boxCollider = GetComponent<BoxCollider>();
+        BoxCollider[] colliders = GetComponents<BoxCollider>();
         Gizmos.color = new Color(1, 0, 0, 0.3f);
-        Gizmos.DrawCube(transform.position, boxCollider.size);
+        // sometimes we need more thanone collider on object so we iterate through all of them
+        foreach (var col in colliders)
+        {
+            Gizmos.DrawCube(transform.position + col.center, col.size);
+        }
     }
 }
