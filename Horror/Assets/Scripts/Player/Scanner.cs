@@ -212,7 +212,7 @@ public class Scanner : MonoBehaviour
             return;
 
         RaycastHit hit;
-        if (Physics.SphereCast(playerCamera.position, inputParams.radius, playerCamera.forward, out hit, inputParams.maxDistance, raycastMask))
+        if (Physics.SphereCast(playerCamera.position, inputParams.radius, playerCamera.forward, out hit, inputParams.maxDistance))
         {
             if (hit.transform.CompareTag("Scannable"))
             {
