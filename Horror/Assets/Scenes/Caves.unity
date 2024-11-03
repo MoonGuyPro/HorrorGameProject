@@ -4357,7 +4357,8 @@ MonoBehaviour:
   oneShot: 1
   objectsToShow:
   - {fileID: 439516499}
-  objectsToHide: []
+  objectsToHide:
+  - {fileID: 307659054}
 --- !u!65 &307659057
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11558,6 +11559,7 @@ GameObject:
   - component: {fileID: 1660992003}
   - component: {fileID: 1660992002}
   - component: {fileID: 1660992004}
+  - component: {fileID: 1660992005}
   m_Layer: 2
   m_Name: AnimationTrigger
   m_TagString: Untagged
@@ -11671,6 +11673,22 @@ MonoBehaviour:
       Data4: 709873481
     Path: event:/SFX/Caves/CreatureWalk
   soundSourceGameObject: {fileID: 1901475215}
+--- !u!114 &1660992005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660991998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e8bf6f343954f538789ea4a532154cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oneShot: 1
+  objectsToShow: []
+  objectsToHide:
+  - {fileID: 1660991998}
 --- !u!1001 &1664259618
 PrefabInstance:
   m_ObjectHideFlags: 0
