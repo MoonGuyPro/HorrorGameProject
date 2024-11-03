@@ -56,7 +56,7 @@ public class PlayerInteractor : MonoBehaviour
 
                 if (interaction is not null)
                 {
-                    if (alreadyLooking == false)
+                    if (alreadyLooking == false && interaction.CanInteract)
                     {
                         textMesh.text = interaction.GetTip();
                         alreadyLooking = true;
@@ -67,6 +67,8 @@ public class PlayerInteractor : MonoBehaviour
                         if(interaction.Interact(inv))
                         {
                             updateInventoryText();
+                            alreadyLooking = false;
+                            textMesh.text = "";
                         }
                         else
                         {

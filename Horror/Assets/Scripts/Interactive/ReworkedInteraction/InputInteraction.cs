@@ -13,6 +13,7 @@ public class InteractionInput : MonoBehaviour
     [Header("Interaction Properties")]
     [SerializeField] private bool singleUse = false;
     private bool canInteract = true;
+    public bool CanInteract {get => canInteract;}
     [SerializeField] private PickableData requiredItem;
     
     [Tooltip("ID is used when output expects multiple inputs to be pressed to determine which one was already toggled. " +
