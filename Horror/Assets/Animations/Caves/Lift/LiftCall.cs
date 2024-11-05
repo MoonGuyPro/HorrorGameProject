@@ -33,6 +33,8 @@ public class LiftCall : MonoBehaviour
     [Range(0, 10)]
     [SerializeField] private float _liftSpeed;
 
+    [SerializeField] private bool _isMoving = false;
+
     [SerializeField] private AnimationCurve _liftCurve;
 
     private Vector3 _targetPosition;
@@ -87,14 +89,18 @@ public class LiftCall : MonoBehaviour
 
     public void LiftToOther()
     {
+        if (_isMoving)
+            return;
         if (_callTo.Equals(LiftPos.Down))
         {
             LiftUp();
+            _isMoving = true;
         }
         else
         if (_callTo.Equals(LiftPos.Up))
         {
             LiftDown();
+            _isMoving = true;
         }
     }
 
@@ -118,6 +124,7 @@ public class LiftCall : MonoBehaviour
             .OnComplete(() =>
             {
                 OpenGates();
+                _isMoving = false;
             });
         tween.OnUpdate(() =>
         {
