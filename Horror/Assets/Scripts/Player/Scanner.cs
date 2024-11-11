@@ -211,10 +211,9 @@ public class Scanner : MonoBehaviour
         if (!isScannerEquipped)
             return;
 
-        RaycastHit hit;
-        if (Physics.SphereCast(playerCamera.position, inputParams.radius, playerCamera.forward, out hit, inputParams.maxDistance))
+        if (Physics.SphereCast(playerCamera.position, inputParams.radius, playerCamera.forward, out RaycastHit hit, inputParams.maxDistance))
         {
-            if (hit.transform.CompareTag("Scannable"))
+            if (hit.transform.CompareTag("Scannable") || hit.transform.CompareTag("Interactive"))
             {
                 scannable = hit.transform.GetComponentInParent<Scannable>();
             }
