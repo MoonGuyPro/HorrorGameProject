@@ -12,7 +12,7 @@ public class TriggerSound : MonoBehaviour
     void OnTriggerEnter(Collider player)
     {
         GameObject source = soundSourceGameObject == null ? gameObject : soundSourceGameObject;
-        if (player.gameObject.tag == "Player")
+        if (player.gameObject.tag == "Player" && enabled)
         {
             RuntimeManager.PlayOneShotAttached(eventReference, source);
             if (oneShot)
