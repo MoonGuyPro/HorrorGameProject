@@ -9,7 +9,6 @@ using UnityEngine.InputSystem;
 using FMODUnity;
 using UnityEngine.UI;
 using STOP_MODE = FMOD.Studio.STOP_MODE;
-using System.Threading;
 
 public class Scanner : MonoBehaviour
 {
@@ -82,6 +81,7 @@ public class Scanner : MonoBehaviour
     Tween displayTween;
     Scannable scannable;
     Vector3 scannableHitPos;
+    Color scannabledDefaultEmissive;
     Color currentScannerColor; // Normal or hover
     Texture2D currentScreenTexture;
     Coroutine scanCooldownCoroutine;
@@ -216,12 +216,25 @@ public class Scanner : MonoBehaviour
         {
             if (hit.transform.CompareTag("Scannable") || hit.transform.CompareTag("Interactive"))
             {
+                if (scannable == null || scannable.transform != hit.transform)
+                {
+                    MeshRenderer mesh = hit.transform.GetComponentInParent<MeshRenderer>();
+                    scannabledDefaultEmissive = mesh.material.GetColor("_EmissionColor");
+                    mesh.material.SetColor("_EmissionColor", animParams.color.hover);
+                }
+
                 scannable = hit.transform.GetComponentInParent<Scannable>();
                 scannableHitPos = hit.point;
             }
         }
         else
         {
+            if (scannable != null)
+            {
+                MeshRenderer mesh = scannable   .GetComponentInParent<MeshRenderer>();
+                mesh.material.SetColor("_EmissionColor", scannabledDefaultEmissive);
+            }
+
             scannable = null;
             currentScannerColor = animParams.color.normal;
             currentScreenTexture = animParams.textures.normal;

@@ -1376,9 +1376,7 @@ MonoBehaviour:
   walkSpeed: 10
   runSpeed: 20
   smoothMoveTime: 0.1
-  jumpForce: 12
   gravity: 36
-  maxYawJumping: 60
   lockCursor: 1
   mouseSensitivity: 3
   pitchMinMax: {x: -90, y: 90}
@@ -1607,7 +1605,7 @@ MonoBehaviour:
   inputParams:
     scanTime: 2
     maxDistance: 5
-    radius: 0.45
+    radius: 0.1
   uiParams:
     subtitles: {fileID: 1459206227218239430}
     popupName: {fileID: 1961874711}
@@ -1679,6 +1677,9 @@ MonoBehaviour:
         Data3: -1629023837
         Data4: -1532102661
       Path: event:/SFX/UI/Scanner/Scan
+  raycastMask:
+    serializedVersion: 2
+    m_Bits: 0
   alreadyScanned: []
 --- !u!114 &4183167781591339860
 MonoBehaviour:
