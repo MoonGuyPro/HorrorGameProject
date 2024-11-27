@@ -81,6 +81,7 @@ public class Scanner : MonoBehaviour
     Coroutine displayCoroutine;
     Tween displayTween;
     Scannable scannable;
+    Vector3 scannableHitPos;
     Color currentScannerColor; // Normal or hover
     Texture2D currentScreenTexture;
     Coroutine scanCooldownCoroutine;
@@ -198,7 +199,7 @@ public class Scanner : MonoBehaviour
                 StopCoroutine(displayCoroutine);
 
             displayCoroutine = StartCoroutine(
-                DisplayPopupNoTweening(scannable.Data.DisplayName, scannable.Data.Description, 1.0f, scannable.transform.position));
+                DisplayPopupNoTweening(scannable.Data.DisplayName, scannable.Data.Description, 1.0f, scannableHitPos));
 
             scannable.OnScanned?.Invoke();
 
@@ -216,6 +217,7 @@ public class Scanner : MonoBehaviour
             if (hit.transform.CompareTag("Scannable") || hit.transform.CompareTag("Interactive"))
             {
                 scannable = hit.transform.GetComponentInParent<Scannable>();
+                scannableHitPos = hit.point;
             }
         }
         else
