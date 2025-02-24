@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AreaCondition : JustCondition
@@ -7,7 +5,7 @@ public class AreaCondition : JustCondition
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.CompareTag("Player"))
         {
             value = true;
         }
@@ -15,7 +13,7 @@ public class AreaCondition : JustCondition
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.CompareTag("Player"))
         {
             value = false;
         }
@@ -25,11 +23,7 @@ public class AreaCondition : JustCondition
     {
         if (player != null)
         {
-            if (collider.bounds.Contains(player.transform.position))
-            {
-                value = true;
-            }
-            else { value = false; }
+            value = collider.bounds.Contains(player.transform.position);
         }
     }
 }
