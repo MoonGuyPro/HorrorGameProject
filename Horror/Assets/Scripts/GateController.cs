@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GateController : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class GateController : MonoBehaviour
 
     private bool leftButtonTriggered = false;
     private bool rightButtonTriggered = false;
+
+    public UnityEvent onGateOpened;
 
     public void OnLeftButtonPressed()
     {
@@ -30,9 +33,8 @@ public class GateController : MonoBehaviour
             {
                 leftGate.GetComponent<Animation>().Play();
                 rightGate.GetComponent<Animation>().Play();
+                onGateOpened?.Invoke();
             }
         }
     }
-
-
 }

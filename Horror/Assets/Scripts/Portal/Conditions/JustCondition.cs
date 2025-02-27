@@ -5,14 +5,14 @@ using UnityEngine;
 public class JustCondition : MonoBehaviour
 {
     public bool value;
-    public Collider collider;
+    public Collider _collider;
     public GameObject player;
 
 
     private void Awake()
     {
         value = false;
-        collider = GetComponent<Collider>();
+        _collider = GetComponent<Collider>();
     }
 
     public virtual void ReCheckTrigger()

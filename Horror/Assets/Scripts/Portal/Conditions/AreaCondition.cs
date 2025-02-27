@@ -23,7 +23,7 @@ public class AreaCondition : JustCondition
     {
         if (player != null)
         {
-            value = collider.bounds.Contains(player.transform.position);
+            value = GetComponent<Collider>().bounds.Contains(player.transform.position);
         }
     }
 }

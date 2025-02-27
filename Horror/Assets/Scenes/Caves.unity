@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 1
-  collider: {fileID: 2070327}
+  _collider: {fileID: 0}
   player: {fileID: 767410304}
 --- !u!65 &2070327
 BoxCollider:
@@ -357,7 +357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 1
-  collider: {fileID: 25176371}
+  _collider: {fileID: 0}
   player: {fileID: 767410304}
 --- !u!65 &25176371
 BoxCollider:
@@ -1417,7 +1417,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 1
-  collider: {fileID: 135231068}
+  _collider: {fileID: 0}
   player: {fileID: 767410304}
 --- !u!65 &135231068
 BoxCollider:
@@ -4848,6 +4848,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftGate: {fileID: 105289715}
   rightGate: {fileID: 1638735912}
+  onGateOpened:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1247200264}
+        m_TargetAssemblyTypeName: IOTreeBridge, Assembly-CSharp
+        m_MethodName: OnInteraction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &360801383
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5198,7 +5213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 1
-  collider: {fileID: 413587411}
+  _collider: {fileID: 0}
   player: {fileID: 767410304}
 --- !u!65 &413587411
 BoxCollider:
@@ -5743,7 +5758,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 1
-  collider: {fileID: 605524157}
+  _collider: {fileID: 0}
   player: {fileID: 767410304}
 --- !u!65 &605524157
 BoxCollider:
@@ -6050,7 +6065,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 0
-  collider: {fileID: 652837808}
+  _collider: {fileID: 0}
   player: {fileID: 767410304}
 --- !u!1 &662309255
 GameObject:
@@ -6788,7 +6803,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 1
-  collider: {fileID: 766953870}
+  _collider: {fileID: 0}
   player: {fileID: 767410304}
 --- !u!65 &766953870
 BoxCollider:
@@ -7995,7 +8010,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 1
-  collider: {fileID: 910484571}
+  _collider: {fileID: 0}
   player: {fileID: 767410304}
 --- !u!1 &918454270
 GameObject:
@@ -10764,7 +10779,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: 55b7601ea766f7c489a8bf73c58d7fbd, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -14733,7 +14748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 1
-  collider: {fileID: 1869827399}
+  _collider: {fileID: 0}
   player: {fileID: 767410304}
 --- !u!65 &1869827399
 BoxCollider:
@@ -15941,7 +15956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 1
-  collider: {fileID: 2036609193}
+  _collider: {fileID: 0}
   player: {fileID: 767410304}
 --- !u!65 &2036609193
 BoxCollider:

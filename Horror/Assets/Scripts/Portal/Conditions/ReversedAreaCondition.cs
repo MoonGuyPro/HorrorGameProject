@@ -26,7 +26,7 @@ public class ReversedAreaCondition : JustCondition
     {
         if (player != null)
         {
-            if (collider.bounds.Contains(player.transform.position))
+            if (GetComponent<Collider>().bounds.Contains(player.transform.position))
             {
                 value = false;
             }
