@@ -216,12 +216,12 @@ public class Scanner : MonoBehaviour
         {
             if (hit.transform.CompareTag("Scannable") || hit.transform.CompareTag("Interactive"))
             {
-                if (scannable == null || scannable.transform != hit.transform)
+/*                if (scannable == null || scannable.transform != hit.transform)
                 {
                     MeshRenderer mesh = hit.transform.GetComponentInParent<MeshRenderer>();
                     scannabledDefaultEmissive = mesh.material.GetColor("_EmissionColor");
-                    mesh.material.SetColor("_EmissionColor", animParams.color.hover);
-                }
+                    //mesh.material.SetColor("_EmissionColor", animParams.color.hover);
+                }*/
 
                 scannable = hit.transform.GetComponentInParent<Scannable>();
                 scannableHitPos = hit.point;
