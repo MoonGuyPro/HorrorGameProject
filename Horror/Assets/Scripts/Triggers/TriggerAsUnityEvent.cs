@@ -13,7 +13,7 @@ public class TriggerAsUnityEvent : MonoBehaviour
 
     void OnTriggerEnter(Collider player)
     {
-        if (player.gameObject.tag == "Player")
+        if (player.gameObject.CompareTag("Player"))
         {
             OnTrigger.Invoke();
 
@@ -29,7 +29,7 @@ public class TriggerAsUnityEvent : MonoBehaviour
         // Draw a semitransparent red cube at the transforms position
         BoxCollider[] colliders = GetComponents<BoxCollider>();
         Gizmos.color = new Color(1, 0, 0, 0.3f);
-        // sometimes we need more thanone collider on object so we iterate through all of them
+        // sometimes we need more than one collider on object so we iterate through all of them
         foreach (var col in colliders)
         {
             Gizmos.DrawCube(transform.position + col.center, col.size);

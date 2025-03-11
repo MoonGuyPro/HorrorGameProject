@@ -725,7 +725,7 @@ GameObject:
   - component: {fileID: 670670393849363994}
   - component: {fileID: 5804677106995357970}
   m_Layer: 0
-  m_Name: Main Player Camera
+  m_Name: MainPlayerCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1331,7 +1331,6 @@ GameObject:
   - component: {fileID: 588310778280538188}
   - component: {fileID: 3102742465261597829}
   - component: {fileID: 4183167781591339860}
-  - component: {fileID: 6094899778991245636}
   - component: {fileID: 6346963106452169670}
   - component: {fileID: 4627794934392429450}
   m_Layer: 0
@@ -1696,20 +1695,8 @@ MonoBehaviour:
   PlayerCamera: {fileID: 3630390128024485379}
   raycastDistance: 4
   tipLabel: {fileID: 2192962791296625439}
-  inv: {fileID: 6094899778991245636}
+  inv: {fileID: 0}
   inventoryTextMesh: {fileID: 7624410119504460657}
---- !u!114 &6094899778991245636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3222809851561510840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6667acf9efd06a24ebf5b4c6f061d524, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6346963106452169670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1881,7 +1868,7 @@ GameObject:
   - component: {fileID: 1029854351285086847}
   - component: {fileID: 9170975909963035205}
   m_Layer: 0
-  m_Name: No Shader Camera
+  m_Name: NoShaderCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
