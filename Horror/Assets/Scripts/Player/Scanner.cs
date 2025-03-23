@@ -197,8 +197,8 @@ public class Scanner : MonoBehaviour
             if (bDisplaying)
                 StopCoroutine(displayCoroutine);
 
-            //displayCoroutine = StartCoroutine(
-            //    DisplayPopupNoTweening(scannable.Data.DisplayName, scannable.Data.Description, 1.0f, scannableHitPos));
+            displayCoroutine = StartCoroutine(
+                DisplayPopupNoTweening(scannable.Data.DisplayName, scannable.Data.Description, 1.0f, scannableHitPos));
 
             scannable.OnScanned?.Invoke();
 
@@ -290,17 +290,17 @@ public class Scanner : MonoBehaviour
         }
         else
         {
-            uiParams.lineRenderer.SetPosition(0, uiParams.lineStart.position);
+            //uiParams.lineRenderer.SetPosition(0, uiParams.lineStart.position);
         }
     }
 
     IEnumerator DisplayPopupNoTweening(string name, string description, float fadeTime, Vector3 endPosition)
     {
         bDisplaying = true;
-        uiParams.lineRenderer.enabled = true;
-        uiParams.lineRenderer.SetPosition(0, uiParams.lineStart.position);
-        uiParams.lineRenderer.material.color = Color.clear;
-        uiParams.lineRenderer.SetPosition(1, endPosition);
+        //uiParams.lineRenderer.enabled = true;
+        //uiParams.lineRenderer.SetPosition(0, uiParams.lineStart.position);
+        //uiParams.lineRenderer.material.color = Color.clear;
+        //uiParams.lineRenderer.SetPosition(1, endPosition);
 
         uiParams.popupName.text = "";
         uiParams.popupDescription.text = "";
