@@ -200,6 +200,9 @@ public class Scanner : MonoBehaviour
             displayCoroutine = StartCoroutine(
                 DisplayPopupNoTweening(scannable.Data.DisplayName, scannable.Data.Description, 1.0f, scannableHitPos));
 
+            if(scannable.IsAudio)
+                //play audio
+
             scannable.OnScanned?.Invoke();
 
             scanCooldownCoroutine = StartCoroutine(ScanCooldown(animParams.time.scanning));

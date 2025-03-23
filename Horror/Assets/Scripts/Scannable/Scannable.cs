@@ -7,4 +7,5 @@ public class Scannable : MonoBehaviour
 {
     public ScannableData Data;
     public UnityEvent OnScanned;
+    public bool IsAudio = false;
 }
