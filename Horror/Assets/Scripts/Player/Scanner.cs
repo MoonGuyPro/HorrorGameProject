@@ -198,8 +198,8 @@ public class Scanner : MonoBehaviour
             if (bDisplaying)
                 StopCoroutine(displayCoroutine);
 
-            displayCoroutine = StartCoroutine(
-                DisplayPopupNoTweening(scannable.Data.DisplayName, scannable.Data.Description, 1.0f, scannableHitPos));
+            //displayCoroutine = StartCoroutine(
+            //    DisplayPopupNoTweening(scannable.Data.DisplayName, scannable.Data.Description, 1.0f, scannableHitPos));
 
             scannable.OnScanned?.Invoke();
 
