@@ -201,7 +201,7 @@ public class Scanner : MonoBehaviour
                 DisplayPopupNoTweening(scannable.Data.DisplayName, scannable.Data.Description, 1.0f, scannableHitPos));
 
             if(scannable.IsAudio)
-                //play audio
+                RuntimeManager.PlayOneShotAttached(scannable.talkEvent, gameObject);
 
             scannable.OnScanned?.Invoke();
 
