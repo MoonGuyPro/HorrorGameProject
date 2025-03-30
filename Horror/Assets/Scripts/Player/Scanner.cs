@@ -259,12 +259,12 @@ public class Scanner : MonoBehaviour
         }
         else if (scannable != null)
         {
-            //currentScannerColor = animParams.color.hover;
+            currentScannerColor = animParams.color.hover;
             currentScreenTexture = animParams.textures.hover;
         }
         else
         {
-            //currentScannerColor = animParams.color.normal;
+            currentScannerColor = animParams.color.normal;
             currentScreenTexture = animParams.textures.normal;
         }
 
