@@ -29,7 +29,7 @@ public class Scanner : MonoBehaviour
         public LineRenderer lineRenderer;
         public Transform lineStart;
         public DisplaySubtitles displaySubtitles;
-        public float displayingTime = 3.0f;
+        public float displayingTime = 4.0f;
     }
 
     [Serializable]
@@ -91,7 +91,7 @@ public class Scanner : MonoBehaviour
     float scanningProgress = 0.0f;
 
     private EventInstance scanningInstance; // this is just so i can stop the scanning sound when player stops scanning
-
+    private EventInstance talkInstance;
     void Start()
     {
         popupPanelColor = uiParams.popupPanel.color;
@@ -200,13 +200,20 @@ public class Scanner : MonoBehaviour
             if (bDisplaying)
                 StopCoroutine(displayCoroutine);
 
-            displayCoroutine = StartCoroutine(
-                DisplayPopupNoTweening(scannable.Data.DisplayName, scannable.Data.Description, uiParams.displayingTime, scannableHitPos));
-
             if (scannable.IsAudio) {
                 RuntimeManager.PlayOneShotAttached(scannable.talkEvent, gameObject);
+                talkInstance = RuntimeManager.CreateInstance(scannable.talkEvent);
+                EventDescription desc;
+                int newLength;
+                talkInstance.getDescription(out desc);
+                desc.getLength(out newLength);
+                talkInstance.start();
+                uiParams.displayingTime = newLength/1000.0f;
                 uiParams.audioIcon.color = Color.white;
             }
+
+            displayCoroutine = StartCoroutine(
+                DisplayPopupNoTweening(scannable.Data.DisplayName, scannable.Data.Description, uiParams.displayingTime, scannableHitPos));
 
             scannable.OnScanned?.Invoke();
 
@@ -267,13 +274,13 @@ public class Scanner : MonoBehaviour
             currentScannerColor = animParams.color.hover;
             currentScreenTexture = animParams.textures.hover;
         }
-        else
+        else 
         {
             currentScannerColor = animParams.color.normal;
             currentScreenTexture = animParams.textures.normal;
         }
 
-        if (scanningProgress >= 1.0f)
+        if(!bDisplaying && scanningProgress >= 1.0f)
         {
             OnScanned();
         }
@@ -289,18 +296,8 @@ public class Scanner : MonoBehaviour
         // if (bDisplaying)
         // uiParams.lineRenderer.SetPosition(0, uiParams.lineStart.position);
 
-        if (!bDisplaying && scannable == null)
-        {
-            uiParams.popupName.color = Color.clear;
-            uiParams.popupDescription.color = Color.clear;
-            uiParams.popupPanel.color = Color.clear;
-            uiParams.audioIcon.color = Color.clear;
-            uiParams.lineRenderer.enabled = false;
-        }
-        else
-        {
-            //uiParams.lineRenderer.SetPosition(0, uiParams.lineStart.position);
-        }
+        
+ 
     }
 
     IEnumerator DisplayPopupNoTweening(string name, string description, float fadeTime, Vector3 endPosition)
@@ -363,6 +360,15 @@ public class Scanner : MonoBehaviour
 
         yield return new WaitForSeconds(fadeTime);
         bDisplaying = false;
+        if (!bDisplaying)
+        {
+            uiParams.popupName.color = Color.clear;
+            uiParams.popupDescription.color = Color.clear;
+            uiParams.popupPanel.color = Color.clear;
+            uiParams.audioIcon.color = Color.clear;
+            uiParams.lineRenderer.enabled = false;
+
+        }
         // uiParams.popupName.color = Color.clear;
         // uiParams.popupDescription.color = Color.clear;
         // uiParams.popupPanel.color = Color.clear;
