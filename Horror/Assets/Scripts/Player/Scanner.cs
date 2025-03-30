@@ -25,9 +25,11 @@ public class Scanner : MonoBehaviour
     {
         public TextMeshProUGUI subtitles, popupName, popupDescription;
         public Image popupPanel;
+        public Image audioIcon;
         public LineRenderer lineRenderer;
         public Transform lineStart;
         public DisplaySubtitles displaySubtitles;
+        public float displayingTime = 3.0f;
     }
 
     [Serializable]
@@ -97,6 +99,7 @@ public class Scanner : MonoBehaviour
         uiParams.subtitles.color = Color.clear;
         uiParams.popupName.color = Color.clear;
         uiParams.popupPanel.color = Color.clear;
+        uiParams.audioIcon.color = Color.clear;
         uiParams.popupDescription.color = Color.clear;
         uiParams.lineRenderer.material.color = Color.clear;
 
@@ -198,10 +201,12 @@ public class Scanner : MonoBehaviour
                 StopCoroutine(displayCoroutine);
 
             displayCoroutine = StartCoroutine(
-                DisplayPopupNoTweening(scannable.Data.DisplayName, scannable.Data.Description, 1.0f, scannableHitPos));
+                DisplayPopupNoTweening(scannable.Data.DisplayName, scannable.Data.Description, uiParams.displayingTime, scannableHitPos));
 
-            if(scannable.IsAudio)
+            if (scannable.IsAudio) {
                 RuntimeManager.PlayOneShotAttached(scannable.talkEvent, gameObject);
+                uiParams.audioIcon.color = Color.white;
+            }
 
             scannable.OnScanned?.Invoke();
 
@@ -289,6 +294,7 @@ public class Scanner : MonoBehaviour
             uiParams.popupName.color = Color.clear;
             uiParams.popupDescription.color = Color.clear;
             uiParams.popupPanel.color = Color.clear;
+            uiParams.audioIcon.color = Color.clear;
             uiParams.lineRenderer.enabled = false;
         }
         else
