@@ -9,6 +9,8 @@ using UnityEngine.InputSystem;
 using FMODUnity;
 using UnityEngine.UI;
 using STOP_MODE = FMOD.Studio.STOP_MODE;
+using static UnityEngine.UI.Image;
+using Unity.VisualScripting;
 
 public class Scanner : MonoBehaviour
 {
@@ -226,20 +228,17 @@ public class Scanner : MonoBehaviour
         if (!isScannerEquipped)
             return;
 
-        if (Physics.SphereCast(playerCamera.position, inputParams.radius, playerCamera.forward, out RaycastHit hit, inputParams.maxDistance))
+        if (Physics.SphereCast(playerCamera.position, inputParams.radius, playerCamera.forward, out RaycastHit hit, inputParams.maxDistance) && (hit.transform.CompareTag("Scannable") || hit.transform.CompareTag("Interactive")))
         {
-            if (hit.transform.CompareTag("Scannable") || hit.transform.CompareTag("Interactive"))
-            {
-/*                if (scannable == null || scannable.transform != hit.transform)
-                {
-                    MeshRenderer mesh = hit.transform.GetComponentInParent<MeshRenderer>();
-                    scannabledDefaultEmissive = mesh.material.GetColor("_EmissionColor");
-                    //mesh.material.SetColor("_EmissionColor", animParams.color.hover);
-                }*/
+            /*                if (scannable == null || scannable.transform != hit.transform)
+                            {
+                                MeshRenderer mesh = hit.transform.GetComponentInParent<MeshRenderer>();
+                                scannabledDefaultEmissive = mesh.material.GetColor("_EmissionColor");
+                                //mesh.material.SetColor("_EmissionColor", animParams.color.hover);
+                            }*/
 
-                scannable = hit.transform.GetComponentInParent<Scannable>();
-                scannableHitPos = hit.point;
-            }
+            scannable = hit.transform.GetComponentInParent<Scannable>();
+            scannableHitPos = hit.point;
         }
         else
         {
@@ -248,7 +247,6 @@ public class Scanner : MonoBehaviour
                 MeshRenderer mesh = scannable   .GetComponentInParent<MeshRenderer>();
                 mesh.material.SetColor("_EmissionColor", scannabledDefaultEmissive);
             }
-
             scannable = null;
             currentScannerColor = animParams.color.normal;
             currentScreenTexture = animParams.textures.normal;
