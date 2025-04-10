@@ -17,7 +17,7 @@ public class Footsteps : MonoBehaviour
     private float currentStepsInterval = 0.5f;
     
     [SerializeField, Tooltip("Audio event for footstep sounds.")]
-    private FMODUnity.EventReference footstepEvent;
+    private EventReference footstepEvent;
 
     private bool isPlaying = false;
     private IEnumerator footstepsCoroutine;

@@ -5,7 +5,8 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-public class FPSController : PortalTraveller {
+public class FPSController : PortalTraveller
+{
 
     public float walkSpeed = 3;
     public float runSpeed = 6;
@@ -16,7 +17,7 @@ public class FPSController : PortalTraveller {
 
     public bool lockCursor;
     public float mouseSensitivity = 10;
-    public Vector2 pitchMinMax = new Vector2 (-90, 90); // Change to limit camera angles (currently no limit)
+    public Vector2 pitchMinMax = new Vector2(-90, 90); // Change to limit camera angles (currently no limit)
     public float rotationSmoothTime = 0.1f;
 
     CharacterController controller;
@@ -52,26 +53,26 @@ public class FPSController : PortalTraveller {
 
     // These events were created for audio triggering purposes.
     // Using this is much simpler then (as before) checking all parameters in Update()
-    [SerializeField] 
+    [SerializeField]
     private UnityEvent OnStartWalking;
-    
-    [SerializeField] 
+
+    [SerializeField]
     private UnityEvent OnRunning;
-    [SerializeField] 
+    [SerializeField]
     private UnityEvent OnWalking;
     // this event will trigger on stopping or jumping. Just to stop the footsteps playback.
     // possible later split into two events stop and jump.
     [SerializeField]
     private UnityEvent OnStopWalking;
 
-    [HideInInspector] public bool bStuck;
-    
-    void Start ()
+    [HideInInspector] public bool bStuck = false;
+
+    void Start()
     {
         cam = Camera.main;
         LockCursor(lockCursor);
 
-        controller = GetComponent<CharacterController> ();
+        controller = GetComponent<CharacterController>();
 
         yaw = transform.eulerAngles.y;
         if (cam)
@@ -84,26 +85,26 @@ public class FPSController : PortalTraveller {
         currentSpeed = walkSpeed;
     }
 
-    void OnEnable () 
+    void OnEnable()
     {
-		InputActionAsset inputActionAsset = Resources.Load<InputActionAsset>("NyctoInputActions");
-		InputActionMap inputActionMap = inputActionAsset.FindActionMap("Player");
+        InputActionAsset inputActionAsset = Resources.Load<InputActionAsset>("NyctoInputActions");
+        InputActionMap inputActionMap = inputActionAsset.FindActionMap("Player");
         readLookAndMove = () =>
         {
             moveInput = inputActionMap["Move"].ReadValue<Vector2>();
             lookInput = inputActionMap["Look"].ReadValue<Vector2>();
         };
-		inputActionMap.FindAction("LockCursor").performed += LockCursor;
+        inputActionMap.FindAction("LockCursor").performed += LockCursor;
         sprintAction = inputActionMap.FindAction("Sprint");
         //inputActionMap.FindAction("Jump").performed += Jump;
     }
 
-    void OnDisable ()
+    void OnDisable()
     {
-		InputActionAsset inputActionAsset = Resources.Load<InputActionAsset>("NyctoInputActions");
-		InputActionMap inputActionMap = inputActionAsset.FindActionMap("Player");
+        InputActionAsset inputActionAsset = Resources.Load<InputActionAsset>("NyctoInputActions");
+        InputActionMap inputActionMap = inputActionAsset.FindActionMap("Player");
         readLookAndMove = null;
-		inputActionMap.FindAction("LockCursor").performed -= LockCursor;
+        inputActionMap.FindAction("LockCursor").performed -= LockCursor;
         //inputActionMap.FindAction("Jump").performed -= Jump;
     }
 
@@ -136,6 +137,7 @@ public class FPSController : PortalTraveller {
             {
                 OnWalking.Invoke();
             }
+
             OnStartWalking.Invoke();
         }
         else if (velocity.magnitude < 1f || isJumping || bStuck)
@@ -148,13 +150,16 @@ public class FPSController : PortalTraveller {
 
         if (!bStuck)
         {
-            var flags = controller.Move(velocity * Time.deltaTime);
-
-            if ((controller.collisionFlags & CollisionFlags.Below) != 0)
+            Vector3 moveValue = velocity * Time.deltaTime;
+            CollisionFlags flags = controller.Move(moveValue);
+            if (moveValue.sqrMagnitude > 0.1f) // possible that very slight slopes may cause constant footsteps? This should prevent them
             {
-                isJumping = false;
-                lastGroundedTime = Time.time;
-                verticalVelocity = 0;
+                if ((flags & CollisionFlags.Below) != 0)
+                {
+                    isJumping = false;
+                    lastGroundedTime = Time.time;
+                    verticalVelocity = 0;
+                }
             }
         }
 
@@ -182,18 +187,19 @@ public class FPSController : PortalTraveller {
         cam.transform.localEulerAngles = Vector3.right * pitch;
     }
 
-    public override void Teleport (Transform fromPortal, Transform toPortal, Vector3 pos, Quaternion rot) {
+    public override void Teleport(Transform fromPortal, Transform toPortal, Vector3 pos, Quaternion rot)
+    {
         transform.position = pos;
         Vector3 eulerRot = rot.eulerAngles;
-        float delta = Mathf.DeltaAngle (smoothYaw, eulerRot.y);
+        float delta = Mathf.DeltaAngle(smoothYaw, eulerRot.y);
         yaw += delta;
         smoothYaw += delta;
         transform.eulerAngles = Vector3.up * smoothYaw;
-        velocity = toPortal.TransformVector (fromPortal.InverseTransformVector (velocity));
-        Physics.SyncTransforms ();
+        velocity = toPortal.TransformVector(fromPortal.InverseTransformVector(velocity));
+        Physics.SyncTransforms();
     }
 
-    void LockCursor (bool value)
+    void LockCursor(bool value)
     {
         lockCursor = value;
         Cursor.lockState = lockCursor ? CursorLockMode.Locked : CursorLockMode.None;
@@ -201,9 +207,9 @@ public class FPSController : PortalTraveller {
         // Debug.Break(); // Was it important? -KB
     }
 
-    void LockCursor (InputAction.CallbackContext context)
+    void LockCursor(InputAction.CallbackContext context)
     {
-        lockCursor =! lockCursor;
+        lockCursor = !lockCursor;
         LockCursor(!lockCursor);
     }
 
