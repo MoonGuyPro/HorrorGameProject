@@ -1,12 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using DG.Tweening;
 
 public class GateController : MonoBehaviour
 {
     public GameObject leftGate;
     public GameObject rightGate;
+
+    [SerializeField]
+    private float animationSeconds = 2f;
 
     private bool leftButtonTriggered = false;
     private bool rightButtonTriggered = false;
@@ -31,8 +33,16 @@ public class GateController : MonoBehaviour
         {
             if (leftGate != null && rightGate != null)
             {
-                leftGate.GetComponent<Animation>().Play();
-                rightGate.GetComponent<Animation>().Play();
+                leftGate.transform.DORotate(
+                    new Vector3(0, 0, -93), 
+                    animationSeconds, 
+                    RotateMode.LocalAxisAdd
+                );
+                rightGate.transform.DORotate(
+                    new Vector3(0, 0, 96), 
+                    animationSeconds, 
+                    RotateMode.LocalAxisAdd
+                );
                 onGateOpened?.Invoke();
             }
         }
