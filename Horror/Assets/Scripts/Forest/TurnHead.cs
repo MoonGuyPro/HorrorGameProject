@@ -1,12 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using FMODUnity;
 using UnityEngine;
 
 public class TurnHead : MonoBehaviour
 {
-
     public Transform target;
     [SerializeField]
     private int speed = 5;
@@ -22,10 +18,9 @@ public class TurnHead : MonoBehaviour
         soundEvent.set3DAttributes(RuntimeUtils.To3DAttributes(gameObject));
     }
 
-    // Update is called once per frame
-    void OnTriggerStay(Collider Other)
+    void OnTriggerStay(Collider other)
     {
-        if (Other.gameObject.tag == "Player" && target != null)
+        if (other.gameObject.CompareTag("Player") && target != null)
         {
             if (!isPlaying)
             {
@@ -37,10 +32,8 @@ public class TurnHead : MonoBehaviour
 
             Quaternion current = transform.rotation;
 
-            transform.rotation = Quaternion.Slerp(current, rotation, Time.deltaTime
-                * speed);
-
-
+            transform.rotation = Quaternion.Slerp(current, rotation, 
+                Time.deltaTime * speed);
         }
     }
 
