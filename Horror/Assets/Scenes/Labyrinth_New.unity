@@ -1301,7 +1301,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3282411857537199256, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: far clip plane
-      value: 300
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 3282411857537199256, guid: 2fe389e5c181afd4696b8e43cfa1e31b, type: 3}
       propertyPath: m_OcclusionCulling
@@ -2403,6 +2403,7 @@ Transform:
   - {fileID: 1697946724}
   - {fileID: 357620545}
   - {fileID: 1475667866}
+  - {fileID: 1297616572}
   m_Father: {fileID: 1494080833}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &85205443
@@ -5419,15 +5420,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6110616150076437359, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 80.1
+      value: 41.8
       objectReference: {fileID: 0}
     - target: {fileID: 6110616150076437359, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.099
+      value: -8.15
       objectReference: {fileID: 0}
     - target: {fileID: 6110616150076437359, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.19
+      value: -113.51
       objectReference: {fileID: 0}
     - target: {fileID: 6110616150076437359, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -45638,6 +45639,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e823ef8996f2b1040ae776c06cf396bd, type: 3}
+--- !u!4 &1297616572 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 384c441ba5378ff48b3c162098891366, type: 3}
+  m_PrefabInstance: {fileID: 1702578263}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1299110702
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61042,7 +61048,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 84888992}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 384c441ba5378ff48b3c162098891366, type: 3}
       propertyPath: m_LocalPosition.x
@@ -77486,4 +77492,3 @@ SceneRoots:
   m_Roots:
   - {fileID: 733409382}
   - {fileID: 1494080833}
-  - {fileID: 1702578263}
