@@ -12,11 +12,11 @@ public class SceneExit : MonoBehaviour
 	
 	public GameObject playerTransition;
 
-	private Animator transitionAnim;
+	private TransitionController transitionController;
 
 	void Awake()
 	{
-		transitionAnim = playerTransition.GetComponent<Animator>();
+		transitionController = playerTransition.GetComponent<TransitionController>();
 	}
 	
 	private void OnTriggerEnter(Collider other)
@@ -30,7 +30,7 @@ public class SceneExit : MonoBehaviour
 
 	IEnumerator LoadLevel(string levelName)
 	{
-		transitionAnim.SetTrigger("Start");
+		transitionController.EndLevel();
 
 		yield return new WaitForSeconds(transitionTime);
 
