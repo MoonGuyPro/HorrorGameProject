@@ -69,7 +69,7 @@ public class Lightning : MonoBehaviour
             var main = sparksParticleSystem.main;
             main.startColor = flashColor;
             main.startLifetime = new ParticleSystem.MinMaxCurve(sparksLifespawnMin, sparksLifespawnMax);//Random.Range(sparksLifespawnMin, sparksLifespawnMax);
-            main.startDelay = lightningLifespawn - flashLifespawn;
+            main.startDelay = (lightningLifespawn - flashLifespawn) - 1.5f; //TODO Fix the timing
             main.duration = space + lightningLifespawn;
         }
         lightningParticleSystem.Play();
@@ -136,7 +136,7 @@ public class Lightning : MonoBehaviour
             var main = sparksParticleSystem.main;
             main.startColor = flashColor;
             main.startLifetime = new ParticleSystem.MinMaxCurve(sparksLifespawnMin, sparksLifespawnMax);//Random.Range(sparksLifespawnMin, sparksLifespawnMax);
-            main.startDelay = lightningLifespawn - flashLifespawn;
+            main.startDelay = (lightningLifespawn - flashLifespawn) - 1.5f;
             main.duration = space + lightningLifespawn;
         }
         lightningParticleSystem.Play();
