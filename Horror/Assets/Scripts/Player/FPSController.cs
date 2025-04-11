@@ -126,8 +126,8 @@ public class FPSController : PortalTraveller
 
         Vector3 targetVelocity = worldInputDir * currentSpeed;
         velocity = Vector3.SmoothDamp(velocity, targetVelocity, ref smoothV, smoothMoveTime);
-
-        if (velocity.magnitude > 1f && !isJumping && !bStuck)
+        
+        if (controller.velocity.sqrMagnitude > 1f && !isJumping && !bStuck)
         {
             if (currentSpeed > runSpeed - 0.1)
             {
@@ -140,11 +140,10 @@ public class FPSController : PortalTraveller
 
             OnStartWalking.Invoke();
         }
-        else if (velocity.magnitude < 1f || isJumping || bStuck)
+        else if (controller.velocity.sqrMagnitude < 1f || isJumping || bStuck)
         {
             OnStopWalking.Invoke();
         }
-
         verticalVelocity -= gravity * Time.deltaTime;
         velocity = new Vector3(velocity.x, verticalVelocity, velocity.z);
 
