@@ -242,11 +242,11 @@ public class Scanner : MonoBehaviour
         }
         else
         {
-            if (scannable != null)
+/*            if (scannable != null)
             {
                 MeshRenderer mesh = scannable   .GetComponentInParent<MeshRenderer>();
                 mesh.material.SetColor("_EmissionColor", scannabledDefaultEmissive);
-            }
+            }*/
             scannable = null;
             currentScannerColor = animParams.color.normal;
             currentScreenTexture = animParams.textures.normal;
