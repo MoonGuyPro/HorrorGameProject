@@ -69,7 +69,7 @@ public class FPSController : PortalTraveller
 
     void Start()
     {
-        cam = Camera.main;
+        cam = GetComponentInChildren<Camera>();
         LockCursor(lockCursor);
 
         controller = GetComponent<CharacterController>();
