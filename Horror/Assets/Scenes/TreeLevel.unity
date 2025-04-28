@@ -429,6 +429,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   IsAudio: 0
+  WasScanned: 0
   talkEvent:
     Guid:
       Data1: 0
@@ -436,6 +437,7 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
+  overlayMaterial: {fileID: 0}
 --- !u!1001 &88488741
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -505,6 +507,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 339baeea2bbb6c64eaf6f9f0e5084f34, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 339baeea2bbb6c64eaf6f9f0e5084f34, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 339baeea2bbb6c64eaf6f9f0e5084f34, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3a86aadd99c87134987a63ceda1f52c5, type: 2}
@@ -555,6 +565,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   IsAudio: 0
+  WasScanned: 0
   talkEvent:
     Guid:
       Data1: 0
@@ -562,6 +573,7 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
+  overlayMaterial: {fileID: 0}
 --- !u!1 &154470819
 GameObject:
   m_ObjectHideFlags: 0
@@ -1324,6 +1336,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: ceeb1b68139d2c54bbecf98356a3cd2f, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: ceeb1b68139d2c54bbecf98356a3cd2f, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: ceeb1b68139d2c54bbecf98356a3cd2f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3a86aadd99c87134987a63ceda1f52c5, type: 2}
@@ -1374,6 +1394,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   IsAudio: 0
+  WasScanned: 0
   talkEvent:
     Guid:
       Data1: 0
@@ -1381,6 +1402,7 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
+  overlayMaterial: {fileID: 0}
 --- !u!1001 &391204172
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2982,6 +3004,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: c87a6d2d09321054c83466f6c4bc9cf7, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: c87a6d2d09321054c83466f6c4bc9cf7, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: c87a6d2d09321054c83466f6c4bc9cf7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3a86aadd99c87134987a63ceda1f52c5, type: 2}
@@ -3032,6 +3062,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   IsAudio: 0
+  WasScanned: 0
   talkEvent:
     Guid:
       Data1: 0
@@ -3039,6 +3070,7 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
+  overlayMaterial: {fileID: 0}
 --- !u!4 &509702774 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -314146924073853941, guid: d288de7cd53e42a44bf637808e9a87eb, type: 3}
@@ -3187,6 +3219,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 932d4ba0ba9ce3f41bfa7320e0f390f2, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 932d4ba0ba9ce3f41bfa7320e0f390f2, type: 3}
       propertyPath: m_CastShadows
       value: 0
@@ -3244,6 +3280,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   IsAudio: 0
+  WasScanned: 0
   talkEvent:
     Guid:
       Data1: 0
@@ -3251,6 +3288,7 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
+  overlayMaterial: {fileID: 0}
 --- !u!64 &691355675
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3742,6 +3780,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   IsAudio: 0
+  WasScanned: 0
   talkEvent:
     Guid:
       Data1: 0
@@ -3749,6 +3788,7 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
+  overlayMaterial: {fileID: 0}
 --- !u!1 &1023275395
 GameObject:
   m_ObjectHideFlags: 0
@@ -3881,6 +3921,14 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 6dc9eb1a3a0c4cd4a88d3505e9c4ad19, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6dc9eb1a3a0c4cd4a88d3505e9c4ad19, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6dc9eb1a3a0c4cd4a88d3505e9c4ad19, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 6dc9eb1a3a0c4cd4a88d3505e9c4ad19, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -4684,6 +4732,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: b55c76f84c79f82439193cf0220a403b, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: b55c76f84c79f82439193cf0220a403b, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: b55c76f84c79f82439193cf0220a403b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3a86aadd99c87134987a63ceda1f52c5, type: 2}
@@ -4729,6 +4785,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   IsAudio: 0
+  WasScanned: 0
   talkEvent:
     Guid:
       Data1: 0
@@ -4736,6 +4793,7 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
+  overlayMaterial: {fileID: 0}
 --- !u!4 &1190556040 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b55c76f84c79f82439193cf0220a403b, type: 3}
@@ -4839,6 +4897,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 91f1e52694266db4186b3b4f2cdb9ac3, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 91f1e52694266db4186b3b4f2cdb9ac3, type: 3}
       propertyPath: m_CastShadows
       value: 0
@@ -4896,6 +4958,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   IsAudio: 0
+  WasScanned: 0
   talkEvent:
     Guid:
       Data1: 0
@@ -4903,6 +4966,7 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
+  overlayMaterial: {fileID: 0}
 --- !u!64 &1224626700
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5343,6 +5407,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 6dc9eb1a3a0c4cd4a88d3505e9c4ad19, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6dc9eb1a3a0c4cd4a88d3505e9c4ad19, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 6dc9eb1a3a0c4cd4a88d3505e9c4ad19, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3a86aadd99c87134987a63ceda1f52c5, type: 2}
@@ -5437,6 +5509,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 7533d6639808e174c9303fed027abc92, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 7533d6639808e174c9303fed027abc92, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 7533d6639808e174c9303fed027abc92, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3a86aadd99c87134987a63ceda1f52c5, type: 2}
@@ -5487,6 +5567,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   IsAudio: 0
+  WasScanned: 0
   talkEvent:
     Guid:
       Data1: 0
@@ -5494,6 +5575,7 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
+  overlayMaterial: {fileID: 0}
 --- !u!1 &1277399858
 GameObject:
   m_ObjectHideFlags: 0
@@ -5602,6 +5684,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: ddd5b1cddf32b9046bf472d817c6dbe9, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: ddd5b1cddf32b9046bf472d817c6dbe9, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: ddd5b1cddf32b9046bf472d817c6dbe9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3a86aadd99c87134987a63ceda1f52c5, type: 2}
@@ -5693,6 +5783,11 @@ Transform:
   - {fileID: 395665185}
   m_Father: {fileID: 1023275396}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1359582666 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1565520935577909044, guid: 6dac7ff1e26452d4a8baecdcc40028ad, type: 3}
+  m_PrefabInstance: {fileID: 4535261624325646950}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1425351010
 GameObject:
   m_ObjectHideFlags: 0
@@ -5758,6 +5853,7 @@ Transform:
   - {fileID: 741962048}
   - {fileID: 669439253}
   - {fileID: 1045961121}
+  - {fileID: 1359582666}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1478338622
@@ -6235,6 +6331,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: ddd5b1cddf32b9046bf472d817c6dbe9, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: ddd5b1cddf32b9046bf472d817c6dbe9, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: ddd5b1cddf32b9046bf472d817c6dbe9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3a86aadd99c87134987a63ceda1f52c5, type: 2}
@@ -6285,6 +6389,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   IsAudio: 0
+  WasScanned: 0
   talkEvent:
     Guid:
       Data1: 0
@@ -6292,6 +6397,7 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
+  overlayMaterial: {fileID: 0}
 --- !u!4 &1700775086 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2580627df2625d24fba38d3a6cbbdfc4, type: 3}
@@ -6475,6 +6581,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   IsAudio: 0
+  WasScanned: 0
   talkEvent:
     Guid:
       Data1: 0
@@ -6482,6 +6589,7 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
+  overlayMaterial: {fileID: 0}
 --- !u!1 &1754924490
 GameObject:
   m_ObjectHideFlags: 0
@@ -6756,6 +6864,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: b55c76f84c79f82439193cf0220a403b, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: b55c76f84c79f82439193cf0220a403b, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: b55c76f84c79f82439193cf0220a403b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3a86aadd99c87134987a63ceda1f52c5, type: 2}
@@ -6806,6 +6922,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   IsAudio: 0
+  WasScanned: 0
   talkEvent:
     Guid:
       Data1: 0
@@ -6813,6 +6930,7 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
+  overlayMaterial: {fileID: 0}
 --- !u!1 &1833367961
 GameObject:
   m_ObjectHideFlags: 0
@@ -7159,6 +7277,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: c87a6d2d09321054c83466f6c4bc9cf7, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: c87a6d2d09321054c83466f6c4bc9cf7, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: c87a6d2d09321054c83466f6c4bc9cf7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3a86aadd99c87134987a63ceda1f52c5, type: 2}
@@ -7209,6 +7335,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   IsAudio: 0
+  WasScanned: 0
   talkEvent:
     Guid:
       Data1: 0
@@ -7216,6 +7343,7 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
+  overlayMaterial: {fileID: 0}
 --- !u!1 &1968474077
 GameObject:
   m_ObjectHideFlags: 0
@@ -7389,6 +7517,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 6.542
       objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: eb097d0d875735546b0157bd428629e2, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: eb097d0d875735546b0157bd428629e2, type: 3}
       propertyPath: m_CastShadows
       value: 0
@@ -7446,6 +7578,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   IsAudio: 0
+  WasScanned: 0
   talkEvent:
     Guid:
       Data1: 0
@@ -7453,6 +7586,7 @@ MonoBehaviour:
       Data3: 0
       Data4: 0
     Path: 
+  overlayMaterial: {fileID: 0}
 --- !u!64 &2037911228
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7552,6 +7686,14 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 339baeea2bbb6c64eaf6f9f0e5084f34, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 339baeea2bbb6c64eaf6f9f0e5084f34, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 339baeea2bbb6c64eaf6f9f0e5084f34, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 339baeea2bbb6c64eaf6f9f0e5084f34, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -12529,6 +12671,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1968474078}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &4535261624325646950
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1448781182}
+    m_Modifications:
+    - target: {fileID: 1565520935577909044, guid: 6dac7ff1e26452d4a8baecdcc40028ad, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1565520935577909044, guid: 6dac7ff1e26452d4a8baecdcc40028ad, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1565520935577909044, guid: 6dac7ff1e26452d4a8baecdcc40028ad, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1565520935577909044, guid: 6dac7ff1e26452d4a8baecdcc40028ad, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1565520935577909044, guid: 6dac7ff1e26452d4a8baecdcc40028ad, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1565520935577909044, guid: 6dac7ff1e26452d4a8baecdcc40028ad, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1565520935577909044, guid: 6dac7ff1e26452d4a8baecdcc40028ad, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1565520935577909044, guid: 6dac7ff1e26452d4a8baecdcc40028ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1565520935577909044, guid: 6dac7ff1e26452d4a8baecdcc40028ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1565520935577909044, guid: 6dac7ff1e26452d4a8baecdcc40028ad, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4378064550102559394, guid: 6dac7ff1e26452d4a8baecdcc40028ad, type: 3}
+      propertyPath: m_Name
+      value: ScannableManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6dac7ff1e26452d4a8baecdcc40028ad, type: 3}
 --- !u!1 &5992729948629813602
 GameObject:
   m_ObjectHideFlags: 0

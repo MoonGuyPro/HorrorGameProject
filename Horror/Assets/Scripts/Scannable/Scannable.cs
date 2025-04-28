@@ -16,29 +16,43 @@ public class Scannable : MonoBehaviour
     [SerializeField, Tooltip("Audio event for talk sounds.")]
     public FMODUnity.EventReference talkEvent;
 
-    [SerializeField] private Material overlayMaterial; // Materia³ efektu "przed skanem"
-    private Material overlayInstance;
-    private Renderer meshRenderer;
-    private Mesh copiedMesh;
+    public Material overlayMaterial; // Materia³ efektu "przed skanem"
     private GameObject copy;
+    private Mesh originalMesh;
+
+    void Awake()
+    {
+        if(GetComponent<MeshFilter>().sharedMesh != null)
+            originalMesh = GetComponent<MeshFilter>().sharedMesh;
+    }
 
     void Start()
     {
-        meshRenderer = GetComponent<Renderer>();
+        Renderer meshRenderer = GetComponent<Renderer>();
 
 
         if (meshRenderer != null && overlayMaterial != null)
         {
-            Mesh originalMesh = GetComponent<MeshFilter>().mesh;
-            copiedMesh = Instantiate(originalMesh);
+            Mesh copiedMesh = Instantiate(originalMesh);
 
             // Stwórz instancjê overlaya
-            overlayInstance = Instantiate(overlayMaterial);
+            Material overlayInstance = Instantiate(overlayMaterial);
 
             copy = new GameObject("MeshCopy");
             copy.AddComponent<MeshFilter>().mesh = copiedMesh;
-            copy.AddComponent<MeshRenderer>().materials = new Material[2] { overlayInstance, overlayInstance };
-            copy.transform.SetParent(transform);
+            Material[] overlays = new Material[GetComponent<MeshRenderer>().materials.Length];
+            for (int i = 0; i < overlays.Length; i++)
+            {
+                overlays[i] = overlayInstance;
+            }
+            copy.AddComponent<MeshRenderer>().materials = overlays;
+            copy.GetComponent<MeshRenderer>().receiveShadows = false;
+            copy.GetComponent<MeshRenderer>().shadowCastingMode = ShadowCastingMode.Off;
+            copy.transform.SetParent(transform, true);
+            copy.transform.localScale = Vector3.one;
+            copy.transform.localPosition = Vector3.zero;
+            copy.transform.localRotation = Quaternion.identity;
+            copy.isStatic = true;
         }
 
         OnScanned.AddListener(OnScannedFunc);
