@@ -11,9 +11,9 @@ Shader "Custom/SheenMovingLine"
     }
     SubShader
     {   
-        Tags { "Queue"="Transparent" "RenderType"="Transparent" }
-        Blend SrcAlpha OneMinusSrcAlpha
+        Tags { "Queue"="Overlay" "RenderType"="Transparent" }
         ZWrite Off
+        Blend SrcAlpha OneMinusSrcAlpha
         Pass
         {
             CGPROGRAM
