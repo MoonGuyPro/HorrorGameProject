@@ -82,6 +82,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8f2b16519029fd9499b722e7043be664, type: 3}
       insertIndex: -1
       addedObject: {fileID: 66215901606131339}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8f2b16519029fd9499b722e7043be664, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1762420556216679763}
   m_SourcePrefab: {fileID: 100100000, guid: 8f2b16519029fd9499b722e7043be664, type: 3}
 --- !u!1 &6848864699100254275 stripped
 GameObject:
@@ -124,4 +127,39 @@ MonoBehaviour:
   Data: {fileID: 11400000, guid: ba44778844bcf874b8e63080e7dbc5e8, type: 2}
   OnScanned:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1762420556216679763}
+        m_TargetAssemblyTypeName: ChangeMaterialToUsed, Assembly-CSharp
+        m_MethodName: ChangeMaterial
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  IsAudio: 0
+  WasScanned: 0
+  talkEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  overlayMaterial: {fileID: 0}
+--- !u!114 &1762420556216679763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6848864699100254275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57b32872b877b9e4f9b90a39c751398a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  usedMaterial: {fileID: 2100000, guid: 487506ea90dd82f41bc6bb37e2987a04, type: 2}

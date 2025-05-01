@@ -22,7 +22,7 @@ public class Scannable : MonoBehaviour
 
     void Awake()
     {
-        if(GetComponent<MeshFilter>().sharedMesh != null)
+        if(GetComponent<MeshFilter>() != null && GetComponent<MeshFilter>().sharedMesh != null)
             originalMesh = GetComponent<MeshFilter>().sharedMesh;
     }
 

@@ -40,6 +40,10 @@ public class InteractionInput : MonoBehaviour
     [Header("Off Event only used with InteractionType 'Toggle'")]
     [SerializeField] private InteractionEvent interactionOffSoundEvent;
 
+
+    [Header("Change to this material when was used")]
+    [SerializeField] private Material usedMaterial;
+
     private void Start()
     {
         // set the initial state of toggle
@@ -57,6 +61,20 @@ public class InteractionInput : MonoBehaviour
     public string GetAltTip()
     {
         return altTip;
+    }
+
+    public void ChangeMaterial()
+    {
+        if (usedMaterial != null)
+        {
+            Debug.Log("Applying material");
+            Renderer[] renderers = GetComponentsInChildren<Renderer>();
+            foreach (Renderer rend in renderers)
+            {
+                Debug.Log("Applying material to: " + rend.gameObject.name);
+                rend.material = usedMaterial;
+            }
+        }
     }
     
     public bool Interact(Inventory inv)
@@ -80,6 +98,7 @@ public class InteractionInput : MonoBehaviour
                 interactionSoundEvent?.Invoke(interactionID);
                 if (singleUse)
                 {
+                    ChangeMaterial();
                     canInteract = false;
                 }
             }
@@ -102,6 +121,7 @@ public class InteractionInput : MonoBehaviour
                 }
                 if (singleUse)
                 {
+                    ChangeMaterial();
                     canInteract = false;
                 }
             }
@@ -115,7 +135,6 @@ public class InteractionInput : MonoBehaviour
     {
         if (canInteract)
         {
-            
             switch (toggleState)
             {
                 case ToggleState.Off:
@@ -130,6 +149,7 @@ public class InteractionInput : MonoBehaviour
             }
             if (singleUse)
             {
+                ChangeMaterial();
                 canInteract = false;
             }
         }
