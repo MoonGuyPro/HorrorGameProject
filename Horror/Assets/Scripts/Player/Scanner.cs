@@ -19,7 +19,7 @@ public class Scanner : MonoBehaviour
     [Serializable]
     class InputParams
     {
-        public float scanTime = 2.0f, maxDistance = 5.0f, radius = 0.45f;
+        public float scanTime = 2.0f, scanEdgeTime = 0.8f, maxDistance = 5.0f, radius = 0.45f;
     }
 
     [Serializable]
@@ -90,7 +90,7 @@ public class Scanner : MonoBehaviour
     Texture2D currentScreenTexture;
     Coroutine scanCooldownCoroutine;
     bool isScanning = false;
-    float scanningProgress = 0.0f;
+    [SerializeField] float scanningProgress = 0.0f;
 
     private EventInstance scanningInstance; // this is just so i can stop the scanning sound when player stops scanning
     private EventInstance talkInstance;
@@ -265,7 +265,17 @@ public class Scanner : MonoBehaviour
         if (isScanning)
         {
             int frames = animParams.textures.scanning.Length;
-            currentScreenTexture = animParams.textures.scanning[(int)Math.Min(Math.Floor(scanningProgress * (frames + 1)), frames - 1)];
+            if (currentScreenTexture == animParams.textures.scanning[0])
+            {
+                currentScreenTexture = animParams.textures.scanning[1];
+                scanningProgress = 1.0f / frames;
+            }
+            else if ((int)Math.Min(Math.Floor(scanningProgress * (frames + 1)), frames - 1) > 1)
+                currentScreenTexture = animParams.textures.scanning[(int)Math.Min(Math.Floor(scanningProgress * (frames + 1)), frames - 1)];
+
+            if (currentScreenTexture == animParams.textures.scanning[frames - 1] && scanningProgress < 1.0f - ((1.0f / frames) * 0.5f))
+                scanningProgress = 1.0f - ((1.0f / frames) * 0.5f);
+
         }
         else if (scannable != null)
         {
@@ -280,6 +290,7 @@ public class Scanner : MonoBehaviour
 
         if(!bDisplaying && scanningProgress >= 1.0f)
         {
+            Debug.Log("Scanned");
             OnScanned();
         }
 
