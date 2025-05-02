@@ -13,8 +13,19 @@ public class Portal : MonoBehaviour
     [Header("Advanced Settings")]
     public float nearClipOffset = 0.05f;
     public float nearClipLimit = 0.2f;
-    public List<Portal> isSeenByPortals;
-    
+    public List<Portal> isSeenByPortals; 
+    public int farResolutionHeightFraction = 1;
+    public int farResolutionWidthFraction = 1;
+
+    private int farResolutionHeight;
+    private int farResolutionWidth;
+
+    private int closeResolutionHeight;
+    private int closeResolutionWidth;
+
+    private int currentResolutionHeight;
+    private int currentResolutionWidth;
+
     //All need to be true for the portal to render
     [SerializeField] List<JustCondition> otherConditions;
     //When at least on is true the portal will not render
@@ -34,6 +45,8 @@ public class Portal : MonoBehaviour
     List<PortalTraveller> trackedTravellers;
     MeshFilter screenMeshFilter;
 
+
+
     void Awake()
     {
         playerCam = Camera.main;
@@ -52,6 +65,28 @@ public class Portal : MonoBehaviour
             otherConditions = new List<JustCondition>();
         }
         renderCam = null;
+        closeResolutionHeight = Screen.height;
+        closeResolutionWidth = Screen.width;
+
+        farResolutionHeight = closeResolutionHeight / farResolutionHeightFraction; 
+        farResolutionWidth = closeResolutionWidth / farResolutionWidthFraction; 
+
+        currentResolutionHeight = farResolutionHeight;
+        currentResolutionWidth = farResolutionWidth;
+    }
+
+    public void ChangeResolution(bool isClose)
+    {
+        if (isClose)
+        {
+            linkedPortal.currentResolutionWidth = closeResolutionWidth;
+            linkedPortal.currentResolutionHeight = closeResolutionHeight;
+        }
+        else
+        {
+            linkedPortal.currentResolutionHeight = farResolutionHeight;
+            linkedPortal.currentResolutionWidth = farResolutionWidth;
+        }
     }
 
     private void Start()
@@ -302,10 +337,10 @@ public class Portal : MonoBehaviour
 
     void CreateViewTexture()
     {
-        if (viewTexture1 == null || viewTexture1.width != Screen.width || viewTexture1.height != Screen.height ||
-            viewTexture2 == null || viewTexture2.width != Screen.width || viewTexture2.height != Screen.height ||
-            depthTexture1 == null || depthTexture1.width != Screen.width || depthTexture1.height != Screen.height ||
-            depthTexture2 == null || depthTexture2.width != Screen.width || depthTexture2.height != Screen.height)
+        if (viewTexture1 == null || viewTexture1.width != currentResolutionWidth || viewTexture1.height != currentResolutionHeight ||
+            viewTexture2 == null || viewTexture2.width != currentResolutionWidth || viewTexture2.height != currentResolutionHeight ||
+            depthTexture1 == null || depthTexture1.width != currentResolutionWidth || depthTexture1.height != currentResolutionHeight ||
+            depthTexture2 == null || depthTexture2.width != currentResolutionWidth || depthTexture2.height != currentResolutionHeight)
         {
             if (viewTexture1 != null)
             {
@@ -325,11 +360,11 @@ public class Portal : MonoBehaviour
             }
 
 
-            viewTexture1 = new RenderTexture(Screen.width, Screen.height, 16);
-            viewTexture2 = new RenderTexture(Screen.width, Screen.height, 16);
+            viewTexture1 = new RenderTexture(currentResolutionWidth, currentResolutionHeight, 16);
+            viewTexture2 = new RenderTexture(currentResolutionWidth, currentResolutionHeight, 16);
 
-            depthTexture1 = new RenderTexture(Screen.width, Screen.height, 16, RenderTextureFormat.Depth);
-            depthTexture2 = new RenderTexture(Screen.width, Screen.height, 16, RenderTextureFormat.Depth);
+            depthTexture1 = new RenderTexture(currentResolutionWidth, currentResolutionHeight, 16, RenderTextureFormat.Depth);
+            depthTexture2 = new RenderTexture(currentResolutionWidth, currentResolutionHeight, 16, RenderTextureFormat.Depth);
         }
     }
 
