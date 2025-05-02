@@ -151,7 +151,7 @@ public class Scanner : MonoBehaviour
         animParams.scannerAnimator.SetBool("draw", isScannerEquipped);
         StartCoroutine(ScannerSoundWithDelay(isScannerEquipped));
 
-        uiParams.displaySubtitles.Display("Press V/RMB to scan objects");
+        uiParams.displaySubtitles.Display("Hold V/RMB to scan objects");
         // uiParams.subtitles.text = "Press V/RMB to scan objects";
         // DOTween.To(() => 0.0f, x => uiParams.subtitles.color = new Color(1.0f, 1.0f, 1.0f, x), 10.0f, 10.0f)
         //     .OnComplete(() => uiParams.subtitles.color = Color.clear);
