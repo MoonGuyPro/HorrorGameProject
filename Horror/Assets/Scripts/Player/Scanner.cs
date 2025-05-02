@@ -19,7 +19,7 @@ public class Scanner : MonoBehaviour
     [Serializable]
     class InputParams
     {
-        public float scanTime = 2.0f, scanEdgeTime = 0.8f, maxDistance = 5.0f, radius = 0.45f;
+        public float scanTime = 2.0f, maxDistance = 5.0f, radius = 0.45f;
     }
 
     [Serializable]
@@ -90,7 +90,7 @@ public class Scanner : MonoBehaviour
     Texture2D currentScreenTexture;
     Coroutine scanCooldownCoroutine;
     bool isScanning = false;
-    [SerializeField] float scanningProgress = 0.0f;
+    float scanningProgress = 0.0f;
 
     private EventInstance scanningInstance; // this is just so i can stop the scanning sound when player stops scanning
     private EventInstance talkInstance;
@@ -290,7 +290,6 @@ public class Scanner : MonoBehaviour
 
         if(!bDisplaying && scanningProgress >= 1.0f)
         {
-            Debug.Log("Scanned");
             OnScanned();
         }
 
@@ -304,9 +303,6 @@ public class Scanner : MonoBehaviour
 
         // if (bDisplaying)
         // uiParams.lineRenderer.SetPosition(0, uiParams.lineStart.position);
-
-        
- 
     }
 
     IEnumerator DisplayPopupNoTweening(string name, string description, float fadeTime, Vector3 endPosition)
