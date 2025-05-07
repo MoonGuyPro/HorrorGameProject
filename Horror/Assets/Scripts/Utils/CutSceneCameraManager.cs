@@ -9,4 +9,9 @@ public class CutSceneCameraManager : MonoBehaviour
     public Camera cutSceneCam;
     public Camera cutSceneCamNoShader;
     public GameObject scanner;
+	
+	public void Invoke() 
+	{
+		// Do nothing
+	}
 }
