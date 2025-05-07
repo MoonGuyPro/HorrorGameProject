@@ -4463,6 +4463,20 @@ MonoBehaviour:
   AnimationEvent:
   - m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 544577418}
+        m_TargetAssemblyTypeName: DisplaySubtitles, Assembly-CSharp
+        m_MethodName: ToggleCrosshair
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: I'm gonna find you, Abby...
+          m_BoolArgument: 0
+        m_CallState: 2
+  - m_PersistentCalls:
+      m_Calls:
       - m_Target: {fileID: 792149829}
         m_TargetAssemblyTypeName: TransitionController, Assembly-CSharp
         m_MethodName: FadeoutBlack
@@ -4501,6 +4515,18 @@ MonoBehaviour:
           m_StringArgument: 'Go find your daughter '
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 544577418}
+        m_TargetAssemblyTypeName: DisplaySubtitles, Assembly-CSharp
+        m_MethodName: ToggleCrosshair
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 'Go find your daughter '
+          m_BoolArgument: 1
+        m_CallState: 2
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 544577418}
@@ -4512,7 +4538,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: I'm gonna find you Abby
+          m_StringArgument: I'm gonna find you, Abby...
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!4 &763928933 stripped

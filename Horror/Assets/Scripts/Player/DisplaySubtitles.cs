@@ -7,8 +7,12 @@ using UnityEngine.UI;
 
 public class DisplaySubtitles : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI subtitles;
-    [SerializeField] Image panel;
+    [SerializeField] 
+	private TextMeshProUGUI subtitles;
+    [SerializeField] 
+	private Image panel;
+	[SerializeField] 
+	private GameObject crosshair;
 
     private readonly float displayDuration = 10.0f;
 
@@ -21,4 +25,9 @@ public class DisplaySubtitles : MonoBehaviour
             }, 10.0f, displayDuration)
             .OnComplete(() => {subtitles.color = Color.clear; panel.color = Color.clear; });
     }
+	
+	public void ToggleCrosshair(bool active)
+	{
+		crosshair.SetActive(active);
+	}
 }
