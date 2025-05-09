@@ -152,6 +152,14 @@ PrefabInstance:
       value: '[LMB]'
       objectReference: {fileID: 0}
     - target: {fileID: 2348652605152995993, guid: f6d4a750ad0593d41af7bb4fe0929540, type: 3}
+      propertyPath: justThis
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348652605152995993, guid: f6d4a750ad0593d41af7bb4fe0929540, type: 3}
+      propertyPath: singleUse
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348652605152995993, guid: f6d4a750ad0593d41af7bb4fe0929540, type: 3}
       propertyPath: toggleState
       value: 1
       objectReference: {fileID: 0}
@@ -159,6 +167,18 @@ PrefabInstance:
       propertyPath: usedMaterial
       value: 
       objectReference: {fileID: 2100000, guid: 487506ea90dd82f41bc6bb37e2987a04, type: 2}
+    - target: {fileID: 2348652605152995993, guid: f6d4a750ad0593d41af7bb4fe0929540, type: 3}
+      propertyPath: colorJustUsedChildrean
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348652605152995993, guid: f6d4a750ad0593d41af7bb4fe0929540, type: 3}
+      propertyPath: objectsToChangeColor.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2348652605152995993, guid: f6d4a750ad0593d41af7bb4fe0929540, type: 3}
+      propertyPath: objectsToChangeColor.Array.data[0]
+      value: 
+      objectReference: {fileID: 542725315}
     - target: {fileID: 2348652605152995993, guid: f6d4a750ad0593d41af7bb4fe0929540, type: 3}
       propertyPath: interactionEvent.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -2745,6 +2765,11 @@ MonoBehaviour:
       Data4: 0
     Path: 
   overlayMaterial: {fileID: 0}
+--- !u!1 &542725315 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9008304375536002150, guid: f6d4a750ad0593d41af7bb4fe0929540, type: 3}
+  m_PrefabInstance: {fileID: 31629645}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &544577415
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12167,6 +12192,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   usedMaterial: {fileID: 2100000, guid: 487506ea90dd82f41bc6bb37e2987a04, type: 2}
+  justThis: 0
+  objectsToChangeColor: []
 --- !u!4 &1891878283 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a3688dbcda302de47b8efd39af156762, type: 3}

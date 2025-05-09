@@ -43,7 +43,8 @@ public class InteractionInput : MonoBehaviour
 
     [Header("Change to this material when was used")]
     [SerializeField] private Material usedMaterial;
-
+    [SerializeField] private bool justThis = false;
+    [SerializeField] private GameObject[] objectsToChangeColor;
     private void Start()
     {
         // set the initial state of toggle
@@ -67,12 +68,22 @@ public class InteractionInput : MonoBehaviour
     {
         if (usedMaterial != null)
         {
-            Debug.Log("Applying material");
-            Renderer[] renderers = GetComponentsInChildren<Renderer>();
-            foreach (Renderer rend in renderers)
+            if (justThis)
             {
-                Debug.Log("Applying material to: " + rend.gameObject.name);
-                rend.material = usedMaterial;
+                foreach (GameObject obj in objectsToChangeColor)
+                {
+                    Renderer rend = obj.GetComponent<Renderer>();
+                    if (rend != null)
+                        rend.material = usedMaterial;
+                }
+            }
+            else
+            {
+                Renderer[] renderers = GetComponentsInChildren<Renderer>();
+                foreach (Renderer rend in renderers)
+                {
+                    rend.material = usedMaterial;
+                }
             }
         }
     }
@@ -146,11 +157,6 @@ public class InteractionInput : MonoBehaviour
                     toggleState = ToggleState.Off;
                     interactionEvent?.Invoke(interactionID);
                     break;
-            }
-            if (singleUse)
-            {
-                ChangeMaterial();
-                canInteract = false;
             }
         }
     }
