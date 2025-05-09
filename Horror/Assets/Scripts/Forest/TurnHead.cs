@@ -28,12 +28,16 @@ public class TurnHead : MonoBehaviour
                 isPlaying = true;
             }
             Vector3 relativePos = target.position - transform.position;
-            Quaternion rotation = Quaternion.LookRotation(relativePos);
+            if (relativePos != Vector3.zero)
+            {
+                Quaternion rotation = Quaternion.LookRotation(relativePos);
+                transform.rotation = rotation;
+                Quaternion current = transform.rotation;
 
-            Quaternion current = transform.rotation;
+                transform.rotation = Quaternion.Slerp(current, rotation, 
+                    Time.deltaTime * speed);
+            }
 
-            transform.rotation = Quaternion.Slerp(current, rotation, 
-                Time.deltaTime * speed);
         }
     }
 

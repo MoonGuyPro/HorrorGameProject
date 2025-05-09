@@ -24,12 +24,16 @@ public class Scannable : MonoBehaviour
     {
         if(GetComponent<MeshFilter>() != null && GetComponent<MeshFilter>().sharedMesh != null)
             originalMesh = GetComponent<MeshFilter>().sharedMesh;
+        else if(GetComponent<SkinnedMeshRenderer>() != null && GetComponent<SkinnedMeshRenderer>().sharedMesh != null)
+        {
+            originalMesh = new Mesh();
+            GetComponent<SkinnedMeshRenderer>().BakeMesh(originalMesh);
+        }
     }
 
     void Start()
     {
         Renderer meshRenderer = GetComponent<Renderer>();
-
 
         if (meshRenderer != null && overlayMaterial != null)
         {
