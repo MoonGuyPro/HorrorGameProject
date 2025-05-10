@@ -12,10 +12,33 @@ public class ChangeCameraBackToPlayer : StateMachineBehaviour
 
         CutSceneCameraManager camManager = animator.GetComponent<CutSceneCameraManager>();
 
-        camManager.cutSceneCam.enabled = true;
-        camManager.cutSceneCamNoShader.enabled = true;
-        camManager.playerCam.enabled = false;
-        camManager.playerCamNoShader.enabled = false;
+        if (!camManager) return;
+
+            camManager.cutSceneCam.enabled = true;
+            camManager.cutSceneCamNoShader.enabled = true;
+            camManager.playerCam.enabled = false;
+            camManager.playerCamNoShader.enabled = false;
+            camManager.scanner.SetActive(false);
+        if (camManager.cutSceneCam)
+        {
+        }
+
+        if (camManager.cutSceneCamNoShader)
+        {
+        }
+
+        if (camManager.playerCam)
+        {
+        }
+
+        if (camManager.playerCamNoShader)
+        {
+        }
+
+        if (camManager.scanner)
+        {
+        }
+
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
