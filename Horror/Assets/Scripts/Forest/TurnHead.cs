@@ -7,6 +7,9 @@ public class TurnHead : MonoBehaviour
     [SerializeField]
     private int speed = 5;
 
+    [SerializeField]
+    private Quaternion offset = Quaternion.identity;
+
     [SerializeField] 
     private EventReference sound;
     FMOD.Studio.EventInstance soundEvent;
@@ -20,24 +23,20 @@ public class TurnHead : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && target != null)
+        if (other.gameObject.CompareTag("Player"))
         {
+            target = other.transform;
             if (!isPlaying)
             {
                 soundEvent.start();
                 isPlaying = true;
             }
             Vector3 relativePos = target.position - transform.position;
-            if (relativePos != Vector3.zero)
-            {
-                Quaternion rotation = Quaternion.LookRotation(relativePos);
-                transform.rotation = rotation;
-                Quaternion current = transform.rotation;
+            Quaternion rotation = Quaternion.LookRotation(relativePos) * offset;
+            Quaternion current = transform.rotation;
 
-                transform.rotation = Quaternion.Slerp(current, rotation, 
-                    Time.deltaTime * speed);
-            }
-
+            transform.rotation = Quaternion.Slerp(current, rotation, 
+                Time.deltaTime * speed);
         }
     }
 

@@ -61901,7 +61901,7 @@ PrefabInstance:
       addedObject: {fileID: 1702578267}
     - targetCorrespondingSourceObject: {fileID: 7888527260584285960, guid: 384c441ba5378ff48b3c162098891366, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1702578266}
+      addedObject: {fileID: 1702578268}
     - targetCorrespondingSourceObject: {fileID: 1990114157952810767, guid: 384c441ba5378ff48b3c162098891366, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1721824823}
@@ -61919,8 +61919,30 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7888527260584285960, guid: 384c441ba5378ff48b3c162098891366, type: 3}
   m_PrefabInstance: {fileID: 1702578263}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &1702578266
-BoxCollider:
+--- !u!114 &1702578267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702578265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 437210f0edb07bd4d8afea8428648c05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1702578264}
+  speed: 5
+  offset: {x: -0.04241455, y: -0.23322318, z: -0.010182833, w: 0.9714444}
+  sound:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+--- !u!135 &1702578268
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -61938,29 +61960,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.067205854, y: 0.049999993, z: 0.06871675}
-  m_Center: {x: 0.008603003, y: 5.114205e-10, z: 0.009358289}
---- !u!114 &1702578267
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1702578265}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 437210f0edb07bd4d8afea8428648c05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 1702578264}
-  speed: 5
-  sound:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+  m_Radius: 0.05
+  m_Center: {x: 0.025, y: 0, z: 0.05}
 --- !u!1001 &1703254270
 PrefabInstance:
   m_ObjectHideFlags: 0
