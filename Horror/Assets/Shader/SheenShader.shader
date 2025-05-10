@@ -3,7 +3,7 @@ Shader "Custom/SheenMovingLine"
     Properties
     {
         _MainTex ("Base Texture", 2D) = "white" {}
-        _SheenColor ("Sheen Color", Color) = (1, 0.5, 0.2, 1)
+        _Color ("Sheen Color", Color) = (1, 0.5, 0.2, 1)
         _SheenIntensity ("Sheen Intensity", Float) = 1.0
         _SheenWidth ("Sheen Width", Float) = 0.2
         _SheenSpeed ("Sheen Speed", Float) = 2.0
@@ -11,7 +11,7 @@ Shader "Custom/SheenMovingLine"
     }
     SubShader
     {   
-        Tags { "Queue"="Overlay" "RenderType"="Transparent" }
+        Tags {  "Queue"="Overlay+100" "RenderType"="Transparent" }
         ZWrite Off
         Blend SrcAlpha OneMinusSrcAlpha
         Pass
@@ -37,7 +37,7 @@ Shader "Custom/SheenMovingLine"
             };
 
             sampler2D _MainTex;
-            float4 _SheenColor;
+            float4 _Color;
             float _SheenIntensity;
             float _SheenWidth;
             float _SheenSpeed;
@@ -74,7 +74,7 @@ Shader "Custom/SheenMovingLine"
 
                 float sheenMask = MovingSheen(i.worldPos, time, _SheenWidth, _SheenSpeed, _SheenAngle);
 
-                float3 finalColor = lerp(_SheenColor.rgb, baseColor.rgb, sheenMask);
+                float3 finalColor = lerp(_Color.rgb, baseColor.rgb, sheenMask);
                 float alpha = 1 - sheenMask; // Przezroczystoœæ poza lini¹
 
                 return half4(finalColor, alpha);

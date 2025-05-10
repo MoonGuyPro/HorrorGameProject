@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -22,41 +23,54 @@ public class Scannable : MonoBehaviour
 
     void Awake()
     {
-        if(GetComponent<MeshFilter>() != null && GetComponent<MeshFilter>().sharedMesh != null)
-            originalMesh = GetComponent<MeshFilter>().sharedMesh;
-        else if(GetComponent<SkinnedMeshRenderer>() != null && GetComponent<SkinnedMeshRenderer>().sharedMesh != null)
+        var smr = GetComponent<SkinnedMeshRenderer>();
+        var mf = GetComponent<MeshFilter>();
+
+        gameObject.isStatic = false;
+
+        if (smr != null && smr.sharedMesh != null)
         {
-            originalMesh = new Mesh();
-            GetComponent<SkinnedMeshRenderer>().BakeMesh(originalMesh);
+            smr.BakeMesh(originalMesh);
+        }
+        else if (mf != null && mf.sharedMesh != null)
+        {
+            originalMesh = GetComponent<MeshFilter>().mesh;
+            originalMesh.vertices = mf.mesh.vertices;
+            originalMesh.normals = mf.mesh.normals;
+            originalMesh.uv = mf.mesh.uv;
+            originalMesh.triangles = mf.mesh.triangles;
+            originalMesh.tangents = mf.mesh.tangents;
         }
     }
 
     void Start()
     {
+        gameObject.isStatic = true;
         Renderer meshRenderer = GetComponent<Renderer>();
 
         if (meshRenderer != null && overlayMaterial != null)
         {
-            Mesh copiedMesh = Instantiate(originalMesh);
-
             // Stwórz instancjê overlaya
             Material overlayInstance = Instantiate(overlayMaterial);
 
             copy = new GameObject("MeshCopy");
-            copy.AddComponent<MeshFilter>().mesh = copiedMesh;
+            copy.AddComponent<MeshFilter>().mesh = originalMesh;
             Material[] overlays = new Material[GetComponent<MeshRenderer>().materials.Length];
             for (int i = 0; i < overlays.Length; i++)
             {
                 overlays[i] = overlayInstance;
             }
             copy.AddComponent<MeshRenderer>().materials = overlays;
-            copy.GetComponent<MeshRenderer>().receiveShadows = false;
-            copy.GetComponent<MeshRenderer>().shadowCastingMode = ShadowCastingMode.Off;
+            //copy.GetComponent<MeshRenderer>().receiveShadows = false;
+            //copy.GetComponent<MeshRenderer>().shadowCastingMode = ShadowCastingMode.Off;
             copy.transform.SetParent(transform, true);
             copy.transform.localScale = Vector3.one;
             copy.transform.localPosition = Vector3.zero;
             copy.transform.localRotation = Quaternion.identity;
+            //copy.transform.localScale = new Vector3(1.1f, 1.1f, 1.1f);
             copy.isStatic = true;
+            //copy.layer = 9;
+            //gameObject.layer = 9;
         }
 
         OnScanned.AddListener(OnScannedFunc);

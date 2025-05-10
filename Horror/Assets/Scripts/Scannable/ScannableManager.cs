@@ -16,7 +16,7 @@ public class ScannableManager : MonoBehaviour
         foreach (var scannable in scannables)
         {
             // Ustaw overlayInstance w ka¿dym obiekcie
-            scannable.overlayMaterial = overlayInstance;
+            scannable.overlayMaterial = Instantiate(overlayInstance);
         }
     }
 
