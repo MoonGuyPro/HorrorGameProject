@@ -8992,6 +8992,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2f4f4256d1a350c4e9db6dbb2e86cbf7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1389791830}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2f4f4256d1a350c4e9db6dbb2e86cbf7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1389791831}
   m_SourcePrefab: {fileID: 100100000, guid: 2f4f4256d1a350c4e9db6dbb2e86cbf7, type: 3}
 --- !u!1 &1389791825 stripped
 GameObject:
@@ -9139,6 +9142,36 @@ MonoBehaviour:
           m_StringArgument: I'm gonna find you, Abby
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1389791831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389791825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1231209224
+      Data2: 1151079614
+      Data3: -1676425333
+      Data4: 1063250933
+    Path: event:/SFX/Intro/LabIntro
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &1399253695
 GameObject:
   m_ObjectHideFlags: 0
