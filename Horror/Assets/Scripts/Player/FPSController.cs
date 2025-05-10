@@ -197,13 +197,17 @@ public class FPSController : PortalTraveller
         velocity = toPortal.TransformVector(fromPortal.InverseTransformVector(velocity));
         Physics.SyncTransforms();
     }
+	
+	public void ToggleMovement(bool canMove)
+	{
+		disabled = !canMove;
+	}
 
     void LockCursor(bool value)
     {
         lockCursor = value;
         Cursor.lockState = lockCursor ? CursorLockMode.Locked : CursorLockMode.None;
         Cursor.visible = !lockCursor;
-        // Debug.Break(); // Was it important? -KB
     }
 
     void LockCursor(InputAction.CallbackContext context)

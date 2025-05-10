@@ -3143,6 +3143,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
+--- !u!114 &544577416 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3141441416020032334, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
+  m_PrefabInstance: {fileID: 544577415}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fa6f8ed95d02fa408d82bd38a698618, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &544577417 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 588310778280538188, guid: d85e98ef974867249966187ad36a5c7e, type: 3}
@@ -9076,6 +9087,18 @@ MonoBehaviour:
           m_StringArgument: I'm gonna find you, Abby...
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 544577416}
+        m_TargetAssemblyTypeName: FPSController, Assembly-CSharp
+        m_MethodName: ToggleMovement
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: I'm gonna find you, Abby...
+          m_BoolArgument: 0
+        m_CallState: 2
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 792149829}
@@ -9119,6 +9142,18 @@ MonoBehaviour:
       - m_Target: {fileID: 544577418}
         m_TargetAssemblyTypeName: DisplaySubtitles, Assembly-CSharp
         m_MethodName: ToggleCrosshair
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 'Go find your daughter '
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 544577416}
+        m_TargetAssemblyTypeName: FPSController, Assembly-CSharp
+        m_MethodName: ToggleMovement
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
