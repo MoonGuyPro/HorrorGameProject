@@ -1794,16 +1794,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 932d4ba0ba9ce3f41bfa7320e0f390f2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ed03fe0311683514bb5ec60bc9a3d548, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 932d4ba0ba9ce3f41bfa7320e0f390f2, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 77a63d3c15dac764da65ecd2d0b425a1, type: 2}
+      objectReference: {fileID: 2100000, guid: 3660562ad6be6f74cb562e5d28621859, type: 2}
     - target: {fileID: 919132149155446097, guid: 932d4ba0ba9ce3f41bfa7320e0f390f2, type: 3}
       propertyPath: m_Name
       value: Dead_guy_2
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 932d4ba0ba9ce3f41bfa7320e0f390f2, type: 3}
       propertyPath: m_TagString
-      value: Scannable
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 932d4ba0ba9ce3f41bfa7320e0f390f2, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1816,41 +1820,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 932d4ba0ba9ce3f41bfa7320e0f390f2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 691355675}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 932d4ba0ba9ce3f41bfa7320e0f390f2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 691355674}
   m_SourcePrefab: {fileID: 100100000, guid: 932d4ba0ba9ce3f41bfa7320e0f390f2, type: 3}
 --- !u!1 &691355673 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 932d4ba0ba9ce3f41bfa7320e0f390f2, type: 3}
   m_PrefabInstance: {fileID: 691355672}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &691355674
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 691355673}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b64a78df719cd6843a848ea5e5065556, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Data: {fileID: 11400000, guid: e33d9a5597a0873408ac1f8ffc64eb01, type: 2}
-  OnScanned:
-    m_PersistentCalls:
-      m_Calls: []
-  IsAudio: 0
-  WasScanned: 0
-  talkEvent:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  overlayMaterial: {fileID: 0}
 --- !u!64 &691355675
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3341,31 +3316,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 91f1e52694266db4186b3b4f2cdb9ac3, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.70392627
+      value: -0.3696729
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 91f1e52694266db4186b3b4f2cdb9ac3, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.00000004670997
+      value: 0.03649203
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 91f1e52694266db4186b3b4f2cdb9ac3, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.7102731
+      value: -0.92603344
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 91f1e52694266db4186b3b4f2cdb9ac3, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.00000006839444
+      value: 0.066876434
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 91f1e52694266db4186b3b4f2cdb9ac3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 5.56
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 91f1e52694266db4186b3b4f2cdb9ac3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -223.852
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 91f1e52694266db4186b3b4f2cdb9ac3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -6.753
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 91f1e52694266db4186b3b4f2cdb9ac3, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -3380,16 +3355,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 91f1e52694266db4186b3b4f2cdb9ac3, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ed03fe0311683514bb5ec60bc9a3d548, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 91f1e52694266db4186b3b4f2cdb9ac3, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 77a63d3c15dac764da65ecd2d0b425a1, type: 2}
+      objectReference: {fileID: 2100000, guid: 3660562ad6be6f74cb562e5d28621859, type: 2}
     - target: {fileID: 919132149155446097, guid: 91f1e52694266db4186b3b4f2cdb9ac3, type: 3}
       propertyPath: m_Name
       value: Dead_guy_4
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 91f1e52694266db4186b3b4f2cdb9ac3, type: 3}
       propertyPath: m_TagString
-      value: Scannable
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 91f1e52694266db4186b3b4f2cdb9ac3, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3402,41 +3381,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 91f1e52694266db4186b3b4f2cdb9ac3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1224626700}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 91f1e52694266db4186b3b4f2cdb9ac3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1224626699}
   m_SourcePrefab: {fileID: 100100000, guid: 91f1e52694266db4186b3b4f2cdb9ac3, type: 3}
 --- !u!1 &1224626698 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 91f1e52694266db4186b3b4f2cdb9ac3, type: 3}
   m_PrefabInstance: {fileID: 1224626697}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1224626699
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1224626698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b64a78df719cd6843a848ea5e5065556, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Data: {fileID: 11400000, guid: 2c29ea3da4bbd244c96c4c599c201b89, type: 2}
-  OnScanned:
-    m_PersistentCalls:
-      m_Calls: []
-  IsAudio: 0
-  WasScanned: 0
-  talkEvent:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  overlayMaterial: {fileID: 0}
 --- !u!64 &1224626700
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5964,9 +5914,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: eb097d0d875735546b0157bd428629e2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ed03fe0311683514bb5ec60bc9a3d548, type: 2}
+    - target: {fileID: -7511558181221131132, guid: eb097d0d875735546b0157bd428629e2, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 77a63d3c15dac764da65ecd2d0b425a1, type: 2}
+      objectReference: {fileID: 2100000, guid: 3660562ad6be6f74cb562e5d28621859, type: 2}
     - target: {fileID: 919132149155446097, guid: eb097d0d875735546b0157bd428629e2, type: 3}
       propertyPath: m_Name
       value: Dead_guy_5
