@@ -26,13 +26,28 @@ public class TriggerAsUnityEvent : MonoBehaviour
 
     void OnDrawGizmos()
     {
-        // Draw a semitransparent red cube at the transforms position
-        BoxCollider[] colliders = GetComponents<BoxCollider>();
+        // Cache the original Gizmos matrix
+        Matrix4x4 originalMatrix = Gizmos.matrix;
+
+        // Set gizmo color
         Gizmos.color = new Color(1, 0, 0, 0.3f);
-        // sometimes we need more than one collider on object so we iterate through all of them
+
+        // Loop through all BoxColliders
+        BoxCollider[] colliders = GetComponents<BoxCollider>();
         foreach (var col in colliders)
         {
-            Gizmos.DrawCube(transform.position + col.center, col.size);
+            // Build the transformation matrix for this collider
+            Gizmos.matrix = Matrix4x4.TRS(
+                transform.position + col.center,
+                transform.rotation,
+                transform.lossyScale
+            );
+
+            // Draw the cube in local space (centered at origin)
+            Gizmos.DrawCube(Vector3.zero, col.size);
         }
+
+        // Restore original matrix
+        Gizmos.matrix = originalMatrix;
     }
 }
