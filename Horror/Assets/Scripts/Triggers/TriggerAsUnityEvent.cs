@@ -19,7 +19,7 @@ public class TriggerAsUnityEvent : MonoBehaviour
 
             if (oneshot)
             {
-                enabled = false;
+                gameObject.SetActive(false);
             }
         }
     }
