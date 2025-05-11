@@ -74,4 +74,9 @@ public class SkipCutscene : MonoBehaviour
 
         hasSkipped = true;
     }
+	
+	public void Invoke()
+	{
+		//Do nothing
+	}
 }
