@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class SkipCutscene : MonoBehaviour
@@ -16,6 +17,9 @@ public class SkipCutscene : MonoBehaviour
 
     private float holdTimer = 0f;
     private bool hasSkipped = false;
+
+
+    public UnityEvent onSkip;
 
     void OnEnable()
     {
@@ -65,6 +69,7 @@ public class SkipCutscene : MonoBehaviour
 
             animator.Play(cutsceneStateName, 0, normalizedTime);
             animator.Update(0f);
+            onSkip?.Invoke();
         }
 
         hasSkipped = true;

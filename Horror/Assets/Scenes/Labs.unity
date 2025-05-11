@@ -9022,9 +9022,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2f4f4256d1a350c4e9db6dbb2e86cbf7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1389791830}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2f4f4256d1a350c4e9db6dbb2e86cbf7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1389791831}
   m_SourcePrefab: {fileID: 100100000, guid: 2f4f4256d1a350c4e9db6dbb2e86cbf7, type: 3}
 --- !u!1 &1389791825 stripped
 GameObject:
@@ -9196,36 +9193,6 @@ MonoBehaviour:
           m_StringArgument: I'm gonna find you, Abby
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1389791831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1389791825}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -1231209224
-      Data2: 1151079614
-      Data3: -1676425333
-      Data4: 1063250933
-    Path: event:/SFX/Intro/LabIntro
-  Event: 
-  PlayEvent: 1
-  StopEvent: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!114 &1389791832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9243,7 +9210,22 @@ MonoBehaviour:
   skipToFrame: 515
   framerate: 24
   skipAction: {fileID: -6649407929631222044, guid: 4dad894d1082f2a429f72c6f762d65c3, type: 3}
-  holdDuration: 2
+  holdDuration: 1
+  onSkip:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1547124492}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1399253695
 GameObject:
   m_ObjectHideFlags: 0
@@ -10737,6 +10719,68 @@ MonoBehaviour:
   Timer: 0
   AS: {fileID: 0}
   LightAudio: {fileID: 0}
+--- !u!1 &1547124490
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1547124491}
+  - component: {fileID: 1547124492}
+  m_Layer: 0
+  m_Name: IntroAnimationSound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1547124491
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547124490}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2033113601}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1547124492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547124490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1231209224
+      Data2: 1151079614
+      Data3: -1676425333
+      Data4: 1063250933
+    Path: event:/SFX/Intro/LabIntro
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &1559302719
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13200,6 +13244,7 @@ Transform:
   - {fileID: 2110374508}
   - {fileID: 1705823479}
   - {fileID: 934377892}
+  - {fileID: 1547124491}
   m_Father: {fileID: 912203334}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2053757963
