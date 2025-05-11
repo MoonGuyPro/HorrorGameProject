@@ -65,7 +65,7 @@ public class MainMenu : MonoBehaviour
     //Go to survey
     public void GoToSurvey()
     {
-        Application.OpenURL("https://liptonleon.itch.io/nycto/community");
+        Application.OpenURL("https://discord.gg/YCqq4qusz8");
     }
 
 }
