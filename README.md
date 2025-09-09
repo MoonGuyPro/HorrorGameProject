@@ -1,2 +1,2 @@
-# HorrorGameProject
-Horror Game
+# Nycto
+
