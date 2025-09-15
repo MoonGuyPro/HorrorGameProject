@@ -8,4 +8,5 @@ public class ScannableData : ScriptableObject
 {
     public string DisplayName;
     [Multiline] public string Description;
+    public bool bScanned = false;
 }

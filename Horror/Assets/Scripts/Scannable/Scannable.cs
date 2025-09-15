@@ -76,7 +76,7 @@ public class Scannable : MonoBehaviour
         OnScanned.AddListener(OnScannedFunc);
     }
 
-    void OnScannedFunc()
+    public void OnScannedFunc()
     {
         if (WasScanned) return; // ¿eby nie usuwaæ kilka razy
 
