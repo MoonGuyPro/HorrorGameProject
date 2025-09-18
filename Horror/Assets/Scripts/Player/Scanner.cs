@@ -1,16 +1,17 @@
+using DG.Tweening;
+using FMOD.Studio;
+using FMODUnity;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEngine;
-using DG.Tweening;
-using FMOD.Studio;
-using UnityEngine.InputSystem;
-using FMODUnity;
-using UnityEngine.UI;
-using STOP_MODE = FMOD.Studio.STOP_MODE;
-using static UnityEngine.UI.Image;
 using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.HID;
+using UnityEngine.UI;
+using static UnityEngine.UI.Image;
+using STOP_MODE = FMOD.Studio.STOP_MODE;
 
 public class Scanner : MonoBehaviour
 {
@@ -223,11 +224,33 @@ public class Scanner : MonoBehaviour
         }
     }
 
+    private Scannable FindScannableInChildren(Transform root)
+    {
+        Scannable found = null;
+
+        if (root.CompareTag("Scannable") || root.CompareTag("Interactive"))
+        {
+            foreach (Transform child in root)
+            {
+                var childScannable = FindScannableInChildren(child);
+                if (childScannable != null)
+                {
+                    return childScannable;
+                }
+            }
+
+            found = root.GetComponent<Scannable>();
+        }
+
+        return found;
+    }
+
     void Update()
     {
         if (!isScannerEquipped)
             return;
 
+        Ray ray = new Ray(playerCamera.position, playerCamera.forward);
         if (Physics.SphereCast(playerCamera.position, inputParams.radius, playerCamera.forward, out RaycastHit hit, inputParams.maxDistance) && (hit.transform.CompareTag("Scannable") || hit.transform.CompareTag("Interactive")))
         {
             /*                
@@ -238,12 +261,23 @@ public class Scanner : MonoBehaviour
                 //mesh.material.SetColor("_EmissionColor", animParams.color.hover);
             }
             */
-            scannable = hit.transform.GetComponentInParent<Scannable>();
+            scannable = FindScannableInChildren(hit.transform);
             scannableHitPos = hit.point;
+            var col = scannable.gameObject.GetComponent<Collider>();
+            if (col != null && col.Raycast(ray, out RaycastHit childHit, inputParams.maxDistance))
+            {
+                scannableHitPos = childHit.point;
+            }
+            else
+            {
+                scannable = hit.transform.GetComponent<Scannable>();
+                scannableHitPos = hit.point;
+            }
         }
         else
         {
-/*            if (scannable != null)
+            /*          
+            if (scannable != null)
             {
                 MeshRenderer mesh = scannable   .GetComponentInParent<MeshRenderer>();
                 mesh.material.SetColor("_EmissionColor", scannabledDefaultEmissive);
